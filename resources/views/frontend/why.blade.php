@@ -19,7 +19,7 @@
         <div class="col-lg-3 col-md-6">
           <div class="box">
             <div class="img-box">
-              <img src="images/u-1.png" alt="">
+              <img src="{{ asset('frontend/images/u-1.png') }}" alt="">
             </div>
             <div class="detail-box">
               <h5>
@@ -34,7 +34,7 @@
         <div class="col-lg-3 col-md-6">
           <div class="box">
             <div class="img-box">
-              <img src="images/u-4.png" alt="">
+              <img src="{{ asset('frontend/images/u-4.png') }}" alt="">
             </div>
             <div class="detail-box">
               <h5>
@@ -49,7 +49,7 @@
         <div class="col-lg-3 col-md-6">
           <div class="box">
             <div class="img-box">
-              <img src="images/u-2.png" alt="">
+              <img src="{{ asset('frontend/images/u-2.png') }}" alt="">
             </div>
             <div class="detail-box">
               <h5>
@@ -64,7 +64,7 @@
         <div class="col-lg-3 col-md-6">
           <div class="box">
             <div class="img-box">
-              <img src="images/u-3.png" alt="">
+              <img src="{{ asset('frontend/images/u-3.png') }}" alt="">
             </div>
             <div class="detail-box">
               <h5>
