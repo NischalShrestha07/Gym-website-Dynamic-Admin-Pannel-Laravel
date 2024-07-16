@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Route;
 
 //Admin Routes
 Route::get('/admin', [AdminController::class, 'index']);
+Route::get('/adminHome', [AdminController::class, 'home']);
 
 
 

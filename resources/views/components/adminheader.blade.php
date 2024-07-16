@@ -329,12 +329,12 @@
                         <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false"
                             aria-controls="ui-basic">
                             <i class="icon-layout menu-icon"></i>
-                            <span class="menu-title">Our Products</span>
+                            <span class="menu-title">Home</span>
                             <i class="menu-arrow"></i>
                         </a>
                         <div class="collapse" id="ui-basic">
                             <ul class="nav flex-column sub-menu">
-                                <li class="nav-item"> <a class="nav-link" href="pages/ui-features/buttons.html">View
+                                <li class="nav-item"> <a class="nav-link" href="{{ url('/adminHome') }}">View
                                         All</a></li>
                                 {{-- <li class="nav-item"> <a class="nav-link"
                                         href="pages/ui-features/dropdowns.html">Dropdowns</a></li>
@@ -347,7 +347,7 @@
                         <a class="nav-link" data-toggle="collapse" href="#form-elements" aria-expanded="false"
                             aria-controls="form-elements">
                             <i class="icon-columns menu-icon"></i>
-                            <span class="menu-title">Our Customers</span>
+                            <span class="menu-title">Why Us</span>
                             <i class="menu-arrow"></i>
                         </a>
                         <div class="collapse" id="form-elements">
@@ -361,7 +361,7 @@
                         <a class="nav-link" data-toggle="collapse" href="#charts" aria-expanded="false"
                             aria-controls="charts">
                             <i class="icon-bar-graph menu-icon"></i>
-                            <span class="menu-title">Our Orders</span>
+                            <span class="menu-title">Our Trainers</span>
                             <i class="menu-arrow"></i>
                         </a>
                         <div class="collapse" id="charts">
@@ -417,7 +417,7 @@
                             </ul>
                         </div>
                     </li>
-                    <li class="nav-item">
+                    {{-- <li class="nav-item">
                         <a class="nav-link" data-toggle="collapse" href="#error" aria-expanded="false"
                             aria-controls="error">
                             <i class="icon-ban menu-icon"></i>
@@ -438,6 +438,6 @@
                             <i class="icon-paper menu-icon"></i>
                             <span class="menu-title">Documentation</span>
                         </a>
-                    </li>
+                    </li> --}}
                 </ul>
             </nav>
