@@ -12,7 +12,7 @@
     <div class="row">
       <div class="col-md-6 px-0">
         <div class="img-box">
-          <img src="{{ asset('frontend/images/contact-img.jpg') }}" alt="">
+          <img src="{{ asset('$contactImage') }}" alt="">
         </div>
       </div>
       <div class="col-lg-5 col-md-6">
