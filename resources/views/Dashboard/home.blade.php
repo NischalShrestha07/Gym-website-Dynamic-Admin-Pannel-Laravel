@@ -1,4 +1,3 @@
-{{-- New One --}}
 <x-adminheader />
 
 <!-- partial -->
