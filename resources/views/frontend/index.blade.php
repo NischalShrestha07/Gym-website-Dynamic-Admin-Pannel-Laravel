@@ -4,7 +4,8 @@
 
 
 <!-- slider section -->
-<section class=" slider_section position-relative">
+<section class=" slider_section position-relative" style="background-image: url('{{$SliderImage}}' )">
+  {{-- style="background-image: url('{{ asset('uploads/datas/' . $SliderImage) }}');"> --}}
   <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
     <div class="carousel-inner">
       <div class="carousel-item active">
