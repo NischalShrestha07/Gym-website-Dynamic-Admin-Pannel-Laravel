@@ -64,22 +64,25 @@
                             </thead>
 
                             <tbody>
-                                {{-- @php
+                                @php
                                 $i=0;
                                 @endphp
-                                @foreach ($datas as $item)
+                                @foreach ($trainers as $item)
                                 @php
                                 $i++;
-                                @endphp --}}
+                                @endphp
 
                                 {{-- THIS NEEDED TO BE CHANGED --}}
 
-                                {{-- <tr>
-                                    <td>{{ $item->title }}</td>
-                                    <td><img src="{{ url('uploads/datas/'.$item->homeimage) }}" width="100px" alt="">
+                                <tr>
+                                    <td>{{ $item->name }}</td>
+                                    <td><img src="{{ url('uploads/trainers/'.$item->photo) }}" width="100px" alt="">
                                     </td>
-                                    <td>{{ $item->description }}</td>
-                                    <td><img src="{{ url('uploads/datas/'.$item->contactimage) }}" width="100px" alt="">
+                                    {{-- <td><img src="{{ url('uploads/trainers/'.$item->photo) }}" width="100px"
+                                            alt=""> --}}
+                                    <td>{{$item->facebook}}</td>
+                                    <td>{{$item->twitter}}</td>
+                                    <td>{{$item->instagram}}</td>
                                     </td>
                                     <td class="font-weight-medium">
                                         <button type="button" class="btn btn-primary" data-toggle="modal"
@@ -90,30 +93,37 @@
                                             <div class="modal-dialog">
                                                 <div class="modal-content">
                                                     <div class="modal-header">
-                                                        <h4 class="modal-title">Update Data</h4>
+                                                        <h4 class="modal-title">Update Trainer</h4>
                                                         <button type="button" class="close"
                                                             data-dismiss="modal">&times;</button>
                                                     </div>
                                                     <div class="modal-body">
-                                                        <form action="{{ url('UpdateData') }}" method="POST"
+                                                        <form action="{{ url('UpdateTrainer') }}" method="POST"
                                                             enctype="multipart/form-data">
                                                             @csrf
                                                             @method('PUT')
-                                                            <label for="">Title</label>
-                                                            <input type="text" id="title" name="title"
-                                                                value="{{$item->title}}" placeholder="Enter Title"
+                                                            <label for="">Name:</label>
+                                                            <input type="text" id="name" name="name"
+                                                                value="{{$item->name}}" placeholder="Enter Name"
                                                                 class="form-control mb-2">
-                                                            <label for="homeimage">HomeImage</label>
-                                                            <input type="file" id="homeimage" name="homeimage"
+
+                                                            <label for="Photo">Photo</label>
+                                                            <input type="file" id="Photo" name="Photo"
                                                                 class="form-control mb-2">
-                                                            <label for="description">Description</label>
-                                                            <input type="text" id="description"
-                                                                value="{{$item->description}}" name="description"
-                                                                placeholder="Enter Description"
+
+                                                            <label for="facebook">Facebook</label>
+                                                            <input type="url" id="facebook" value="{{$item->facebook}}"
+                                                                name="facebook" class="form-control mb-2">
+
+                                                            <label for="twitter">Twitter</label>
+                                                            <input type="url" value="{{$item->twitter}}" id="twitter"
+                                                                name="twitter" class="form-control mb-2">
+
+                                                            <label for="instagram">Instagram</label>
+                                                            <input type="url" id="instagram"
+                                                                value="{{$item->instagram}}" name="instagram"
                                                                 class="form-control mb-2">
-                                                            <label for="contactimage">ContactImage</label>
-                                                            <input type="file" id="contactimage" name="contactimage"
-                                                                class="form-control mb-2">
+
                                                             <input type="hidden" name="id" value="{{$item->id}}">
                                                             <input type="submit" name="save" class="btn btn-success"
                                                                 value="Save Changes" />
@@ -123,8 +133,8 @@
                                             </div>
                                         </div>
                                     </td>
-                                </tr> --}}
-                                {{-- @endforeach --}}
+                                </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>
