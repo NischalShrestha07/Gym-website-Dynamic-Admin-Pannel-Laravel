@@ -5,15 +5,19 @@ use App\Http\Controllers\Frontend\ContactController;
 use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\Frontend\TrainersController;
 use App\Http\Controllers\Frontend\WhyusController;
+use App\Http\Controllers\TrainerController;
 use Illuminate\Support\Facades\Route;
 
-//Admin Routes
+//Admin Routes of Home
 Route::get('/admin', [AdminController::class, 'index']);
 Route::get('/adminDatas', [AdminController::class, 'datas']);
 Route::post('/AddNewData', [AdminController::class, 'AddNewData']);
 Route::put('/UpdateData', [AdminController::class, 'UpdateData']);
-// Route::put('/admin/{id}', [AdminController::class, 'update'])->name('homes.update');
 
+
+//Admin Routes of Trainers
+Route::get('/trainers', [TrainerController::class, 'trainers']);
+Route::get('/AddNewTrainer', [TrainerController::class, 'AddNewData']);
 
 
 

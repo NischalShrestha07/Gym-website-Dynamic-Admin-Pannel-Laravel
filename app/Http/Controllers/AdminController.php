@@ -83,7 +83,7 @@ class AdminController extends Controller
             $contactImageFile->move(public_path('uploads/datas'), $contactImageName);
             $contactImagePath = 'uploads/datas/' . $contactImageName;
         }
-        // UpdateData is same as AddNewData  but onlu below line is changed
+        // UpdateData is same as AddNewData  but only below line is changed
 
         $data = Data::find($request->input('id'));
         $data->title = $request->input('title');
