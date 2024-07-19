@@ -12,19 +12,12 @@
           <div class="col-lg-10 col-md-11 mx-auto">
             <div class="detail-box">
               <div>
-                <h3>
-                  Fitness
-                </h3>
-                <h2>
-                  Training
-                </h2>
                 <h1>
-                  Neogym
+                  {{$title}}
                 </h1>
+
                 <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                  dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                  aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse .
+                  {{$description}}
                 </p>
                 <div class="">
                   <a href="{{ asset('/contact') }}">
@@ -41,19 +34,11 @@
           <div class="col-lg-10 col-md-11 mx-auto">
             <div class="detail-box">
               <div>
-                <h3>
-                  Fitness
-                </h3>
-                <h2>
-                  Training
-                </h2>
                 <h1>
-                  Neogym
+                  {{$title}}
                 </h1>
                 <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                  dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                  aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse .
+                  {{$description}}
                 </p>
                 <div class="">
                   <a href="">
@@ -70,19 +55,12 @@
           <div class="col-lg-10 col-md-11 mx-auto">
             <div class="detail-box">
               <div>
-                <h3>
-                  Fitness
-                </h3>
-                <h2>
-                  Training
-                </h2>
                 <h1>
-                  Neogym
+                  {{$title}}
+
                 </h1>
                 <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                  dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                  aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse .
+                  {{$description}}
                 </p>
                 <div class="">
                   <a href="">
@@ -99,19 +77,11 @@
           <div class="col-lg-10 col-md-11 mx-auto">
             <div class="detail-box">
               <div>
-                <h3>
-                  Fitness
-                </h3>
-                <h2>
-                  Training
-                </h2>
                 <h1>
-                  Neogym
+                  {{$title}}
                 </h1>
                 <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                  dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                  aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse .
+                  {{$description}}
                 </p>
                 <div class="">
                   <a href="">
@@ -128,19 +98,11 @@
           <div class="col-lg-10 col-md-11 mx-auto">
             <div class="detail-box">
               <div>
-                <h3>
-                  Fitness
-                </h3>
-                <h2>
-                  Training
-                </h2>
                 <h1>
-                  Neogym
+                  {{$title}}
                 </h1>
                 <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                  dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                  aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse .
+                  {{$description}}
                 </p>
                 <div class="">
                   <a href="">
@@ -371,10 +333,15 @@
     <div class="row">
       <div class="col-md-6 px-0">
         <div class="img-box">
+          @if ($detail && $detail->contactimage)
+          <img src="{{ asset($detail->contactimage) }}" width="400px" alt="">
+          @else
+          <img src="{{ asset('frontend/images/contact-img.jpg') }}" alt="">
+          @endif
+          {{-- <img src="{{ asset('frontend/images/contact-img.jpg') }}" width="100px" alt="contact image"> --}}
 
-          <img src="{{ asset('frontend/images/contact-img.jpg') }}" width="100px" alt="contact image">
-     
-          
+
+
         </div>
       </div>
       <div class="col-lg-5 col-md-6">

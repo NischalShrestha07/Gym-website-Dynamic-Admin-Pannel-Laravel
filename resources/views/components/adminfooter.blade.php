@@ -14,7 +14,7 @@
 <!-- endinject -->
 <!-- Plugin js for this page -->
 <script src="Dashboard/vendors/chart.js/Chart.min.js"></script>
-<script src="Dashboard/vendors/datatables.net/jquery.dataTables.js"></script>
+{{-- <script src="Dashboard/vendors/dat/atables.net/jquery.dataTables.js"></script> --}}
 <script src="Dashboard/vendors/datatables.net-bs4/dataTables.bootstrap4.js"></script>
 <script src="Dashboard/js/dataTables.select.min.js"></script>
 
