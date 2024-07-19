@@ -2,9 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Home;
+use App\Models\Data;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Log;
 
 class AdminController extends Controller
 {
@@ -12,91 +11,140 @@ class AdminController extends Controller
     {
         return view('Dashboard.index');
     }
-    public function home()
-
+    public function datas()
     {
-        //Home is the model and all()method copy evrything and paste it into compact which will place everything in array form
-        $homes = Home::all();
 
-        return view('Dashboard.home', compact('homes'));
-        // return view('Dashboard.home');
+        $datas = Data::all();
+
+        return view('Dashboard.datas', compact('datas'));
     }
-    public function update(Request $request, $id)
+    // public function AddNewData(Request $request)
+    // {
+
+    //     $data = new Data();
+    //     $data->title = $request->input('title');
+    //     $data->homeimage = $request->file('file')->getClientOriginalName();
+    //     $request->file('file')->move('uploads/datas/', $data->homeimage);
+    //     $data->description = $request->input('description');
+    //     $data->contactimage = $request->file('file')->getClientOriginalName();
+    //     $request->file('file')->move('uploads/datas/', $data->contactimage);
+    //     $data->save();
+
+    //     return redirect()->back()->with('success', 'New data added successfully');
+    // }
+    //     public function AddNewData(Request $request)
+    //     {
+    //         // Validate the request
+    //         $request->validate([
+    //             'title' => 'required|string|max:255',
+    //             'homeimage' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+    //             'contactimage' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+    //             'description' => 'required|string',
+    //         ]);
+
+    //         // Process homeimage file upload
+    //         if ($request->hasFile('homeimage')) {
+    //             $homeImageFile = $request->file('homeimage');
+    //             $homeImageName = time() . '_' . $homeImageFile->getClientOriginalName();
+    //             $homeImagePath = 'uploads/datas/' . $homeImageName;
+    //             $homeImageFile->move(public_path('uploads/datas'), $homeImageName);
+    //         }
+
+    //         // Process contactimage file upload
+    //         if ($request->hasFile('contactimage')) {
+    //             $contactImageFile = $request->file('contactimage');
+    //             $contactImageName = time() . '_' . $contactImageFile->getClientOriginalName();
+    //             $contactImagePath = 'uploads/datas/' . $contactImageName;
+    //             $contactImageFile->move(public_path('uploads/datas'), $contactImageName);
+    //         }
+
+    //         // Create new data entry
+    //         $data = new Data();
+    //         $data->title = $request->input('title');
+    //         $data->homeimage = $homeImagePath;
+    //         $data->contactimage = $contactImagePath;
+    //         $data->description = $request->input('description');
+    //         $data->save();
+
+    //         return redirect()->back()->with('success', 'New data added successfully');
+    //     }
+    // }
+
+
+    public function AddNewData(Request $request)
     {
-        $validatedData = $request->validate([
+        // Validate the request
+        $request->validate([
             'title' => 'required|string|max:255',
-            'HomeImage' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
-            'Description' => 'nullable|string',
-            'ContactImage' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
+            'homeimage' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'contactimage' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'description' => 'required|string',
         ]);
 
-        $home = Home::findOrFail($id);
-
-        $home->title = $validatedData['title'];
-        $home->Description = $validatedData['Description'];
-
-        if ($request->hasFile('HomeImage')) {
-            $image = $request->file('HomeImage');
-            $imageName = time() . '_' . $image->getClientOriginalName();
-            $image->move(public_path('uploads/homes'), $imageName);
-            $home->HomeImage = $imageName;
+        // Process homeimage file upload
+        if ($request->hasFile('homeimage')) {
+            $homeImageFile = $request->file('homeimage');
+            $homeImageName = time() . '_' . $homeImageFile->getClientOriginalName();
+            $homeImageFile->move(public_path('uploads/datas'), $homeImageName);
+            $homeImagePath = 'uploads/datas/' . $homeImageName;
         }
 
-        if ($request->hasFile('ContactImage')) {
-            $contactImage = $request->file('ContactImage');
-            $contactImageName = time() . '_' . $contactImage->getClientOriginalName();
-            $contactImage->move(public_path('uploads/homes'), $contactImageName);
-            $home->ContactImage = $contactImageName;
+        // Process contactimage file upload
+        if ($request->hasFile('contactimage')) {
+            $contactImageFile = $request->file('contactimage');
+            $contactImageName = time() . '_' . $contactImageFile->getClientOriginalName();
+            $contactImageFile->move(public_path('uploads/datas'), $contactImageName);
+            $contactImagePath = 'uploads/datas/' . $contactImageName;
         }
 
-        $home->save();
+        // Create new data entry
+        $data = new Data();
+        $data->title = $request->input('title');
+        $data->homeimage = $homeImagePath;
+        $data->contactimage = $contactImagePath;
+        $data->description = $request->input('description');
+        $data->save();
 
-        return redirect()->back()->with('success', 'Home updated successfully');
+        return redirect()->back()->with('success', 'New data added successfully');
     }
 
 
+    public function UpdateData(Request $request)
+    {
+        // Validate the request
+        $request->validate([
+            'title' => 'required|string|max:255',
+            'homeimage' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'contactimage' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'description' => 'required|string',
+        ]);
 
-    // public function update(Request $request, $id)
-    // {
-    //     Log::info('Update method called with ID: ' . $id);
+        // Process homeimage file upload
+        if ($request->hasFile('homeimage')) {
+            $homeImageFile = $request->file('homeimage');
+            $homeImageName = time() . '_' . $homeImageFile->getClientOriginalName();
+            $homeImageFile->move(public_path('uploads/datas'), $homeImageName);
+            $homeImagePath = 'uploads/datas/' . $homeImageName;
+        }
 
-    //     $home = Home::find($id);
-    //     Log::info('Home found: ' . json_encode($home));
+        // Process contactimage file upload
+        if ($request->hasFile('contactimage')) {
+            $contactImageFile = $request->file('contactimage');
+            $contactImageName = time() . '_' . $contactImageFile->getClientOriginalName();
+            $contactImageFile->move(public_path('uploads/datas'), $contactImageName);
+            $contactImagePath = 'uploads/datas/' . $contactImageName;
+        }
+        // UpdateData is same as AddNewData  but onlu below line is changed
 
-    //     // Validate request
-    //     $request->validate([
-    //         'title' => 'required|string|max:255',
-    //         'HomeImage' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-    //         'Description' => 'required|string',
-    //         'ContactImage' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-    //     ]);
+        $data = Data::find($request->input('id'));
+        $data->title = $request->input('title');
+        $data->homeimage = $homeImagePath;
+        $data->contactimage = $contactImagePath;
+        $data->description = $request->input('description');
 
-    //     Log::info('Request validated successfully.');
 
-    //     // Update title and description
-    //     $home->title = $request->input('title');
-    //     $home->Description = $request->input('Description');
+        $data->save();
 
-    //     // Update Home Image
-    //     if ($request->hasFile('HomeImage')) {
-    //         $homeImage = $request->file('HomeImage');
-    //         $homeImageName = time() . '_' . $homeImage->getClientOriginalName();
-    //         $homeImage->move(public_path('uploads/homes'), $homeImageName);
-    //         $home->HomeImage = $homeImageName;
-    //     }
-
-    //     // Update Contact Image
-    //     if ($request->hasFile('ContactImage')) {
-    //         $contactImage = $request->file('ContactImage');
-    //         $contactImageName = time() . '_' . $contactImage->getClientOriginalName();
-    //         $contactImage->move(public_path('uploads/homes'), $contactImageName);
-    //         $home->ContactImage = $contactImageName;
-    //     }
-
-    //     $home->save();
-
-    //     Log::info('Home updated successfully.');
-
-    //     return redirect()->route('homes.index')->with('success', 'Home updated successfully');
-    // }
+        return redirect()->back()->with('success', 'New data added successfully');
+    }
 }

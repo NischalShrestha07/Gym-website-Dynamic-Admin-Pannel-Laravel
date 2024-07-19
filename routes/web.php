@@ -9,8 +9,10 @@ use Illuminate\Support\Facades\Route;
 
 //Admin Routes
 Route::get('/admin', [AdminController::class, 'index']);
-Route::get('/adminHome', [AdminController::class, 'home']);
-Route::put('/adminHome/{id}', [AdminController::class, 'update'])->name('homes.update');
+Route::get('/adminDatas', [AdminController::class, 'datas']);
+Route::post('/AddNewData', [AdminController::class, 'AddNewData']);
+Route::put('/UpdateData', [AdminController::class, 'UpdateData']);
+// Route::put('/admin/{id}', [AdminController::class, 'update'])->name('homes.update');
 
 
 
@@ -19,4 +21,5 @@ Route::put('/adminHome/{id}', [AdminController::class, 'update'])->name('homes.u
 Route::get('/', [HomeController::class, 'index']);
 Route::get('/whyus', [WhyusController::class, 'index']);
 Route::get('/trainer', [TrainersController::class, 'index']);
+// Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
 Route::get('/contact', [ContactController::class, 'index']);

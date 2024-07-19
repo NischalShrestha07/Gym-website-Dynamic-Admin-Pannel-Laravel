@@ -334,7 +334,7 @@
                         </a>
                         <div class="collapse" id="ui-basic">
                             <ul class="nav flex-column sub-menu">
-                                <li class="nav-item"> <a class="nav-link" href="{{ url('/adminHome') }}">View
+                                <li class="nav-item"> <a class="nav-link" href="{{ url('/adminDatas') }}">View
                                         All</a></li>
                                 {{-- <li class="nav-item"> <a class="nav-link"
                                         href="pages/ui-features/dropdowns.html">Dropdowns</a></li>
