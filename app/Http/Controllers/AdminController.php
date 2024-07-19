@@ -19,58 +19,6 @@ class AdminController extends Controller
 
         return view('Dashboard.datas', compact('datas'));
     }
-    // public function AddNewData(Request $request)
-    // {
-
-    //     $data = new Data();
-    //     $data->title = $request->input('title');
-    //     $data->homeimage = $request->file('file')->getClientOriginalName();
-    //     $request->file('file')->move('uploads/datas/', $data->homeimage);
-    //     $data->description = $request->input('description');
-    //     $data->contactimage = $request->file('file')->getClientOriginalName();
-    //     $request->file('file')->move('uploads/datas/', $data->contactimage);
-    //     $data->save();
-
-    //     return redirect()->back()->with('success', 'New data added successfully');
-    // }
-    //     public function AddNewData(Request $request)
-    //     {
-    //         // Validate the request
-    //         $request->validate([
-    //             'title' => 'required|string|max:255',
-    //             'homeimage' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-    //             'contactimage' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-    //             'description' => 'required|string',
-    //         ]);
-
-    //         // Process homeimage file upload
-    //         if ($request->hasFile('homeimage')) {
-    //             $homeImageFile = $request->file('homeimage');
-    //             $homeImageName = time() . '_' . $homeImageFile->getClientOriginalName();
-    //             $homeImagePath = 'uploads/datas/' . $homeImageName;
-    //             $homeImageFile->move(public_path('uploads/datas'), $homeImageName);
-    //         }
-
-    //         // Process contactimage file upload
-    //         if ($request->hasFile('contactimage')) {
-    //             $contactImageFile = $request->file('contactimage');
-    //             $contactImageName = time() . '_' . $contactImageFile->getClientOriginalName();
-    //             $contactImagePath = 'uploads/datas/' . $contactImageName;
-    //             $contactImageFile->move(public_path('uploads/datas'), $contactImageName);
-    //         }
-
-    //         // Create new data entry
-    //         $data = new Data();
-    //         $data->title = $request->input('title');
-    //         $data->homeimage = $homeImagePath;
-    //         $data->contactimage = $contactImagePath;
-    //         $data->description = $request->input('description');
-    //         $data->save();
-
-    //         return redirect()->back()->with('success', 'New data added successfully');
-    //     }
-    // }
-
 
     public function AddNewData(Request $request)
     {
