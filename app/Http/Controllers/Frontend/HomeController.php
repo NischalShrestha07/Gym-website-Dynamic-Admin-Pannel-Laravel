@@ -11,10 +11,13 @@ class HomeController extends Controller
     public function index()
     {
         $detail = Data::latest()->first();
-
+        //dd($detail);
         $title = $detail ? $detail->title : "default title";
         $description = $detail ? $detail->description : "default description";
-        $SliderImage = $detail ? $detail->SliderImage : "default Slider Image";
-        return view('frontend.index', compact('detail', 'title', 'description', 'SliderImage'))->with('SliderrImageUrl', asset($SliderImage));
+        $slider = $detail ? $detail->homeimage : "default Slider Image";
+        $contactimage = $detail ? $detail->contactimage : "default contact image";
+        //dd($slider);
+        return view('frontend.index', compact('title', 'slider', 'description', 'contactimage'));
+        // return view('frontend.index', compact('title', 'slider', 'description', 'detail')); only for one image
     }
 }

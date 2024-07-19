@@ -30,7 +30,7 @@
 </head>
 
 <body>
-    <div class="hero_area">
+    <div class="hero_area" style="background-image: url('{{ asset('/'.$slider) }}');">
         <!-- header section strats -->
         <header class="header_section">
             <div class="container-fluid">
