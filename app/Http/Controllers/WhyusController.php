@@ -28,10 +28,10 @@ class WhyusController extends Controller
 
         // Handle File Upload
         if ($request->hasFile('img')) {
-            $imgPath = $request->file('img')->store('uploads/whyus', 'public');
+            $imgPath = $request->file('img')->store('uploads/whyuses', 'public');
         }
 
-        // Create a new trainer record
+        // Create a new whyus record
         $whyus = new Whyus();
         $whyus->img = $imgPath;
         $whyus->title = $request->title;

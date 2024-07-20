@@ -7,11 +7,13 @@ use App\Models\Data;
 use App\Models\Trainer;
 use App\Models\Whyus;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\View;
 
 class HomeController extends Controller
 {
     public function index()
     {
+        // $detail = Data::latest()->first();
         $detail = Data::latest()->first();
         //dd($detail);
         $title = $detail ? $detail->title : "default title";

@@ -73,9 +73,6 @@
                                 @php
                                 $i++;
                                 @endphp
-
-                                {{-- THIS NEEDED TO BE CHANGED --}}
-
                                 <tr>
                                     <td><img src="{{ url('uploads/whyus/'.$item->img) }}" width="100px" alt="">
                                     <td>{{ $item->title }}</td>
