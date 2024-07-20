@@ -18,6 +18,8 @@ Route::put('/UpdateData', [AdminController::class, 'UpdateData']);
 //Admin Routes of Trainers
 Route::get('/trainers', [TrainerController::class, 'trainers'])->name('trainers.index');
 Route::post('/AddNewTrainer', [TrainerController::class, 'AddNewTrainer']);
+Route::put('/UpdateTrainer', [TrainerController::class, 'UpdateTrainer']);
+
 
 
 

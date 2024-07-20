@@ -96,20 +96,4 @@ class AdminController extends Controller
 
         return redirect()->back()->with('success', 'New data added successfully');
     }
-
-    public function uploadContactImage(Request $request)
-    {
-        if ($request->hasFile('contactimage')) {
-            $file = $request->file('contactimage');
-            $path = $file->store('public/contactimages'); // Store the file in the 'public/contactimages' directory
-            $fileName = basename($path); // Get the file name
-
-            // Save the file path to the database
-            Data::create(['path' => $fileName]);
-
-            return redirect()->back()->with('success', 'Image uploaded successfully.');
-        }
-
-        return redirect()->back()->with('error', 'No file selected.');
-    }
 }

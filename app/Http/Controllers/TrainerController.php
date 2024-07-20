@@ -46,4 +46,54 @@ class TrainerController extends Controller
         // Redirect to the trainers index with a success message
         return redirect()->route('trainers.index')->with('success', 'Trainer added successfully');
     }
+
+    // public function UpdateTrainer(Request $request, $id)
+    // {
+    //     $trainer = Trainer::find($id);
+    //     $trainer->name = $request->name;
+    //     $trainer->facebook = $request->facebook;
+    //     $trainer->twitter = $request->twitter;
+    //     $trainer->instagram = $request->instagram;
+
+    //     if ($request->hasFile('photo')) {
+    //         $trainer->photo = $request->file('photo')->store('uploads/trainers');
+    //     }
+
+    //     $trainer->save();
+    //     return redirect()->route('trainers.index');
+    // }
+
+
+    public function UpdateTrainer(Request $request)
+    {
+        // Validate the request
+        $request->validate([
+            'name' => 'required|string',
+            'photo' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'facebook' => 'nullable|url',
+            'twitter' => 'nullable|url',
+            'instagram' => 'nullable|url',
+        ]);
+
+        // Process photo file upload
+        if ($request->hasFile('photo')) {
+            $photoFile = $request->file('photo');
+            $photoName = time() . '_' . $photoFile->getClientOriginalName();
+            $photoFile->move(public_path('uploads/trainers'), $photoName);
+            $photoPath = 'uploads/trainers/' . $photoName;
+        }
+
+
+        // UpdateTrainer is same as AddNewData  but only below line is changed
+
+        $trainer  = Trainer::find($request->input('id'));
+        $trainer->name = $request->input('name');
+        $trainer->photo = $photoPath;
+        $trainer->facebook = $request->input('facebook');
+        $trainer->twitter = $request->input('twitter');
+        $trainer->instagram = $request->input('instagram');
+        $trainer->save();
+
+        return redirect()->back()->with('success', 'New data added successfully');
+    }
 }
