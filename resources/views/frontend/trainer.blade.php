@@ -14,29 +14,33 @@
     </div>
     <div class="row">
       <div class="col-lg-4 col-md-6 mx-auto">
+        @foreach ($trainers as $item)
         <div class="box">
+
           <div class="name">
             <h5>
-              Smirth Jon
+              {{$item->$name}}
             </h5>
           </div>
+          
           <div class="img-box">
-            <img src="{{ asset('frontend/images/t1.jpg') }}" alt="">
+            <img src="{{ asset('storage/'.$item->img) }}" alt="">
           </div>
           <div class="social_box">
-            <a href="">
+            <a href="{{$item->facebook}}">
               <img src="{{ asset('frontend/images/facebook-logo.png') }}" alt="">
             </a>
-            <a href="">
+            <a href="{{$item->twitter}}">
               <img src="{{ asset('frontend/images/twitter.png') }}" alt="">
             </a>
-            <a href="">
+            <a href="{{$item->instagram}}">
               <img src="{{ asset('frontend/images/instagram-logo.png') }}" alt="">
             </a>
           </div>
         </div>
+        @endforeach
       </div>
-      <div class="col-lg-4 col-md-6 mx-auto">
+      {{-- <div class="col-lg-4 col-md-6 mx-auto">
         <div class="box">
           <div class="name">
             <h5>
@@ -81,7 +85,7 @@
             </a>
           </div>
         </div>
-      </div>
+      </div> --}}
     </div>
   </div>
 </section>

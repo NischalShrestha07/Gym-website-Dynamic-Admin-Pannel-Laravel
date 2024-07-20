@@ -11,10 +11,10 @@ class WhyusController extends Controller
     {
         return view('Dashboard.index');
     }
-    public function whyus()
+    public function whyuss()
     {
-        $whyus = Whyus::all();
-        return view('Dashboard.whyus', compact('whyus'));
+        $whyuss = Whyus::all();
+        return view('Dashboard.whyuss', compact('whyuss'));
     }
     public function AddNewWhyus(Request $request)
     {
@@ -28,7 +28,8 @@ class WhyusController extends Controller
 
         // Handle File Upload
         if ($request->hasFile('img')) {
-            $imgPath = $request->file('img')->store('uploads/whyuses', 'public');
+            $imgPath = $request->file('img')->store('uploads/whyuss', 'public');
+            //this prints inside folder of storage
         }
 
         // Create a new whyus record
@@ -42,7 +43,7 @@ class WhyusController extends Controller
         $whyus->save();
 
         // Redirect to the whyus index with a success message
-        return redirect()->route('whyus.index')->with('success', 'Whyus added successfully');
+        return redirect()->route('whyuss.index')->with('success', 'Whyus added successfully');
     }
 
     public function UpdateWhyus(Request $request)
@@ -60,7 +61,7 @@ class WhyusController extends Controller
         if ($request->hasFile('img')) {
             $imgFile = $request->file('img');
             $imgName = time() . '_' . $imgFile->getClientOriginalName();
-            $imgFile->move(public_path('uploads/whyus'), $imgName);
+            $imgFile->move(public_path('uploads/whyus'), $imgName); //this prints outside folder of storage
             $imgPath = 'uploads/whyus/' . $imgName;
         }
 

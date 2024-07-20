@@ -6,6 +6,7 @@
 <section class="slider_section position-relative">
   <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
     <div class="carousel-inner">
+      @foreach ($man as $item)
       <div class="carousel-item active">
         <div class="container">
           <div class="col-lg-10 col-md-11 mx-auto">
@@ -28,7 +29,8 @@
           </div>
         </div>
       </div>
-      <div class="carousel-item">
+      @endforeach
+      {{-- <div class="carousel-item">
         <div class="container">
           <div class="col-lg-10 col-md-11 mx-auto">
             <div class="detail-box">
@@ -112,7 +114,7 @@
             </div>
           </div>
         </div>
-      </div>
+      </div> --}}
     </div>
     <ol class="carousel-indicators">
       <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -140,20 +142,20 @@
 
     <div class="us_container ">
       <div class="row">
-        @foreach ($whyuses as $item)
+        @foreach ($whyuss as $item)
         <div class="col-lg-3 col-md-6">
           <div class="box">
             <div class="img-box">
-              <img src="{{ asset('storage/'.$whyuses->img) }}" alt="">
+              <img src="{{ asset('storage/'.$item->img) }}" alt="">
             </div>
             <div class="detail-box">
               <h5>
                 {{-- QUALITY EQUIPMENT --}}
-                {{$whyuses->title}}
+                {{$item->title}}
               </h5>
               <p>
                 {{-- ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor --}}
-                {{$whyuses->description}}
+                {{$item->description}}
               </p>
             </div>
           </div>
@@ -219,15 +221,15 @@
   <div class="container">
 
     <div class="row">
-      @foreach ($whyuses as $item)
+      {{-- @foreach ($whyuss as $item) --}}
       <div class="col-md-12 mx-auto">
         <div class="detail-box">
           <h2>
             {{-- HEALTHY MIND, HEALTHY BODY --}}
-            {{$whyuses->head}}
+            {{$item->head}}
           </h2>
           <p>
-            {{$whyuses->headdetail}}
+            {{$item->headdetail}}
             {{-- Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
             et
             dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
@@ -245,7 +247,7 @@
           </div>
         </div>
       </div>
-      @endforeach
+      {{-- @endforeach --}}
     </div>
 
   </div>

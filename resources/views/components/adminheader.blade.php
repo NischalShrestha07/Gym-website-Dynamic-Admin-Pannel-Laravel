@@ -352,7 +352,7 @@
                         </a>
                         <div class="collapse" id="form-elements">
                             <ul class="nav flex-column sub-menu">
-                                <li class="nav-item"><a class="nav-link" href="/whyus">View
+                                <li class="nav-item"><a class="nav-link" href="{{ url('/whyuss') }} ">View
                                         All</a></li>
                             </ul>
                         </div>

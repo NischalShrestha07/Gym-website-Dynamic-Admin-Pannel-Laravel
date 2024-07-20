@@ -22,11 +22,11 @@ class HomeController extends Controller
         $contactimage = $detail ? $detail->contactimage : "default contact image";
         //dd($slider);
         // return view('frontend.index', compact('title', 'slider', 'description', 'contactimage'));
-
+        $man = Data::all();
 
         // for trainers
         $trainers = Trainer::all();
-        $whyuses = Whyus::all();
+        $whyuss = Whyus::all();
         // $name = $manage ? $manage->name : "default Title";
         // $photo = $manage ? $manage->photo : "default Title";
         // $facebook = $manage ? $manage->facebook : "default Facebook";
@@ -34,7 +34,7 @@ class HomeController extends Controller
         // $instagram = $manage ? $manage->instagram : "default Instagram";
 
         // return view('frontend.index', compact('title', 'slider', 'description', 'contactimage', 'name', 'photo', 'facebook', 'twitter', 'instagram'));
-        return view('frontend.index', compact('title', 'slider', 'description', 'contactimage', 'trainers', 'whyuses'));
+        return view('frontend.index', compact('man', 'title', 'slider', 'description', 'contactimage', 'trainers', 'whyuss'));
     }
     // public function trainer()
     // {

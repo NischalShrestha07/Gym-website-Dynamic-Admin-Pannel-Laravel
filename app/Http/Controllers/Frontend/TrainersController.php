@@ -13,6 +13,8 @@ class TrainersController extends Controller
     {
         $detail = Data::latest()->first();
         $slider = $detail ? $detail->homeimage : "defaukt home image";
-        return view('frontend.trainer', compact('slider'));
+
+        $trainers = Data::all();
+        return view('frontend.trainer', compact('slider', 'trainers'));
     }
 }

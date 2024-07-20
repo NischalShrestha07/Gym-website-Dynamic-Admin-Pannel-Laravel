@@ -8,6 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Whyus extends Model
 {
     use HasFactory;
+    protected $table = 'whyuss';
+
     protected $fillable = [
         'img', 'title', 'description', 'head', 'headdetail'
     ];

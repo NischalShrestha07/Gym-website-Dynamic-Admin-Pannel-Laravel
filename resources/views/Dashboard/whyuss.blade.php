@@ -69,12 +69,12 @@
                                 @php
                                 $i=0;
                                 @endphp
-                                @foreach ($whyuses as $item)
+                                @foreach ($whyuss as $item)
                                 @php
                                 $i++;
                                 @endphp
                                 <tr>
-                                    <td><img src="{{ url('uploads/whyus/'.$item->img) }}" width="100px" alt="">
+                                    <td><img src="{{ url('uploads/whyuss/'.$item->img) }}" width="100px" alt="">
                                     <td>{{ $item->title }}</td>
                                     </td>
 
