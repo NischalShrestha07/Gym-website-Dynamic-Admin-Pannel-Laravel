@@ -18,15 +18,26 @@ class HomeController extends Controller
         $slider = $detail ? $detail->homeimage : "default Slider Image";
         $contactimage = $detail ? $detail->contactimage : "default contact image";
         //dd($slider);
-        return view('frontend.index', compact('title', 'slider', 'description', 'contactimage'));
-    }
-    public function trainer()
-    {
+        // return view('frontend.index', compact('title', 'slider', 'description', 'contactimage'));
+
+
+        // for trainers
         $manage = Trainer::latest()->first();
         $name = $manage ? $manage->name : "default Title";
         $photo = $manage ? $manage->photo : "default Title";
         $facebook = $manage ? $manage->facebook : "default Facebook";
         $twitter = $manage ? $manage->twitter : "default Twitter";
         $instagram = $manage ? $manage->instagram : "default Instagram";
+
+        return view('frontend.index', compact('title', 'slider', 'description', 'contactimage', 'name', 'photo', 'facebook', 'twitter', 'instagram'));
     }
+    // public function trainer()
+    // {
+    //     $manage = Trainer::latest()->first();
+    //     $name = $manage ? $manage->name : "default Title";
+    //     $photo = $manage ? $manage->photo : "default Title";
+    //     $facebook = $manage ? $manage->facebook : "default Facebook";
+    //     $twitter = $manage ? $manage->twitter : "default Twitter";
+    //     $instagram = $manage ? $manage->instagram : "default Instagram";
+    // }
 }

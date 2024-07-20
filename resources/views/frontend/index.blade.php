@@ -258,20 +258,20 @@
           <div class="box">
             <div class="name">
               <h5>
-                Smirth Jon
+                {{$name}}
               </h5>
             </div>
             <div class="img-box">
-              <img src="{{ asset('frontend/images/t1.jpg') }}" alt="">
+              <img src="{{ asset('storage/'.$photo) }}" alt="">
             </div>
             <div class="social_box">
-              <a href="">
+              <a href="{{$facebook}}">
                 <img src="{{ asset('frontend/images/facebook-logo.png') }} " alt="">
               </a>
-              <a href="">
+              <a href="{{$twitter}}">
                 <img src="{{ asset('frontend/images/twitter.png') }}  " alt="">
               </a>
-              <a href="">
+              <a href="{{$instagram}}">
                 <img src="{{ asset('frontend/images/instagram-logo.png') }}  " alt="">
               </a>
             </div>
@@ -281,26 +281,26 @@
           <div class="box">
             <div class="name">
               <h5>
-                Jean Doe
+                {{$name}}
               </h5>
             </div>
             <div class="img-box">
-              <img src="{{ asset('frontend/images/t2.jpg') }} " alt="">
+              <img src="{{ asset('storage/'.$photo) }} " alt="">
             </div>
             <div class="social_box">
-              <a href="">
+              <a href="$facebo0k">
                 <img src="{{ asset('frontend/images/facebook-logo.png') }}" alt="">
               </a>
-              <a href="">
+              <a href="$twitter">
                 <img src="{{ asset('frontend/images/twitter.png') }}" alt="">
               </a>
-              <a href="">
+              <a href="$instagram">
                 <img src="{{ asset('frontend/images/instagram-logo.png') }}" alt="">
               </a>
             </div>
           </div>
         </div>
-        <div class="col-lg-4 col-md-6 mx-auto">
+        {{-- <div class="col-lg-4 col-md-6 mx-auto">
           <div class="box">
             <div class="name">
               <h5>
@@ -322,7 +322,7 @@
               </a>
             </div>
           </div>
-        </div>
+        </div> --}}
       </div>
     </div>
   </section>

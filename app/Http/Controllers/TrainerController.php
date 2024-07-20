@@ -47,23 +47,6 @@ class TrainerController extends Controller
         return redirect()->route('trainers.index')->with('success', 'Trainer added successfully');
     }
 
-    // public function UpdateTrainer(Request $request, $id)
-    // {
-    //     $trainer = Trainer::find($id);
-    //     $trainer->name = $request->name;
-    //     $trainer->facebook = $request->facebook;
-    //     $trainer->twitter = $request->twitter;
-    //     $trainer->instagram = $request->instagram;
-
-    //     if ($request->hasFile('photo')) {
-    //         $trainer->photo = $request->file('photo')->store('uploads/trainers');
-    //     }
-
-    //     $trainer->save();
-    //     return redirect()->route('trainers.index');
-    // }
-
-
     public function UpdateTrainer(Request $request)
     {
         // Validate the request
