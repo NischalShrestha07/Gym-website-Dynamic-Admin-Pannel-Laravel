@@ -22,6 +22,13 @@ Route::put('/UpdateTrainer', [TrainerController::class, 'UpdateTrainer']);
 
 
 
+//Admin Routes of Whyus
+Route::get('/whyus', [WhyusController::class, 'whyus'])->name('whyus.index');
+Route::post('/AddNewWhyus', [WhyusController::class, 'AddNewWhyus']);
+Route::put('/UpdateWhyus', [WhyusController::class, 'UpdateWhyus']);
+
+
+
 
 //Customer Routes
 Route::get('/', [HomeController::class, 'index']);

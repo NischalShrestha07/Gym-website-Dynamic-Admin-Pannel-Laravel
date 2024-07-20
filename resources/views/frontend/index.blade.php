@@ -144,19 +144,21 @@
           <div class="col-lg-3 col-md-6">
             <div class="box">
               <div class="img-box">
-                <img src="{{ asset('frontend/images/u-1.png') }}" alt="">
+                <img src="{{ asset('storage/'.$whyuses->img) }}" alt="">
               </div>
               <div class="detail-box">
                 <h5>
-                  QUALITY EQUIPMENT
+                  {{-- QUALITY EQUIPMENT --}}
+                  {{$whyuses->title}}
                 </h5>
                 <p>
-                  ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                  {{-- ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor --}}
+                  {{$whyuses->description}}
                 </p>
               </div>
             </div>
           </div>
-          <div class="col-lg-3 col-md-6">
+          {{-- <div class="col-lg-3 col-md-6">
             <div class="box">
               <div class="img-box">
                 <img src="{{ asset('frontend/images/u-4.png') }}" alt="">
@@ -200,7 +202,7 @@
                 </p>
               </div>
             </div>
-          </div>
+          </div> --}}
         </div>
       </div>
     </div>
@@ -215,20 +217,24 @@
     <div class="container">
 
       <div class="row">
+        @foreach ($whyuses as $item)
         <div class="col-md-12 mx-auto">
           <div class="detail-box">
             <h2>
-              HEALTHY MIND, HEALTHY BODY
+              {{-- HEALTHY MIND, HEALTHY BODY --}}
+              {{$whyuses->head}}
             </h2>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+              {{$whyuses->headdetail}}
+              {{-- Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+              et
               dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
               ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillumLorem ipsum
               dolor
               sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
               Ut
               enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-              Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
+              Duis aute irure dolor in reprehenderit in voluptate velit esse cillum --}}
             </p>
             <div class="btn-box">
               <a href="">
@@ -237,6 +243,7 @@
             </div>
           </div>
         </div>
+        @endforeach
       </div>
 
     </div>
@@ -254,30 +261,32 @@
         </h2>
       </div>
       <div class="row">
+        @foreach ($trainers as $item)
         <div class="col-lg-4 col-md-6 mx-auto">
           <div class="box">
             <div class="name">
               <h5>
-                {{$name}}
+                {{$item->name}}
               </h5>
             </div>
             <div class="img-box">
-              <img src="{{ asset('storage/'.$photo) }}" alt="">
+              <img src="{{ asset('storage/'.$item->photo) }}" alt="">
             </div>
             <div class="social_box">
-              <a href="{{$facebook}}">
+              <a href="{{$item->facebook}}">
                 <img src="{{ asset('frontend/images/facebook-logo.png') }} " alt="">
               </a>
-              <a href="{{$twitter}}">
+              <a href="{{$item->twitter}}">
                 <img src="{{ asset('frontend/images/twitter.png') }}  " alt="">
               </a>
-              <a href="{{$instagram}}">
+              <a href="{{$item->instagram}}">
                 <img src="{{ asset('frontend/images/instagram-logo.png') }}  " alt="">
               </a>
             </div>
           </div>
         </div>
-        <div class="col-lg-4 col-md-6 mx-auto">
+        @endforeach
+        {{-- <div class="col-lg-4 col-md-6 mx-auto">
           <div class="box">
             <div class="name">
               <h5>
@@ -299,7 +308,7 @@
               </a>
             </div>
           </div>
-        </div>
+        </div> --}}
         {{-- <div class="col-lg-4 col-md-6 mx-auto">
           <div class="box">
             <div class="name">
@@ -381,7 +390,6 @@
       </div>
     </div>
   </section>
-
   <!-- end contact section -->
 
   <!-- info section -->
