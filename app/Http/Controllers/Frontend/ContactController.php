@@ -13,8 +13,11 @@ class ContactController extends Controller
         // $detail = Data::latest()->first();
 
         $detail = Data::latest()->first();
-        $slider = $detail ? $detail->homeimage : "defaukt home image";
-        return view('frontend.contact', compact('slider'));
+        $slider = $detail ? $detail->homeimage : "default home image";
+        $contactimage = $detail ? $detail->contactimage : "default home image";
+
+        // $contacts = Data::latest()->first();
+        return view('frontend.contact', compact('slider', 'contactimage'));
         // return view('frontend.contact');
         // dd($detail);
     }

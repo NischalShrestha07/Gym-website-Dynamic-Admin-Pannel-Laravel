@@ -19,12 +19,12 @@
 
           <div class="name">
             <h5>
-              {{$item->$name}}
+              {{$item->name}}
             </h5>
           </div>
-          
+
           <div class="img-box">
-            <img src="{{ asset('storage/'.$item->img) }}" alt="">
+            <img src="{{ asset('storage/'.$item->photo) }}" alt="">
           </div>
           <div class="social_box">
             <a href="{{$item->facebook}}">

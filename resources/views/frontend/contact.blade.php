@@ -7,10 +7,12 @@
 
 <section class="contact_section ">
   <div class="container-fluid">
+    {{-- @foreach ($contacts as $item) --}}
+
     <div class="row">
       <div class="col-md-6 px-0">
         <div class="img-box">
-          <img src="{{ asset('frontend/images/contact-img.jpg') }}" alt="">
+          <img src="{{ asset($contactimage) }}" alt="">
         </div>
       </div>
       <div class="col-lg-5 col-md-6">
@@ -42,6 +44,7 @@
         </div>
       </div>
     </div>
+    {{-- @endforeach --}}
   </div>
 </section>
 

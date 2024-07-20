@@ -17,21 +17,25 @@
     <div class="us_container ">
       <div class="row">
         <div class="col-lg-3 col-md-6">
+          @foreach ($whyuss as $item)
+
           <div class="box">
             <div class="img-box">
-              <img src="{{ asset('frontend/images/u-1.png') }}" alt="">
+              <img src="{{ asset('storage/'.$item->img) }}" alt="">
             </div>
             <div class="detail-box">
               <h5>
-                QUALITY EQUIPMENT
+                {{$item->title}}
               </h5>
               <p>
-                ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                {{$item->description}}
+                {{-- ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor --}}
               </p>
             </div>
           </div>
+          @endforeach
         </div>
-        <div class="col-lg-3 col-md-6">
+        {{-- <div class="col-lg-3 col-md-6">
           <div class="box">
             <div class="img-box">
               <img src="{{ asset('frontend/images/u-4.png') }}" alt="">
@@ -75,7 +79,7 @@
               </p>
             </div>
           </div>
-        </div>
+        </div> --}}
       </div>
     </div>
   </div>
