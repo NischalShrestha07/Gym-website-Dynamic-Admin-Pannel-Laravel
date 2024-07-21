@@ -13,7 +13,7 @@
       </h2>
     </div>
     <div class="row">
-      <div class="col-lg-4 col-md-6 mx-auto">
+      <div class="col-lg-4 col-md-6 mb-4">
         @foreach ($trainers as $item)
         <div class="box">
 

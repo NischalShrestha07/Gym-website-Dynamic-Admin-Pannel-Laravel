@@ -64,12 +64,6 @@
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ asset('/contact') }}"> Contact Us</a>
                                 </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ url('/login') }}"> Login</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ asset('/register') }}">Register</a>
-                                </li>
                             </ul>
                             <div class="user_option">
                                 <form class="form-inline my-2 my-lg-0 ml-0 ml-lg-4 mb-3 mb-lg-0">

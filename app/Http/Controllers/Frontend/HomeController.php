@@ -9,6 +9,8 @@ use App\Models\Whyus;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\View;
 
+use function Ramsey\Uuid\v1;
+
 class HomeController extends Controller
 {
     public function index()
@@ -45,4 +47,5 @@ class HomeController extends Controller
     //     $twitter = $manage ? $manage->twitter : "default Twitter";
     //     $instagram = $manage ? $manage->instagram : "default Instagram";
     // }
+
 }
