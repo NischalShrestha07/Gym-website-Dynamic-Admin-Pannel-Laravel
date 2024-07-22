@@ -8,6 +8,7 @@ use App\Http\Controllers\Frontend\LoginController;
 use App\Http\Controllers\Frontend\RegisterController;
 use App\Http\Controllers\Frontend\TrainersController;
 use App\Http\Controllers\Frontend\WhyusController as FrontendWhyusController;
+use App\Http\Controllers\GymNameController;
 // use App\Http\Controllers\Frontend\WhyusController;
 use App\Http\Controllers\TrainerController;
 use App\Http\Controllers\WhyusController;
@@ -42,6 +43,11 @@ Route::put('/UpdateWhyus', [WhyusController::class, 'UpdateWhyus']);
 Route::get('/footerbars', [FooterbarController::class, 'footerbars'])->name('footerbars.index');
 Route::post('/AddNewFooterbar', [FooterbarController::class, 'AddNewFooterbar']);
 Route::put('/UpdateFooterbar', [FooterbarController::class, 'UpdateFooterbar']);
+
+
+
+//Admin Routes of GymNames
+Route::get('/gymnames', [GymNameController::class, 'index']);
 
 
 
