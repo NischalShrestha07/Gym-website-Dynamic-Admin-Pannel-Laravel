@@ -16,8 +16,8 @@
 
     <div class="us_container ">
       <div class="row">
+        @foreach ($whyuss as $item)
         <div class="col-lg-3 col-md-6">
-          @foreach ($whyuss as $item)
 
           <div class="box">
             <div class="img-box">
@@ -33,8 +33,8 @@
               </p>
             </div>
           </div>
-          @endforeach
         </div>
+        @endforeach
         {{-- <div class="col-lg-3 col-md-6">
           <div class="box">
             <div class="img-box">

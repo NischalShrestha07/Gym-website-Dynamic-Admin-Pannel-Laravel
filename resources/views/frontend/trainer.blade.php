@@ -13,8 +13,8 @@
       </h2>
     </div>
     <div class="row">
+      @foreach ($trainers as $item)
       <div class="col-lg-4 col-md-6 mb-4">
-        @foreach ($trainers as $item)
         <div class="box">
 
           <div class="name">
@@ -38,8 +38,8 @@
             </a>
           </div>
         </div>
-        @endforeach
       </div>
+      @endforeach
       {{-- <div class="col-lg-4 col-md-6 mx-auto">
         <div class="box">
           <div class="name">
