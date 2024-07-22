@@ -89,7 +89,7 @@
 
 
 <!-- info section -->
-<section class="info_section layout_padding2">
+{{-- <section class="info_section layout_padding2">
   <div class="container">
     <div class="info_items">
       <a href="">
@@ -130,6 +130,6 @@
       </a>
     </div>
   </div>
-</section>
+</section> --}}
 @endsection
 <!-- end info_section -->

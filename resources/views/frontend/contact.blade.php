@@ -50,6 +50,7 @@
 
 <!-- end contact section -->
 
+{{--
 <!-- info section -->
 <section class="info_section layout_padding2">
   <div class="container">
@@ -92,6 +93,6 @@
       </a>
     </div>
   </div>
-</section>
+</section> --}}
 @endsection
 <!-- end info_section -->

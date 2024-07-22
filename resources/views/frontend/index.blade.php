@@ -116,13 +116,13 @@
         </div>
       </div> --}}
     </div>
-    {{-- <ol class="carousel-indicators">
+    <ol class="carousel-indicators">
       <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
       <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
       <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
       <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
       <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
-    </ol> --}}
+    </ol>
   </div>
 </section>
 {{--
@@ -400,19 +400,22 @@
 <section class="info_section layout_padding2">
   <div class="container">
     <div class="info_items">
+      @foreach ($footerbars as $item)
+
       <a href="">
         <div class="item ">
-          <div class="img-box box-1">
-            <img src="" alt="">
+          <div class="box">
+            <img src="{{ asset('storage/' .$item->pic) }}" alt="">
           </div>
           <div class="detail-box">
             <p>
-              Location
+              {{$item->name}}
             </p>
           </div>
         </div>
       </a>
-      <a href="">
+      @endforeach
+      {{-- <a href="">
         <div class="item ">
           <div class="img-box box-2">
             <img src="" alt="">
@@ -435,7 +438,7 @@
             </p>
           </div>
         </div>
-      </a>
+      </a> --}}
     </div>
   </div>
 </section>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
 use App\Models\Data;
+use App\Models\Footerbar;
 use App\Models\Trainer;
 use App\Models\Whyus;
 use Illuminate\Http\Request;
@@ -29,6 +30,8 @@ class HomeController extends Controller
         // for trainers
         $trainers = Trainer::all();
         $whyuss = Whyus::all();
+        $footerbars = Footerbar::all();
+
         // $name = $manage ? $manage->name : "default Title";
         // $photo = $manage ? $manage->photo : "default Title";
         // $facebook = $manage ? $manage->facebook : "default Facebook";
@@ -36,7 +39,7 @@ class HomeController extends Controller
         // $instagram = $manage ? $manage->instagram : "default Instagram";
 
         // return view('frontend.index', compact('title', 'slider', 'description', 'contactimage', 'name', 'photo', 'facebook', 'twitter', 'instagram'));
-        return view('frontend.index', compact('man', 'title', 'slider', 'description', 'contactimage', 'trainers', 'whyuss'));
+        return view('frontend.index', compact('man', 'title', 'slider', 'description', 'contactimage', 'trainers', 'whyuss', 'footerbars'));
     }
     // public function trainer()
     // {
