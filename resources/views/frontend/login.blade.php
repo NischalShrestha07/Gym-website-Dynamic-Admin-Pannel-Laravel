@@ -2,7 +2,7 @@
 @section('main-container')
 
 
-</div>
+{{-- </div> --}}
 <!-- contact section -->
 
 <section class="contact_section ">
@@ -21,7 +21,7 @@
                         <h1>
                             Create New Account
                         </h1>
-                    </div> 
+                    </div>
                     <form action="{{ url('loginUser') }}" method="POST" enctype="multipart/form-data">
                         @csrf
 
@@ -47,8 +47,28 @@
     </div>
 </section>
 
-<!-- end contact section -->
+
 
 <!-- info section -->
+<section class="info_section layout_padding2">
+    <div class="container">
+        <div class="info_items">
+            @foreach ($footerbars as $item)
 
+            <a href="">
+                <div class="item ">
+                    <div class="box">
+                        <img src="{{ asset('storage/' .$item->pic) }}" alt="">
+                    </div>
+                    <div class="detail-box">
+                        <p>
+                            {{$item->name}}
+                        </p>
+                    </div>
+                </div>
+            </a>
+            @endforeach
+        </div>
+    </div>
+</section>
 @endsection

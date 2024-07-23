@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Footerbar extends Model
 {
     use HasFactory;
-    public $fillable = [
+    protected $fillable = [
         'pic', 'name'
     ];
 }

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
 use App\Models\Data;
+use App\Models\Footerbar;
 use App\Models\Whyus;
 use Illuminate\Http\Request;
 
@@ -15,7 +16,8 @@ class WhyusController extends Controller
         $slider = $detail ? $detail->homeimage : "default home image";
 
         $whyuss = Whyus::all();
-        return view('frontend.whyus', compact('whyuss', 'slider'));
+        $footerbars = Footerbar::all();
+        return view('frontend.whyus', compact('whyuss', 'slider', 'footerbars'));
 
 
         // return view('frontend.whyus', compact('slider'));

@@ -2,7 +2,7 @@
 @section('main-container')
 
 
-</div>
+{{-- </div> --}}
 <!-- contact section -->
 
 <section class="contact_section ">
@@ -48,51 +48,26 @@
   </div>
 </section>
 
-<!-- end contact section -->
 
-{{--
-<!-- info section -->
 <section class="info_section layout_padding2">
   <div class="container">
     <div class="info_items">
+      @foreach ($footerbars as $item)
+
       <a href="">
         <div class="item ">
-          <div class="img-box box-1">
-            <img src="" alt="">
+          <div class="box">
+            <img src="{{ asset('storage/' .$item->pic) }}" alt="">
           </div>
           <div class="detail-box">
             <p>
-              Location
+              {{$item->name}}
             </p>
           </div>
         </div>
       </a>
-      <a href="">
-        <div class="item ">
-          <div class="img-box box-2">
-            <img src="" alt="">
-          </div>
-          <div class="detail-box">
-            <p>
-              +02 1234567890
-            </p>
-          </div>
-        </div>
-      </a>
-      <a href="">
-        <div class="item ">
-          <div class="img-box box-3">
-            <img src="" alt="">
-          </div>
-          <div class="detail-box">
-            <p>
-              demo@gmail.com
-            </p>
-          </div>
-        </div>
-      </a>
+      @endforeach
     </div>
   </div>
-</section> --}}
+</section>
 @endsection
-<!-- end info_section -->
