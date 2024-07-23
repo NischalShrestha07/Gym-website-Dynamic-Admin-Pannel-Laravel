@@ -30,7 +30,9 @@
 </head>
 
 <body>
-
+    @php
+    $gymnames=\App\Models\GymName::first();
+    @endphp
     <div class="hero_area" style="background-image: url('{{ asset($slider) }}');">
         <!-- header section strats -->
         <header class="header_section">
@@ -38,7 +40,8 @@
                 <nav class="navbar navbar-expand-lg custom_nav-container ">
                     <a class="navbar-brand" href="{{ asset('/') }}">
                         <span>
-                            Neogym
+                            {{-- Neogym --}}
+                            {{$gymnames->gymname}}
                         </span>
                     </a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse"
@@ -51,18 +54,22 @@
                         <div class="d-flex ml-auto flex-column flex-lg-row align-items-center">
                             <ul class="navbar-nav  ">
                                 <li class="nav-item active">
-                                    <a class="nav-link" href="{{ asset('/') }}">Home <span
-                                            class="sr-only">(current)</span></a>
+                                    {{-- <a class="nav-link" href="{{ asset('/') }}">Home <span --}} <a class="nav-link"
+                                            href="{{ asset('/') }}">{{$gymnames->home}} <span
+                                                class="sr-only">(current)</span></a>
                                 </li>
                                 <li class="nav-item ">
-                                    <a class="nav-link" href="{{ asset('/whyus') }}"> Why us </a>
+                                    <a class="nav-link" href="{{ asset('/whyus') }}"> {{$gymnames->whyus}} </a>
+                                    {{-- <a class="nav-link" href="{{ asset('/whyus') }}"> Why us </a> --}}
                                 </li>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ asset('/trainer') }}"> trainers</a>
+                                    <a class="nav-link" href="{{ asset('/trainer') }}"> {{$gymnames->trainers}}</a>
+                                    {{-- <a class="nav-link" href="{{ asset('/trainer') }}"> trainers</a> --}}
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ asset('/contact') }}"> Contact Us</a>
+                                    <a class="nav-link" href="{{ asset('/contact') }}">{{$gymnames->contactus}}</a>
+                                    {{-- <a class="nav-link" href="{{ asset('/contact') }}"> Contact Us</a> --}}
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ url('/login') }}"> Login</a>

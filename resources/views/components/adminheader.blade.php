@@ -326,83 +326,85 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false"
-                            aria-controls="ui-basic">
+                        <a class="nav-link" data-toggle="collapse" href="#home-section" aria-expanded="false"
+                            aria-controls="home-section">
                             <i class="icon-layout menu-icon"></i>
                             <span class="menu-title">Home</span>
                             <i class="menu-arrow"></i>
                         </a>
-                        <div class="collapse" id="ui-basic">
+                        <div class="collapse" id="home-section">
                             <ul class="nav flex-column sub-menu">
-                                <li class="nav-item"> <a class="nav-link" href="{{ url('/adminDatas') }}">View
-                                        All</a></li>
-                                {{-- <li class="nav-item"> <a class="nav-link"
-                                        href="pages/ui-features/dropdowns.html">Dropdowns</a></li>
-                                <li class="nav-item"> <a class="nav-link"
-                                        href="pages/ui-features/typography.html">Typography</a></li> --}}
+                                <li class="nav-item"><a class="nav-link" href="{{ url('/adminDatas') }}">View All</a>
+                                </li>
                             </ul>
                         </div>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" data-toggle="collapse" href="#form-elements" aria-expanded="false"
-                            aria-controls="form-elements">
+                        <a class="nav-link" data-toggle="collapse" href="#why-us-section" aria-expanded="false"
+                            aria-controls="why-us-section">
                             <i class="icon-columns menu-icon"></i>
                             <span class="menu-title">Why Us</span>
                             <i class="menu-arrow"></i>
                         </a>
-                        <div class="collapse" id="form-elements">
+                        <div class="collapse" id="why-us-section">
                             <ul class="nav flex-column sub-menu">
-                                <li class="nav-item"><a class="nav-link" href="{{ url('/whyuss') }} ">View
-                                        All</a></li>
+                                <li class="nav-item"><a class="nav-link" href="{{ url('/whyuss') }}">View All</a></li>
                             </ul>
                         </div>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" data-toggle="collapse" href="#charts" aria-expanded="false"
-                            aria-controls="charts">
+                        <a class="nav-link" data-toggle="collapse" href="#trainers-section" aria-expanded="false"
+                            aria-controls="trainers-section">
                             <i class="icon-bar-graph menu-icon"></i>
                             <span class="menu-title">Our Trainers</span>
                             <i class="menu-arrow"></i>
                         </a>
-                        <div class="collapse" id="charts">
+                        <div class="collapse" id="trainers-section">
                             <ul class="nav flex-column sub-menu">
-                                <li class="nav-item"> <a class="nav-link" href="/trainers">View All</a>
-                                </li>
+                                <li class="nav-item"><a class="nav-link" href="/trainers">View All</a></li>
                             </ul>
                         </div>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" data-toggle="collapse" href="#charts" aria-expanded="false"
-                            aria-controls="charts">
+                        <a class="nav-link" data-toggle="collapse" href="#footerbar-section" aria-expanded="false"
+                            aria-controls="footerbar-section">
                             <i class="icon-bar-graph menu-icon"></i>
                             <span class="menu-title">Footerbar</span>
                             <i class="menu-arrow"></i>
                         </a>
-                        <div class="collapse" id="charts">
+                        <div class="collapse" id="footerbar-section">
                             <ul class="nav flex-column sub-menu">
-                                <li class="nav-item"> <a class="nav-link" href="/footerbars">View All</a>
-                                </li>
+                                <li class="nav-item"><a class="nav-link" href="/footerbars">View All</a></li>
                             </ul>
                         </div>
                     </li>
-
-
                     <li class="nav-item">
-                        <a class="nav-link" data-toggle="collapse" href="#auth" aria-expanded="false"
-                            aria-controls="auth">
+                        <a class="nav-link" data-toggle="collapse" href="#gymnames-section" aria-expanded="false"
+                            aria-controls="gymnames-section">
+                            <i class="icon-bar-graph menu-icon"></i>
+                            <span class="menu-title">Change Gym Names</span>
+                            <i class="menu-arrow"></i>
+                        </a>
+                        <div class="collapse" id="gymnames-section">
+                            <ul class="nav flex-column sub-menu">
+                                <li class="nav-item"><a class="nav-link" href="/gymnames">View All</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="collapse" href="#user-pages-section" aria-expanded="false"
+                            aria-controls="user-pages-section">
                             <i class="icon-head menu-icon"></i>
                             <span class="menu-title">User Pages</span>
                             <i class="menu-arrow"></i>
                         </a>
-                        <div class="collapse" id="auth">
+                        <div class="collapse" id="user-pages-section">
                             <ul class="nav flex-column sub-menu">
-                                <li class="nav-item"> <a class="nav-link" href="{{ url('logout') }}"> Logout </a>
+                                <li class="nav-item"><a class="nav-link" href="{{ url('logout') }}">Logout</a></li>
+                                <li class="nav-item"><a class="nav-link" href="pages/samples/register.html">Profile</a>
                                 </li>
-                                <li class="nav-item"> <a class="nav-link" href="pages/samples/register.html"> Profile
-                                    </a></li>
                             </ul>
                         </div>
                     </li>
-
                 </ul>
             </nav>

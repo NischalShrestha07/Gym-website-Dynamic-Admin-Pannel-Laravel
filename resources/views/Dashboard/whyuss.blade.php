@@ -75,9 +75,8 @@
                                 @endphp
                                 <tr>
                                     <td><img src="{{ url('uploads/whyuss/'.$item->img) }}" width="100px" alt="">
-                                    <td>{{ $item->title }}</td>
                                     </td>
-
+                                    <td>{{ $item->title }}</td>
                                     <td>{{$item->description}}</td>
                                     <td>{{$item->head}}</td>
                                     <td>{{$item->headdetail}}</td>

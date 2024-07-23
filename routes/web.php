@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\FooterbarController;
 use App\Http\Controllers\Frontend\ContactController;
+use App\Http\Controllers\Frontend\HeaderController;
 use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\Frontend\LoginController;
 use App\Http\Controllers\Frontend\RegisterController;
@@ -47,13 +48,16 @@ Route::put('/UpdateFooterbar', [FooterbarController::class, 'UpdateFooterbar']);
 
 
 //Admin Routes of GymNames
-Route::get('/gymnames', [GymNameController::class, 'index']);
+Route::get('/gymnames', [GymNameController::class, 'gymnames'])->name('gymnames.index');
+Route::post('/AddNewGymName', [GymNameController::class, 'AddNewGymName']);
+Route::put('/UpdateGymName', [GymNameController::class, 'UpdateGymName']);
 
 
 
 
 //Customer Routes
 Route::get('/', [HomeController::class, 'index']);
+// Route::get('/', [HeaderController::class, 'index']);
 Route::get('/login', [LoginController::class, 'index']);
 Route::post('/loginUsers', [LoginController::class, 'loginUsers']);
 Route::get('/register', [RegisterController::class, 'index']);
