@@ -104,6 +104,13 @@
                                                 </div>
                                             </div>
                                         </div>
+                                        <form action="{{route('footerbar.destroy',$item->id)}}" method="POST"
+                                            enctype="multipart/form-data" style="display: inline">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="btn btn-danger">Delete</button>
+
+                                        </form>
                                     </td>
                                 </tr>
 

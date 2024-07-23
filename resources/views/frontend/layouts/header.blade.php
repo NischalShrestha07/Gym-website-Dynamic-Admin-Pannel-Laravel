@@ -14,6 +14,10 @@
 
     <title>Neogym</title>
 
+
+    {{-- here is how you add favicon in the website --}}
+    <link rel="icon" href="{{ asset('frontend/images/u-1.png') }}">
+
     <!-- slider stylesheet -->
     <link rel="stylesheet" type="text/css"
         href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />

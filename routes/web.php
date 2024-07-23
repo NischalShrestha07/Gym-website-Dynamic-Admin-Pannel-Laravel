@@ -44,10 +44,13 @@ Route::put('/UpdateWhyus', [WhyusController::class, 'UpdateWhyus']);
 // Route::delete('/DeleteWhyus', [WhyusController::class, 'DeleteWhyus'])->name('whyuss.destroy');
 Route::delete('/whyuss/{id}', [WhyusController::class, 'DeleteWhyus'])->name('whyuss.destroy');
 
+
+
 //Admin Routes of Footerbars
 Route::get('/footerbars', [FooterbarController::class, 'footerbars'])->name('footerbars.index');
 Route::post('/AddNewFooterbar', [FooterbarController::class, 'AddNewFooterbar']);
 Route::put('/UpdateFooterbar', [FooterbarController::class, 'UpdateFooterbar']);
+Route::delete('/footerbars/{id}', [FooterbarController::class, 'DeleteFooterbar'])->name('footerbar.destroy');
 
 
 

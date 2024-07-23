@@ -65,4 +65,10 @@ class FooterbarController extends Controller
 
         return redirect()->back()->with('success', 'New data added successfully');
     }
+    public function DeleteFooterbar($id)
+    {
+        $footerbar = Footerbar::find($id);
+        $footerbar->delete();
+        return redirect()->route('footerbars.index')->with('success', 'Footerbar deleted succesfully.');
+    }
 }
