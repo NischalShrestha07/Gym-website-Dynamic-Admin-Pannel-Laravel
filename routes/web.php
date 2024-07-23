@@ -22,16 +22,18 @@ use Illuminate\Support\Facades\Route;
 
 
 //Admin Routes of Home
-Route::get('/admin', [AdminController::class, 'index']);
+Route::get('/admin', [AdminController::class, 'index'])->name('admin.index');
 Route::get('/adminDatas', [AdminController::class, 'datas']);
 Route::post('/AddNewData', [AdminController::class, 'AddNewData']);
 Route::put('/UpdateData', [AdminController::class, 'UpdateData']);
+Route::delete('/datas/{id}', [AdminController::class, 'DeleteData'])->name('datas.destroy');
 
 
 //Admin Routes of Trainers
 Route::get('/trainers', [TrainerController::class, 'trainers'])->name('trainers.index');
 Route::post('/AddNewTrainer', [TrainerController::class, 'AddNewTrainer']);
 Route::put('/UpdateTrainer', [TrainerController::class, 'UpdateTrainer']);
+Route::delete('/trainers/{id}', [TrainerController::class, 'DeleteTrainer'])->name('trainers.destroy');
 
 
 
@@ -39,6 +41,8 @@ Route::put('/UpdateTrainer', [TrainerController::class, 'UpdateTrainer']);
 Route::get('/whyuss', [WhyusController::class, 'whyuss'])->name('whyuss.index');
 Route::post('/AddNewWhyus', [WhyusController::class, 'AddNewWhyus']);
 Route::put('/UpdateWhyus', [WhyusController::class, 'UpdateWhyus']);
+// Route::delete('/DeleteWhyus', [WhyusController::class, 'DeleteWhyus'])->name('whyuss.destroy');
+Route::delete('/whyuss/{id}', [WhyusController::class, 'DeleteWhyus'])->name('whyuss.destroy');
 
 //Admin Routes of Footerbars
 Route::get('/footerbars', [FooterbarController::class, 'footerbars'])->name('footerbars.index');

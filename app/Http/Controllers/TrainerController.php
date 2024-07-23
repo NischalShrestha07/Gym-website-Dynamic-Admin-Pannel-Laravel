@@ -79,4 +79,10 @@ class TrainerController extends Controller
 
         return redirect()->back()->with('success', 'New data added successfully');
     }
+    public function DeleteTrainer($id)
+    {
+        $trainer = Trainer::find($id);
+        $trainer->delete();
+        return redirect()->route('trainers.index')->with('success', 'Trainer added sucessfully.');
+    }
 }

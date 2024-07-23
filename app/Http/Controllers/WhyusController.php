@@ -78,4 +78,10 @@ class WhyusController extends Controller
 
         return redirect()->back()->with('success', 'New data added successfully');
     }
+    public function DeleteWhyus($id)
+    {
+        $whyus = Whyus::find($id);
+        $whyus->delete();
+        return redirect()->route('whyuss.index')->with('success', 'Whyus deleted successfully.');
+    }
 }

@@ -195,6 +195,14 @@
                                                 </div>
                                             </div>
                                         </div>
+                                        <form action="{{route('datas.destroy',$item->id)}}" style="display: inline"
+                                            method="POST">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="btn btn-danger">Delete</button>
+
+
+                                        </form>
                                     </td>
                                 </tr>
                                 @endforeach
