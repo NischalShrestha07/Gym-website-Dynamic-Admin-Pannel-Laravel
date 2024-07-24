@@ -52,70 +52,7 @@
           </div>
         </div>
       </div>
-      {{-- <div class="carousel-item">
-        <div class="container">
-          <div class="col-lg-10 col-md-11 mx-auto">
-            <div class="detail-box">
-              <div>
-                <h1>
-                  {{$title}}
 
-                </h1>
-                <p>
-                  {{$description}}
-                </p>
-                <div class="">
-                  <a href="">
-                    Contact Us
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="carousel-item">
-        <div class="container">
-          <div class="col-lg-10 col-md-11 mx-auto">
-            <div class="detail-box">
-              <div>
-                <h1>
-                  {{$title}}
-                </h1>
-                <p>
-                  {{$description}}
-                </p>
-                <div class="">
-                  <a href="">
-                    Contact Us
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="carousel-item">
-        <div class="container">
-          <div class="col-lg-10 col-md-11 mx-auto">
-            <div class="detail-box">
-              <div>
-                <h1>
-                  {{$title}}
-                </h1>
-                <p>
-                  {{$description}}
-                </p>
-                <div class="">
-                  <a href="">
-                    Contact Us
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div> --}}
     </div>
     <ol class="carousel-indicators">
       <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>

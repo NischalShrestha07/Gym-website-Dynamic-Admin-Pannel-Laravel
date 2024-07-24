@@ -26,7 +26,6 @@
           <div class="card-people mt-auto">
             <img src="Dashboard/images/dashboard/people.svg" alt="people">
             <div class="weather-info">
-
             </div>
           </div>
         </div>
@@ -78,7 +77,7 @@
       <div class="col-md-6 grid-margin stretch-card">
         <div class="card">
           <div class="card-body">
-            <p class="card-title">Order Details</p>
+            <p class="card-title">NEOGYM DETAILS</p>
             <p class="font-weight-500">The total number of sessions within the date range. It is the period time a
               user is actively engaged with your website, page or app, etc</p>
             <div class="d-flex flex-wrap mb-5">
@@ -107,7 +106,7 @@
         <div class="card">
           <div class="card-body">
             <div class="d-flex justify-content-between">
-              <p class="card-title">Sales Report</p>
+              <p class="card-title">NEOGYM'S Report</p>
               <a href="#" class="text-info">View all</a>
             </div>
             <p class="font-weight-500">The total number of sessions within the date range. It is the period time a

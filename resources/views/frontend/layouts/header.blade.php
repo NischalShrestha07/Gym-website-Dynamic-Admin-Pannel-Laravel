@@ -31,6 +31,7 @@
     <link href="{{ asset('frontend/css/style.css') }}" rel="stylesheet" />
     <!-- responsive style -->
     <link href="{{ asset('frontend/css/responsive.css') }}" rel="stylesheet" />
+
 </head>
 
 <body>
@@ -56,30 +57,28 @@
 
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <div class="d-flex ml-auto flex-column flex-lg-row align-items-center">
-                            <ul class="navbar-nav  ">
-                                <li class="nav-item active">
-                                    {{-- <a class="nav-link" href="{{ asset('/') }}">Home <span --}} <a class="nav-link"
-                                            href="{{ asset('/') }}">{{$gymnames->home}} <span
-                                                class="sr-only">(current)</span></a>
+
+
+
+
+                            <ul class="navbar-nav">
+                                <li class="nav-item {{ request()->is('/') ? 'current' : '' }}">
+                                    <a class="nav-link" href="{{ url('/') }}">{{$gymnames->home}}</a>
                                 </li>
-                                <li class="nav-item ">
-                                    <a class="nav-link" href="{{ asset('/whyus') }}"> {{$gymnames->whyus}} </a>
-                                    {{-- <a class="nav-link" href="{{ asset('/whyus') }}"> Why us </a> --}}
+                                <li class="nav-item {{ request()->is('whyus') ? 'current' : '' }}">
+                                    <a class="nav-link" href="{{ url('/whyus') }}">{{$gymnames->whyus}}</a>
                                 </li>
+                                <li class="nav-item {{ request()->is('trainer') ? 'current' : '' }}">
+                                    <a class="nav-link" href="{{ url('/trainer') }}">{{$gymnames->trainers}}</a>
                                 </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ asset('/trainer') }}"> {{$gymnames->trainers}}</a>
-                                    {{-- <a class="nav-link" href="{{ asset('/trainer') }}"> trainers</a> --}}
+                                <li class="nav-item {{ request()->is('contact') ? 'current' : '' }}">
+                                    <a class="nav-link" href="{{ url('/contact') }}">{{$gymnames->contactus}}</a>
                                 </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ asset('/contact') }}">{{$gymnames->contactus}}</a>
-                                    {{-- <a class="nav-link" href="{{ asset('/contact') }}"> Contact Us</a> --}}
+                                <li class="nav-item {{ request()->is('login') ? 'current' : '' }}">
+                                    <a class="nav-link" href="{{ url('/login') }}">Login</a>
                                 </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ url('/login') }}"> Login</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ asset('/register') }}">Register</a>
+                                <li class="nav-item {{ request()->is('register') ? 'current' : '' }}">
+                                    <a class="nav-link" href="{{ url('/register') }}">Register</a>
                                 </li>
                             </ul>
                             <div class="user_option">

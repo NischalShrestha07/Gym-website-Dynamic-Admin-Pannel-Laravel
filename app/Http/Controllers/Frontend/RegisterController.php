@@ -20,7 +20,7 @@ class RegisterController extends Controller
     }
 
 
-    public function registerUsers(Request $data)
+    public function registerUser(Request $data)
     {
         $newUser = new User();
         $newUser->fullname = $data->input('fullname');

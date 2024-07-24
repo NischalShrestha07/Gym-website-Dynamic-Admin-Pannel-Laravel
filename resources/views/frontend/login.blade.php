@@ -22,24 +22,33 @@
                             Create New Account
                         </h1>
                     </div>
-                    <form action="{{ url('loginUser') }}" method="POST" enctype="multipart/form-data">
-                        @csrf
-
-
-                        <div>
-                            <input type="email" name="email" placeholder="Email" required />
+                    <div class="contact_form">
+                        @if (session()->has('success'))
+                        <div class="alert alert-success">
+                            <p>{{session()->get('success')}}</p>
                         </div>
 
-                        <div>
-                            <input type="password" name="password" placeholder="Password" required />
-                        </div>
+                        @endif
+                        <form action="{{ url('loginUser') }}" method="POST" enctype="multipart/form-data">
+                            @csrf
 
-                        <div class="d-flex ">
-                            <button type="submit" class="site-btn" name="login">
-                                Log In
-                            </button>
-                        </div>
-                    </form>
+
+                            <div>
+                                <input type="email" name="email" placeholder="Email" required />
+                            </div>
+
+                            <div>
+                                <input type="password" name="password" placeholder="Password" required />
+                            </div>
+
+                            <div class="d-flex ">
+                                <button type="submit" class="site-btn" name="login">
+                                    Log In
+                                </button>
+                            </div>
+                        </form>
+
+                    </div>
                 </div>
             </div>
         </div>
