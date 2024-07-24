@@ -42,7 +42,7 @@ class LoginController extends Controller
 
 
             if ($user->type == 'Customer') {
-                return redirect()->route('frontend.dashboards');
+                return redirect('/dashboards');
             } else {
                 return redirect('/admin'); // Route you to the dashboard 
             }

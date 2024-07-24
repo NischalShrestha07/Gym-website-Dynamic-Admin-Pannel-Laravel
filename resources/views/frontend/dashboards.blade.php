@@ -2,8 +2,53 @@
 @section('main-container')
 {{-- </div> --}}
 
-<!-- trainer section -->
+<style>
+    .welcome_section {
+        text-align: center;
+        background: lightblue;
+        padding: 60px 0;
+    }
 
+    .welcome_section .heading_container h2 {
+        font-size: 36px;
+        font-weight: 700;
+        color: #333;
+        margin-bottom: 20px;
+    }
+
+    .welcome_section .heading_container p {
+        font-size: 18px;
+        color: #666;
+        max-width: 800px;
+        margin: 20px auto 40px;
+        /* Add top margin of 20px to create equal gap */
+    }
+
+    .welcome_section .line-break {
+        font-size: 18px;
+        color: #333;
+        margin: 20px 0;
+    }
+</style>
+
+<!-- Welcome message section -->
+<section class="welcome_section layout_padding">
+    <div class="container">
+        <div class="heading_container">
+            <h2>
+                WELCOME TO NEOGYM FITNESS!
+            </h2>
+            <p>
+                We are thrilled to have you here. Our gym is equipped with state-of-the-art facilities and our
+                well-qualified trainers are here to help you achieve your fitness goals. Let's get started on this
+                exciting journey together!
+            </p>
+        </div>
+    </div>
+</section>
+<!-- End welcome message section -->
+
+<!-- trainer section -->
 <section class="trainer_section layout_padding">
     <div class="container">
         <div class="heading_container">
@@ -78,7 +123,6 @@
         </div>
     </div>
 </section>
-
 
 <!-- end us section -->
 <section class="info_section layout_padding2">
