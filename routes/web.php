@@ -76,3 +76,7 @@ Route::get('/contact', [ContactController::class, 'index']);
 Route::get('/search', [SearchController::class, 'search'])->name('search');
 
 Route::get('/dashboards', [DashboardController::class, 'index'])->name('dashboards');
+
+
+//Search Operation Route
+Route::get('/search', [SearchController::class, 'search'])->name('search');

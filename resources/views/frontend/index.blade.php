@@ -2,7 +2,6 @@
 @section('main-container')
 
 
-
 <section class="slider_section position-relative">
   <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
     <div class="carousel-inner">
