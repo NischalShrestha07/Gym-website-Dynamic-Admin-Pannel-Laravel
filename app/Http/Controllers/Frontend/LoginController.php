@@ -7,6 +7,8 @@ use App\Models\Data;
 use App\Models\Footerbar;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Session;
 
 class LoginController extends Controller
 {
@@ -21,9 +23,36 @@ class LoginController extends Controller
         return view('frontend.login', compact('slider', 'contactimage', 'footerbars'));
         // return view('frontend.login');
     }
+    // public function loginUser(Request $data)
+    // {
+    //     $user = User::where('email', $data->input('email'))->where('password', $data->input('password'))->first();
+    //     //first() is used to read first row only from the database.
+    //     if ($user) {
+    //         session()->put('id', $user->id);
+    //         session()->put('type', $user->type);
+    //         if ($user->type == 'Customer') {
+    //             return redirect('/');
+    //         }
+    //     } else {
+    //         return redirect('login')->with('error', 'Your Email/Password is incorrect.');
+    //     }
+    // }
+
     public function loginUser(Request $data)
     {
-        $user = User::where('email', $data->input('email'))->where('password', $data->input('password'))->first();
-        //first() is used to read first row only from the database.
+        $user = User::where('email', $data->input('email'))->first();
+
+        if ($user && Hash::check($data->input('password'), $user->password)) {
+            Session::put('id', $user->id);
+            Session::put('type', $user->type);
+            // here Facades Session should be used
+            if ($user->type == 'Customer') {
+                return redirect('/');
+            } else {
+                return redirect('/admin-dashboard'); // Assuming you have an admin dashboard
+            }
+        } else {
+            return redirect('login')->with('error', 'Your Email/Password is incorrect.');
+        }
     }
 }

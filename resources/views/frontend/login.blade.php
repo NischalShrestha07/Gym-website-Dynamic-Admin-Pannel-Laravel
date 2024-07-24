@@ -29,6 +29,12 @@
                         </div>
 
                         @endif
+                        @if (session()->has('error'))
+                        <div class="alert alert-danger">
+                            <p>{{session()->get('error')}}</p>
+                        </div>
+
+                        @endif
                         <form action="{{ url('loginUser') }}" method="POST" enctype="multipart/form-data">
                             @csrf
 

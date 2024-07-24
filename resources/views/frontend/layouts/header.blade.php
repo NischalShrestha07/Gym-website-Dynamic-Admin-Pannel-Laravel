@@ -74,12 +74,22 @@
                                 <li class="nav-item {{ request()->is('contact') ? 'current' : '' }}">
                                     <a class="nav-link" href="{{ url('/contact') }}">{{$gymnames->contactus}}</a>
                                 </li>
+
+                                {{--NOTE: this bellow codes shows logout nav if we are loggedIn and shows login and
+                                register
+                                when we are new user/not loggedin --}}
+                                @if (session()->has('id'))
+                                <li class="nav-item {{ request()->is('logout') ? 'current' : '' }}">
+                                    <a class="nav-link" href="{{ url('/logout') }}">Logout</a>
+                                </li>
+                                @else
                                 <li class="nav-item {{ request()->is('login') ? 'current' : '' }}">
                                     <a class="nav-link" href="{{ url('/login') }}">Login</a>
                                 </li>
                                 <li class="nav-item {{ request()->is('register') ? 'current' : '' }}">
                                     <a class="nav-link" href="{{ url('/register') }}">Register</a>
                                 </li>
+                                @endif
                             </ul>
                             <div class="user_option">
                                 <form class="form-inline my-2 my-lg-0 ml-0 ml-lg-4 mb-3 mb-lg-0">
