@@ -31,7 +31,42 @@
     <link href="{{ asset('frontend/css/style.css') }}" rel="stylesheet" />
     <!-- responsive style -->
     <link href="{{ asset('frontend/css/responsive.css') }}" rel="stylesheet" />
+    <style>
+        /* Example CSS for styling the dashboard */
+        .trainers_section,
+        .why_us_section,
+        .footer_info_section {
+            margin-bottom: 30px;
+        }
 
+        .card {
+            margin-bottom: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .card img {
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .info_item img {
+            width: 50px;
+            height: 50px;
+            margin-right: 10px;
+            vertical-align: middle;
+        }
+
+        .info_item p {
+            display: inline-block;
+            vertical-align: middle;
+            margin: 0;
+        }
+    </style>
 </head>
 
 <body>
@@ -80,7 +115,7 @@
                                 when we are new user/not loggedin --}}
                                 @if (session()->has('id'))
                                 <li class="nav-item {{ request()->is('logout') ? 'current' : '' }}">
-                                    <a class="nav-link" href="{{ url('/logout') }}">Logout</a>
+                                    <a class="nav-link" href="{{ url('logoutUser') }}">Logout</a>
                                 </li>
                                 @else
                                 <li class="nav-item {{ request()->is('login') ? 'current' : '' }}">
@@ -92,8 +127,12 @@
                                 @endif
                             </ul>
                             <div class="user_option">
-                                <form class="form-inline my-2 my-lg-0 ml-0 ml-lg-4 mb-3 mb-lg-0">
-                                    <button class="btn  my-2 my-sm-0 nav_search-btn" type="submit"></button>
+                                <form action="{{ route('search') }}" method="GET"
+                                    class="form-inline my-2 my-lg-0 ml-0 ml-lg-4 mb-3 mb-lg-0">
+                                    <input type="text" name="query" class="form-control mr-sm-2 border-dark"
+                                        placeholder="Search..." value="{{ $search ?? '' }}">
+                                    <button class="btn my-2 my-sm-0 nav_search-btn" type="submit"><i
+                                            class="fas fa-search"></i></button>
                                 </form>
                             </div>
                         </div>

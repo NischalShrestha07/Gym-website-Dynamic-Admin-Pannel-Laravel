@@ -101,51 +101,7 @@
         </div>
 
         @endforeach
-        {{-- <div class="col-lg-3 col-md-6">
-          <div class="box">
-            <div class="img-box">
-              <img src="{{ asset('frontend/images/u-4.png') }}" alt="">
-            </div>
-            <div class="detail-box">
-              <h5>
-                NUTRITION
-              </h5>
-              <p>
-                ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-6">
-          <div class="box">
-            <div class="img-box">
-              <img src="{{ asset('frontend/images/u-2.png') }}" alt="">
-            </div>
-            <div class="detail-box">
-              <h5>
-                HEALTHY DIET PLAN
-              </h5>
-              <p>
-                ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-6">
-          <div class="box">
-            <div class="img-box">
-              <img src="{{ asset('frontend/images/u-3.png') }}  " alt="">
-            </div>
-            <div class="detail-box">
-              <h5>
-                SPORT TRAINING
-              </h5>
-              <p>
-                ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-              </p>
-            </div>
-          </div>
-        </div> --}}
+
       </div>
     </div>
   </div>

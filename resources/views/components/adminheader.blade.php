@@ -106,20 +106,6 @@
                             </ul>
                         </div>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" data-toggle="collapse" href="#user-pages-section" aria-expanded="false"
-                            aria-controls="user-pages-section">
-                            <i class="icon-head menu-icon"></i>
-                            <span class="menu-title">User Pages</span>
-                            <i class="menu-arrow"></i>
-                        </a>
-                        <div class="collapse" id="user-pages-section">
-                            <ul class="nav flex-column sub-menu">
-                                <li class="nav-item"><a class="nav-link" href="{{ url('logout') }}">Logout</a></li>
-                                <li class="nav-item"><a class="nav-link" href="pages/samples/register.html">Profile</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </li>
+
                 </ul>
             </nav>

@@ -3,20 +3,21 @@
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\FooterbarController;
 use App\Http\Controllers\Frontend\ContactController;
+use App\Http\Controllers\Frontend\DashboardController;
 use App\Http\Controllers\Frontend\HeaderController;
 use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\Frontend\LoginController;
+use App\Http\Controllers\Frontend\LogoutController;
 use App\Http\Controllers\Frontend\RegisterController;
+use App\Http\Controllers\Frontend\SearchController;
 use App\Http\Controllers\Frontend\TrainersController;
 use App\Http\Controllers\Frontend\WhyusController as FrontendWhyusController;
 use App\Http\Controllers\GymNameController;
-// use App\Http\Controllers\Frontend\WhyusController;
 use App\Http\Controllers\TrainerController;
 use App\Http\Controllers\WhyusController;
 use Illuminate\Support\Facades\Route;
 
 // routes for the login
-// Route::get('/login', [LoginController::class, 'index']);
 
 
 
@@ -64,11 +65,14 @@ Route::put('/UpdateGymName', [GymNameController::class, 'UpdateGymName']);
 
 //Customer Routes
 Route::get('/', [HomeController::class, 'index']);
-// Route::get('/', [HeaderController::class, 'index']);
 Route::get('/login', [LoginController::class, 'index']);
 Route::post('/loginUser', [LoginController::class, 'loginUser']);
+Route::get('/logoutUser', [LogoutController::class, 'logoutUser']);
 Route::get('/register', [RegisterController::class, 'index']);
 Route::post('/registerUser', [RegisterController::class, 'registerUser']);
 Route::get('/whyus', [FrontendWhyusController::class, 'index']);
 Route::get('/trainer', [TrainersController::class, 'index']);
 Route::get('/contact', [ContactController::class, 'index']);
+Route::get('/search', [SearchController::class, 'search'])->name('search');
+
+Route::get('/dashboards', [DashboardController::class, 'index'])->name('dashboards');
