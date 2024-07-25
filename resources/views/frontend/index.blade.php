@@ -1,7 +1,11 @@
 @extends('frontend.layouts.main')
 @section('main-container')
 
-
+<style>
+  .tcolor h1 {
+    color: yellow;
+  }
+</style>
 <section class="slider_section position-relative">
   <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
     <div class="carousel-inner">
@@ -10,7 +14,7 @@
         <div class="container">
           <div class="col-lg-10 col-md-11 mx-auto">
             <div class="detail-box">
-              <div>
+              <div class="tcolor">
                 <h1>
                   {{$title}}
                 </h1>
@@ -34,15 +38,15 @@
         <div class="container">
           <div class="col-lg-10 col-md-11 mx-auto">
             <div class="detail-box">
-              <div>
+              <div class="tcolor">
                 <h1>
                   {{$title}}
                 </h1>
                 <p>
                   {{$description}}
                 </p>
-                <div class="">
-                  <a href="">
+                <div class="cColor">
+                  <a href="/contact">
                     Contact Us
                   </a>
                 </div>

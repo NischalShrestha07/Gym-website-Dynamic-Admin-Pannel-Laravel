@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\ContactController as ControllersContactController;
 use App\Http\Controllers\FooterbarController;
 use App\Http\Controllers\Frontend\ContactController;
 use App\Http\Controllers\Frontend\DashboardController;
@@ -15,6 +16,7 @@ use App\Http\Controllers\Frontend\WhyusController as FrontendWhyusController;
 use App\Http\Controllers\GymNameController;
 use App\Http\Controllers\TrainerController;
 use App\Http\Controllers\WhyusController;
+use Faker\Guesser\Name;
 use Illuminate\Support\Facades\Route;
 
 // routes for the login
@@ -59,10 +61,11 @@ Route::delete('/footerbars/{id}', [FooterbarController::class, 'DeleteFooterbar'
 Route::get('/gymnames', [GymNameController::class, 'gymnames'])->name('gymnames.index');
 Route::post('/AddNewGymName', [GymNameController::class, 'AddNewGymName']);
 Route::put('/UpdateGymName', [GymNameController::class, 'UpdateGymName']);
-Route::delete('/gumnames/{id}', [GymNameController::class, 'DeleteGymName'])->name('gymnames.destroy');
+Route::delete('/gymnames/{id}', [GymNameController::class, 'DeleteGymName'])->name('gymnames.destroy');
 
 
-
+//Admin Routes of Contacts
+Route::get('/contacts', [ControllersContactController::class, 'contacts'])->name('contacts.index');
 
 //Customer Routes
 Route::get('/', [HomeController::class, 'index']);
@@ -74,7 +77,6 @@ Route::post('/registerUser', [RegisterController::class, 'registerUser']);
 Route::get('/whyus', [FrontendWhyusController::class, 'index']);
 Route::get('/trainer', [TrainersController::class, 'index']);
 Route::get('/contact', [ContactController::class, 'index']);
-Route::get('/search', [SearchController::class, 'search'])->name('search');
 
 Route::get('/dashboards', [DashboardController::class, 'index'])->name('dashboards');
 

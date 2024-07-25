@@ -106,6 +106,19 @@
                             </ul>
                         </div>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="collapse" href="#contacts-section" aria-expanded="false"
+                            aria-controls="contacts-section">
+                            <i class="icon-bar-graph menu-icon"></i>
+                            <span class="menu-title">Contacts Details</span>
+                            <i class="menu-arrow"></i>
+                        </a>
+                        <div class="collapse" id="contacts-section">
+                            <ul class="nav flex-column sub-menu">
+                                <li class="nav-item"><a class="nav-link" href="/contacts">View All</a></li>
+                            </ul>
+                        </div>
+                    </li>
 
                 </ul>
             </nav>

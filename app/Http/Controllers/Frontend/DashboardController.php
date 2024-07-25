@@ -30,6 +30,7 @@ class DashboardController extends Controller
         $whyuss = Whyus::all();
         $footerbars = Footerbar::all();
         $gymnames = GymName::all();
+
         // $name = $manage ? $manage->name : "default Title";
         // $photo = $manage ? $manage->photo : "default Title";
         // $facebook = $manage ? $manage->facebook : "default Facebook";
