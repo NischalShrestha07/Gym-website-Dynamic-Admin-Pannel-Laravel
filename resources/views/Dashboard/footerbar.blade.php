@@ -65,7 +65,10 @@
                                 @endphp
                                 <tr>
                                     <td>{{ $item->name }}</td>
-                                    <td><img src="{{ url('uploads/footerbars/'.$item->pic) }}" width="100px" alt="">
+                                    {{-- <td><img src="/storage/{{ $item->pic }}" width="100px" alt=""> --}}
+                                    <td
+                                        style="background:rgb(212, 244, 251); display:inline;display:flex;justify-content:center; align-items: center">
+                                        <img src="/storage/{{ $item->pic }}" width="100px" alt="">
                                     </td>
                                     </td>
                                     <td class="font-weight-medium">

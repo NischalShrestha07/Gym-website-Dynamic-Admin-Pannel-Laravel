@@ -76,7 +76,7 @@
 
                                 <tr>
                                     <td>{{ $item->name }}</td>
-                                    <td><img src="{{ url('uploads/trainers/'.$item->photo) }}" width="100px" alt="">
+                                    <td><img src="/storage/{{ $item->photo }}" width="100px" alt="">
                                     </td>
                                     {{-- <td><img src="{{ url('uploads/trainers/'.$item->photo) }}" width="100px"
                                             alt=""> --}}

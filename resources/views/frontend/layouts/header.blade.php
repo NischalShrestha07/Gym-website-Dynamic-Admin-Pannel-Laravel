@@ -12,7 +12,7 @@
     <meta name="description" content="" />
     <meta name="author" content="" />
 
-    <title>Neogym</title>
+    <title>Dazzel Gym</title>
 
     {{-- here is how you add favicon in the website --}}
     <link rel="icon" href="{{ asset('frontend/images/u-1.png') }}">

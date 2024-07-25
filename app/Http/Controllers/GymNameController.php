@@ -56,4 +56,10 @@ class GymNameController extends Controller
         $gymname->save();
         return redirect()->back()->with('success', 'New data added successfully');
     }
+    public function DeleteGymName($id)
+    {
+        $navdetail = GymName::find($id);
+        $navdetail->delete();
+        return redirect()->route('gymnames.index')->with('success', 'Navdetails deleted sucessfully.');
+    }
 }

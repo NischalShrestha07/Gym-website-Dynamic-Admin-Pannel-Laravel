@@ -1,5 +1,49 @@
 <x-adminheader />
+<style>
+    .table {
+        word-wrap: break-word;
+        width: 100%;
+        border-collapse: collapse;
+    }
 
+    .table-responsive {
+        overflow: hidden;
+        /* Prevents scrollbars from appearing in the container */
+        width: 100%;
+        /* Ensures the container fits the full width of its parent */
+    }
+
+    .table {
+        width: 100%;
+        /* Ensures the table fits within its container */
+        border-collapse: collapse;
+        /* Optional: for cleaner borders */
+    }
+
+    .table th,
+    .table td {
+        border: 1px solid black;
+        padding: 8px;
+        text-align: left;
+        line-height: 1.5;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        /* Alternative to word-wrap */
+        white-space: normal;
+        /* Ensures text wrapping */
+    }
+
+    /* Optional: Set a maximum width for table columns if needed */
+    .table th,
+    .table td {
+        max-width: 200px;
+        /* Adjust as needed */
+        overflow: hidden;
+        /* Prevents overflow of content */
+        text-overflow: ellipsis;
+        /* Adds ellipsis if text overflows */
+    }
+</style>
 <!-- partial -->
 <div class="main-panel">
     <div class="row">
@@ -48,7 +92,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="table-responsive">
+                    <div class="table-responsive table">
                         <table class="table table-striped table-borderless">
                             <thead>
                                 <tr>
@@ -149,10 +193,18 @@
                                 @endphp
                                 <tr>
                                     <td>{{ $item->title }}</td>
-                                    <td><img src="{{ url('uploads/datas/'.$item->homeimage) }}" width="100px" alt="">
+                                    {{-- <td><img src="{{ url('uploads/datas/'.$item->homeimage) }}" width="100px"
+                                            alt=""> --}}
+                                        {{--
+                                    <td><img src="/storage/{{ $item->homeimage }}" width="100px" alt=""> --}}
+                                    <td><img src="{{ asset($item->homeimage) }}" width="100px" alt=""></td>
                                     </td>
                                     <td>{{ $item->description }}</td>
-                                    <td><img src="{{ url('uploads/datas/'.$item->contactimage) }}" width="100px" alt="">
+                                    {{-- <td><img src="{{ url('uploads/datas/'.$item->contactimage) }}" width="100px"
+                                            alt=""> --}}
+                                        {{--
+                                    <td><img src="/storage/{{ $item->contactimage }}" width="100px" alt=""> --}}
+                                    <td><img src="{{ asset($item->contactimage) }}" width="100px" alt=""></td>
                                     </td>
                                     <td class="font-weight-medium">
                                         <button type="button" class="btn btn-primary" data-toggle="modal"

@@ -59,6 +59,7 @@ Route::delete('/footerbars/{id}', [FooterbarController::class, 'DeleteFooterbar'
 Route::get('/gymnames', [GymNameController::class, 'gymnames'])->name('gymnames.index');
 Route::post('/AddNewGymName', [GymNameController::class, 'AddNewGymName']);
 Route::put('/UpdateGymName', [GymNameController::class, 'UpdateGymName']);
+Route::delete('/gumnames/{id}', [GymNameController::class, 'DeleteGymName'])->name('gymnames.destroy');
 
 
 

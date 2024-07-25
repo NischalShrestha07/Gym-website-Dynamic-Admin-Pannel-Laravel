@@ -100,6 +100,6 @@ class AdminController extends Controller
     {
         $data = Data::find($id);
         $data->delete();
-        return redirect()->route('admin.index')->with('success', 'Homes Data deleted successfully.');
+        return redirect()->route('datas.destroy')->with('success', 'Data deleted succesfully.');
     }
 }

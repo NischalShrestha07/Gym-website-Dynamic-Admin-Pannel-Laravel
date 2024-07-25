@@ -1,5 +1,35 @@
 <x-adminheader />
+<style>
+    .table-responsive {
+        overflow: hidden;
+        /* Prevents scrollbars from appearing in the container */
+        width: 100%;
+        /* Ensures the container fits the full width of its parent */
+    }
 
+    .table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    .table th,
+    .table td {
+        border: 1px solid black;
+        padding: 8px;
+        text-align: left;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        white-space: normal;
+        line-height: 1.5;
+    }
+
+    .table th,
+    .table td {
+        max-width: 200px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+</style>
 <!-- partial -->
 <div class="main-panel">
     <div class="row">
@@ -74,7 +104,10 @@
                                 $i++;
                                 @endphp
                                 <tr>
-                                    <td><img src="{{ url('uploads/whyuss/'.$item->img) }}" width="100px" alt="">
+                                    {{-- <td><img src="{{ url('uploads/whyuss/'.$item->img) }}" width="100px" alt="">
+                                        --}}
+                                        {{-- this uploads the image in the admin pannel. --}}
+                                    <td><img src="/storage/{{ $item->img }}" width="100px" alt="">
                                     </td>
                                     <td>{{ $item->title }}</td>
                                     <td>{{$item->description}}</td>
