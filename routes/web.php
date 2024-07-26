@@ -1,3 +1,4 @@
+
 <?php
 
 use App\Http\Controllers\AdminController;
@@ -66,6 +67,9 @@ Route::delete('/gymnames/{id}', [GymNameController::class, 'DeleteGymName'])->na
 
 //Admin Routes of Contacts
 Route::get('/contacts', [ControllersContactController::class, 'contacts'])->name('contacts.index');
+Route::post('/AddNewContact', [ControllersContactController::class, 'AddNewContact']);
+Route::get('/UpdateContact', [ControllersContactController::class, 'UpdateContact']);
+Route::get('/contacts/{id}', [ControllersContactController::class, 'DeleteContact'])->name('contacts.destroy');
 
 //Customer Routes
 Route::get('/', [HomeController::class, 'index']);

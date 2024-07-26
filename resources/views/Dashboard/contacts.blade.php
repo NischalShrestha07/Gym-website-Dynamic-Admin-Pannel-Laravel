@@ -6,7 +6,7 @@
         <div class="col-md-12 grid-margin stretch-card">
             <div class="card">
                 <div class="card-body">
-                    <p class="card-title mb-0">Trainers</p>
+                    <p class="card-title mb-0">Message Details</p>
                     <!-- Button to Open the Modal -->
                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addNewContact">
                         Add New

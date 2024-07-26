@@ -54,7 +54,7 @@ class GymNameController extends Controller
         $gymname->trainers = $request->input('trainers');
         $gymname->contactus = $request->input('contactus');
         $gymname->save();
-        return redirect()->back()->with('success', 'New data added successfully');
+        return redirect()->back()->with('success', ' data updated successfully');
     }
     public function DeleteGymName($id)
     {

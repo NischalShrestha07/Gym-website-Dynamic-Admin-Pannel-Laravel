@@ -110,7 +110,7 @@
                         <a class="nav-link" data-toggle="collapse" href="#contacts-section" aria-expanded="false"
                             aria-controls="contacts-section">
                             <i class="icon-bar-graph menu-icon"></i>
-                            <span class="menu-title">Contacts Details</span>
+                            <span class="menu-title">Message Details</span>
                             <i class="menu-arrow"></i>
                         </a>
                         <div class="collapse" id="contacts-section">
