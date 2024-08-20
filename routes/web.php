@@ -26,7 +26,7 @@ use Illuminate\Support\Facades\Route;
 
 
 //Admin Routes of Home
-Route::get('/admin', [AdminController::class, 'index'])->name('admin.index');
+Route::get('/manageAdmin', [AdminController::class, 'index'])->name('admin.index');
 Route::get('/adminDatas', [AdminController::class, 'datas']);
 Route::post('/AddNewData', [AdminController::class, 'AddNewData']);
 Route::put('/UpdateData', [AdminController::class, 'UpdateData']);
@@ -82,7 +82,7 @@ Route::get('/whyus', [FrontendWhyusController::class, 'index']);
 Route::get('/trainer', [TrainersController::class, 'index']);
 Route::get('/contact', [ContactController::class, 'index']);
 
-Route::get('/dashboards', [DashboardController::class, 'index'])->name('dashboards');
+Route::get('/board', [DashboardController::class, 'index'])->name('dashboards');
 
 
 //Search Operation Route
