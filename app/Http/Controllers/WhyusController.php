@@ -46,38 +46,6 @@ class WhyusController extends Controller
         return redirect()->route('whyuss.index')->with('success', 'New Whyus Details Added Successfully.');
     }
 
-    // public function UpdateWhyus(Request $request)
-    // {
-    //     // Validate the request
-    //     $request->validate([
-    //         'img' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-    //         'title' => 'required|string',
-    //         'description' => 'required|string',
-    //         'head' => 'required|string',
-    //         'headdetail' => 'required|string',
-    //     ]);
-
-    //     // Process img file upload
-    //     if ($request->hasFile('img')) {
-    //         $imgFile = $request->file('img');
-    //         $imgName = time() . '_' . $imgFile->getClientOriginalName();
-    //         $imgFile->move(public_path('uploads/whyus'), $imgName); //this prints outside folder of storage
-    //         $imgPath = 'uploads/whyus/' . $imgName;
-    //     }
-
-
-    //     // UpdateTrainer is same as AddNewData  but only below line is changed
-
-    //     $whyus  = Whyus::find($request->input('id'));
-    //     $whyus->img = $imgPath;
-    //     $whyus->title = $request->input('title');
-    //     $whyus->description = $request->input('description');
-    //     $whyus->head = $request->input('head');
-    //     $whyus->headdetail = $request->input('headdetail');
-    //     $whyus->save();
-
-    //     return redirect()->back()->with('success', 'Whyus Details Updated Successfully.');
-    // }
     public function UpdateWhyus(Request $request)
     {
         // Validate the request
@@ -89,33 +57,12 @@ class WhyusController extends Controller
             'headdetail' => 'nullable|string',
         ]);
 
-        // // Find the existing record
-        // $whyus = Whyus::find($request->input('id'));
 
-        // // Process img file upload if provided
-        // if ($request->hasFile('img')) {
-        //     // Delete the old image if exists
-        //     if (file_exists(public_path($whyus->img))) {
-        //         unlink(public_path($whyus->img));
-        //     }
-
-        //     $imgFile = $request->file('img');
-        //     $imgName = time() . '_' . $imgFile->getClientOriginalName();
-        //     $imgFile->move(public_path('uploads/whyuss'), $imgName);
-        //     $whyus->img = 'uploads/whyuss/' . $imgName;
-        // }
-
-        // // Update other fields
-        // $whyus->title = $request->input('title');
-        // $whyus->description = $request->input('description');
-        // $whyus->head = $request->input('head');
-        // $why`us->headdetail = $request->input('headdetail');
-        // $whyus->save();
 
         if ($request->hasFile('img')) {
             $imgFile = $request->file('img');
             $imgName = time() . '_' . $imgFile->getClientOriginalName();
-            $imgFile->move(public_path('uploads/datas'), $imgName);
+            $imgFile->storeAs('uploads/datas', $imgName, 'public');
             $imgPath = 'uploads/datas/' . $imgName;
         }
 

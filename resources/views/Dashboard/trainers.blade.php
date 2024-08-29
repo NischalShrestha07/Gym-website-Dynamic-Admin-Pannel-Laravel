@@ -83,7 +83,7 @@
 
                                     <tr>
                                         <td>{{ $item->name }}</td>
-                                        <td><img src="/storage/{{ $item->photo }}" width="100px" alt=""> </td>
+                                        {{-- <td><img src="/storage/{{ $item->photo }}" width="100px" alt=""> </td> --}}
                                         {{-- <td><img src="{{ asset($item->photo) }}" width="100px" alt=""></td> --}}
                                         {{-- <td><img src="{{ url('uploads/trainers/'.$item->photo) }}" width="100px"
                                             alt=""> --}}
@@ -111,8 +111,8 @@
                                                                 @method('PUT')
                                                                 <label for="">Name:</label>
                                                                 <input type="text" id="name" name="name"
-                                                                    value="{{ $item->name }}"
-                                                                    placeholder="Enter Name" class="form-control mb-2">
+                                                                    value="{{ $item->name }}" placeholder="Enter Name"
+                                                                    class="form-control mb-2">
 
                                                                 <label for="photo">Photo</label>
                                                                 <input type="file" id="photo" name="photo"
