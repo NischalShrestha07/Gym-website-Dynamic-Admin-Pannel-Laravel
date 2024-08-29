@@ -137,4 +137,3 @@ Route::get('/board', [DashboardController::class, 'index'])->name('dashboards');
 
 
 //Search Operation Route
-Route::get('/search', [SearchController::class, 'search'])->name('search');

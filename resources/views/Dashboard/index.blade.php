@@ -15,7 +15,7 @@
                             immaculate surroundings to safeguard your health and wellness. Plus, with our exclusive free
                             international pass, you gain access to any Royal Power Gym worldwide.
                         </span><br>
-                        <button class="m-2 btn btn-success h1">Contact Us</button>
+                        <a href="/contact" class="m-2 btn btn-success h1">Contact Us</a>
                     </div>
                 </div>
             </div>
@@ -24,27 +24,7 @@
                 <div class="content-wrapper">
                     <div class="row">
                         <div class="col-md-12 grid-margin">
-                            {{-- <div class="row">
-                    <div class="col-12 col-xl-8 mb-4 mb-xl-0">
-                        <h3 class="font-weight-bold text-danger">WELCOME TO ROYAL POWER GYM'S FAMILY</h3>
-                        <span> Royal Power Gym Nepal, your local fitness center in Biratnagar! We are the first
-                            international franchise gym of Nepal opened in 2022, with world-class facilities, premium
-                            gym equipment and expert trainers. Our commitment is to help you achieve your fitness goals.
-                            At Royal Power Gym Nepal, we understand that fitness is not one-size-fits-all. That’s why we
-                            offer a wide range of fitness classes designed from high-intensity interval training to
-                            yoga, ashtanga yoga. We also hold hygiene and sanitation in the highest regard, ensuring
-                            immaculate surroundings to safeguard your health and wellness. Plus, with our exclusive free
-                            international pass, you gain access to any Royal Power Gym worldwide.
-                        </span><br>
-                        <button class="m-2 btn btn-success h1">Contact Us</button>
-                    </div>
-                    <div class="col-12 col-xl-4">
-                        <div class="justify-content-end d-flex">
-                            <div class="dropdown flex-md-grow-1 flex-xl-grow-0">
-                            </div>
-                        </div>
-                    </div>
-                </div> --}}
+
                         </div>
                     </div>
                     <div class="row">

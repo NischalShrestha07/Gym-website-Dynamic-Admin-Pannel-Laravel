@@ -30,7 +30,7 @@ class ContactController extends Controller
         $mess->phoneNo = $request->phoneNo;
         $mess->message = $request->message;
 
-        return redirect()->route('contacts.index')->with('success', 'Message Details added successfully.');
+        return redirect()->route('contacts.index')->with('success', 'Message Details Added successfully.');
     }
 
     public function UpdateContact(Request $request)
@@ -48,12 +48,12 @@ class ContactController extends Controller
         $mess->phoneNo = $request->input('phoneNo');
         $mess->message = $request->input('message');
         $mess->save();
-        return redirect()->back()->with('success', ' Data updated successfully.');
+        return redirect()->back()->with('success', ' Data Updated successfully.');
     }
     public function DeleteContact($id)
     {
         $mass = Contact::find($id);
         $mass->delete();
-        return redirect()->route('contacts.index')->with('success', 'Message deleted sucessfully.');
+        return redirect()->route('contacts.index')->with('success', 'Message Deleted sucessfully.');
     }
 }

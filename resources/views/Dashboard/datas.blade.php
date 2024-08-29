@@ -236,9 +236,11 @@
                                                                 <input type="text" id="title" name="title"
                                                                     value="{{ $item->title }}"
                                                                     placeholder="Enter Title" class="form-control mb-2">
+
                                                                 <label for="homeimage">HomeImage</label>
                                                                 <input type="file" id="homeimage" name="homeimage"
                                                                     class="form-control mb-2">
+
                                                                 <label for="description">Description</label>
                                                                 <input type="text" id="description"
                                                                     value="{{ $item->description }}" name="description"

@@ -9,7 +9,11 @@ class Trainer extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'name', 'photo', 'facebook', 'twitter', 'instagram'
+        'name',
+        'photo',
+        'facebook',
+        'twitter',
+        'instagram'
 
     ];
 }

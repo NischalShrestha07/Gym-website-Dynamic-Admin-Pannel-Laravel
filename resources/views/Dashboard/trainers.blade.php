@@ -83,8 +83,8 @@
 
                                     <tr>
                                         <td>{{ $item->name }}</td>
-                                        <td><img src="/storage/{{ $item->photo }}" width="100px" alt="">
-                                        </td>
+                                        <td><img src="/storage/{{ $item->photo }}" width="100px" alt=""> </td>
+                                        {{-- <td><img src="{{ asset($item->photo) }}" width="100px" alt=""></td> --}}
                                         {{-- <td><img src="{{ url('uploads/trainers/'.$item->photo) }}" width="100px"
                                             alt=""> --}}
                                         <td>{{ $item->facebook }}</td>
@@ -114,8 +114,8 @@
                                                                     value="{{ $item->name }}"
                                                                     placeholder="Enter Name" class="form-control mb-2">
 
-                                                                <label for="Photo">Photo</label>
-                                                                <input type="file" id="Photo" name="Photo"
+                                                                <label for="photo">Photo</label>
+                                                                <input type="file" id="photo" name="photo"
                                                                     class="form-control mb-2">
 
                                                                 <label for="facebook">Facebook</label>

@@ -54,7 +54,7 @@ class AdminController extends Controller
         $data->description = $request->input('description');
         $data->save();
 
-        return redirect()->back()->with('success', 'New data added successfully');
+        return redirect()->back()->with('success', 'New Data Added successfully');
     }
 
 
@@ -90,16 +90,14 @@ class AdminController extends Controller
         $data->homeimage = $homeImagePath;
         $data->contactimage = $contactImagePath;
         $data->description = $request->input('description');
-
-
         $data->save();
 
-        return redirect()->back()->with('success', 'New data added successfully');
+        return redirect()->back()->with('success', 'HomePage Updated successfully');
     }
     public function DeleteData($id)
     {
         $data = Data::find($id);
         $data->delete();
-        return redirect()->route('datas.destroy')->with('success', 'Data deleted succesfully.');
+        return redirect()->route('datas.destroy')->with('success', 'Data Deleted succesfully.');
     }
 }

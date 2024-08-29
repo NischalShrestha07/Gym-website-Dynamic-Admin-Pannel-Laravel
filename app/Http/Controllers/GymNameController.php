@@ -35,7 +35,7 @@ class GymNameController extends Controller
         $gymname->contactus = $request->contactus;
         $gymname->save();
 
-        return redirect()->route('gymnames.index')->with('success', 'Gymname has been added successfully.');
+        return redirect()->route('gymnames.index')->with('success', ' New Nav Details Added Successfully.');
     }
     public function UpdateGymName(Request $request)
     {
@@ -54,12 +54,12 @@ class GymNameController extends Controller
         $gymname->trainers = $request->input('trainers');
         $gymname->contactus = $request->input('contactus');
         $gymname->save();
-        return redirect()->back()->with('success', ' data updated successfully');
+        return redirect()->back()->with('success', 'Nav Details Updated Successfully');
     }
     public function DeleteGymName($id)
     {
         $navdetail = GymName::find($id);
         $navdetail->delete();
-        return redirect()->route('gymnames.index')->with('success', 'Navdetails deleted sucessfully.');
+        return redirect()->route('gymnames.index')->with('success', 'Nav Details Deleted Sucessfully.');
     }
 }
