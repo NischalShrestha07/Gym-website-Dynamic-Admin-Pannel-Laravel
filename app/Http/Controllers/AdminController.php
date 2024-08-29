@@ -25,9 +25,9 @@ class AdminController extends Controller
         // Validate the request
         $request->validate([
             'title' => 'required|string|max:255',
-            'homeimage' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'contactimage' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'description' => 'required|string',
+            'homeimage' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'contactimage' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'description' => 'nullable|string',
         ]);
 
         // Process homeimage file upload

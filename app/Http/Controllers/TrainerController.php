@@ -44,45 +44,86 @@ class TrainerController extends Controller
         $trainer->save();
 
         // Redirect to the trainers index with a success message
-        return redirect()->route('trainers.index')->with('success', 'Trainer added successfully');
+        return redirect()->route('trainers.index')->with('success', 'Trainer Added successfully');
     }
-
     public function UpdateTrainer(Request $request)
     {
         // Validate the request
         $request->validate([
             'name' => 'required|string',
-            'photo' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'facebook' => 'nullable|url',
-            'twitter' => 'nullable|url',
-            'instagram' => 'nullable|url',
+            'photo' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',  // Made 'photo' nullable
+            'facebook' => 'nullable',
+            'twitter' => 'nullable',
+            'instagram' => 'nullable',
         ]);
 
-        // Process photo file upload
+        // Find the trainer
+        $trainer = Trainer::find($request->input('id'));
+        if (!$trainer) {
+            return redirect()->back()->with('error', 'Trainer not found');
+        }
+
+        // Process photo file upload if present
         if ($request->hasFile('photo')) {
             $photoFile = $request->file('photo');
             $photoName = time() . '_' . $photoFile->getClientOriginalName();
             $photoFile->move(public_path('uploads/trainers'), $photoName);
-            $photoPath = 'uploads/trainers/' . $photoName;
+            $trainer->photo = 'uploads/trainers/' . $photoName;  // Update photo path
         }
 
-
-        // UpdateTrainer is same as AddNewData  but only below line is changed
-
-        $trainer  = Trainer::find($request->input('id'));
+        // Update the trainer details
         $trainer->name = $request->input('name');
-        $trainer->photo = $photoPath;
         $trainer->facebook = $request->input('facebook');
         $trainer->twitter = $request->input('twitter');
         $trainer->instagram = $request->input('instagram');
         $trainer->save();
 
-        return redirect()->back()->with('success', 'New data added successfully');
+        return redirect()->back()->with('success', 'Trainer Updated successfully');  // Changed success message
     }
+
+    // public function UpdateTrainer(Request $request)
+    // {
+    //     // Validate the request
+    //     $request->validate([
+    //         // 'name' => 'required|string',
+    //         // 'photo' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+    //         // 'facebook' => 'nullable|url',
+    //         // 'twitter' => 'nullable|url',
+    //         // 'instagram' => 'nullable|url',
+
+
+    //         'name' => 'required|string',
+    //         'photo' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',  // Made 'photo' nullable
+    //         'facebook' => 'nullable|url',
+    //         'twitter' => 'nullable|url',
+    //         'instagram' => 'nullable|url',
+    //     ]);
+
+    //     // Process photo file upload
+    //     if ($request->hasFile('photo')) {
+    //         $photoFile = $request->file('photo');
+    //         $photoName = time() . '_' . $photoFile->getClientOriginalName();
+    //         $photoFile->move(public_path('uploads/trainers'), $photoName);
+    //         $photoPath = 'uploads/trainers/' . $photoName;
+    //     }
+
+
+    //     // UpdateTrainer is same as AddNewData  but only below line is changed
+
+    //     $trainer  = Trainer::find($request->input('id'));
+    //     $trainer->name = $request->input('name');
+    //     $trainer->photo = $photoPath;
+    //     $trainer->facebook = $request->input('facebook');
+    //     $trainer->twitter = $request->input('twitter');
+    //     $trainer->instagram = $request->input('instagram');
+    //     $trainer->save();
+
+    //     return redirect()->back()->with('success', 'New data added successfully');
+    // }
     public function DeleteTrainer($id)
     {
         $trainer = Trainer::find($id);
         $trainer->delete();
-        return redirect()->route('trainers.index')->with('success', 'Trainer added sucessfully.');
+        return redirect()->route('trainers.index')->with('success', 'Trainer Deleted sucessfully.');
     }
 }

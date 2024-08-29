@@ -35,7 +35,7 @@ class FooterbarController extends Controller
         $footerbar->save();
 
         // Redirect to the trainers index with a success message
-        return redirect()->route('footerbars.index')->with('success', 'Footerbar added successfully');
+        return redirect()->route('footerbars.index')->with('success', 'Footerbar Added successfully');
     }
     /*
     public function UpdateFooterbar(Request $request)
@@ -84,7 +84,7 @@ class FooterbarController extends Controller
 
         // UpdateTrainer is same as AddNewData  but only below line is changed
 
-        $trainer  = Trainer::find($request->input('id'));
+        $trainer  = Footerbar::find($request->input('id'));
         $trainer->name = $request->input('name');
         $trainer->photo = $photoPath;
         $trainer->facebook = $request->input('facebook');
@@ -92,13 +92,13 @@ class FooterbarController extends Controller
         $trainer->instagram = $request->input('instagram');
         $trainer->save();
 
-        return redirect()->back()->with('success', 'New data added successfully');
+        return redirect()->back()->with('success', 'Footerbar Updated successfully');
     }
 
     public function DeleteFooterbar($id)
     {
         $footerbar = Footerbar::find($id);
         $footerbar->delete();
-        return redirect()->route('footerbars.index')->with('success', 'Footerbar deleted succesfully.');
+        return redirect()->route('footerbars.index')->with('success', 'Footerbar Deleted succesfully.');
     }
 }
