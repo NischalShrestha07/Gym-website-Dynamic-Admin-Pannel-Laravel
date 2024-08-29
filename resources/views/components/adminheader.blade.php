@@ -106,7 +106,7 @@
                             </ul>
                         </div>
                     </li>
-                    <li class="nav-item">
+                    {{-- <li class="nav-item">
                         <a class="nav-link" data-toggle="collapse" href="#contacts-section" aria-expanded="false"
                             aria-controls="contacts-section">
                             <i class="icon-bar-graph menu-icon"></i>
@@ -118,7 +118,7 @@
                                 <li class="nav-item"><a class="nav-link" href="/contacts">View All</a></li>
                             </ul>
                         </div>
-                    </li>
+                    </li> --}}
 
                 </ul>
             </nav>

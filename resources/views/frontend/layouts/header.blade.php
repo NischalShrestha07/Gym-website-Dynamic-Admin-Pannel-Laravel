@@ -100,7 +100,7 @@
 
 <body>
     @php
-    $gymnames=\App\Models\GymName::first();
+        $gymnames = \App\Models\GymName::first();
     @endphp
     <div class="hero_area" style="background-image: url('{{ asset($slider) }}');">
         <!-- header section starts -->
@@ -110,7 +110,7 @@
                     <a class="navbar-brand" href="{{ asset('/') }}">
                         <span>
                             {{-- Neogym --}}
-                            {{$gymnames->gymname}}
+                            {{ $gymnames->gymname }}
                         </span>
                     </a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse"
@@ -123,22 +123,22 @@
                         <div class="d-flex ml-auto flex-column flex-lg-row align-items-center">
                             <ul class="navbar-nav">
                                 <li class="nav-item {{ request()->is('/') ? 'active' : '' }}">
-                                    <a class="nav-link" href="{{ url('/') }}">{{$gymnames->home}}</a>
+                                    <a class="nav-link" href="{{ url('/') }}">{{ $gymnames->home }}</a>
                                 </li>
                                 <li class="nav-item {{ request()->is('whyus') ? 'active' : '' }}">
-                                    <a class="nav-link" href="{{ url('/whyus') }}">{{$gymnames->whyus}}</a>
+                                    <a class="nav-link" href="{{ url('/whyus') }}">{{ $gymnames->whyus }}</a>
                                 </li>
                                 <li class="nav-item {{ request()->is('trainer') ? 'active' : '' }}">
-                                    <a class="nav-link" href="{{ url('/trainer') }}">{{$gymnames->trainers}}</a>
+                                    <a class="nav-link" href="{{ url('/trainer') }}">{{ $gymnames->trainers }}</a>
                                 </li>
                                 <li class="nav-item {{ request()->is('contact') ? 'active' : '' }}">
-                                    <a class="nav-link" href="{{ url('/contact') }}">{{$gymnames->contactus}}</a>
+                                    <a class="nav-link" href="{{ url('/contact') }}">{{ $gymnames->contactus }}</a>
                                 </li>
 
                                 {{-- NOTE: this below code shows logout nav if we are logged in and shows login and
                                 register
                                 when we are new user/not logged in --}}
-                                @if (session()->has('id'))
+                                {{-- @if (session()->has('id'))
                                 <li class="nav-item {{ request()->is('logout') ? 'active' : '' }}">
                                     <a class="nav-link" href="{{ url('logoutUser') }}">Logout</a>
                                 </li>
@@ -148,18 +148,10 @@
                                 </li>
                                 <li class="nav-item {{ request()->is('register') ? 'active' : '' }}">
                                     <a class="nav-link" href="{{ url('/register') }}">Register</a>
-                                </li>
-                                @endif
+                                </li> --}}
+                                {{-- @endif --}}
                             </ul>
-                            <div class="user_option">
-                                <form action="{{ route('search') }}" method="GET"
-                                    class="form-inline my-2 my-lg-0 ml-0 ml-lg-4 mb-3 mb-lg-0">
-                                    <input type="text" name="query" class="form-control mr-sm-2 border-dark"
-                                        placeholder="Search..." value="{{ $search ?? '' }}">
-                                    <button class="btn my-2 my-sm-0 nav_search-btn" type="submit"><i
-                                            class="fas fa-search"></i></button>
-                                </form>
-                            </div>
+
                         </div>
                     </div>
                 </nav>

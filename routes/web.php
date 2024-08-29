@@ -1,6 +1,7 @@
 
 <?php
 
+use App\Http\Controllers\Admin\AdminController as AdminAdminController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ContactController as ControllersContactController;
 use App\Http\Controllers\FooterbarController;
@@ -15,12 +16,63 @@ use App\Http\Controllers\Frontend\SearchController;
 use App\Http\Controllers\Frontend\TrainersController;
 use App\Http\Controllers\Frontend\WhyusController as FrontendWhyusController;
 use App\Http\Controllers\GymNameController;
+use App\Http\Controllers\ManageAdminController;
 use App\Http\Controllers\TrainerController;
 use App\Http\Controllers\WhyusController;
 use Faker\Guesser\Name;
 use Illuminate\Support\Facades\Route;
 
-// routes for the login
+
+// Route::group(
+//     ['prefix' => 'admin'],
+//     function () {
+//         Route::group(['middleware' => 'admin.guest'], function () {
+//             Route::get('login', [AdminAdminController::class, 'index'])->name('admin.login');
+//             Route::get('register', [AdminAdminController::class, 'register'])->name('admin.register');
+//             Route::post('login', [AdminAdminController::class, 'authenticate'])->name('admin.authenticate');
+//         });
+//         Route::group(
+//             ['middleware' => 'admin.auth'],
+//             function () {
+
+//                 Route::get('logout', [AdminAdminController::class, 'logout'])->name('admin.logout');
+
+//                 Route::get('dashboard', [AdminAdminController::class, 'dashboard'])->name('admin.dashboard');
+
+//                 Route::get('form', [AdminAdminController::class, 'form'])->name('admin.form');
+
+//                 Route::get('table', [AdminAdminController::class, 'table'])->name('admin.table');
+//             }
+//         );
+//     }
+// );
+Route::get('admin/login', [AdminAdminController::class, 'index'])->name('admin.login');
+Route::get('admin/dashboard', [AdminAdminController::class, 'dashboard'])->name('admin.dashboard');
+Route::get('admin/form', [AdminAdminController::class, 'form'])->name('admin.form');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
