@@ -41,14 +41,22 @@
                                                 <td>Jane Smith</td>
                                                 <td>Monday</td>
                                                 <td>10:00 AM</td>
-                                                <td><a href="#" class="btn btn-primary btn-sm">Edit</a></td>
+                                                <td>
+                                                    <a href="#" class="btn btn-primary btn-sm">Edit</a>
+                                                    <a href="#" class="btn btn-danger btn-sm">Delete</a>
+
+                                                </td>
                                             </tr>
                                             <tr>
                                                 <td>CrossFit</td>
                                                 <td>Mike Johnson</td>
                                                 <td>Wednesday</td>
                                                 <td>6:00 PM</td>
-                                                <td><a href="#" class="btn btn-primary btn-sm">Edit</a></td>
+                                                <td>
+                                                    <a href="#" class="btn btn-warning btn-sm">Edit</a>
+                                                    <a href="#" class="btn btn-danger btn-sm">Delete</a>
+
+                                                </td>
                                             </tr>
                                             <!-- Additional rows as needed -->
                                         </tbody>

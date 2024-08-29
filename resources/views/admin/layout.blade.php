@@ -53,7 +53,7 @@
                             class="fas fa-bars"></i></a>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
-                    <a href="index3.html" class="nav-link">Home</a>
+                    <a href="{{ route('admin.dashboard') }}" class="nav-link">Home</a>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
                     <a href="#" class="nav-link">Contact</a>
@@ -204,7 +204,7 @@
                         <img src="dist/img/user8-128x128.jpg" class="img-circle elevation-2" alt="User Image">
                     </div>
                     <div class="info">
-                        <a href="#" class="d-block">Dazzle Gym</a>
+                        <a href="#" class="d-block">Royal Power Gym</a>
                     </div>
                 </div>
 

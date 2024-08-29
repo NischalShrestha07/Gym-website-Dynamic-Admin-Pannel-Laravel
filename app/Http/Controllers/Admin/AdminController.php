@@ -21,19 +21,19 @@ class AdminController extends Controller
     }
     public function trainer()
     {
-        return view('admin.trainer');
+        return view('admin.trainers.trainer');
     }
     public function membership()
     {
-        return view('admin.membership');
+        return view('admin.memberships.membership');
     }
     public function class()
     {
-        return view('admin.class');
+        return view('admin.class_schedules.class');
     }
     public function billing()
     {
-        return view('admin.billing');
+        return view('admin.billings.billing');
     }
     public function setting()
     {
