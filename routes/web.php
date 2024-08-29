@@ -109,7 +109,6 @@ Route::put('/UpdateFooterbar', [FooterbarController::class, 'UpdateFooterbar']);
 Route::delete('/footerbars/{id}', [FooterbarController::class, 'DeleteFooterbar'])->name('footerbar.destroy');
 
 
-
 //Admin Routes of GymNames
 Route::get('/gymnames', [GymNameController::class, 'gymnames'])->name('gymnames.index');
 Route::post('/AddNewGymName', [GymNameController::class, 'AddNewGymName']);

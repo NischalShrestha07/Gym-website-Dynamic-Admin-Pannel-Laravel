@@ -42,6 +42,7 @@ class HomeController extends Controller
         // return view('frontend.index', compact('title', 'slider', 'description', 'contactimage', 'name', 'photo', 'facebook', 'twitter', 'instagram'));
         return view('frontend.index', compact('man', 'title', 'slider', 'description', 'contactimage', 'trainers', 'whyuss', 'footerbars', 'gymnames'));
     }
+
     // public function trainer()
     // {
     //     $manage = Trainer::latest()->first();
