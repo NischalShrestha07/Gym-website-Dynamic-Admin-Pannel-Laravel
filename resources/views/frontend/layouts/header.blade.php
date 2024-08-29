@@ -7,12 +7,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <!-- Mobile Metas -->
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <!-- Site Metas -->
     <meta name="keywords" content="" />
     <meta name="description" content="" />
     <meta name="author" content="" />
 
-    <title>Dazzel Gym</title>
+    <title>Royal Power Gym</title>
 
     {{-- here is how you add favicon in the website --}}
     <link rel="icon" href="{{ asset('frontend/images/u-1.png') }}">

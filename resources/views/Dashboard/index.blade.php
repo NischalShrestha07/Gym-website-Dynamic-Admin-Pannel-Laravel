@@ -246,7 +246,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row">
+                    {{-- <div class="row">
                         <div class="col-md-12 grid-margin stretch-card">
                             <div class="card position-relative">
                                 <div class="card-body">
@@ -539,7 +539,99 @@
                                 </div>
                             </div>
                         </div>
+                    </div> --}}
+                    <div class="row">
+                        <div class="col-md-12 grid-margin stretch-card">
+                            <div class="card position-relative">
+                                <div class="card-body">
+                                    <h4 class="card-title">Trainer Overview</h4>
+                                    <div class="table-responsive">
+                                        <table class="table table-borderless report-table">
+                                            <tr>
+                                                <th>Trainer</th>
+                                                <th>Classes Today</th>
+                                                <th>Availability</th>
+                                                <th>Contact</th>
+                                            </tr>
+                                            <tr>
+                                                <td>John Doe</td>
+                                                <td>5</td>
+                                                <td><span class="badge badge-success">Available</span></td>
+                                                <td>john.doe@example.com</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Jane Smith</td>
+                                                <td>3</td>
+                                                <td><span class="badge badge-warning">Busy</span></td>
+                                                <td>jane.smith@example.com</td>
+                                            </tr>
+                                            <!-- Add more trainers as needed -->
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
+
+
+                    <div class="row">
+                        <div class="col-md-12 grid-margin stretch-card">
+                            <div class="card position-relative">
+                                <div class="card-body">
+                                    <h4 class="card-title">Membership Plans</h4>
+                                    <a href="#" class="btn btn-primary mb-3">Add New Plan</a>
+                                    <div class="table-responsive">
+                                        <table class="table table-bordered">
+                                            <thead>
+                                                <tr>
+                                                    <th>Plan Name</th>
+                                                    <th>Duration</th>
+                                                    <th>Price</th>
+                                                    <th>Actions</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>Basic Membership</td>
+                                                    <td>1 Month</td>
+                                                    <td>$30</td>
+                                                    <td>
+                                                        <a href="#" class="btn btn-sm btn-info">Edit</a>
+                                                        <a href="#" class="btn btn-sm btn-danger">Delete</a>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Premium Membership</td>
+                                                    <td>6 Months</td>
+                                                    <td>$150</td>
+                                                    <td>
+                                                        <a href="#" class="btn btn-sm btn-info">Edit</a>
+                                                        <a href="#" class="btn btn-sm btn-danger">Delete</a>
+                                                    </td>
+                                                </tr>
+                                                <!-- Add more membership plans as needed -->
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <div class="row">
+                        <div class="col-md-12 grid-margin stretch-card">
+                            <div class="card position-relative">
+                                <div class="card-body">
+                                    <h4 class="card-title">Class Schedule</h4>
+                                    <div id="class-schedule-calendar"></div> <!-- Use a calendar plugin for display -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
                     <div class="row">
                         <div class="col-md-7 grid-margin stretch-card">
                             <div class="card">

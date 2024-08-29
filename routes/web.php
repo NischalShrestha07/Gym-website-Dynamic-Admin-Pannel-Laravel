@@ -49,6 +49,11 @@ use Illuminate\Support\Facades\Route;
 Route::get('admin/login', [AdminAdminController::class, 'index'])->name('admin.login');
 Route::get('admin/dashboard', [AdminAdminController::class, 'dashboard'])->name('admin.dashboard');
 Route::get('admin/form', [AdminAdminController::class, 'form'])->name('admin.form');
+Route::get('admin/trainer', [AdminAdminController::class, 'trainer'])->name('admin.trainer');
+Route::get('admin/membership', [AdminAdminController::class, 'membership'])->name('admin.membership');
+Route::get('admin/class', [AdminAdminController::class, 'class'])->name('admin.class');
+Route::get('admin/billing', [AdminAdminController::class, 'billing'])->name('admin.billing');
+Route::get('admin/setting', [AdminAdminController::class, 'setting'])->name('admin.setting');
 
 
 

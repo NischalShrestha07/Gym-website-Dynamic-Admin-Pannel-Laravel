@@ -5,6 +5,7 @@
     {{-- <x-adminheader /> --}}
 
     <!-- partial -->
+
     <div class="main-panel">
         <div class="content-wrapper">
             <div class="row">
@@ -749,9 +750,4 @@
                 </div>
             </div>
         </div>
-
-
-        {{-- <x-adminfooter /> --}}
-        <!-- content-wrapper ends -->
-        <!-- partial:partials/_footer.html -->
     @endsection

@@ -249,37 +249,32 @@
                                         <p>Change the Details Dynamically</p>
                                     </a>
                                 </li>
+
+                            </ul>
+                        </li>
+
+                        {{-- academic_year --}}
+                        <li class="nav-item">
+                            <a href="{{ route('admin.trainer') }}" class="nav-link">
+                                <i class="nav-icon fas fa-chart-pie"></i>
+                                <p>
+                                    Trainer Mngt
+                                    <i class="right fas fa-angle-left"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="{{ route('admin.trainer') }}" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Add Trainer</p>
+                                    </a>
+                                </li>
                                 {{-- <li class="nav-item">
                                     <a href="{{ route('academic_year.read') }}" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>View Academic Years List</p>
                                     </a>
                                 </li> --}}
-                            </ul>
-                        </li>
-
-                        {{-- academic_year --}}
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="nav-icon fas fa-chart-pie"></i>
-                                <p>
-                                    Academic Year
-                                    <i class="right fas fa-angle-left"></i>
-                                </p>
-                            </a>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    {{-- <a href="{{ route('academic_year.create') }}" class="nav-link"> --}}
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Add Academic Year</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    {{-- <a href="{{ route('academic_year.read') }}" class="nav-link"> --}}
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>View Academic Years List</p>
-                                    </a>
-                                </li>
                             </ul>
                         </li>
 
@@ -290,24 +285,24 @@
                             <a href="" class="nav-link">
                                 <i class="nav-icon fas fa-chart-pie"></i>
                                 <p>
-                                    Class Mngt
+                                    Membership Mngt
                                     <i class="right fas fa-angle-left"></i>
                                 </p>
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    {{-- <a href="{{ route('class.create') }}" class="nav-link"> --}}
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Add Class</p>
+                                    <a href="{{ route('admin.membership') }}" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Add Membership</p>
                                     </a>
                                 </li>
-                                <li class="nav-item">
-                                    {{-- <a href="{{ route('class.read') }}" class="nav-link"> --}}
+                                {{-- <li class="nav-item">
+                                    <a href="{{ route('class.read') }}" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>View Class List</p>
                                     </a>
 
-                                </li>
+                                </li> --}}
                             </ul>
 
                         </li>
@@ -318,24 +313,24 @@
                                 <i class="nav-icon fas fa-chart-pie"></i>
 
                                 <p>
-                                    Fee Head Mngt
+                                    Class Schedule Mngt
                                     <i class="right fas fa-angle-left"></i>
                                 </p>
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    {{-- <a href="{{ route('feehead.create') }}" class="nav-link"> --}}
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Add Fee Head</p>
+                                    <a href="{{ route('admin.class') }}" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Class Schedule</p>
                                     </a>
                                 </li>
-                                <li class="nav-item">
-                                    {{-- <a href="{{ route('feehead.read') }}" class="nav-link"> --}}
+                                {{-- <li class="nav-item">
+                                    <a href="{{ route('feehead.read') }}" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>View Fee Head</p>
                                     </a>
 
-                                </li>
+                                </li> --}}
                             </ul>
 
                         </li>
@@ -345,48 +340,47 @@
                                 <i class="nav-icon fas fa-chart-pie"></i>
 
                                 <p>
-                                    Fee Structure Mngt
+                                    Billing & Finance Mngt
                                     <i class="right fas fa-angle-left"></i>
                                 </p>
                             </a>
                             <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    {{-- <a href="{{ route('feestructure.create') }}" class="nav-link"> --}}
+                                {{-- <li class="nav-item">
+                                    <a href="{{ route('feestructure.create') }}" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Add FeeStructure</p>
                                     </a>
-                                </li>
+                                </li> --}}
                                 <li class="nav-item">
-                                    {{-- <a href="{{ route('feestructure.read') }}" class="nav-link"> --}}
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>View FeeStructure List</p>
+                                    <a href="{{ route('admin.billing') }}" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p> Billing</p>
                                     </a>
 
                                 </li>
                             </ul>
 
                         </li>
-                        {{-- student mngt --}}
                         <li class="nav-item">
                             <a href="" class="nav-link">
                                 <i class="nav-icon fas fa-chart-pie"></i>
 
                                 <p>
-                                    Student Mngt
+                                    Settings & Customization
                                     <i class="right fas fa-angle-left"></i>
                                 </p>
                             </a>
                             <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    {{-- <a href="{{ route('student.create') }}" class="nav-link"> --}}
+                                {{-- <li class="nav-item">
+                                    <a href="{{ route('student.create') }}" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
-                                    <p>Add Student</p>
+                                    <p>Setting</p>
                                     </a>
-                                </li>
+                                </li> --}}
                                 <li class="nav-item">
-                                    {{-- <a href="{{ route('student.read') }}" class="nav-link"> --}}
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>View Student List</p>
+                                    <a href="{{ route('admin.setting') }}" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Setting</p>
                                     </a>
 
                                 </li>
@@ -449,7 +443,6 @@
 
 
                         </li>
-                        {{-- Subject mngt --}}
                         <li class="nav-item">
                             <a href="" class="nav-link">
                                 <i class="nav-icon fas fa-chart-pie"></i>

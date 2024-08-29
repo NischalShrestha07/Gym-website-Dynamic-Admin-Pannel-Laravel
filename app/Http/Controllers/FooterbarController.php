@@ -37,7 +37,7 @@ class FooterbarController extends Controller
         // Redirect to the trainers index with a success message
         return redirect()->route('footerbars.index')->with('success', 'Footerbar Added successfully');
     }
-    /*
+
     public function UpdateFooterbar(Request $request)
     {
         // Validate the request
@@ -47,53 +47,28 @@ class FooterbarController extends Controller
 
         ]);
 
+
+        $footerbar  = Footerbar::find($request->input('id'));
+
+
         // Process pic file upload
         if ($request->hasFile('pic')) {
             $picFile = $request->file('pic');
             $picName = time() . '_' . $picFile->getClientOriginalName();
-            $picFile->move(public_path('uploads/footerbars/'), $picName);
-            $picPath = 'uploads/footerbars/' . $picName;
+            $picFile->storeAs('uploads/footerbars/', $picName, 'public');
+            $footerbar->pic = 'uploads/footerbars/' . $picName;
         }
 
 
         // UpdateTrainer is same as AddNewData  but only below line is changed
-
-        $footerbar  = Footerbar::find($request->input('id'));
         $footerbar->name = $request->input('name');
-        $footerbar->pic = $picPath;
+        // $footerbar->pic = $picPath;
 
         $footerbar->save();
 
         return redirect()->back()->with('success', 'New data added successfully');
-    }*/
-    public function UpdateFooterbar(Request $request)
-    {
-        // Validate the request
-        $request->validate([
-            'name' => 'required|string',
-            'pic' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048', // Changed from 'required' to 'nullable'
-        ]);
-        // Process photo file upload
-        if ($request->hasFile('photo')) {
-            $photoFile = $request->file('photo');
-            $photoName = time() . '_' . $photoFile->getClientOriginalName();
-            $photoFile->move(public_path('uploads/trainers'), $photoName);
-            $photoPath = 'uploads/trainers/' . $photoName;
-        }
-
-
-        // UpdateTrainer is same as AddNewData  but only below line is changed
-
-        $trainer  = Footerbar::find($request->input('id'));
-        $trainer->name = $request->input('name');
-        $trainer->photo = $photoPath;
-        $trainer->facebook = $request->input('facebook');
-        $trainer->twitter = $request->input('twitter');
-        $trainer->instagram = $request->input('instagram');
-        $trainer->save();
-
-        return redirect()->back()->with('success', 'Footerbar Updated successfully');
     }
+
 
     public function DeleteFooterbar($id)
     {

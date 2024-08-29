@@ -5,7 +5,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Dazzel's Gym Admin Pannel</title>
+    <title>Royal Power's Gym Admin Pannel</title>
     <link rel="icon" href="{{ asset('frontend/images/u-1.png') }}">
 
     <link rel="stylesheet" href="Dashboard/css/vertical-layout-light/style.css">
@@ -16,7 +16,9 @@
         <!-- partial:partials/_navbar.html -->
         <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
             <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-                <a class="navbar-brand brand-logo mr-5" href="/">DAZZEL GYM</a>
+                <a class="navbar-brand brand-logo mr-5 navbar" href="/">
+                    <h3 class="ml-5">Royal Power GYM</h3>
+                </a>
                 {{-- <a class="navbar-brand brand-logo-mini" href="index.html"><img src="Dashboard/images/logo-mini.svg"
                         alt="logo" /></a> --}}
             </div>
@@ -43,9 +45,9 @@
                     <li class="nav-item">
                         <a class="nav-link" data-toggle="collapse" href="#home-section" aria-expanded="false"
                             aria-controls="home-section">
-                            <i class="icon-layout menu-icon"></i>
-                            <span class="menu-title">Home</span>
-                            <i class="menu-arrow"></i>
+                            <i class="icon-layout menu-icon text-danger"></i>
+                            <span class="h4">Home</span>
+
                         </a>
                         <div class="collapse" id="home-section">
                             <ul class="nav flex-column sub-menu">
@@ -58,8 +60,8 @@
                         <a class="nav-link" data-toggle="collapse" href="#why-us-section" aria-expanded="false"
                             aria-controls="why-us-section">
                             <i class="icon-columns menu-icon"></i>
-                            <span class="menu-title">Why Us</span>
-                            <i class="menu-arrow"></i>
+                            <span class="h4">Why Us</span>
+
                         </a>
                         <div class="collapse" id="why-us-section">
                             <ul class="nav flex-column sub-menu">
@@ -71,8 +73,8 @@
                         <a class="nav-link" data-toggle="collapse" href="#trainers-section" aria-expanded="false"
                             aria-controls="trainers-section">
                             <i class="icon-bar-graph menu-icon"></i>
-                            <span class="menu-title">Our Trainers</span>
-                            <i class="menu-arrow"></i>
+                            <span class="h4">Our Trainers</span>
+
                         </a>
                         <div class="collapse" id="trainers-section">
                             <ul class="nav flex-column sub-menu">
@@ -84,8 +86,8 @@
                         <a class="nav-link" data-toggle="collapse" href="#footerbar-section" aria-expanded="false"
                             aria-controls="footerbar-section">
                             <i class="icon-bar-graph menu-icon"></i>
-                            <span class="menu-title">Footerbar</span>
-                            <i class="menu-arrow"></i>
+                            <span class="h4">Footerbar</span>
+
                         </a>
                         <div class="collapse" id="footerbar-section">
                             <ul class="nav flex-column sub-menu">
@@ -97,12 +99,16 @@
                         <a class="nav-link" data-toggle="collapse" href="#gymnames-section" aria-expanded="false"
                             aria-controls="gymnames-section">
                             <i class="icon-bar-graph menu-icon"></i>
-                            <span class="menu-title">Change Gym Names</span>
-                            <i class="menu-arrow"></i>
+                            <span class="h4">Change Gym Names</span>
+
                         </a>
                         <div class="collapse" id="gymnames-section">
                             <ul class="nav flex-column sub-menu">
-                                <li class="nav-item"><a class="nav-link" href="/gymnames">View All</a></li>
+                                <a class="nav-item nav-link fw-2 rounded text-center p-2 text-white mr-4"
+                                    href="/gymnames">View
+                                    All</a>
+                                {{-- <li class="nav-item bg-success rounded"><a class="nav-link" href="/gymnames">View
+                                        All</a></li> --}}
                             </ul>
                         </div>
                     </li>
@@ -111,7 +117,7 @@
                             aria-controls="contacts-section">
                             <i class="icon-bar-graph menu-icon"></i>
                             <span class="menu-title">Message Details</span>
-                            <i class="menu-arrow"></i>
+
                         </a>
                         <div class="collapse" id="contacts-section">
                             <ul class="nav flex-column sub-menu">
