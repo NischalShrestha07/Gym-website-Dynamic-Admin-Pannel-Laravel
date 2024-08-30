@@ -52,6 +52,9 @@
                             </div>
                         </div>
                     </div>
+
+
+                    {{-- Changed  --}}
                     @error('email')
                         <p class="text-danger">{{ $message }}</p>
                     @enderror
@@ -63,6 +66,8 @@
                             </div>
                         </div>
                     </div>
+                    {{-- Changed  --}}
+
                     @error('password')
                         <p class="text-danger">{{ $message }}</p>
                     @enderror

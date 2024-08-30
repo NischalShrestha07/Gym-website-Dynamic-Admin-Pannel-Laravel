@@ -10,10 +10,10 @@ use Illuminate\Support\Facades\Session;
 
 class LogoutController extends Controller
 {
-    public function logoutUser()
-    {
-        Session::forget('id');
-        Session::forget('type');
-        return redirect('/login');
-    }
+    // public function logoutUser()
+    // {
+    //     Session::forget('id');
+    //     Session::forget('type');
+    //     return redirect('/login');
+    // }
 }

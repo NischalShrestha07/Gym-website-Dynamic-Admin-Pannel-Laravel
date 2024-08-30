@@ -23,42 +23,44 @@ use Faker\Guesser\Name;
 use Illuminate\Support\Facades\Route;
 
 
-Route::group(
-    ['prefix' => 'admin'],
-    function () {
-        Route::group(['middleware' => 'admin.guest'], function () {
-            Route::get('login', [AdminAdminController::class, 'index'])->name('admin.login');
-            Route::get('register', [AdminAdminController::class, 'register'])->name('admin.register');
-            Route::post('login', [AdminAdminController::class, 'authenticate'])->name('admin.authenticate');
-        });
-        Route::group(
-            ['middleware' => 'admin.auth'],
-            function () {
+// Route::group(
+//     ['prefix' => 'admin'],
+//     function () {
+//         Route::group(['middleware' => 'admin.guest'], function () {
+//             Route::get('login', [AdminAdminController::class, 'index'])->name('admin.login');
+//             Route::get('register', [AdminAdminController::class, 'register'])->name('admin.register');
+//             Route::post('login', [AdminAdminController::class, 'authenticate'])->name('admin.authenticate');
+//         });
+//         Route::group(
+//             ['middleware' => 'admin.auth'],
+//             function () {
 
-                Route::get('logout', [AdminAdminController::class, 'logout'])->name('admin.logout');
+//                 Route::get('logout', [AdminAdminController::class, 'logout'])->name('admin.logout');
 
-                Route::get('dashboard', [AdminAdminController::class, 'dashboard'])->name('admin.dashboard');
+//                 Route::get('dashboard', [AdminAdminController::class, 'dashboard'])->name('admin.dashboard');
 
-                Route::get('form', [AdminAdminController::class, 'form'])->name('admin.form');
+//                 Route::get('form', [AdminAdminController::class, 'form'])->name('admin.form');
 
-                Route::get('table', [AdminAdminController::class, 'table'])->name('admin.table');
-                Route::get('admin/trainer', [AdminAdminController::class, 'trainer'])->name('admin.trainer');
-                Route::get('admin/membership', [AdminAdminController::class, 'membership'])->name('admin.membership');
-                Route::get('admin/class', [AdminAdminController::class, 'class'])->name('admin.class');
-                Route::get('admin/billing', [AdminAdminController::class, 'billing'])->name('admin.billing');
-                Route::get('admin/setting', [AdminAdminController::class, 'setting'])->name('admin.setting');
-            }
-        );
-    }
-);
-// Route::get('admin/login', [AdminAdminController::class, 'index'])->name('admin.login');
-// Route::get('admin/dashboard', [AdminAdminController::class, 'dashboard'])->name('admin.dashboard');
-// Route::get('admin/form', [AdminAdminController::class, 'form'])->name('admin.form');
-// Route::get('admin/trainer', [AdminAdminController::class, 'trainer'])->name('admin.trainer');
-// Route::get('admin/membership', [AdminAdminController::class, 'membership'])->name('admin.membership');
-// Route::get('admin/class', [AdminAdminController::class, 'class'])->name('admin.class');
-// Route::get('admin/billing', [AdminAdminController::class, 'billing'])->name('admin.billing');
-// Route::get('admin/setting', [AdminAdminController::class, 'setting'])->name('admin.setting');
+//                 Route::get('table', [AdminAdminController::class, 'table'])->name('admin.table');
+//                 Route::get('admin/trainer', [AdminAdminController::class, 'trainer'])->name('admin.trainer');
+//                 Route::get('admin/membership', [AdminAdminController::class, 'membership'])->name('admin.membership');
+//                 Route::get('admin/class', [AdminAdminController::class, 'class'])->name('admin.class');
+//                 Route::get('admin/billing', [AdminAdminController::class, 'billing'])->name('admin.billing');
+//                 Route::get('admin/setting', [AdminAdminController::class, 'setting'])->name('admin.setting');
+//             }
+//         );
+//     }`
+// );
+Route::get('admin/login', [AdminAdminController::class, 'index'])->name('admin.login');
+Route::get('admin/register', [AdminAdminController::class, 'register'])->name('admin.register');
+Route::post('admin/login', [AdminAdminController::class, 'authenticate'])->name('admin.authenticate');
+Route::get('admin/dashboard', [AdminAdminController::class, 'dashboard'])->name('admin.dashboard');
+Route::get('admin/form', [AdminAdminController::class, 'form'])->name('admin.form');
+Route::get('admin/trainer', [AdminAdminController::class, 'trainer'])->name('admin.trainer');
+Route::get('admin/membership', [AdminAdminController::class, 'membership'])->name('admin.membership');
+Route::get('admin/class', [AdminAdminController::class, 'class'])->name('admin.class');
+Route::get('admin/billing', [AdminAdminController::class, 'billing'])->name('admin.billing');
+Route::get('admin/setting', [AdminAdminController::class, 'setting'])->name('admin.setting');
 
 
 
