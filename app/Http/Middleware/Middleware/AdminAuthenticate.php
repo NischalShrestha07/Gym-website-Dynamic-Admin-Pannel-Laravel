@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Symfony\Component\HttpFoundation\Response;
 
+
+
 class AdminAuthenticate
 {
     /**
@@ -22,3 +24,4 @@ class AdminAuthenticate
         return $next($request);
     }
 }
+//these are written to not to let the admin go to dashboard directly and email & password is necessary.

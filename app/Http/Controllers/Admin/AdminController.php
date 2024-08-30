@@ -42,6 +42,13 @@ class AdminController extends Controller
     {
         return view('admin.setting');
     }
+
+
+    public function logout()
+    {
+        Auth::guard('admin')->logout();
+        return redirect()->route('admin.login')->with('success', 'Logged Out Successfully.');
+    }
     public function authenticate(Request $req)
     {
         $req->validate([
@@ -50,17 +57,26 @@ class AdminController extends Controller
         ]);
         // dd($req->all());
         if (Auth::guard('admin')->attempt(['email' => $req->email, 'password' => $req->password])) {
-            echo 'We are error free now';
+            if (Auth::guard('admin')->user()->role != 'admin') {
+                Auth::guard('admin')->logout();
+                return redirect()->route('admin.login')->with('error', 'Unauthoried Error. Access Denied');
+            }
         } else {
             return redirect()->route('admin.login')->with('error', 'Something went wrong.');
         }
+        return redirect()->route('admin.dashboard');
     }
     public function register()
     {
         $user = new User();
-        $user->name = 'Admin';
-        $user->role = 'admin';
-        $user->email = 'admin@gmail.com';
+        // $user->name = 'Admin';
+        // $user->role = 'admin';
+        // $user->email = 'admin@gmail.com';
+        // $user->password = Hash::make('admin');
+
+        $user->name = 'Narayan';
+        $user->role = 'staff';
+        $user->email = 'nischalshrestha800@gmail.com';
         $user->password = Hash::make('admin');
         $user->save();
 
