@@ -20,10 +20,11 @@ class FooterbarController extends Controller
     public function AddNewFooterbar(Request $request)
     {
         $request->validate([
-            'pic' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'name' => 'required|string',
+            'pic' => 'required|image',
+            'name' => 'nullable|string',
 
         ]);
+        $picPath = 0;
         if ($request->hasFile('pic')) {
             $picPath = $request->file('pic')->store('uploads/footerbars', 'public');
         }
@@ -35,7 +36,7 @@ class FooterbarController extends Controller
         $footerbar->save();
 
         // Redirect to the trainers index with a success message
-        return redirect()->route('footerbars.index')->with('success', 'Footerbar Added successfully');
+        return redirect()->route('footerbars.index')->with('success', 'Footerbar Added Successfully');
     }
 
     public function UpdateFooterbar(Request $request)
@@ -43,7 +44,7 @@ class FooterbarController extends Controller
         // Validate the request
         $request->validate([
             'name' => 'required|string',
-            'pic' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'pic' => 'nullable|image',
 
         ]);
 
@@ -52,11 +53,10 @@ class FooterbarController extends Controller
 
 
         // Process pic file upload
+        $picPath = 0;
         if ($request->hasFile('pic')) {
-            $picFile = $request->file('pic');
-            $picName = time() . '_' . $picFile->getClientOriginalName();
-            $picFile->storeAs('uploads/footerbars/', $picName, 'public');
-            $footerbar->pic = 'uploads/footerbars/' . $picName;
+            $picPath = $request->file('pic')->store('uploads/footerbars', 'public');
+            $footerbar->pic = $picPath;
         }
 
 
@@ -66,7 +66,7 @@ class FooterbarController extends Controller
 
         $footerbar->save();
 
-        return redirect()->back()->with('success', 'New data added successfully');
+        return redirect()->back()->with('success', 'Footer Details Updated Successfully.');
     }
 
 
@@ -74,6 +74,6 @@ class FooterbarController extends Controller
     {
         $footerbar = Footerbar::find($id);
         $footerbar->delete();
-        return redirect()->route('footerbars.index')->with('success', 'Footerbar Deleted succesfully.');
+        return redirect()->route('footerbars.index')->with('success', 'Footerbar Deleted Succesfully.');
     }
 }

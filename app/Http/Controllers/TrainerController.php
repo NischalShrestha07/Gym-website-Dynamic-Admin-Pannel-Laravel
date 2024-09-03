@@ -29,6 +29,7 @@ class TrainerController extends Controller
         ]);
 
         // Handle File Upload
+        $photoPath = 0;
         if ($request->hasFile('photo')) {
             $photoPath = $request->file('photo')->store('uploads/trainers', 'public');
         }
@@ -64,20 +65,13 @@ class TrainerController extends Controller
             return redirect()->route('trainers.index')->with('error', 'Trainer not found');
         }
 
-        // Process photo file upload if present
         if ($request->hasFile('photo')) {
-            $photoFile = $request->file('photo');
-
-            if ($photoFile->isValid()) {
-                $photoName = time() . '_' . $photoFile->getClientOriginalName();
-                $photoFile->storeAs('uploads/trainers', $photoName, 'public');
-                $trainer->photo = 'uploads/trainers/' . $photoName;  // Update photo path
-            } else {
-                return redirect()->back()->with('error', 'Invalid photo file');
-            }
+            $photoPath = $request->file('photo')->store('uploads/trainers', 'public');
+            $trainer->photo = $photoPath;
         }
 
         // Update the trainer details
+        // $trainer->photo = $photoPath;
         $trainer->name = $request->input('name');
         $trainer->facebook = $request->input('facebook');
         $trainer->twitter = $request->input('twitter');

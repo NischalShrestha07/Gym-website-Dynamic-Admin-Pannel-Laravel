@@ -72,17 +72,22 @@
                                     @endphp
                                     <tr>
                                         <td>{{ $item->name }}</td>
-                                        {{-- <td><img src="/storage/{{ $item->pic }}" width="100px" alt=""> --}}
                                         <td
                                             style="background:rgb(212, 244, 251); display:inline;display:flex;justify-content:center; align-items: center">
-                                            <img src="/storage/{{ $item->pic }}" width="100px" alt="">
+                                            <img src="{{ asset('storage/' . $item->pic) }}" width="100px"
+                                                alt="">
                                         </td>
+                                        {{-- <td
+                                            style="background:rgb(212, 244, 251); display:inline;display:flex;justify-content:center; align-items: center">
+                                            <img src="/storage/{{ $item->pic }}" width="100px" alt="">
+                                        </td> --}}
                                         </td>
                                         <td class="font-weight-medium">
                                             <button type="button" class="btn btn-primary" data-toggle="modal"
                                                 data-target="#updateModel{{ $i }}">
                                                 Update
                                             </button>
+
                                             <div class="modal" id="updateModel{{ $i }}">
                                                 <div class="modal-dialog">
                                                     <div class="modal-content">

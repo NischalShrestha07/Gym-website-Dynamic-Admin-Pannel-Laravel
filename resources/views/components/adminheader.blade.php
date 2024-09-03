@@ -22,10 +22,13 @@
                 {{-- <a class="navbar-brand brand-logo-mini" href="index.html"><img src="Dashboard/images/logo-mini.svg"
                         alt="logo" /></a> --}}
             </div>
+
             <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
                 <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
                     <span class="icon-menu"></span>
                 </button>
+                <a href="{{ route('admin.dashboard') }}" class="btn btn-primary m-4">Back</a>
+
 
 
             </div>
@@ -39,14 +42,14 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{ url('/manageAdmin') }}">
                             <i class="icon-grid menu-icon"></i>
-                            <span class="menu-title">Dashboard</span>
+                            <span class="menu-title" style="font-size: 1.25rem;">Dashboard</span>
                         </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" data-toggle="collapse" href="#home-section" aria-expanded="false"
                             aria-controls="home-section">
                             <i class="icon-layout menu-icon text-danger"></i>
-                            <span class="h4">Home</span>
+                            <span class="menu-title" style="font-size: 1.25rem;">Manage Home</span>
 
                         </a>
                         <div class="collapse" id="home-section">
@@ -60,7 +63,7 @@
                         <a class="nav-link" data-toggle="collapse" href="#why-us-section" aria-expanded="false"
                             aria-controls="why-us-section">
                             <i class="icon-columns menu-icon"></i>
-                            <span class="h4">Why Us</span>
+                            <span class="menu-title" style="font-size: 1.25rem;">Manage Why Us</span>
 
                         </a>
                         <div class="collapse" id="why-us-section">
@@ -73,7 +76,7 @@
                         <a class="nav-link" data-toggle="collapse" href="#trainers-section" aria-expanded="false"
                             aria-controls="trainers-section">
                             <i class="icon-bar-graph menu-icon"></i>
-                            <span class="h4">Our Trainers</span>
+                            <span class="menu-title" style="font-size: 1.25rem;">Manage Trainers</span>
 
                         </a>
                         <div class="collapse" id="trainers-section">
@@ -86,7 +89,7 @@
                         <a class="nav-link" data-toggle="collapse" href="#footerbar-section" aria-expanded="false"
                             aria-controls="footerbar-section">
                             <i class="icon-bar-graph menu-icon"></i>
-                            <span class="h4">Footerbar</span>
+                            <span class="menu-title" style="font-size: 1.25rem;"> Manage Footer</span>
 
                         </a>
                         <div class="collapse" id="footerbar-section">
@@ -99,7 +102,8 @@
                         <a class="nav-link" data-toggle="collapse" href="#gymnames-section" aria-expanded="false"
                             aria-controls="gymnames-section">
                             <i class="icon-bar-graph menu-icon"></i>
-                            <span class="h4">Change Gym Names</span>
+                            <span class="menu-title" style="font-size: 1.25rem;">Manage Navbar</span>
+
 
                         </a>
                         <div class="collapse" id="gymnames-section">

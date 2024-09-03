@@ -27,6 +27,7 @@ class WhyusController extends Controller
         ]);
 
         // Handle File Upload
+        $imgPath = null;
         if ($request->hasFile('img')) {
             $imgPath = $request->file('img')->store('uploads/whyuss', 'public');
             //this prints inside folder of storage
@@ -57,21 +58,24 @@ class WhyusController extends Controller
             'headdetail' => 'nullable|string',
         ]);
 
+        $data = Whyus::find($request->input('id'));
 
 
         if ($request->hasFile('img')) {
             $imgFile = $request->file('img');
             $imgName = time() . '_' . $imgFile->getClientOriginalName();
-            $imgFile->storeAs('uploads/datas', $imgName, 'public');
-            $imgPath = 'uploads/datas/' . $imgName;
+            $imgFile->storeAs('uploads/whyuss', $imgName, 'public');
+            $imgPath = 'uploads/whyuss/' . $imgName;
+            $data->img = $imgPath;
         }
 
         // UpdateData is same as AddNewData  but only below line is changed
 
-        $data = Whyus::find($request->input('id'));
-        $data->title = $request->input('title');
         $data->img = $imgPath;
+        $data->title = $request->input('title');
         $data->description = $request->input('description');
+        $data->head = $request->input('head');
+        $data->headdetail = $request->input('headdetail');
 
 
         $data->save();
