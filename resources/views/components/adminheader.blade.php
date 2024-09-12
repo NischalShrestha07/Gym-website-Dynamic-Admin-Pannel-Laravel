@@ -9,6 +9,22 @@
     <link rel="icon" href="{{ asset('frontend/images/u-1.png') }}">
 
     <link rel="stylesheet" href="Dashboard/css/vertical-layout-light/style.css">
+    <style>
+        .custom-close {
+            font-size: 2rem;
+            /* Increase size */
+            color: white;
+            /* Set color to white */
+            opacity: 1;
+            /* Ensure full opacity */
+            outline: none;
+        }
+
+        .custom-close:hover {
+            color: #f0f0f0;
+            /* Slight change on hover for a subtle effect */
+        }
+    </style>
 </head>
 
 <body>

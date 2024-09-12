@@ -102,6 +102,21 @@
             font-weight: bold;
             text-align: left;
         }
+
+        .custom-close {
+            font-size: 2rem;
+            /* Increase size */
+            color: white;
+            /* Set color to white */
+            opacity: 1;
+            /* Ensure full opacity */
+            outline: none;
+        }
+
+        .custom-close:hover {
+            color: #f0f0f0;
+            /* Slight change on hover for a subtle effect */
+        }
     }
 </style>
 
@@ -129,7 +144,7 @@
                     </div>
 
                     <!-- Button to Open the Modal -->
-                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addNewWhyus">
+                    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#addNewWhyus">
                         Add New
                     </button>
 
@@ -140,8 +155,9 @@
 
                                 <!-- Modal Header -->
                                 <div class="modal-header">
-                                    <h4 class="modal-title">Add New Whyus</h4>
-                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    <h4 class="modal-title h2">Add New Whyus</h4>
+                                    <button type="button" class="close custom-close "
+                                        data-dismiss="modal">&times;</button>
                                 </div>
 
                                 <!-- Modal Body -->
@@ -222,8 +238,8 @@
                                             <div class="modal-dialog modal-lg">
                                                 <div class="modal-content">
                                                     <div class="modal-header">
-                                                        <h4 class="modal-title">Update WhyUs</h4>
-                                                        <button type="button" class="close"
+                                                        <h4 class="modal-title h2">Update WhyUs</h4>
+                                                        <button type="button" class="close custom-close"
                                                             data-dismiss="modal">&times;</button>
                                                     </div>
 
