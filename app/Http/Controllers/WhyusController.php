@@ -126,7 +126,7 @@ class WhyusController extends Controller
         $whyus->headdetail = $request->headdetail;
         $whyus->save();
 
-        return redirect()->route('whyuss.index')->with('success', 'New Whyus Details Added Successfully.');
+        return redirect()->route('whyuss.index')->with('success', 'New Whyus Added Successfully.');
     }
 
     public function UpdateWhyus(Request $request)
@@ -161,6 +161,6 @@ class WhyusController extends Controller
     {
         $whyus = Whyus::find($id);
         $whyus->delete();
-        return redirect()->route('whyuss.index')->with('success', 'Whyus Details Deleted Successfully.');
+        return redirect()->route('whyuss.index')->with('error', 'Whyus Deleted Successfully.');
     }
 }

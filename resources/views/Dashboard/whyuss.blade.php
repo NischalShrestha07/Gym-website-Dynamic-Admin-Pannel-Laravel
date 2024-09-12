@@ -1,35 +1,110 @@
 <x-adminheader />
+
 <style>
     .table-responsive {
-        overflow: hidden;
-        /* Prevents scrollbars from appearing in the container */
+        overflow-x: auto;
+        /* Allow horizontal scrolling for small screens */
         width: 100%;
-        /* Ensures the container fits the full width of its parent */
-    }
-
-    .table {
-        width: 100%;
-        border-collapse: collapse;
     }
 
     .table th,
     .table td {
-        border: 1px solid black;
-        padding: 8px;
+        border: 1px solid #eaeaea;
+        padding: 12px;
         text-align: left;
+        vertical-align: middle;
+        /* Center vertically */
         word-wrap: break-word;
         overflow-wrap: break-word;
         white-space: normal;
-        line-height: 1.5;
     }
 
-    .table th,
-    .table td {
-        max-width: 200px;
-        overflow: hidden;
-        text-overflow: ellipsis;
+    .table th {
+        background-color: #f8f9fa;
+        font-weight: bold;
+        color: #333;
+        text-transform: uppercase;
+        font-size: 14px;
+    }
+
+    .table td img {
+        border-radius: 5px;
+        object-fit: cover;
+        /* Ensure the image doesn't stretch */
+    }
+
+    .btn-primary {
+        background-color: #007bff;
+        border-color: #007bff;
+        box-shadow: 0 4px 6px rgba(0, 123, 255, 0.4);
+        transition: all 0.3s ease;
+    }
+
+    .btn-primary:hover {
+        background-color: #0056b3;
+        border-color: #00408f;
+    }
+
+    .modal-header {
+        background-color: #007bff;
+        color: white;
+        border-bottom: none;
+    }
+
+    .modal-content {
+        border-radius: 8px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .modal-title {
+        font-size: 18px;
+    }
+
+    .close {
+        color: white;
+    }
+
+    .form-control {
+        padding: 10px;
+        border-radius: 5px;
+        border: 1px solid #ced4da;
+    }
+
+    .alert {
+        font-size: 18px;
+    }
+
+    .table-striped tbody tr:nth-of-type(odd) {
+        background-color: rgba(0, 0, 0, 0.05);
+    }
+
+    /* Table responsiveness for smaller screens */
+    @media (max-width: 768px) {
+        .table thead {
+            display: none;
+            /* Hide headers on small screens */
+        }
+
+        .table td {
+            display: block;
+            width: 100%;
+            text-align: right;
+            position: relative;
+            padding-left: 50%;
+        }
+
+        .table td::before {
+            content: attr(data-label);
+            position: absolute;
+            left: 0;
+            width: 50%;
+            padding-left: 10px;
+            font-weight: bold;
+            text-align: left;
+        }
     }
 </style>
+
 <!-- partial -->
 <div class="main-panel">
     <div class="row">
@@ -37,65 +112,81 @@
             <div class="card">
                 <div class="card-body navbar">
                     <p class="card-title mb-0 h1 text-danger">WhyUs Details</p>
+
+                    <!-- Success and Error Alert Messages -->
                     <div>
-                        @if (@session('success'))
-                            <div class="alert alert-success bg-success h1 text-white rounded fw-bolder fs-1">
-                                {{ session('success') }}
-                            </div>
+                        @if (session('success'))
+                        <div class="alert alert-success text-white bg-success">
+                            {{ session('success') }}
+                        </div>
+                        @endif
+
+                        @if (session('error'))
+                        <div class="alert alert-danger text-white bg-danger">
+                            {{ session('error') }}
+                        </div>
                         @endif
                     </div>
+
                     <!-- Button to Open the Modal -->
                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addNewWhyus">
                         Add New
                     </button>
 
-                    <!-- The Modal -->
-                    <div class="modal" id="addNewWhyus">
-                        <div class="modal-dialog">
+                    <!-- Add New Modal -->
+                    <div class="modal fade" id="addNewWhyus">
+                        <div class="modal-dialog modal-lg">
                             <div class="modal-content">
-                                @if (@session('success'))
-                                    <span class="alert alert-success">{{ session('success') }}</span>
-                                @endif
-                                <br>
-                                <br>
+
                                 <!-- Modal Header -->
                                 <div class="modal-header">
                                     <h4 class="modal-title">Add New Whyus</h4>
                                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                                 </div>
 
-                                <!-- Modal body -->
+                                <!-- Modal Body -->
                                 <div class="modal-body">
-                                    <form action="{{ url('AddNewWhyus') }}" method="POST"
-                                        enctype="multipart/form-data">
+                                    <form action="{{ url('AddNewWhyus') }}" method="POST" enctype="multipart/form-data">
                                         @csrf
-                                        <label for="img">Whyus Photo:</label>
-                                        <input type="file" id="img" name="img" class="form-control mb-2">
+                                        <div class="form-group">
+                                            <label for="img">Whyus Photo:</label>
+                                            <input type="file" id="img" name="img" class="form-control mb-2">
+                                        </div>
 
-                                        <label for="title">Title:</label>
-                                        <input type="text" id="title" name="title" class="form-control mb-2"
-                                            placeholder="Enter title:">
+                                        <div class="form-group">
+                                            <label for="title">Title:</label>
+                                            <input type="text" id="title" name="title" class="form-control mb-2"
+                                                placeholder="Enter title:">
+                                        </div>
 
-                                        <label for="description">Description:</label>
-                                        <input type="text" id="description" name="description"
-                                            class="form-control mb-2" placeholder="Enter description:">
+                                        <div class="form-group">
+                                            <label for="description">Description:</label>
+                                            <input type="text" id="description" name="description"
+                                                class="form-control mb-2" placeholder="Enter description:">
+                                        </div>
 
-                                        <label for="head">Head</label>
-                                        <input type="text" id="head" name="head" class="form-control mb-2"
-                                            placeholder="Enter header:">
+                                        <div class="form-group">
+                                            <label for="head">Head:</label>
+                                            <input type="text" id="head" name="head" class="form-control mb-2"
+                                                placeholder="Enter header:">
+                                        </div>
 
-                                        <label for="headdetail">Head Detail:</label>
-                                        <input type="text" id="headdetail" name="headdetail"
-                                            placeholder="Enter Long Details on Whyus:" class="form-control mb-2">
+                                        <div class="form-group">
+                                            <label for="headdetail">Head Detail:</label>
+                                            <textarea id="headdetail" name="headdetail" placeholder="Enter details:"
+                                                class="form-control mb-2"></textarea>
+                                        </div>
 
-                                        <input type="submit" name="save" class="btn btn-success" value="Save Now" />
+                                        <button type="submit" class="btn btn-success btn-block">Save Now</button>
                                     </form>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="table-responsive">
-                        <table class="table  table-striped table-borderless">
+
+                    <!-- Table with WhyUs Details -->
+                    <div class="table-responsive mt-3">
+                        <table class="table table-striped table-borderless">
                             <thead>
                                 <tr>
                                     <th>Photo</th>
@@ -108,98 +199,103 @@
                             </thead>
 
                             <tbody>
-                                @php
-                                    $i = 0;
-                                @endphp
+                                @php $i = 0; @endphp
                                 @foreach ($whyuss as $item)
-                                    @php
-                                        $i++;
-                                    @endphp
-                                    <tr>
+                                @php $i++; @endphp
+                                <tr>
+                                    <td data-label="Photo">
+                                        <img src="/storage/{{ $item->img }}" width="100px" alt="WhyUs Photo">
+                                    </td>
+                                    <td data-label="Title">{{ $item->title }}</td>
+                                    <td data-label="Description">{{ $item->description }}</td>
+                                    <td data-label="Header">{{ $item->head }}</td>
+                                    <td data-label="Header Details">{{ $item->headdetail }}</td>
+                                    <td class="font-weight-medium">
+                                        <!-- Update Button -->
+                                        <button style="margin: 10px;" type="button" class="btn btn-primary"
+                                            data-toggle="modal" data-target="#updateModel{{ $i }}">
+                                            Update
+                                        </button>
 
-                                        {{-- this uploads the image in the admin pannel. --}}
-                                        <td><img src="/storage/{{ $item->img }}" width="100px" alt="">
-                                        </td>
-                                        <td>{{ $item->title }}</td>
-                                        <td>{{ $item->description }}</td>
-                                        <td>{{ $item->head }}</td>
-                                        <td>{{ $item->headdetail }}</td>
-                                        </td>
-                                        <td class="font-weight-medium">
-                                            <button type="button" class="btn btn-primary" data-toggle="modal"
-                                                data-target="#updateModel{{ $i }}">
-                                                Update
-                                            </button>
-                                            <div class="modal" id="updateModel{{ $i }}">
-                                                <div class="modal-dialog">
-                                                    <div class="modal-content">
-                                                        <div class="modal-header">
-                                                            <h4 class="modal-title">Update Whyus</h4>
-                                                            <button type="button" class="close"
-                                                                data-dismiss="modal">&times;</button>
-                                                        </div>
-                                                        <div class="modal-body">
-                                                            <form action="{{ url('UpdateWhyus') }}" method="POST"
-                                                                enctype="multipart/form-data">
-                                                                @csrf
-                                                                @method('PUT')
+                                        <!-- Update Modal -->
+                                        <div class="modal fade" id="updateModel{{ $i }}">
+                                            <div class="modal-dialog modal-lg">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h4 class="modal-title">Update WhyUs</h4>
+                                                        <button type="button" class="close"
+                                                            data-dismiss="modal">&times;</button>
+                                                    </div>
+
+                                                    <div class="modal-body">
+                                                        <form action="{{ url('UpdateWhyus') }}" method="POST"
+                                                            enctype="multipart/form-data">
+                                                            @csrf
+                                                            @method('PUT')
+
+                                                            <div class="form-group">
                                                                 <label for="img">Photo:</label>
                                                                 <input type="file" id="img" name="img"
                                                                     class="form-control mb-2">
+                                                            </div>
 
-                                                                <label for="">Title:</label>
+                                                            <div class="form-group">
+                                                                <label for="title">Title:</label>
                                                                 <input type="text" id="title" name="title"
                                                                     value="{{ $item->title }}"
-                                                                    placeholder="Enter Title:"
                                                                     class="form-control mb-2">
+                                                            </div>
 
-
+                                                            <div class="form-group">
                                                                 <label for="description">Description:</label>
-                                                                <input type="text" id="description"
-                                                                    value="{{ $item->description }}" name="description"
+                                                                <input type="text" id="description" name="description"
+                                                                    value="{{ $item->description }}"
                                                                     class="form-control mb-2">
+                                                            </div>
 
+                                                            <div class="form-group">
                                                                 <label for="head">Head:</label>
-                                                                <input type="text" id="head"
-                                                                    value="{{ $item->head }}" name="head"
-                                                                    class="form-control mb-2">
+                                                                <input type="text" id="head" name="head"
+                                                                    value="{{ $item->head }}" class="form-control mb-2">
+                                                            </div>
 
-                                                                <label for="headdetail">Headdetail</label>
-                                                                <input type="text" id="headdetail"
-                                                                    value="{{ $item->headdetail }}" name="headdetail"
+                                                            <div class="form-group">
+                                                                <label for="headdetail">Head Detail:</label>
+                                                                <input type="text" id="headdetail" name="headdetail"
+                                                                    value="{{ $item->headdetail }}"
                                                                     class="form-control mb-2">
+                                                            </div>
 
-                                                                <input type="hidden" name="id"
-                                                                    value="{{ $item->id }}">
-                                                                <input type="submit" name="save"
-                                                                    class="btn btn-success" value="Save Changes" />
-                                                            </form>
-                                                        </div>
+                                                            <input type="hidden" name="id" value="{{ $item->id }}">
+                                                            <button type="submit" class="btn btn-success btn-block">Save
+                                                                Changes</button>
+                                                        </form>
                                                     </div>
                                                 </div>
                                             </div>
+                                        </div>
 
-                                            <form action="{{ route('whyuss.destroy', $item->id) }}" method="POST"
-                                                style="display: inline">
-                                                @csrf
-                                                @method('DELETE')
-                                                <button type="submit" class="btn btn-danger">Delete</button>
-                                            </form>
-                                        </td>
-                                    </tr>
+                                        <!-- Delete Form -->
+                                        <form action="{{ route('whyuss.destroy', $item->id) }}" method="POST"
+                                            style="display:inline-block;" style="margin: 10px;">
+                                            @csrf
+                                            @method('DELETE')
+                                            {{-- <button type="submit" class="btn btn-danger"></button> --}}
+                                            <button type="submit" class="btn btn-sm btn-danger w-10"
+                                                style="padding:15px 30px;" title="Delete"
+                                                onclick="return confirm('Are you sure you want to delete this item?')">
+                                                Delete </button>
+                                        </form>
+                                    </td>
+                                </tr>
                                 @endforeach
                             </tbody>
-
                         </table>
                     </div>
                 </div>
             </div>
         </div>
-
     </div>
-
-
 </div>
-
 
 <x-adminfooter />
