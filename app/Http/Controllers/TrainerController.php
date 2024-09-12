@@ -29,7 +29,7 @@ class TrainerController extends Controller
         ]);
 
         // Handle File Upload
-        $photoPath = 0;
+        $photoPath = null;
         if ($request->hasFile('photo')) {
             $photoPath = $request->file('photo')->store('uploads/trainers', 'public');
         }
@@ -71,7 +71,7 @@ class TrainerController extends Controller
         }
 
         // Update the trainer details
-        // $trainer->photo = $photoPath;
+        $trainer->photo = $photoPath;
         $trainer->name = $request->input('name');
         $trainer->facebook = $request->input('facebook');
         $trainer->twitter = $request->input('twitter');
