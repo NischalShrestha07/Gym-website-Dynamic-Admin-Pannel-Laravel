@@ -15,8 +15,7 @@
 
     <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
 
-    {{--
-    <link rel="stylesheet" href="../../../code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css"> --}}
+
 
     <link rel="stylesheet" href="plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
 
@@ -522,27 +521,20 @@
 
 
                         </li>
-                        {{-- Teacher mngt --}}
+                        {{-- Logout mngt --}}
                         <li class="nav-item">
                             <a href="" class="nav-link">
                                 <i class="nav-icon fas fa-chart-pie"></i>
 
                                 <p>
-                                    Teacher Mngt
-                                    <i class="right fas fa-angle-left"></i>
+                                    Logout <i class="right fas fa-angle-left"></i>
                                 </p>
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    {{-- <a href="{{ route('teacher.create') }}" class="nav-link"> --}}
+                                    <a href="{{ route('admin.logout') }}" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
-                                        <p>Add Teacher</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    {{-- <a href="{{ route('teacher.read') }}" class="nav-link"> --}}
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>View Teacher List</p>
+                                        <p>Logout</p>
                                     </a>
 
                                 </li>

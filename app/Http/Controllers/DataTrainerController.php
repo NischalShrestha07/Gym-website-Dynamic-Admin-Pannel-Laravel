@@ -25,19 +25,30 @@ class DataTrainerController extends Controller
             'qualifications' => 'nullable|string|max:255',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
+
+        // Handle File Upload
+        $imagePath = null;
+        if ($request->hasFile('image')) {
+            $imagePath = $request->file('image')->store('images/trainers', 'public');
+        }
+
         // Create a new trainer
         $trainer = new DataTrainer();
         $trainer->name = $request->input('name');
+
+
+        $trainer->image = $imagePath;
+
         $trainer->phone = $request->input('phone');
         $trainer->description = $request->input('description');
         $trainer->expertise = $request->input('expertise');
         $trainer->years_of_experience = $request->input('years_of_experience');
         $trainer->qualifications = $request->input('qualifications');
 
-        // Handle image upload
-        if ($request->hasFile('image')) {
-            $trainer->image = $request->file('image')->store('images/trainers', 'public');
-        }
+        // // Handle image upload
+        // if ($request->hasFile('image')) {
+        //     $trainer->image = $request->file('image')->store('images/trainers', 'public');
+        // }
 
         $trainer->save();
         dd($request->all());
