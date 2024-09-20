@@ -24,6 +24,40 @@
             color: #f0f0f0;
             /* Slight change on hover for a subtle effect */
         }
+
+        .custom-alert {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1050;
+            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
+            border-radius: 5px;
+            padding: 20px;
+            max-width: 300px;
+            opacity: 0;
+            transform: translateX(100%);
+            transition: all 0.5s ease-out;
+        }
+
+        .custom-alert.fade-in {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .custom-alert.fade-out {
+            opacity: 0;
+            transform: translateX(100%);
+            transition: all 0.5s ease-in;
+        }
+
+        .alert strong {
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .close {
+            font-size: 1.2rem;
+        }
     </style>
 </head>
 

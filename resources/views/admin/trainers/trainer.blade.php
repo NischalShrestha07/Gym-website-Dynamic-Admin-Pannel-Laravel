@@ -73,7 +73,7 @@
                                         </div>
 
                                         <div class="modal-body">
-                                            <form action="{{ url('AddNewTrainer') }}" method="POST"
+                                            <form action="{{ url('AddNewDataTrainer') }}" method="POST"
                                                 enctype="multipart/form-data">
                                                 @csrf
                                                 <div class="form-group">
@@ -150,7 +150,11 @@
                                     @foreach ($trainers as $item)
                                     <tr>
                                         <td>{{ $item->name }}</td>
-                                        <td>{{ $item->image }}</td>
+                                        {{-- <td>{{ $item->image }}</td> --}}
+                                        <td>
+                                            <img style="border-radius: 50px" src="/storage/{{ $item->image }}"
+                                                width="100px" alt="Trainer Photo">
+                                        </td>
                                         <td>{{ $item->phone }}</td>
                                         <td>{{ $item->description}}</td>
                                         <td>{{ $item->expertise }}</td>
@@ -255,102 +259,72 @@
                                                 <div class="modal-dialog modal-lg">
                                                     <div class="modal-content">
                                                         <div class="modal-header btn-primary">
-                                                            <h4 class="modal-title"><b>Update Supplier</b></h4>
+                                                            <h4 class="modal-title"><b>Update Trainer</b></h4>
                                                             <button type="button" class="close"
                                                                 data-dismiss="modal">&times;</button>
                                                         </div>
-                                                        {{-- <div class="modal-body">
-                                                            <form action="{{ url('UpdateSupplier') }}" method="POST"
-                                                                enctype="multipart/form-data">
+                                                        <div class="modal-body">
+                                                            <form action="{{ url('UpdateDataTrainer',$item->id) }}"
+                                                                method="POST" enctype="multipart/form-data">
                                                                 @csrf
                                                                 @method('PUT')
 
                                                                 <input type="hidden" name="id" value="{{ $item->id }}">
 
                                                                 <div class="mb-3">
-                                                                    <label for="name" class="form-label">Supplier
+                                                                    <label for="name" class="form-label">Trainer's
                                                                         Name:</label>
                                                                     <input type="text" id="name" name="name"
                                                                         value="{{$item->name}}"
-                                                                        placeholder="Enter Supplier Name:"
+                                                                        placeholder="Enter Trainer's Name:"
                                                                         class="form-control mb-2">
 
                                                                 </div>
 
                                                                 <div class="mb-3">
-                                                                    <label for="address">Address:</label>
-                                                                    <input type="text" id="address" name="address"
-                                                                        value="{{ $item->address }}"
+                                                                    <label for="phone">Phone No:</label>
+                                                                    <input type="text" id="phone" name="phone"
+                                                                        value="{{ $item->phone }}"
                                                                         class="form-control mb-2">
                                                                 </div>
 
                                                                 <div class="mb-3">
-                                                                    <label for="code">Code:</label>
-                                                                    <input type="text" id="code" name="code"
-                                                                        value="{{ $item->code }}"
+                                                                    <label for="description">Description:</label>
+                                                                    <input type="text" id="description"
+                                                                        name="description"
+                                                                        value="{{ $item->description }}"
                                                                         class="form-control mb-2">
                                                                 </div>
 
                                                                 <div class="mb-3">
-                                                                    <label for="pan">PAN:</label>
-                                                                    <input type="text" id="pan" name="pan"
-                                                                        value="{{ $item->pan }}"
+                                                                    <label for="expertise">Trainer's Expertise:</label>
+                                                                    <input type="text" id="expertise" name="expertise"
+                                                                        value="{{ $item->expertise }}"
                                                                         class="form-control mb-2">
                                                                 </div>
 
                                                                 <div class="mb-3">
-                                                                    <label for="phoneno">Phone Number:</label>
-                                                                    <input type="text" id="phoneno" name="phoneno"
-                                                                        value="{{ $item->phoneno }}"
+                                                                    <label for="years_of_experience">Years Of
+                                                                        Experience:</label>
+                                                                    <input type="text" id="years_of_experience"
+                                                                        name="years_of_experience"
+                                                                        value="{{ $item->years_of_experience }}"
                                                                         class="form-control mb-2">
                                                                 </div>
                                                                 <div class="mb-3">
-                                                                    <label for="email">Email Address:</label>
-                                                                    <input type="email" id="email" name="email"
-                                                                        value="{{ $item->email }}"
+                                                                    <label for="qualifications">Trainer's
+                                                                        Qualifications:</label>
+                                                                    <input type="qualifications" id="qualifications"
+                                                                        name="qualifications"
+                                                                        value="{{ $item->qualifications }}"
                                                                         class="form-control mb-2">
                                                                 </div>
 
-                                                                <div class="mb-3">
-                                                                    <label for="group">Group:</label>
-                                                                    <select class="form-control" name="group"
-                                                                        id="group">
-                                                                        <option value="{{$item->group}}" selected>
-                                                                            {{$item->group}}</option>
-                                                                        <option value="abc enterprise">abc enterprise
-                                                                        </option>
-                                                                        <option value="Ramesh Trader">Ramesh Trader
-                                                                        </option>
-                                                                        <option value="Prakash Store">Prakash Store
-                                                                        </option>
-                                                                        <option value="Om Trader">Om Trader</option>
-                                                                    </select>
-                                                                </div>
 
                                                                 <div class="mb-3">
-                                                                    <label for="cterms">Credit Terms:</label>
-                                                                    <select class="form-control" name="cterms"
-                                                                        id="cterms">
-                                                                        <option value="{{$item->cterms}}" selected>
-                                                                            {{$item->cterms}}</option>
-                                                                        <option value="NET 30">NET 30
-                                                                        </option>
-                                                                        <option value="NET 45">NET 45
-                                                                        </option>
-                                                                        <option value="NET 60">NET 60
-                                                                        </option>
-                                                                        <option value="NET 90">NET 90
-                                                                        </option>
-
-                                                                    </select>
-
-
-                                                                </div>
-
-                                                                <div class="mb-3">
-                                                                    <label for="climit">Credit Limit:</label>
-                                                                    <input type="text" id="climit" name="climit"
-                                                                        value="{{ $item->climit }}"
+                                                                    <label for="image">Trainer's Image:</label>
+                                                                    <input type="file" id="image" name="image"
+                                                                        value="{{ $item->image }}"
                                                                         class="form-control mb-2">
                                                                 </div>
 
@@ -361,12 +335,12 @@
                                                                         Save Changes</button>
                                                                 </div>
                                                             </form>
-                                                        </div> --}}
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
 
-                                            <form action="{{ route('supplier.destroy', $item->id) }}" method="POST"
+                                            <form action="{{route('datatrainer.destroy',$item->id)}}" method="POST"
                                                 style="display:inline-block;"> @csrf
                                                 @method('DELETE')
                                                 <button type="submit" class="btn btn-sm w-10" title="Delete"

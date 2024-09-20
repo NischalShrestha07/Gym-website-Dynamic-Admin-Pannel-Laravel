@@ -28,6 +28,7 @@
                             </button>
                         </div>
                         @endif
+
                     </div>
                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addNewFooterbar">
                         Add New
@@ -136,7 +137,8 @@
                                             enctype="multipart/form-data" style="display: inline">
                                             @csrf
                                             @method('DELETE')
-                                            <button type="submit" class="btn btn-danger">Delete</button>
+                                            <button type="submit" class="btn btn-danger"
+                                                onclick="return confirm('Do you want to delete it ?')">Delete</button>
 
                                         </form>
                                     </td>

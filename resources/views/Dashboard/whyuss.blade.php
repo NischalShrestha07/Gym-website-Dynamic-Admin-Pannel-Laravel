@@ -131,14 +131,22 @@
                     <!-- Success and Error Alert Messages -->
                     <div>
                         @if (session('success'))
-                        <div class="alert alert-success text-white bg-success">
-                            {{ session('success') }}
+                        <div class="alert alert-success text-white bg-success alert-dismissible custom-alert fade-in"
+                            role="alert">
+                            <strong>Success!</strong> {{ session('success') }}
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
                         </div>
                         @endif
 
                         @if (session('error'))
-                        <div class="alert alert-danger text-white bg-danger">
-                            {{ session('error') }}
+                        <div class="alert alert-danger text-white bg-danger alert-dismissible custom-alert fade-in"
+                            role="alert">
+                            <strong>Error!</strong> {{ session('error') }}
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
                         </div>
                         @endif
                     </div>

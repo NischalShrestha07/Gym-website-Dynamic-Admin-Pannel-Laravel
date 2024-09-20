@@ -38,5 +38,25 @@
 <script src="Dashboard/js/Chart.roundedBarCharts.js"></script>
 <!-- End custom js for this page-->
 </body>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Fade in the alert on page load
+        let alertBox = document.querySelectorAll('.custom-alert');
+
+        // Automatically fade out after 5 seconds
+        setTimeout(function() {
+            alertBox.forEach(function(alert) {
+                alert.classList.add('fade-out');
+            });
+        }, 5000); // 5 seconds
+
+        // Remove the alert from the DOM after the fade-out transition completes
+        setTimeout(function() {
+            alertBox.forEach(function(alert) {
+                alert.remove();
+            });
+        }, 5500); // 5 seconds + 0.5s for fade-out effect
+    });
+</script>
 
 </html>
