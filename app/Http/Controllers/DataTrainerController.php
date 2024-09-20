@@ -56,11 +56,9 @@ class DataTrainerController extends Controller
 
         return redirect()->route('datatrainer.create')->with('success', 'Trainer Added Successfully!');
     }
-    public function UpdateDataTrainer(Request $request, $id)
+    public function UpdateDataTrainer(Request $request)
     {
 
-        // Find the trainer by ID
-        $trainer = DataTrainer::findOrFail($id);
 
         // Validate the input
         $request->validate([
@@ -73,12 +71,14 @@ class DataTrainerController extends Controller
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
+        $trainer = DataTrainer::find($request->input('id'));
+
+        if (!$trainer) {
+            return redirect()->route('datatrainer.create')->with('error', 'Trainer not found');
+        }
+
         // Handle File Upload for image
         if ($request->hasFile('image')) {
-            // Delete the old image if it exists
-            if ($trainer->image && Storage::disk('public')->exists($trainer->image)) {
-                Storage::disk('public')->delete($trainer->image);
-            }
             // Store new image
             $imagePath = $request->file('image')->store('images/trainers', 'public');
             $trainer->image = $imagePath;
@@ -95,7 +95,7 @@ class DataTrainerController extends Controller
         // Save the updated trainer
         $trainer->save();
 
-        return redirect()->route('datatrainer.index')->with('success', 'Trainer updated successfully!');
+        return redirect()->route('datatrainer.create')->with('success', 'Trainer Updated Successfully!');
     }
 
 

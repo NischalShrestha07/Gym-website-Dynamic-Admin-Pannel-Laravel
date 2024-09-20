@@ -264,12 +264,11 @@
                                                                 data-dismiss="modal">&times;</button>
                                                         </div>
                                                         <div class="modal-body">
-                                                            <form action="{{ url('UpdateDataTrainer',$item->id) }}"
-                                                                method="POST" enctype="multipart/form-data">
+                                                            <form action="{{ url('UpdateDataTrainer') }}" method="POST"
+                                                                enctype="multipart/form-data">
                                                                 @csrf
                                                                 @method('PUT')
 
-                                                                <input type="hidden" name="id" value="{{ $item->id }}">
 
                                                                 <div class="mb-3">
                                                                     <label for="name" class="form-label">Trainer's
@@ -327,6 +326,8 @@
                                                                         value="{{ $item->image }}"
                                                                         class="form-control mb-2">
                                                                 </div>
+
+                                                                <input type="hidden" name="id" value="{{ $item->id }}">
 
                                                                 <div class="d-grid">
                                                                     <button type="submit" name="save"
