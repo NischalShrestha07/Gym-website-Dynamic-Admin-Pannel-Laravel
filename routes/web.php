@@ -4,6 +4,7 @@
 use App\Http\Controllers\Admin\AdminController as AdminAdminController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ContactController as ControllersContactController;
+use App\Http\Controllers\DataTrainerController;
 use App\Http\Controllers\FooterbarController;
 use App\Http\Controllers\Frontend\ContactController;
 use App\Http\Controllers\Frontend\DashboardController;
@@ -19,6 +20,7 @@ use App\Http\Controllers\GymNameController;
 use App\Http\Controllers\ManageAdminController;
 use App\Http\Controllers\TrainerController;
 use App\Http\Controllers\WhyusController;
+use App\Models\Admin\Trainer;
 use Faker\Guesser\Name;
 use Illuminate\Support\Facades\Route;
 
@@ -42,7 +44,9 @@ Route::group(
                 Route::get('form', [AdminAdminController::class, 'form'])->name('admin.form');
 
                 Route::get('table', [AdminAdminController::class, 'table'])->name('admin.table');
-                Route::get('admin/trainer', [AdminAdminController::class, 'trainer'])->name('admin.trainer');
+                Route::get('trainers', [DataTrainerController::class, 'index'])->name('admin.trainer');
+
+                // Route::get('trainer', [DataTrainerController::class, 'index'])->name('admin.trainer');
                 Route::get('admin/membership', [AdminAdminController::class, 'membership'])->name('admin.membership');
                 Route::get('admin/class', [AdminAdminController::class, 'class'])->name('admin.class');
                 Route::get('admin/billing', [AdminAdminController::class, 'billing'])->name('admin.billing');
@@ -89,7 +93,7 @@ Route::group(
 
 
 
-
+//manageAdmins
 //Admin Routes of Home
 Route::get('/manageAdmin', [AdminController::class, 'index'])->name('admin.index');
 Route::get('/adminDatas', [AdminController::class, 'datas']);
@@ -147,6 +151,3 @@ Route::get('/trainer', [TrainersController::class, 'index']);
 Route::get('/contact', [ContactController::class, 'index']);
 
 Route::get('/board', [DashboardController::class, 'index'])->name('dashboards');
-
-
-//Search Operation Route

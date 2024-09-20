@@ -22,26 +22,26 @@ class AdminController extends Controller
     {
         return view('admin.form');
     }
-    public function trainer()
-    {
-        return view('admin.trainers.trainer');
-    }
-    public function membership()
-    {
-        return view('admin.memberships.membership');
-    }
-    public function class()
-    {
-        return view('admin.class_schedules.class');
-    }
-    public function billing()
-    {
-        return view('admin.billings.billing');
-    }
-    public function setting()
-    {
-        return view('admin.setting');
-    }
+    // public function trainer()
+    // {
+    //     return view('admin.trainers.trainer');
+    // }
+    // public function membership()
+    // {
+    //     return view('admin.memberships.membership');
+    // }
+    // public function class()
+    // {
+    //     return view('admin.class_schedules.class');
+    // }
+    // public function billing()
+    // {
+    //     return view('admin.billings.billing');
+    // }
+    // public function setting()
+    // {
+    //     return view('admin.setting');
+    // }
 
 
     public function logout()
