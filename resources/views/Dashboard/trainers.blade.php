@@ -19,6 +19,11 @@
                             {{ session('success') }}
                         </div>
                         @endif
+                        @if (session('error'))
+                        <div class="alert alert-danger text-white bg-danger">
+                            {{ session('error') }}
+                        </div>
+                        @endif
                     </div>
 
                     <!-- Button to Open the Modal for Adding New Trainer -->

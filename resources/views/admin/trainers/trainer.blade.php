@@ -44,6 +44,17 @@
                             <div class="alert alert-danger">{{ session('error') }}</div>
                             @endif
 
+
+                            @if ($errors->any())
+                            <div class="alert alert-danger">
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                            @endif
+
                             <!-- Add Trainer Modal -->
                             <div class="modal fade" id="addTrainerModal" tabindex="-1" role="dialog"
                                 aria-labelledby="addTrainerModalLabel" aria-hidden="true">
@@ -56,11 +67,11 @@
                                                 <span aria-hidden="true">&times;</span>
                                             </button>
                                         </div>
+
                                         <div class="modal-body">
-                                            <form action="{{ url('add-trainer') }}" method="POST"
+                                            <form action="{{ url('AddNewTrainer') }}" method="POST"
                                                 enctype="multipart/form-data">
                                                 @csrf
-
                                                 <div class="form-group">
                                                     <label for="name" class="font-weight-bold">Name:</label>
                                                     <input type="text" id="name" name="name"
@@ -132,7 +143,238 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <!-- Populate trainer data here -->
+                                    @foreach ($trainers as $item)
+                                    <tr>
+                                        <td>{{ $item->name }}</td>
+                                        <td>{{ $item->image }}</td>
+                                        <td>{{ $item->phone }}</td>
+                                        <td>{{ $item->description}}</td>
+                                        <td>{{ $item->expertise }}</td>
+                                        <td>{{ $item->years_of_experience }}</td>
+                                        <td>{{ $item->qualifications }}</td>
+                                        <td class="font-weight-medium">
+                                            <button type="button" class="btn" title="Edit" data-toggle="modal"
+                                                data-target="#updateModel{{ $item->id }}">
+                                                <i class="fas fa-edit fa-lg"></i>
+                                            </button>
+
+
+
+                                            <!-- View Button -->
+                                            <button type="button" class="btn" title="View" data-toggle="modal"
+                                                data-target="#viewModel{{ $item->id }}">
+                                                <i class="fas fa-eye fa-lg"></i>
+                                            </button>
+
+                                            <!-- View Modal -->
+                                            <div class="modal fade" id="viewModel{{ $item->id }}" tabindex="-1"
+                                                role="dialog" aria-labelledby="viewModelLabel{{ $item->id }}"
+                                                aria-hidden="true">
+                                                <div class="modal-dialog modal-lg" role="document">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header bg-primary text-white">
+                                                            <h5 class="modal-title" id="viewModelLabel{{ $item->id }}">
+                                                                Trainer Details</h5>
+                                                            <button type="button" class="close text-white"
+                                                                data-dismiss="modal" aria-label="Close">
+                                                                <span aria-hidden="true">&times;</span>
+                                                            </button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <!-- Enhanced Trainer Details Card -->
+                                                            <div class="card">
+                                                                <div class="card-header bg-dark text-white">
+                                                                    <h5 class="card-title mb-0">Trainer's Information
+                                                                    </h5>
+                                                                </div>
+                                                                <div class="card-body">
+                                                                    <div class="row">
+                                                                        <!-- Trainer's Image -->
+                                                                        <div class="col-md-4 text-center">
+                                                                            <img src="{{ asset('storage/' . $item->image) }}"
+                                                                                alt="{{ $item->name }}"
+                                                                                class="img-fluid rounded shadow"
+                                                                                style="max-height: 250px; width: auto;">
+                                                                        </div>
+                                                                        <!-- Trainer's Details -->
+                                                                        <div class="col-md-8">
+                                                                            <div class="row mb-3">
+                                                                                <div class="col-md-6">
+                                                                                    <h6><strong>Name:</strong></h6>
+                                                                                    <p>{{ $item->name }}</p>
+                                                                                </div>
+                                                                                <div class="col-md-6">
+                                                                                    <h6><strong>Phone Number:</strong>
+                                                                                    </h6>
+                                                                                    <p>{{ $item->phone }}</p>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="row mb-3">
+                                                                                <div class="col-md-6">
+                                                                                    <h6><strong>Expertise:</strong></h6>
+                                                                                    <p>{{ $item->expertise }}</p>
+                                                                                </div>
+                                                                                <div class="col-md-6">
+                                                                                    <h6><strong>Years of
+                                                                                            Experience:</strong></h6>
+                                                                                    <p>{{ $item->years_of_experience }}
+                                                                                        years</p>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="row mb-3">
+                                                                                <div class="col-md-6">
+                                                                                    <h6><strong>Qualifications:</strong>
+                                                                                    </h6>
+                                                                                    <p>{{ $item->qualifications }}</p>
+                                                                                </div>
+                                                                                <div class="col-md-6">
+                                                                                    <h6><strong>Description:</strong>
+                                                                                    </h6>
+                                                                                    <p>{{ $item->description ?: 'N/A' }}
+                                                                                    </p>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-secondary"
+                                                                data-dismiss="modal">Close</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="modal" id="updateModel{{ $item->id }}">
+                                                <div class="modal-dialog modal-lg">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header btn-primary">
+                                                            <h4 class="modal-title"><b>Update Supplier</b></h4>
+                                                            <button type="button" class="close"
+                                                                data-dismiss="modal">&times;</button>
+                                                        </div>
+                                                        {{-- <div class="modal-body">
+                                                            <form action="{{ url('UpdateSupplier') }}" method="POST"
+                                                                enctype="multipart/form-data">
+                                                                @csrf
+                                                                @method('PUT')
+
+                                                                <input type="hidden" name="id" value="{{ $item->id }}">
+
+                                                                <div class="mb-3">
+                                                                    <label for="name" class="form-label">Supplier
+                                                                        Name:</label>
+                                                                    <input type="text" id="name" name="name"
+                                                                        value="{{$item->name}}"
+                                                                        placeholder="Enter Supplier Name:"
+                                                                        class="form-control mb-2">
+
+                                                                </div>
+
+                                                                <div class="mb-3">
+                                                                    <label for="address">Address:</label>
+                                                                    <input type="text" id="address" name="address"
+                                                                        value="{{ $item->address }}"
+                                                                        class="form-control mb-2">
+                                                                </div>
+
+                                                                <div class="mb-3">
+                                                                    <label for="code">Code:</label>
+                                                                    <input type="text" id="code" name="code"
+                                                                        value="{{ $item->code }}"
+                                                                        class="form-control mb-2">
+                                                                </div>
+
+                                                                <div class="mb-3">
+                                                                    <label for="pan">PAN:</label>
+                                                                    <input type="text" id="pan" name="pan"
+                                                                        value="{{ $item->pan }}"
+                                                                        class="form-control mb-2">
+                                                                </div>
+
+                                                                <div class="mb-3">
+                                                                    <label for="phoneno">Phone Number:</label>
+                                                                    <input type="text" id="phoneno" name="phoneno"
+                                                                        value="{{ $item->phoneno }}"
+                                                                        class="form-control mb-2">
+                                                                </div>
+                                                                <div class="mb-3">
+                                                                    <label for="email">Email Address:</label>
+                                                                    <input type="email" id="email" name="email"
+                                                                        value="{{ $item->email }}"
+                                                                        class="form-control mb-2">
+                                                                </div>
+
+                                                                <div class="mb-3">
+                                                                    <label for="group">Group:</label>
+                                                                    <select class="form-control" name="group"
+                                                                        id="group">
+                                                                        <option value="{{$item->group}}" selected>
+                                                                            {{$item->group}}</option>
+                                                                        <option value="abc enterprise">abc enterprise
+                                                                        </option>
+                                                                        <option value="Ramesh Trader">Ramesh Trader
+                                                                        </option>
+                                                                        <option value="Prakash Store">Prakash Store
+                                                                        </option>
+                                                                        <option value="Om Trader">Om Trader</option>
+                                                                    </select>
+                                                                </div>
+
+                                                                <div class="mb-3">
+                                                                    <label for="cterms">Credit Terms:</label>
+                                                                    <select class="form-control" name="cterms"
+                                                                        id="cterms">
+                                                                        <option value="{{$item->cterms}}" selected>
+                                                                            {{$item->cterms}}</option>
+                                                                        <option value="NET 30">NET 30
+                                                                        </option>
+                                                                        <option value="NET 45">NET 45
+                                                                        </option>
+                                                                        <option value="NET 60">NET 60
+                                                                        </option>
+                                                                        <option value="NET 90">NET 90
+                                                                        </option>
+
+                                                                    </select>
+
+
+                                                                </div>
+
+                                                                <div class="mb-3">
+                                                                    <label for="climit">Credit Limit:</label>
+                                                                    <input type="text" id="climit" name="climit"
+                                                                        value="{{ $item->climit }}"
+                                                                        class="form-control mb-2">
+                                                                </div>
+
+                                                                <div class="d-grid">
+                                                                    <button type="submit" name="save"
+                                                                        class="btn btn-success" value="Save Changes"><i
+                                                                            class="fas fa-save"></i>
+                                                                        Save Changes</button>
+                                                                </div>
+                                                            </form>
+                                                        </div> --}}
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <form action="{{ route('supplier.destroy', $item->id) }}" method="POST"
+                                                style="display:inline-block;"> @csrf
+                                                @method('DELETE')
+                                                <button type="submit" class="btn btn-sm w-10" title="Delete"
+                                                    onclick="return confirm('Are you sure you want to delete this item?')">
+                                                    <i class="fas fa-lg fa-trash-alt"></i>
+                                                </button>
+                                            </form>
+                                        </td>
+                                    </tr>
+                                    @endforeach
+
+
                                 </tbody>
                             </table>
                         </div>

@@ -54,7 +54,7 @@ class AdminController extends Controller
         $data->description = $request->input('description');
         $data->save();
 
-        return redirect()->back()->with('success', 'New Data Added successfully');
+        return redirect()->back()->with('success', 'HomePage Details Added Successfully.');
     }
 
 
@@ -92,12 +92,28 @@ class AdminController extends Controller
         $data->description = $request->input('description');
         $data->save();
 
-        return redirect()->back()->with('success', 'HomePage Updated successfully');
+        return redirect()->back()->with('success', 'HomePage Details Updated Successfully.');
     }
+    // public function DeleteData($id)
+    // {
+    //     $data = Data::find($id);
+    //     $data->delete();
+    //     return redirect()->route('datas.destroy')->with('success', 'Data Deleted succesfully.');
+    // }
     public function DeleteData($id)
     {
+        // Attempt to find the data by ID
         $data = Data::find($id);
+
+        // Check if the data exists
+        if (!$data) {
+            return redirect()->route('datas.index')->with('error', 'Data Not Found.');
+        }
+
+        // Delete the data
         $data->delete();
-        return redirect()->route('datas.destroy')->with('success', 'Data Deleted succesfully.');
+
+        // Redirect to the index route with a success message
+        return redirect()->route('datas.index')->with('error', 'HomePage Details Deleted Successfully.');
     }
 }

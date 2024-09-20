@@ -9,10 +9,24 @@
                     <p class="card-title mb-0 text-danger">Footerbar Details</p>
                     <!-- Button to Open the Modal -->
                     <div>
-                        @if (@session('success'))
-                            <div class="alert alert-success bg-success h1 text-white rounded fw-bolder fs-1">
-                                {{ session('success') }}
-                            </div>
+                        @if (session('success'))
+                        <div class="alert alert-success text-white bg-success alert-dismissible custom-alert fade-in"
+                            role="alert">
+                            <strong>Success!</strong> {{ session('success') }}
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        @endif
+
+                        @if (session('error'))
+                        <div class="alert alert-danger text-white bg-danger alert-dismissible custom-alert fade-in"
+                            role="alert">
+                            <strong>Error!</strong> {{ session('error') }}
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
                         @endif
                     </div>
                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addNewFooterbar">
@@ -46,7 +60,7 @@
 
 
 
-                                        <input type="submit" name="save" class="btn btn-success" value="Save Now" />
+                                            <input type="submit" name="save" class="btn btn-success" value="Save Now" />
                                     </form>
                                 </div>
                             </div>
@@ -64,71 +78,69 @@
 
                             <tbody>
                                 @php
-                                    $i = 0;
+                                $i = 0;
                                 @endphp
                                 @foreach ($footerbars as $item)
-                                    @php
-                                        $i++;
-                                    @endphp
-                                    <tr>
-                                        <td>{{ $item->name }}</td>
-                                        <td
-                                            style="background:rgb(212, 244, 251); display:inline;display:flex;justify-content:center; align-items: center">
-                                            <img src="{{ asset('storage/' . $item->pic) }}" width="100px"
-                                                alt="">
-                                        </td>
-                                        {{-- <td
-                                            style="background:rgb(212, 244, 251); display:inline;display:flex;justify-content:center; align-items: center">
-                                            <img src="/storage/{{ $item->pic }}" width="100px" alt="">
-                                        </td> --}}
-                                        </td>
-                                        <td class="font-weight-medium">
-                                            <button type="button" class="btn btn-primary" data-toggle="modal"
-                                                data-target="#updateModel{{ $i }}">
-                                                Update
-                                            </button>
+                                @php
+                                $i++;
+                                @endphp
+                                <tr>
+                                    <td>{{ $item->name }}</td>
+                                    <td
+                                        style="background:rgb(212, 244, 251); display:inline;display:flex;justify-content:center; align-items: center">
+                                        <img src="{{ asset('storage/' . $item->pic) }}" width="100px" alt="">
+                                    </td>
+                                    {{-- <td
+                                        style="background:rgb(212, 244, 251); display:inline;display:flex;justify-content:center; align-items: center">
+                                        <img src="/storage/{{ $item->pic }}" width="100px" alt="">
+                                    </td> --}}
+                                    </td>
+                                    <td class="font-weight-medium">
+                                        <button type="button" class="btn btn-primary" data-toggle="modal"
+                                            data-target="#updateModel{{ $i }}">
+                                            Update
+                                        </button>
 
-                                            <div class="modal" id="updateModel{{ $i }}">
-                                                <div class="modal-dialog">
-                                                    <div class="modal-content">
-                                                        <div class="modal-header">
-                                                            <h4 class="modal-title">Update Footerbars</h4>
-                                                            <button type="button" class="close"
-                                                                data-dismiss="modal">&times;</button>
-                                                        </div>
-                                                        <div class="modal-body">
-                                                            <form action="{{ url('UpdateFooterbar') }}" method="POST"
-                                                                enctype="multipart/form-data">
-                                                                @csrf
-                                                                @method('PUT')
+                                        <div class="modal" id="updateModel{{ $i }}">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h4 class="modal-title">Update Footerbars</h4>
+                                                        <button type="button" class="close"
+                                                            data-dismiss="modal">&times;</button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <form action="{{ url('UpdateFooterbar') }}" method="POST"
+                                                            enctype="multipart/form-data">
+                                                            @csrf
+                                                            @method('PUT')
 
-                                                                <label for="name">Name:</label>
-                                                                <input type="text" id="name" name="name"
-                                                                    value="{{ $item->name }}" placeholder="Enter Name"
-                                                                    class="form-control mb-2">
+                                                            <label for="name">Name:</label>
+                                                            <input type="text" id="name" name="name"
+                                                                value="{{ $item->name }}" placeholder="Enter Name"
+                                                                class="form-control mb-2">
 
-                                                                <label for="pic">Picture:</label>
-                                                                <input type="file" id="pic" name="pic"
-                                                                    class="form-control mb-2">
+                                                            <label for="pic">Picture:</label>
+                                                            <input type="file" id="pic" name="pic"
+                                                                class="form-control mb-2">
 
-                                                                <input type="hidden" name="id"
-                                                                    value="{{ $item->id }}">
-                                                                <input type="submit" name="save"
-                                                                    class="btn btn-success" value="Save Changes" />
-                                                            </form>
-                                                        </div>
+                                                            <input type="hidden" name="id" value="{{ $item->id }}">
+                                                            <input type="submit" name="save" class="btn btn-success"
+                                                                value="Save Changes" />
+                                                        </form>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <form action="{{ route('footerbar.destroy', $item->id) }}" method="POST"
-                                                enctype="multipart/form-data" style="display: inline">
-                                                @csrf
-                                                @method('DELETE')
-                                                <button type="submit" class="btn btn-danger">Delete</button>
+                                        </div>
+                                        <form action="{{ route('footerbar.destroy', $item->id) }}" method="POST"
+                                            enctype="multipart/form-data" style="display: inline">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="btn btn-danger">Delete</button>
 
-                                            </form>
-                                        </td>
-                                    </tr>
+                                        </form>
+                                    </td>
+                                </tr>
                                 @endforeach
                             </tbody>
 

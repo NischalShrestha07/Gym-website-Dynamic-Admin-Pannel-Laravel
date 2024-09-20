@@ -27,12 +27,12 @@ class DataTrainerController extends Controller
         ]);
         // Create a new trainer
         $trainer = new DataTrainer();
-        $trainer->name = $request->name;
-        $trainer->phone = $request->phone;
-        $trainer->description = $request->description;
-        $trainer->expertise = $request->expertise;
-        $trainer->years_of_experience = $request->years_of_experience;
-        $trainer->qualifications = $request->qualifications;
+        $trainer->name = $request->input('name');
+        $trainer->phone = $request->input('phone');
+        $trainer->description = $request->input('description');
+        $trainer->expertise = $request->input('expertise');
+        $trainer->years_of_experience = $request->input('years_of_experience');
+        $trainer->qualifications = $request->input('qualifications');
 
         // Handle image upload
         if ($request->hasFile('image')) {
@@ -40,7 +40,9 @@ class DataTrainerController extends Controller
         }
 
         $trainer->save();
+        dd($request->all());
 
-        return redirect()->back()->with('success', 'Trainer added successfully!');
+
+        return redirect()->route('datatrainer.create')->with('success', 'Trainer added successfully!');
     }
 }

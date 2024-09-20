@@ -17,6 +17,13 @@
 {{-- <script src="Dashboard/vendors/dat/atables.net/jquery.dataTables.js"></script> --}}
 <script src="Dashboard/vendors/datatables.net-bs4/dataTables.bootstrap4.js"></script>
 <script src="Dashboard/js/dataTables.select.min.js"></script>
+<script>
+    window.setTimeout(function() {
+        $(".alert").fadeTo(500, 0).slideUp(500, function(){
+            $(this).remove();
+        });
+    }, 5000); // 5 seconds
+</script>
 
 <!-- End plugin js for this page -->
 <!-- inject:js -->

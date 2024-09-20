@@ -27,8 +27,26 @@
     <link rel="stylesheet" href="dist/css/adminlte.min2167.css?v=3.2.0">
 
     <link rel="stylesheet" href="plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+        // Fade in the alert on page load
+        let alertBox = document.querySelectorAll('.custom-alert');
 
+        // Automatically fade out after 5 seconds
+        setTimeout(function() {
+            alertBox.forEach(function(alert) {
+                alert.classList.add('fade-out');
+            });
+        }, 5000); // 5 seconds
 
+        // Remove the alert from the DOM after the fade-out transition completes
+        setTimeout(function() {
+            alertBox.forEach(function(alert) {
+                alert.remove();
+            });
+        }, 5500); // 5 seconds + 0.5s for fade-out effect
+    });
+    </script>
     {{-- /////TOKEN RELATED IMPORTANT POINTS --}}
     <meta name="csrf-token" content="{{ csrf_token() }}" />
 
@@ -36,6 +54,42 @@
 
     <link rel="stylesheet" href="plugins/summernote/summernote-bs4.min.css">
     @yield('customCss')
+    <!-- Custom CSS for smoother animation and better styling -->
+    <style>
+        .custom-alert {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1050;
+            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
+            border-radius: 5px;
+            padding: 20px;
+            max-width: 300px;
+            opacity: 0;
+            transform: translateX(100%);
+            transition: all 0.5s ease-out;
+        }
+
+        .custom-alert.fade-in {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .custom-alert.fade-out {
+            opacity: 0;
+            transform: translateX(100%);
+            transition: all 0.5s ease-in;
+        }
+
+        .alert strong {
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .close {
+            font-size: 1.2rem;
+        }
+    </style>
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -49,8 +103,7 @@
 
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i
-                            class="fas fa-bars"></i></a>
+                    <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
                     <a href="{{ route('admin.dashboard') }}" class="nav-link">Home</a>
@@ -115,8 +168,7 @@
                                 <div class="media-body">
                                     <h3 class="dropdown-item-title">
                                         John Pierce
-                                        <span class="float-right text-sm text-muted"><i
-                                                class="fas fa-star"></i></span>
+                                        <span class="float-right text-sm text-muted"><i class="fas fa-star"></i></span>
                                     </h3>
                                     <p class="text-sm">I got your message bro</p>
                                     <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
@@ -179,8 +231,8 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" data-widget="control-sidebar" data-controlsidebar-slide="true"
-                        href="#" role="button">
+                    <a class="nav-link" data-widget="control-sidebar" data-controlsidebar-slide="true" href="#"
+                        role="button">
                         <i class="fas fa-th-large"></i>
                     </a>
                 </li>
@@ -271,8 +323,8 @@
                                 </li>
                                 {{-- <li class="nav-item">
                                     <a href="{{ route('academic_year.read') }}" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>View Academic Years List</p>
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>View Academic Years List</p>
                                     </a>
                                 </li> --}}
                             </ul>
@@ -298,8 +350,8 @@
                                 </li>
                                 {{-- <li class="nav-item">
                                     <a href="{{ route('class.read') }}" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>View Class List</p>
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>View Class List</p>
                                     </a>
 
                                 </li> --}}
@@ -326,8 +378,8 @@
                                 </li>
                                 {{-- <li class="nav-item">
                                     <a href="{{ route('feehead.read') }}" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>View Fee Head</p>
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>View Fee Head</p>
                                     </a>
 
                                 </li> --}}
@@ -347,8 +399,8 @@
                             <ul class="nav nav-treeview">
                                 {{-- <li class="nav-item">
                                     <a href="{{ route('feestructure.create') }}" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Add FeeStructure</p>
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Add FeeStructure</p>
                                     </a>
                                 </li> --}}
                                 <li class="nav-item">
@@ -373,8 +425,8 @@
                             <ul class="nav nav-treeview">
                                 {{-- <li class="nav-item">
                                     <a href="{{ route('student.create') }}" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Setting</p>
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Setting</p>
                                     </a>
                                 </li> --}}
                                 <li class="nav-item">
@@ -400,14 +452,14 @@
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
                                     {{-- <a href="{{ route('announcement.create') }}" class="nav-link"> --}}
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Add Announcement</p>
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Add Announcement</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
                                     {{-- <a href="{{ route('announcement.read') }}" class="nav-link"> --}}
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>View Announcement List</p>
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>View Announcement List</p>
                                     </a>
 
                                 </li>
@@ -428,14 +480,14 @@
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
                                     {{-- <a href="{{ route('assignSubject.create') }}" class="nav-link"> --}}
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Add Subject to Assign</p>
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Add Subject to Assign</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
                                     {{-- <a href="{{ route('assignSubject.read') }}" class="nav-link"> --}}
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>View Assigned Subject</p>
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>View Assigned Subject</p>
                                     </a>
 
                                 </li>
@@ -455,14 +507,14 @@
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
                                     {{-- <a href="{{ route('subject.create') }}" class="nav-link"> --}}
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Add Record</p>
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Add Record</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
                                     {{-- <a href="{{ route('subject.read') }}" class="nav-link"> --}}
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>View Record</p>
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>View Record</p>
                                     </a>
 
                                 </li>
@@ -483,14 +535,14 @@
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
                                     {{-- <a href="{{ route('teacher.create') }}" class="nav-link"> --}}
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Add Teacher</p>
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Add Teacher</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
                                     {{-- <a href="{{ route('teacher.read') }}" class="nav-link"> --}}
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>View Teacher List</p>
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>View Teacher List</p>
                                     </a>
 
                                 </li>

@@ -85,6 +85,6 @@ class TrainerController extends Controller
     {
         $trainer = Trainer::find($id);
         $trainer->delete();
-        return redirect()->route('trainers.index')->with('success', 'Trainer Deleted Sucessfully.');
+        return redirect()->route('trainers.index')->with('error', 'Trainer Deleted Sucessfully.');
     }
 }

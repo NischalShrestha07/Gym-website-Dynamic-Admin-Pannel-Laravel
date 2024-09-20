@@ -7,6 +7,27 @@
             <div class="card">
                 <div class="card-body">
                     <p class="card-title mb-0">Message Details</p>
+                    <div>
+                        @if (session('success'))
+                        <div class="alert alert-success text-white bg-success alert-dismissible custom-alert fade-in"
+                            role="alert">
+                            <strong>Success!</strong> {{ session('success') }}
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        @endif
+
+                        @if (session('error'))
+                        <div class="alert alert-danger text-white bg-danger alert-dismissible custom-alert fade-in"
+                            role="alert">
+                            <strong>Error!</strong> {{ session('error') }}
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        @endif
+                    </div>
                     <!-- Button to Open the Modal -->
                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addNewContact">
                         Add New

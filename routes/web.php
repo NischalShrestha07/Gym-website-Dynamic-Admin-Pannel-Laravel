@@ -69,6 +69,24 @@ Route::group(
 
 
 
+//Data admins details Route
+
+Route::get('/datatrainer/create', [DataTrainerController::class, 'index'])->name('datatrainer.create');
+Route::post('/AddNewTrainer', [DataTrainerController::class, 'AddNewTrainer'])->name('trainer.add');
+// Route::put('/UpdateSupplier', [SupplierController::class, 'UpdateSupplier']);
+// Route::delete('/supplier/{id}', [SupplierController::class, 'destroy'])->name('supplier.destroy');
+// Route::get('/supplierFilter', [SupplierController::class, 'index'])->name('supplier.index');
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -96,7 +114,7 @@ Route::group(
 //manageAdmins
 //Admin Routes of Home
 Route::get('/manageAdmin', [AdminController::class, 'index'])->name('admin.index');
-Route::get('/adminDatas', [AdminController::class, 'datas']);
+Route::get('/adminDatas', [AdminController::class, 'datas'])->name('datas.index');
 Route::post('/AddNewData', [AdminController::class, 'AddNewData']);
 Route::put('/UpdateData', [AdminController::class, 'UpdateData']);
 Route::delete('/datas/{id}', [AdminController::class, 'DeleteData'])->name('datas.destroy');
