@@ -10,8 +10,8 @@ class ManageClientController extends Controller
 {
     public function index()
     {
-        $client = ManageClient::all();
-        return view('admin.clients.index', compact('client'));
+        $clients = ManageClient::all();
+        return view('admin.clients.index', compact('clients'));
     }
     public function AddNewClient(Request $request)
     {
@@ -35,7 +35,7 @@ class ManageClientController extends Controller
         $client->dueAmount = $request->input('dueAmount');
         $client->save();
 
-        return redirect()->route('client.index')->with('success', 'Client Added Successfully.');
+        return redirect()->route('client.create')->with('success', 'Client Added Successfully.');
     }
     public function UpdateClient(Request $request)
     {
@@ -59,13 +59,13 @@ class ManageClientController extends Controller
         $client->dueAmount = $request->input('dueAmount');
         $client->save();
 
-        return redirect()->route('client.index')->with('success', 'Client Updated Successfully.');
+        return redirect()->route('client.create')->with('success', 'Client Updated Successfully.');
     }
     public function destroy($id)
     {
         $client = ManageClient::find($id);
         $client->delete();
 
-        return redirect()->route('client.index')->with('error', 'Client Deleted Successfully.');
+        return redirect()->route('client.create')->with('error', 'Client Deleted Successfully.');
     }
 }

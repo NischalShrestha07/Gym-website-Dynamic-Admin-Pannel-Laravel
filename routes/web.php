@@ -18,6 +18,7 @@ use App\Http\Controllers\Frontend\TrainersController;
 use App\Http\Controllers\Frontend\WhyusController as FrontendWhyusController;
 use App\Http\Controllers\GymNameController;
 use App\Http\Controllers\ManageAdminController;
+use App\Http\Controllers\ManageClientController;
 use App\Http\Controllers\TrainerController;
 use App\Http\Controllers\WhyusController;
 use App\Models\Admin\Trainer;
@@ -75,6 +76,13 @@ Route::get('/datatrainer/create', [DataTrainerController::class, 'index'])->name
 Route::post('/AddNewDataTrainer', [DataTrainerController::class, 'AddNewDataTrainer'])->name('datatrainer.add');
 Route::put('/UpdateDataTrainer', [DataTrainerController::class, 'UpdateDataTrainer']);
 Route::delete('/datatrainer/{id}', [DataTrainerController::class, 'destroy'])->name('datatrainer.destroy');
+// Route::get('/supplierFilter', [SupplierController::class, 'index'])->name('supplier.index');
+
+
+Route::get('/client/create', [ManageClientController::class, 'index'])->name('client.create');
+Route::post('/AddNewClient', [ManageClientController::class, 'AddNewClient'])->name('client.add');
+Route::put('/UpdateClient', [ManageClientController::class, 'UpdateClient']);
+Route::delete('/client/{id}', [ManageClientController::class, 'destroy'])->name('client.destroy');
 // Route::get('/supplierFilter', [SupplierController::class, 'index'])->name('supplier.index');
 
 

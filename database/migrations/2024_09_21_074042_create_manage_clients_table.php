@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('planEndDate');
             $table->string('trainerStatus');
             $table->string('dueAmount');
+            $table->string('image');
             $table->timestamps();
         });
     }
