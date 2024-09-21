@@ -24,8 +24,19 @@ class ManageClientController extends Controller
             'planEndDate' => 'nullable|string',
             'trainerStatus' => 'nullable|string',
             'dueAmount' => 'nullable|string',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+
         ]);
+        $imagePath = null;
+
+        if ($request->hasFile('image')) {
+            $imagePath = $request->file('image')->store('images/clients', 'public');
+        }
         $client = new ManageClient();
+
+        $client->image = $imagePath;
+
+
         $client->name = $request->input('name');
         $client->mobile = $request->input('mobile');
         $client->email = $request->input('email');
@@ -48,7 +59,23 @@ class ManageClientController extends Controller
             'planEndDate' => 'nullable|string',
             'trainerStatus' => 'nullable|string',
             'dueAmount' => 'nullable|string',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+
         ]);
+        $client = ManageClient::find($request->input('id'));
+
+
+        if (!$client) {
+            return redirect()->route('datatrainer.create')->with('error', 'Trainer not found');
+        }
+
+        // Handle File Upload for image
+        if ($request->hasFile('image')) {
+            // Store new image
+            $imagePath = $request->file('image')->store('images/clients', 'public');
+            $client->image = $imagePath;
+        }
+
         $client = ManageClient::find('id');
         $client->name = $request->input('name');
         $client->mobile = $request->input('mobile');

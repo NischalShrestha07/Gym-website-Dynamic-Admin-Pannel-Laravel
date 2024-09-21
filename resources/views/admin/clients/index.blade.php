@@ -107,7 +107,7 @@
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="trainerStatus" class="font-weight-bold"> Status:</label>
-                                                    <input type="date" id="trainerStatus" name="trainerStatus"
+                                                    <input type="text" id="trainerStatus" name="trainerStatus"
                                                         placeholder="Enter Trainer Status" class="form-control"
                                                         required>
                                                 </div>
@@ -353,7 +353,7 @@
                                                 </div>
                                             </div>
 
-                                            <form action="{{route('dataClient.destroy',$item->id)}}" method="POST"
+                                            <form action="{{route('client.destroy',$item->id)}}" method="POST"
                                                 style="display:inline-block;"> @csrf
                                                 @method('DELETE')
                                                 <button type="submit" class="btn btn-sm w-10" title="Delete"
