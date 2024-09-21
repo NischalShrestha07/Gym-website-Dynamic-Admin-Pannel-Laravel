@@ -279,7 +279,7 @@
                             <a href="{{ route('admin.dashboard') }}" class="nav-link">
                                 <i class="nav-icon fas fa-th"></i>
                                 <p>
-                                    Dashboard
+                                    <B>Dashboard</B>
                                     <span class="right badge badge-danger">Admin</span>
                                 </p>
                             </a>
@@ -289,8 +289,7 @@
                             <a href="#" class="nav-link">
                                 <i class="nav-icon fas fa-chart-pie"></i>
                                 <p>
-                                    Change Contents
-                                    <i class="right fas fa-angle-left"></i>
+                                    <b>Change Contents</b> <i class="right fas fa-angle-left"></i>
                                 </p>
                             </a>
                             <ul class="nav nav-treeview">
@@ -303,8 +302,51 @@
 
                             </ul>
                         </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fas fa-chart-pie"></i>
+                                <p>
+                                    <b>Client</b> <i class="right fas fa-angle-left"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Manage Client</p>
+                                    </a>
+                                </li>
 
-                        {{-- academic_year --}}
+                            </ul>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Payment Dues</p>
+                                    </a>
+                                </li>
+
+                            </ul>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Manage Attendance</p>
+                                    </a>
+                                </li>
+
+                            </ul>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Payment History</p>
+                                    </a>
+                                </li>
+
+                            </ul>
+                        </li>
+
                         <li class="nav-item">
                             <a href="{{ route('admin.trainer') }}" class="nav-link">
                                 <i class="nav-icon fas fa-chart-pie"></i>
@@ -466,61 +508,8 @@
 
 
                         </li>
-                        {{-- Assign Subject mngt --}}
-                        <li class="nav-item">
-                            <a href="" class="nav-link">
-                                <i class="nav-icon fas fa-chart-pie"></i>
-
-                                <p>
-                                    Assign Subject Mngt
-                                    <i class="right fas fa-angle-left"></i>
-                                </p>
-                            </a>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    {{-- <a href="{{ route('assignSubject.create') }}" class="nav-link"> --}}
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Add Subject to Assign</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    {{-- <a href="{{ route('assignSubject.read') }}" class="nav-link"> --}}
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>View Assigned Subject</p>
-                                    </a>
-
-                                </li>
-                            </ul>
 
 
-                        </li>
-                        <li class="nav-item">
-                            <a href="" class="nav-link">
-                                <i class="nav-icon fas fa-chart-pie"></i>
-
-                                <p>
-                                    Subject Mngt
-                                    <i class="right fas fa-angle-left"></i>
-                                </p>
-                            </a>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    {{-- <a href="{{ route('subject.create') }}" class="nav-link"> --}}
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Add Record</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    {{-- <a href="{{ route('subject.read') }}" class="nav-link"> --}}
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>View Record</p>
-                                    </a>
-
-                                </li>
-                            </ul>
-
-
-                        </li>
                         {{-- Logout mngt --}}
                         <li class="nav-item">
                             <a href="" class="nav-link">
@@ -542,34 +531,7 @@
 
 
                         </li>
-                        {{-- Assign Teacher to Classes mngt --}}
-                        {{-- <li class="nav-item">
-                            <a href="" class="nav-link">
-                                <i class="nav-icon fas fa-chart-pie"></i>
 
-                                <p>
-                                    Assign Teacher Mngt
-                                    <i class="right fas fa-angle-left"></i>
-                                </p>
-                            </a>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="{{route('assignTeacher.create')}}" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Add Assign Teacher</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="{{route('teacher.read')}}" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>View Teacher List</p>
-                                    </a>
-
-                                </li>
-                            </ul>
-
-
-                        </li> --}}
 
                     </ul>
                 </nav>
