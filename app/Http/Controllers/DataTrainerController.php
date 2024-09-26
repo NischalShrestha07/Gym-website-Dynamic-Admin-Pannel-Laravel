@@ -19,7 +19,11 @@ class DataTrainerController extends Controller
         $request->validate([
             'name' => 'required|string|max:255',
             'phone' => 'required|string|max:15',
-            'description' => 'nullable|string',
+            'dob' => 'nullable|date',
+            'date_of_join' => 'nullable|date',
+            'address' => 'nullable|string',
+            'salary' => 'nullable',
+            'gender' => 'nullable',
             'expertise' => 'required|string|max:255',
             'years_of_experience' => 'required|integer',
             'qualifications' => 'nullable|string|max:255',
@@ -35,12 +39,13 @@ class DataTrainerController extends Controller
         // Create a new trainer
         $trainer = new DataTrainer();
         $trainer->name = $request->input('name');
-
-
         $trainer->image = $imagePath;
-
         $trainer->phone = $request->input('phone');
-        $trainer->description = $request->input('description');
+        $trainer->dob = $request->input('dob');
+        $trainer->date_of_join = $request->input('date_of_join');
+        $trainer->address = $request->input('address');
+        $trainer->salary = $request->input('salary');
+        $trainer->gender = $request->input('gender');
         $trainer->expertise = $request->input('expertise');
         $trainer->years_of_experience = $request->input('years_of_experience');
         $trainer->qualifications = $request->input('qualifications');
@@ -64,7 +69,11 @@ class DataTrainerController extends Controller
         $request->validate([
             'name' => 'required|string|max:255',
             'phone' => 'required|string|max:15',
-            'description' => 'nullable|string',
+            'dob' => 'nullable|date',
+            'date_of_join' => 'nullable|date',
+            'address' => 'nullable|string',
+            'salary' => 'nullable',
+            'gender' => 'nullable',
             'expertise' => 'required|string|max:255',
             'years_of_experience' => 'required|integer',
             'qualifications' => 'nullable|string|max:255',
@@ -85,9 +94,14 @@ class DataTrainerController extends Controller
         }
 
         // Update the trainer details
+
         $trainer->name = $request->input('name');
         $trainer->phone = $request->input('phone');
-        $trainer->description = $request->input('description');
+        $trainer->dob = $request->input('dob');
+        $trainer->date_of_join = $request->input('date_of_join');
+        $trainer->address = $request->input('address');
+        $trainer->salary = $request->input('salary');
+        $trainer->gender = $request->input('gender');
         $trainer->expertise = $request->input('expertise');
         $trainer->years_of_experience = $request->input('years_of_experience');
         $trainer->qualifications = $request->input('qualifications');

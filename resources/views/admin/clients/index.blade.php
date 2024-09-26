@@ -72,7 +72,7 @@
                                             </button>
                                         </div>
 
-                                        <div class="modal-body">
+                                        {{-- <div class="modal-body">
                                             <form action="{{ url('AddNewClient') }}" method="POST"
                                                 enctype="multipart/form-data">
                                                 @csrf
@@ -130,10 +130,81 @@
                                                     </button>
                                                 </div>
                                             </form>
+                                        </div> --}}
+
+                                        <div class="modal-body">
+                                            <form action="{{ url('AddNewClient') }}" method="POST"
+                                                enctype="multipart/form-data">
+                                                @csrf
+                                                <div class="form-group">
+                                                    <label for="name" class="font-weight-bold">Name:</label>
+                                                    <input type="text" id="name" name="name"
+                                                        placeholder="Enter Client Name" class="form-control" required>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label for="mobile" class="font-weight-bold">Phone No:</label>
+                                                    <input type="tel" id="mobile" name="mobile"
+                                                        placeholder="Enter Phone Number" class="form-control" required>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label for="email" class="font-weight-bold">Email Address:</label>
+                                                    <input type="email" id="email" name="email"
+                                                        placeholder="Enter Email Address" class="form-control">
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label for="plantype" class="font-weight-bold">Plan Type:</label>
+                                                    <select id="plantype" name="plantype" class="form-control" required>
+                                                        <option value="" disabled selected>Select Plan Type</option>
+                                                        <option value="Basic">Basic</option>
+                                                        <option value="Standard">Standard</option>
+                                                        <option value="Premium">Premium</option>
+                                                    </select>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label for="planEndDate" class="font-weight-bold">Plan End
+                                                        Date:</label>
+                                                    <input type="date" id="planEndDate" name="planEndDate"
+                                                        class="form-control" required>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label for="trainerStatus" class="font-weight-bold">Trainer
+                                                        Status:</label>
+                                                    <select id="trainerStatus" name="trainerStatus" class="form-control"
+                                                        required>
+                                                        <option value="" disabled selected>Select Trainer Status
+                                                        </option>
+                                                        <option value="Active">Active</option>
+                                                        <option value="Inactive">Inactive</option>
+                                                    </select>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label for="dueAmount" class="font-weight-bold">Due Amount:</label>
+                                                    <input type="number" id="dueAmount" name="dueAmount"
+                                                        placeholder="Enter Due Amount" class="form-control" required>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label for="image" class="font-weight-bold">Image:</label>
+                                                    <input type="file" id="image" name="image" class="form-control">
+                                                </div>
+
+                                                <div class="text-right">
+                                                    <button type="submit" class="btn btn-success">
+                                                        <i class="fas fa-save"></i> Save
+                                                    </button>
+                                                </div>
+                                            </form>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+
 
                             <table id="ClientTable" class="table table-bordered table-striped">
                                 <thead>
@@ -276,7 +347,7 @@
                                                                 data-dismiss="modal">&times;</button>
                                                         </div>
                                                         <div class="modal-body">
-                                                            <form action="{{ url('UpdateDataClient') }}" method="POST"
+                                                            <form action="{{ url('UpdateClient') }}" method="POST"
                                                                 enctype="multipart/form-data">
                                                                 @csrf
                                                                 @method('PUT')
@@ -293,50 +364,104 @@
                                                                 </div>
 
                                                                 <div class="mb-3">
-                                                                    <label for="phone">Phone No:</label>
-                                                                    <input type="text" id="phone" name="phone"
-                                                                        value="{{ $item->phone }}"
+                                                                    <label for="mobile">Phone No:</label>
+                                                                    <input type="tel" id="mobile" name="mobile"
+                                                                        value="{{ $item->mobile }}"
                                                                         class="form-control mb-2">
                                                                 </div>
 
-                                                                <div class="mb-3">
-                                                                    <label for="description">Description:</label>
-                                                                    <input type="text" id="description"
-                                                                        name="description"
-                                                                        value="{{ $item->description }}"
-                                                                        class="form-control mb-2">
+                                                                <div class="form-group">
+                                                                    <label for="email" class="font-weight-bold">Email
+                                                                        Address:</label>
+                                                                    <input type="email" id="email" name="email"
+                                                                        value="{{$item->email}}"
+                                                                        placeholder="Enter Email Address"
+                                                                        class="form-control">
                                                                 </div>
 
-                                                                <div class="mb-3">
-                                                                    <label for="expertise">Client's Expertise:</label>
-                                                                    <input type="text" id="expertise" name="expertise"
-                                                                        value="{{ $item->expertise }}"
-                                                                        class="form-control mb-2">
+                                                                {{-- <div class="form-group">
+                                                                    <label for="plantype" class="font-weight-bold">Plan
+                                                                        Type:</label>
+                                                                    <select id="plantype" name="plantype"
+                                                                        class="form-control" required>
+                                                                        <option value="{{$item->plantype}}" disabled
+                                                                            selected>Select Plan
+                                                                            Type</option>
+                                                                        <option value="Basic">Basic</option>
+                                                                        <option value="Standard">Standard</option>
+                                                                        <option value="Premium">Premium</option>
+                                                                    </select>
+                                                                </div> --}}
+                                                                <div class="form-group">
+                                                                    <label for="plantype" class="font-weight-bold">Plan
+                                                                        Type:</label>
+                                                                    <select id="plantype" name="plantype"
+                                                                        class="form-control" required>
+                                                                        <option disabled>Select Plan Type</option>
+                                                                        <option value="Basic" {{ $item->plantype ==
+                                                                            'Basic' ? 'selected' : '' }}>Basic</option>
+                                                                        <option value="Standard" {{ $item->plantype ==
+                                                                            'Standard' ? 'selected' : '' }}>Standard
+                                                                        </option>
+                                                                        <option value="Premium" {{ $item->plantype ==
+                                                                            'Premium' ? 'selected' : '' }}>Premium
+                                                                        </option>
+                                                                    </select>
                                                                 </div>
-                                                                a
-                                                                <div class="mb-3">
-                                                                    <label for="years_of_experience">Years Of
-                                                                        Experience:</label>
-                                                                    <input type="text" id="years_of_experience"
-                                                                        name="years_of_experience"
-                                                                        value="{{ $item->years_of_experience }}"
-                                                                        class="form-control mb-2">
-                                                                </div>
-                                                                <div class="mb-3">
-                                                                    <label for="qualifications">Client's
-                                                                        Qualifications:</label>
-                                                                    <input type="qualifications" id="qualifications"
-                                                                        name="qualifications"
-                                                                        value="{{ $item->qualifications }}"
-                                                                        class="form-control mb-2">
+                                                                <div class="form-group">
+                                                                    <label for="planEndDate"
+                                                                        class="font-weight-bold">Plan End
+                                                                        Date:</label>
+                                                                    <input type="date" id="planEndDate"
+                                                                        name="planEndDate"
+                                                                        value="{{$item->planEndDate}}"
+                                                                        class="form-control" required>
                                                                 </div>
 
+                                                                {{-- <div class="form-group">
+                                                                    <label for="trainerStatus"
+                                                                        class="font-weight-bold">Trainer
+                                                                        Status:</label>
+                                                                    <select id="trainerStatus" name="trainerStatus"
+                                                                        class="form-control" required>
+                                                                        <option disabled selected>Select
+                                                                            Trainer Status
+                                                                        </option>
 
-                                                                <div class="mb-3">
-                                                                    <label for="image">Client's Image:</label>
-                                                                    <input type="file" id="image" name="image"
-                                                                        value="{{ $item->image }}"
-                                                                        class="form-control mb-2">
+                                                                        <option value="Active">Active</option>
+                                                                        <option value="Inactive">Inactive</option>
+                                                                    </select>
+                                                                </div> --}}
+
+                                                                <div class="form-group">
+                                                                    <label for="trainerStatus"
+                                                                        class="font-weight-bold">Trainer Status:</label>
+                                                                    <select id="trainerStatus" name="trainerStatus"
+                                                                        class="form-control" required>
+                                                                        <option disabled>Select Trainer Status</option>
+                                                                        <option value="Active" {{ $item->trainerStatus
+                                                                            == 'Active' ? 'selected' : '' }}>Active
+                                                                        </option>
+                                                                        <option value="Inactive" {{ $item->trainerStatus
+                                                                            == 'Inactive' ? 'selected' : '' }}>Inactive
+                                                                        </option>
+                                                                    </select>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label for="dueAmount" class="font-weight-bold">Due
+                                                                        Amount:</label>
+                                                                    <input type="number" id="dueAmount"
+                                                                        value="{{$item->dueAmount}}" name="dueAmount"
+                                                                        placeholder="Enter Due Amount"
+                                                                        class="form-control" required>
+                                                                </div>
+
+                                                                <div class="form-group">
+                                                                    <label for="image"
+                                                                        class="font-weight-bold">Image:</label>
+                                                                    <input type="file" id="image"
+                                                                        value="{{$item->image}}" name="image"
+                                                                        class="form-control">
                                                                 </div>
 
                                                                 <input type="hidden" name="id" value="{{ $item->id }}">

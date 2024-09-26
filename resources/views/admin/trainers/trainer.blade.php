@@ -89,16 +89,34 @@
                                                 </div>
 
                                                 <div class="form-group">
-                                                    <label for="description"
-                                                        class="font-weight-bold">Description:</label>
-                                                    <textarea id="description" name="description"
-                                                        placeholder="Enter Description" class="form-control"></textarea>
+                                                    <label for="dob" class="font-weight-bold">DOB:</label>
+                                                    <input type="date" id="dob" name="dob"
+                                                        placeholder="Enter dob Number" class="form-control" required>
                                                 </div>
 
                                                 <div class="form-group">
-                                                    <label for="expertise" class="font-weight-bold">Expertise:</label>
-                                                    <input type="text" id="expertise" name="expertise"
-                                                        placeholder="Enter Expertise" class="form-control" required>
+                                                    <label for="date_of_join" class="font-weight-bold">Date Of
+                                                        Join:</label>
+                                                    <input type="date" id="date_of_join" name="date_of_join"
+                                                        placeholder="Enter date_of_join Number" class="form-control"
+                                                        required>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label for="address" class="font-weight-bold">Address:</label>
+                                                    <textarea id="address" name="address" placeholder="Enter address"
+                                                        class="form-control"></textarea>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="address" class="font-weight-bold">Address:</label>
+                                                    <textarea id="address" name="address" placeholder="Enter address"
+                                                        class="form-control"></textarea>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label for="salary" class="font-weight-bold">Salary:</label>
+                                                    <input type="text" id="salary" name="salary"
+                                                        placeholder="Enter salary" class="form-control" required>
                                                 </div>
 
                                                 <div class="form-group">

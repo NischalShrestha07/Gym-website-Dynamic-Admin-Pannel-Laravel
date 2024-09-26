@@ -76,7 +76,7 @@ class ManageClientController extends Controller
             $client->image = $imagePath;
         }
 
-        $client = ManageClient::find('id');
+        // $client = ManageClient::find('id');
         $client->name = $request->input('name');
         $client->mobile = $request->input('mobile');
         $client->email = $request->input('email');

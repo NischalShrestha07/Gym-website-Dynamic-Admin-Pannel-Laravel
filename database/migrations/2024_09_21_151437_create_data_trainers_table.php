@@ -14,12 +14,17 @@ return new class extends Migration
         Schema::create('data_trainers', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->string('dob');
+            $table->string('date_of_join');
+            $table->string('address');
             $table->string('phone');
-            $table->text('description')->nullable();
             $table->string('expertise');
+            $table->string('gender');
             $table->integer('years_of_experience');
             $table->string('qualifications')->nullable();
             $table->string('image')->nullable();
+            $table->string('salary')->nullable();
+
             $table->timestamps();
         });
     }
