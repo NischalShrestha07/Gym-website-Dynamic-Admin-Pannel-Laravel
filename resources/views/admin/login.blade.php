@@ -37,7 +37,7 @@
                     {{ Session::get('error') }}
                 </div>
                 @endif
-                <a href="../../index2.html" class="h1"><b>Gym</b>LMS</a>
+                <a href="../../index2.html" class="h1"><b>Gym</b>Login</a>
             </div>
             <div class="card-body">
                 <p class="login-box-msg">Sign in to start your session</p>

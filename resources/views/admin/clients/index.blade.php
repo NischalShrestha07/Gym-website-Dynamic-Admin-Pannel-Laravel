@@ -158,9 +158,11 @@
                                                     <label for="plantype" class="font-weight-bold">Plan Type:</label>
                                                     <select id="plantype" name="plantype" class="form-control" required>
                                                         <option value="" disabled selected>Select Plan Type</option>
-                                                        <option value="Basic">Basic</option>
-                                                        <option value="Standard">Standard</option>
-                                                        <option value="Premium">Premium</option>
+                                                        <option value="1 month">1 month</option>
+                                                        <option value="3 months">3 months</option>
+                                                        <option value="6 months">6 months</option>
+                                                        <option value="1 year">1 year</option>
+
                                                     </select>
                                                 </div>
 
@@ -301,7 +303,7 @@
                                                                                 <div class="col-md-6">
                                                                                     <h6><strong>Plan Type:</strong></h6>
                                                                                     <p>{{ $item->plantype }}
-                                                                                        years</p>
+                                                                                    </p>
                                                                                 </div>
                                                                             </div>
                                                                             <div class="row mb-3">
@@ -316,14 +318,14 @@
                                                                                     <p>{{ $item->trainerStatus}}
                                                                                     </p>
                                                                                 </div>
-                                                                                <div class="row mb-3">
-                                                                                    <div class="col-md-6">
-                                                                                        <h6><strong>Due Amount</strong>
-                                                                                        </h6>
-                                                                                        <p>{{ $item->dueAmount }}
-                                                                                        </p>
-                                                                                    </div>
+
+                                                                                <div class="col-md-6">
+                                                                                    <h6><strong>Due Amount</strong>
+                                                                                    </h6>
+                                                                                    <p>{{ $item->dueAmount }}
+                                                                                    </p>
                                                                                 </div>
+
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -398,13 +400,17 @@
                                                                     <select id="plantype" name="plantype"
                                                                         class="form-control" required>
                                                                         <option disabled>Select Plan Type</option>
-                                                                        <option value="Basic" {{ $item->plantype ==
-                                                                            'Basic' ? 'selected' : '' }}>Basic</option>
-                                                                        <option value="Standard" {{ $item->plantype ==
-                                                                            'Standard' ? 'selected' : '' }}>Standard
+                                                                        <option value="1 month" {{ $item->plantype ==
+                                                                            '1 month' ? 'selected' : '' }}>1 month
                                                                         </option>
-                                                                        <option value="Premium" {{ $item->plantype ==
-                                                                            'Premium' ? 'selected' : '' }}>Premium
+                                                                        <option value=" 3 months" {{ $item->plantype ==
+                                                                            '3 months' ? 'selected' : '' }}>3 months
+                                                                        </option>
+                                                                        <option value="6 months" {{ $item->plantype ==
+                                                                            '6 months' ? 'selected' : '' }}>6 months
+                                                                        </option>
+                                                                        <option value="1 year" {{ $item->plantype ==
+                                                                            '1 year' ? 'selected' : '' }}>1 year
                                                                         </option>
                                                                     </select>
                                                                 </div>
