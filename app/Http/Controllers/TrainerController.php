@@ -13,11 +13,13 @@ class TrainerController extends Controller
     {
         return view('Dashboard.index');
     }
+
     public function trainers()
     {
         $trainers = Trainer::all();
         return view('Dashboard.trainers', compact('trainers'));
     }
+
     public function AddNewTrainer(Request $request)
     {
         $request->validate([
@@ -64,7 +66,6 @@ class TrainerController extends Controller
         if (!$trainer) {
             return redirect()->route('trainers.index')->with('error', 'Trainer not found');
         }
-
         if ($request->hasFile('photo')) {
             $photoPath = $request->file('photo')->store('uploads/trainers', 'public');
             $trainer->photo = $photoPath;

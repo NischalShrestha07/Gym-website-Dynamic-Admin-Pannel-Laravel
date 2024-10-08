@@ -289,6 +289,7 @@
                                                                                     <p>{{ $item->name }}</p>
                                                                                 </div>
                                                                                 <div class="col-md-6">
+                                                                                    \
                                                                                     <h6><strong>Phone Number:</strong>
                                                                                     </h6>
                                                                                     <p>{{ $item->mobile }}</p>

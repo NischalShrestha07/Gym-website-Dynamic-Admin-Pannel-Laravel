@@ -89,7 +89,7 @@
                                                 </div>
 
                                                 <div class="form-group">
-                                                    <label for="dob" class="font-weight-bold">DOB:</label>
+                                                    <label for="dob" class="font-weight-bold">Birth Date:</label>
                                                     <input type="date" id="dob" name="dob"
                                                         placeholder="Enter dob Number" class="form-control" required>
                                                 </div>
@@ -104,28 +104,33 @@
 
                                                 <div class="form-group">
                                                     <label for="address" class="font-weight-bold">Address:</label>
-                                                    <textarea id="address" name="address" placeholder="Enter address"
-                                                        class="form-control"></textarea>
+                                                    <input id="address" name="address" placeholder="Enter address"
+                                                        class="form-control" />
                                                 </div>
                                                 <div class="form-group">
-                                                    <label for="address" class="font-weight-bold">Address:</label>
-                                                    <textarea id="address" name="address" placeholder="Enter address"
-                                                        class="form-control"></textarea>
+                                                    <label for="salary" class="font-weight-bold">Salary:</label>
+                                                    <input id="salary" name="salary" placeholder="Salary"
+                                                        class="form-control" />
                                                 </div>
 
                                                 <div class="form-group">
-                                                    <label for="salary" class="font-weight-bold">Salary:</label>
-                                                    <input type="text" id="salary" name="salary"
-                                                        placeholder="Enter salary" class="form-control" required>
+                                                    <label for="gender" class="font-weight-bold">Gender:</label>
+                                                    <input type="text" id="gender" name="gender" placeholder="Gender:"
+                                                        class="form-control" required>
                                                 </div>
+                                                <div class="form-group">
+                                                    <label for="expertise" class="font-weight-bold">Expertise:</label>
+                                                    <input type="text" id="expertise" name="expertise"
+                                                        placeholder="Expertise:" class="form-control">
+                                                </div>
+
 
                                                 <div class="form-group">
                                                     <label for="years_of_experience" class="font-weight-bold">Years of
                                                         Experience:</label>
                                                     <input type="number" id="years_of_experience"
-                                                        name="years_of_experience"
-                                                        placeholder="Enter Years of Experience" class="form-control"
-                                                        required>
+                                                        name="years_of_experience" placeholder="Years of Experience"
+                                                        class="form-control" required>
                                                 </div>
 
                                                 <div class="form-group">
@@ -157,10 +162,11 @@
                                         <th>Name</th>
                                         <th>Image</th>
                                         <th>Phone</th>
-                                        <th>Description</th>
+                                        <th>Date of Join</th>
                                         <th>Expertise</th>
                                         <th>Experience (Years)</th>
                                         <th>Qualifications</th>
+                                        <th>Salary</th>
                                         <th>Actions</th>
                                     </tr>
                                 </thead>
@@ -174,10 +180,11 @@
                                                 width="100px" alt="Trainer Photo">
                                         </td>
                                         <td>{{ $item->phone }}</td>
-                                        <td>{{ $item->description}}</td>
+                                        <td>{{$item->date_of_join}}</td>
                                         <td>{{ $item->expertise }}</td>
-                                        <td>{{ $item->years_of_experience }}</td>
+                                        <td>{{ $item->years_of_experience }} years</td>
                                         <td>{{ $item->qualifications }}</td>
+                                        <td>Rs {{$item->salary}}</td>
                                         <td class="font-weight-medium">
                                             <button type="button" class="btn" title="Edit" data-toggle="modal"
                                                 data-target="#updateModel{{ $item->id }}">
@@ -193,7 +200,7 @@
                                             </button>
 
                                             <!-- View Modal -->
-                                            <div class="modal fade" id="viewModel{{ $item->id }}" tabindex="-1"
+                                            {{-- <div class="modal fade" id="viewModel{{ $item->id }}" tabindex="-1"
                                                 role="dialog" aria-labelledby="viewModelLabel{{ $item->id }}"
                                                 aria-hidden="true">
                                                 <div class="modal-dialog modal-lg" role="document">
@@ -253,12 +260,7 @@
                                                                                     </h6>
                                                                                     <p>{{ $item->qualifications }}</p>
                                                                                 </div>
-                                                                                <div class="col-md-6">
-                                                                                    <h6><strong>Description:</strong>
-                                                                                    </h6>
-                                                                                    <p>{{ $item->description ?: 'N/A' }}
-                                                                                    </p>
-                                                                                </div>
+
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -271,9 +273,9 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
+                                            </div> --}}
 
-                                            <div class="modal" id="updateModel{{ $item->id }}">
+                                            {{-- <div class="modal" id="updateModel{{ $item->id }}">
                                                 <div class="modal-dialog modal-lg">
                                                     <div class="modal-content">
                                                         <div class="modal-header btn-primary">
@@ -305,13 +307,7 @@
                                                                         class="form-control mb-2">
                                                                 </div>
 
-                                                                <div class="mb-3">
-                                                                    <label for="description">Description:</label>
-                                                                    <input type="text" id="description"
-                                                                        name="description"
-                                                                        value="{{ $item->description }}"
-                                                                        class="form-control mb-2">
-                                                                </div>
+
 
                                                                 <div class="mb-3">
                                                                     <label for="expertise">Trainer's Expertise:</label>
@@ -357,16 +353,16 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
+                                            </div> --}}
 
-                                            <form action="{{route('datatrainer.destroy',$item->id)}}" method="POST"
+                                            {{-- <form action="{{route('datatrainer.destroy',$item->id)}}" method="POST"
                                                 style="display:inline-block;"> @csrf
                                                 @method('DELETE')
                                                 <button type="submit" class="btn btn-sm w-10" title="Delete"
                                                     onclick="return confirm('Are you sure you want to delete this item?')">
                                                     <i class="fas fa-lg fa-trash-alt"></i>
                                                 </button>
-                                            </form>
+                                            </form> --}}
                                         </td>
                                     </tr>
                                     @endforeach
