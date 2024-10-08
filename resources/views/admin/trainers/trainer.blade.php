@@ -200,7 +200,7 @@
                                             </button>
 
                                             <!-- View Modal -->
-                                            {{-- <div class="modal fade" id="viewModel{{ $item->id }}" tabindex="-1"
+                                            <div class="modal fade" id="viewModel{{ $item->id }}" tabindex="-1"
                                                 role="dialog" aria-labelledby="viewModelLabel{{ $item->id }}"
                                                 aria-hidden="true">
                                                 <div class="modal-dialog modal-lg" role="document">
@@ -244,6 +244,31 @@
                                                                             </div>
                                                                             <div class="row mb-3">
                                                                                 <div class="col-md-6">
+                                                                                    <h6><strong>Address:</strong>
+                                                                                    </h6>
+                                                                                    <p>{{ $item->address }}</p>
+                                                                                </div>
+                                                                                <div class="col-md-6">
+                                                                                    <h6><strong>Gender:</strong>
+                                                                                    </h6>
+                                                                                    <p>{{ $item->gender }}</p>
+                                                                                </div>
+
+                                                                            </div>
+                                                                            <div class="row mb-3">
+                                                                                <div class="col-md-6">
+                                                                                    <h6><strong>Date Of Join:</strong>
+                                                                                    </h6>
+                                                                                    <p>{{ $item->date_of_join }}</p>
+                                                                                </div>
+                                                                                <div class="col-md-6">
+                                                                                    <h6><strong>Monthly Salary:</strong>
+                                                                                    </h6>
+                                                                                    <p>Rs {{ $item->salary }}</p>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="row mb-3">
+                                                                                <div class="col-md-6">
                                                                                     <h6><strong>Expertise:</strong></h6>
                                                                                     <p>{{ $item->expertise }}</p>
                                                                                 </div>
@@ -260,8 +285,14 @@
                                                                                     </h6>
                                                                                     <p>{{ $item->qualifications }}</p>
                                                                                 </div>
+                                                                                <div class="col-md-6">
+                                                                                    <h6><strong>Date Of Birth:</strong>
+                                                                                    </h6>
+                                                                                    <p>{{ $item->dob }}</p>
+                                                                                </div>
 
                                                                             </div>
+
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -273,7 +304,7 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div> --}}
+                                            </div>
 
                                             {{-- <div class="modal" id="updateModel{{ $item->id }}">
                                                 <div class="modal-dialog modal-lg">
