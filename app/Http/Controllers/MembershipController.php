@@ -32,14 +32,24 @@ class MembershipController extends Controller
             'address' => 'nullable|string|max:255',
 
         ]);
+        // Handle File Upload
+        $imagePath = null;
+        if ($request->hasFile('memberphoto')) {
+            $imagePath = $request->file('image')->store('images/memberships', 'public');
+        }
         Membership::create($request->all());
-        return redirect()->route('admin.memberships.membership')->with('success', 'Membership created successfully.');
+        $membership = new Membership();
+
+        $membership->image = $imagePath;
+        $membership->save();
+
+        return redirect()->route('membership.create')->with('success', 'Membership created successfully.');
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function updateMembership(Request $request)
+    public function UpdateMembership(Request $request)
     {
         $request->validate([
             'member_name' => 'required|string|max:255',
@@ -63,7 +73,7 @@ class MembershipController extends Controller
         $membership->phone = $request->input('phone');
         $membership->address = $request->input('address');
         $membership->save();
-        return redirect()->route('admin.memberships.membership')->with('success', 'Membership updated successfully.');
+        return redirect()->route('membership.create')->with('success', 'Membership updated successfully.');
     }
 
 

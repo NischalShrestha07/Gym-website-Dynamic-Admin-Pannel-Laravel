@@ -384,7 +384,7 @@
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="{{ route('admin.membership') }}" class="nav-link">
+                                    <a href="{{ route('membership.create') }}" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Add Membership</p>
                                     </a>

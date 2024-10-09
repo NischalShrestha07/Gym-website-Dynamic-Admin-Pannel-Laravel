@@ -80,20 +80,24 @@
                                                     <label for="member_name" class="font-weight-bold">Member
                                                         Name:</label>
                                                     <input type="text" id="member_name" name="member_name"
-                                                        placeholder="Enter Member Name" class="form-control" required>
+                                                        placeholder=" Member Name" class="form-control" required>
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="membership_type" class="font-weight-bold">Membership
                                                         Type:</label>
                                                     <input type="text" id="membership_type" name="membership_type"
-                                                        placeholder="Enter Membership Type" class="form-control"
-                                                        required>
+                                                        placeholder=" Membership Type" class="form-control" required>
                                                 </div>
 
                                                 <div class="form-group">
                                                     <label for="phone" class="font-weight-bold">Phone:</label>
                                                     <input type="text" id="phone" name="phone"
-                                                        placeholder="Enter Phone Number" class="form-control" required>
+                                                        placeholder=" Phone Number" class="form-control" required>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="email" class="font-weight-bold">Email Address:</label>
+                                                    <input type="text" id="email" name="email"
+                                                        placeholder="Email Address" class="form-control" required>
                                                 </div>
 
                                                 <div class="form-group">
@@ -115,41 +119,18 @@
                                                         class="form-control" />
                                                 </div>
                                                 <div class="form-group">
-                                                    <label for="price" class="font-weight-bold">price:</label>
-                                                    <input id="price" name="price" placeholder="price"
+                                                    <label for="price" class="font-weight-bold">Price:</label>
+                                                    <input id="price" name="price" placeholder="Price"
                                                         class="form-control" />
                                                 </div>
 
-                                                <div class="form-group">
-                                                    <label for="gender" class="font-weight-bold">Gender:</label>
-                                                    <input type="text" id="gender" name="gender" placeholder="Gender:"
-                                                        class="form-control" required>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label for="expertise" class="font-weight-bold">Expertise:</label>
-                                                    <input type="text" id="expertise" name="expertise"
-                                                        placeholder="Expertise:" class="form-control">
-                                                </div>
 
 
                                                 <div class="form-group">
-                                                    <label for="years_of_experience" class="font-weight-bold">Years of
-                                                        Experience:</label>
-                                                    <input type="number" id="years_of_experience"
-                                                        name="years_of_experience" placeholder="Years of Experience"
-                                                        class="form-control" required>
-                                                </div>
-
-                                                <div class="form-group">
-                                                    <label for="qualifications"
-                                                        class="font-weight-bold">Qualifications:</label>
-                                                    <input type="text" id="qualifications" name="qualifications"
-                                                        placeholder="Enter Qualifications" class="form-control">
-                                                </div>
-
-                                                <div class="form-group">
-                                                    <label for="image" class="font-weight-bold">Image:</label>
-                                                    <input type="file" id="image" name="image" class="form-control">
+                                                    <label for="memberphoto" class="font-weight-bold">Member
+                                                        Photo:</label>
+                                                    <input type="file" id="memberphoto" name="memberphoto"
+                                                        class="form-control">
                                                 </div>
 
                                                 <div class="text-right">
@@ -166,32 +147,35 @@
                             <table id="trainerTable" class="table table-bordered table-striped">
                                 <thead>
                                     <tr>
-                                        <th>Name</th>
+                                        <th>Member Name</th>
                                         <th>Image</th>
                                         <th>Phone</th>
-                                        <th>Date of Join</th>
-                                        <th>Expertise</th>
-                                        <th>Experience (Years)</th>
-                                        <th>Qualifications</th>
-                                        <th>price</th>
+                                        <th>Email</th>
+                                        <th>Address</th>
+                                        <th>Membership Type</th>
+                                        <th>Start Date</th>
+                                        <th>End Date</th>
+                                        <th>Price</th>
                                         <th>Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($trainers as $item)
+                                    @foreach ($memberships as $item)
                                     <tr>
-                                        <td>{{ $item->name }}</td>
-                                        {{-- <td>{{ $item->image }}</td> --}}
+                                        <td>{{ $item->member_name }}</td>
                                         <td>
                                             <img style="border-radius: 50px" src="/storage/{{ $item->image }}"
                                                 width="100px" alt="Trainer Photo">
                                         </td>
                                         <td>{{ $item->phone }}</td>
-                                        <td>{{$item->date_of_join}}</td>
-                                        <td>{{ $item->expertise }}</td>
-                                        <td>{{ $item->years_of_experience }} years</td>
-                                        <td>{{ $item->qualifications }}</td>
-                                        <td>Rs {{$item->salary}}</td>
+                                        <td>{{$item->email}}</td>
+                                        <td> {{$item->address}}</td>
+                                        <td>{{ $item->membership_type }}</td>
+                                        <td>{{ $item->start_date }} </td>
+                                        <td>{{ $item->end_date }}</td>
+                                        <td>Rs {{$item->price}}</td>
+
+
                                         <td class="font-weight-medium">
                                             <button type="button" class="btn" title="Edit" data-toggle="modal"
                                                 data-target="#updateModel{{ $item->id }}">
@@ -214,34 +198,34 @@
                                                     <div class="modal-content">
                                                         <div class="modal-header bg-primary text-white">
                                                             <h5 class="modal-title" id="viewModelLabel{{ $item->id }}">
-                                                                Trainer Details</h5>
+                                                                Member Details</h5>
                                                             <button type="button" class="close text-white"
                                                                 data-dismiss="modal" aria-label="Close">
                                                                 <span aria-hidden="true">&times;</span>
                                                             </button>
                                                         </div>
                                                         <div class="modal-body">
-                                                            <!-- Enhanced Trainer Details Card -->
+                                                            <!-- Enhanced Member Details Card -->
                                                             <div class="card">
                                                                 <div class="card-header bg-dark text-white">
-                                                                    <h5 class="card-title mb-0">Trainer's Information
+                                                                    <h5 class="card-title mb-0">Member's Information
                                                                     </h5>
                                                                 </div>
                                                                 <div class="card-body">
                                                                     <div class="row">
-                                                                        <!-- Trainer's Image -->
+                                                                        <!-- Member's Image -->
                                                                         <div class="col-md-4 text-center">
                                                                             <img src="{{ asset('storage/' . $item->image) }}"
                                                                                 alt="{{ $item->name }}"
                                                                                 class="img-fluid rounded shadow"
                                                                                 style="max-height: 250px; width: auto;">
                                                                         </div>
-                                                                        <!-- Trainer's Details -->
+                                                                        <!-- Member's Details -->
                                                                         <div class="col-md-8">
                                                                             <div class="row mb-3">
                                                                                 <div class="col-md-6">
                                                                                     <h6><strong>Name:</strong></h6>
-                                                                                    <p>{{ $item->name }}</p>
+                                                                                    <p>{{ $item->member_name }}</p>
                                                                                 </div>
                                                                                 <div class="col-md-6">
                                                                                     <h6><strong>Phone Number:</strong>
@@ -256,49 +240,38 @@
                                                                                     <p>{{ $item->address }}</p>
                                                                                 </div>
                                                                                 <div class="col-md-6">
-                                                                                    <h6><strong>Gender:</strong>
+                                                                                    <h6><strong>Membership
+                                                                                            Type:</strong>
                                                                                     </h6>
-                                                                                    <p>{{ $item->gender }}</p>
+                                                                                    <p>{{ $item->membership_type }}</p>
                                                                                 </div>
 
                                                                             </div>
                                                                             <div class="row mb-3">
                                                                                 <div class="col-md-6">
-                                                                                    <h6><strong>Date Of Join:</strong>
+                                                                                    <h6><strong>Start Date:</strong>
                                                                                     </h6>
-                                                                                    <p>{{ $item->date_of_join }}</p>
+                                                                                    <p>{{ $item->start_date }}</p>
                                                                                 </div>
                                                                                 <div class="col-md-6">
-                                                                                    <h6><strong>Monthly Salary:</strong>
+                                                                                    <h6><strong>End Date:</strong>
                                                                                     </h6>
-                                                                                    <p>Rs {{ $item->salary }}</p>
+                                                                                    <p>Rs {{ $item->end_date }}</p>
                                                                                 </div>
                                                                             </div>
                                                                             <div class="row mb-3">
                                                                                 <div class="col-md-6">
-                                                                                    <h6><strong>Expertise:</strong></h6>
-                                                                                    <p>{{ $item->expertise }}</p>
+                                                                                    <h6><strong>Price:</strong></h6>
+                                                                                    <p>{{ $item->price }}</p>
                                                                                 </div>
-                                                                                <div class="col-md-6">
+                                                                                {{-- <div class="col-md-6">
                                                                                     <h6><strong>Years of
                                                                                             Experience:</strong></h6>
                                                                                     <p>{{ $item->years_of_experience }}
                                                                                         years</p>
-                                                                                </div>
+                                                                                </div> --}}
                                                                             </div>
-                                                                            <div class="row mb-3">
-                                                                                <div class="col-md-6">
-                                                                                    <h6><strong>Qualifications:</strong>
-                                                                                    </h6>
-                                                                                    <p>{{ $item->qualifications }}</p>
-                                                                                </div>
-                                                                                <div class="col-md-6">
-                                                                                    <h6><strong>Date Of Birth:</strong>
-                                                                                    </h6>
-                                                                                    <p>{{ $item->start_date }}</p>
-                                                                                </div>
 
-                                                                            </div>
 
                                                                         </div>
                                                                     </div>

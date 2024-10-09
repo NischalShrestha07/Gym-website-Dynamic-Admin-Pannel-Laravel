@@ -19,6 +19,7 @@ use App\Http\Controllers\Frontend\WhyusController as FrontendWhyusController;
 use App\Http\Controllers\GymNameController;
 use App\Http\Controllers\ManageAdminController;
 use App\Http\Controllers\ManageClientController;
+use App\Http\Controllers\MembershipController;
 use App\Http\Controllers\TrainerController;
 use App\Http\Controllers\WhyusController;
 use App\Models\Admin\Trainer;
@@ -84,6 +85,11 @@ Route::post('/AddNewClient', [ManageClientController::class, 'AddNewClient'])->n
 Route::put('/UpdateClient', [ManageClientController::class, 'UpdateClient']);
 Route::delete('/client/{id}', [ManageClientController::class, 'destroy'])->name('client.destroy');
 // Route::get('/supplierFilter', [SupplierController::class, 'index'])->name('supplier.index');
+
+Route::get('/membership/create', [MembershipController::class, 'index'])->name('membership.create');
+Route::post('/AddMembership', [MembershipController::class, 'AddMembership'])->name('membership.add');
+Route::put('/UpdateMembership', [MembershipController::class, 'UpdateMembership']);
+Route::delete('/membership/{id}', [MembershipController::class, 'destroy'])->name('membership.destroy');
 
 
 
