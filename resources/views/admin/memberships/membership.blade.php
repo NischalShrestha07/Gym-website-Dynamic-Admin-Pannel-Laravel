@@ -164,8 +164,10 @@
                                     <tr>
                                         <td>{{ $item->member_name }}</td>
                                         <td>
-                                            <img style="border-radius: 50px" src="/storage/{{ $item->image }}"
-                                                width="100px" alt="Trainer Photo">
+                                            <img style="border-radius: 50px" src="{{asset( $item->memberphoto)   }}"
+                                                {{-- <img style="border-radius: 50px"
+                                                src="/storage/{{ $item->memberphoto }}" --}} width="100px"
+                                                alt="Trainer Photo">
                                         </td>
                                         <td>{{ $item->phone }}</td>
                                         <td>{{$item->email}}</td>
@@ -215,7 +217,7 @@
                                                                     <div class="row">
                                                                         <!-- Member's Image -->
                                                                         <div class="col-md-4 text-center">
-                                                                            <img src="{{ asset('storage/' . $item->image) }}"
+                                                                            <img src="{{ asset('storage/' . $item->memberphoto) }}"
                                                                                 alt="{{ $item->name }}"
                                                                                 class="img-fluid rounded shadow"
                                                                                 style="max-height: 250px; width: auto;">

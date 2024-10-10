@@ -21,6 +21,7 @@ class MembershipController extends Controller
      */
     public function AddMembership(Request $request)
     {
+        // Validation rules
         $request->validate([
             'member_name' => 'required|string|max:255',
             'membership_type' => 'required|string|max:255',
@@ -30,17 +31,27 @@ class MembershipController extends Controller
             'email' => 'nullable|email',
             'phone' => 'nullable|string|max:15',
             'address' => 'nullable|string|max:255',
-
+            'memberphoto' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
-        // Handle File Upload
-        $imagePath = null;
-        if ($request->hasFile('memberphoto')) {
-            $imagePath = $request->file('image')->store('images/memberships', 'public');
-        }
-        Membership::create($request->all());
-        $membership = new Membership();
 
-        $membership->image = $imagePath;
+        // Creating a new Membership instance
+        $membership = new Membership();
+        $membership->member_name = $request->input('member_name');
+        $membership->membership_type = $request->input('membership_type');
+        $membership->start_date = $request->input('start_date');
+        $membership->end_date = $request->input('end_date');
+        $membership->price = $request->input('price');
+        $membership->email = $request->input('email');
+        $membership->phone = $request->input('phone');
+        $membership->address = $request->input('address');
+
+        // Handle the file upload
+        if ($request->hasFile('memberphoto')) {
+            $imagePath = $request->file('memberphoto')->store('images/memberships', 'public');
+            $membership->image = $imagePath; // Assign the image path to the membership object
+        }
+
+        // Save the membership
         $membership->save();
 
         return redirect()->route('membership.create')->with('success', 'Membership created successfully.');
