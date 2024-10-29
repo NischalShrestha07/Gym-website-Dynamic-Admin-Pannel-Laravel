@@ -25,7 +25,8 @@ class AdminController extends Controller
 
     public function logout()
     {
-        Auth::guard('admin')->logout();
+        // Auth::guard('admin')->logout();
+        Auth::logout();
         return redirect()->route('admin.login')->with('success', 'Logged Out Successfully.');
     }
     public function authenticate(Request $request)
@@ -62,6 +63,18 @@ class AdminController extends Controller
         return redirect()->route('admin.login')->with('error', 'Email & Password are incorrect.');
     }
 
+    public function redirectToDashboard()
+    {
+        if (Auth::user()->role === 'Admin') {
+            return redirect()->route('adminDashboard');
+        } elseif (Auth::user()->role === 'Staff') {
+            return redirect()->route('staffDashboard');
+        } elseif (Auth::user()->role === 'Super Admin') {
+            return redirect()->route('dashboard');
+        }
+
+        return redirect()->route('dashboard'); // Fallback for other roles or superadmin
+    }
     // public function register()
     // {
     //     $user = new User();

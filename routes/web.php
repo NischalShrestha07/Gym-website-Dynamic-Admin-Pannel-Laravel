@@ -54,6 +54,25 @@ Route::group(
                 Route::get('admin/class', [AdminAdminController::class, 'class'])->name('admin.class');
                 Route::get('admin/billing', [AdminAdminController::class, 'billing'])->name('admin.billing');
                 Route::get('admin/setting', [AdminAdminController::class, 'setting'])->name('admin.setting');
+
+
+
+
+                Route::get('admin/dashboard', function () {
+                    return view('admin.dashboard.adminDashboard');
+                })->name('dashboard')->middleware('role:Admin');
+
+                Route::get('trainer/dashboard', function () {
+                    return view('admin.dashboard.trainerDashboard');
+                })->name('trainerDashboard')->middleware('role:Trainer');
+
+
+                Route::get('staff/dashboard', function () {
+                    return view('admin.dashboard.staffDashboard');
+                })->name('staffDashboard')->middleware('role:Staff');
+                Route::get('member/dashboard', function () {
+                    return view('admin.dashboard.memberDashboard');
+                })->name('memberDashboard')->middleware('role:Member');
             }
         );
     }

@@ -32,7 +32,8 @@
         /* Card styling */
         .card {
             border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            overflow: hidden;
         }
 
         .card-header {
@@ -41,17 +42,42 @@
             border-top-left-radius: 10px;
             border-top-right-radius: 10px;
             font-weight: bold;
+            text-align: center;
+            font-size: 1.2em;
+            padding: 15px;
         }
 
         /* Button styling */
         .btn-primary {
             background-color: #007bff;
             border-color: #007bff;
+            border-radius: 5px;
+            font-weight: bold;
+            font-size: 1.1em;
+            padding: 10px;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
         }
 
         .btn-primary:hover {
             background-color: #0056b3;
             border-color: #0056b3;
+            box-shadow: 0 4px 8px rgba(0, 91, 179, 0.4);
+        }
+
+        .btn-secondary {
+            background-color: #6c757d;
+            border-color: #6c757d;
+            border-radius: 5px;
+            font-weight: bold;
+            font-size: 1.1em;
+            padding: 10px;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .btn-secondary:hover {
+            background-color: #5a6268;
+            border-color: #5a6268;
+            box-shadow: 0 4px 8px rgba(90, 98, 104, 0.4);
         }
 
         /* Error message styling */
@@ -59,15 +85,14 @@
             font-size: 0.9em;
         }
 
-        /* Register link styling */
-        .register-link {
-            font-size: 0.9em;
-            text-decoration: none;
-            color: #007bff;
+        /* Input field styling */
+        .input-group-text {
+            background-color: #f0f3f5;
         }
 
-        .register-link:hover {
-            color: #0056b3;
+        .form-control {
+            border-radius: 5px;
+            padding: 10px;
         }
     </style>
 </head>
@@ -75,11 +100,11 @@
 <body class="hold-transition login-page">
     <div class="login-box">
         <div class="card card-outline card-primary">
-            <div class="card-header text-center">
+            <div class="card-header">
                 <a href="#" class="h1"><b>Gym</b> Login</a>
             </div>
             <div class="card-body">
-                @if (Session::has('success'))
+                {{-- @if (Session::has('success'))
                 <div class="alert alert-success">
                     {{ Session::get('success') }}
                 </div>
@@ -88,7 +113,21 @@
                 <div class="alert alert-danger">
                     {{ Session::get('error') }}
                 </div>
-                @endif
+                @endif --}}
+                <!-- Flash Messages with Enhanced UI -->
+                <div class="mt-4 d-flex justify-content-center">
+                    @if (session('success'))
+                    <div class="m-2 p-3 text-center btn btn-success ">
+                        <h3>{{ session('success') }}</h3>
+                    </div>
+                    @endif
+
+                    @if (session('error'))
+                    <div class="m-2 p-3 text-center btn btn-danger ">
+                        <h3>{{ session('error') }}</h3>
+                    </div>
+                    @endif
+                </div>
 
                 <p class="login-box-msg">Sign in to start your session</p>
 
@@ -118,21 +157,12 @@
                     <p class="text-danger">{{ $message }}</p>
                     @enderror
 
-                    <div class="row mb-3">
-                        <div class="col-6">
-                            <div class="icheck-primary">
-                                <input type="checkbox" id="remember">
-                                <label for="remember"> Remember Me</label>
-                            </div>
-                        </div>
-                        <div class="col-6 text-end">
-                            <a href="{{ route('admin.loadregister') }}" class="register-link">Register</a>
-                        </div>
-                    </div>
-
                     <div class="row">
-                        <div class="col-12">
+                        <div class="col-12 mb-3">
                             <button type="submit" class="btn btn-primary btn-block">Sign In</button>
+                        </div>
+                        <div style="text-align: center;" class="col-12">
+                            <a href="{{ route('admin.loadregister') }}" class="">Register</a>
                         </div>
                     </div>
                 </form>

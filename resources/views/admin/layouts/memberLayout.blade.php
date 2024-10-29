@@ -6,7 +6,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Admin</title>
+    <title>{{Auth::user()->name}}({{Auth::user()->role}})</title>
     {{-- ICON IS NOT WORKING --}}
     <link rel="icon" href="{{ asset('images/icons8-books-16.png') }}">
     <base href="{{ asset('admincss') }}/" />
@@ -243,10 +243,10 @@
         <aside class="main-sidebar sidebar-dark-primary elevation-5">
 
             <a href="index3.html" class="brand-link">
-                <img style="margin-left: 0" src="dist/img/gymlogo.png" alt="Gym Logo"
+                <img style="margin-left: 0" src="{{asset('admincss/dist/img/royal2.webp')}}" alt="Gym Logo"
                     class="brand-image img-circle elevation-3" style="opacity: .8">
-                <span class="brand-text font-weight-light"><b style="font-family: cursive">Gym
-                        Management </b></span>
+                <span class="brand-text font-weight-light"><b style="font-family: candara;">Royal Power Gym
+                    </b></span>
             </a>
 
             <div class="sidebar">
@@ -256,7 +256,7 @@
                         <img src="dist/img/user8-128x128.jpg" class="img-circle elevation-2" alt="User Image">
                     </div>
                     <div class="info">
-                        <a href="#" class="d-block">Royal Power Gym</a>
+                        <a href="#" class="d-block">{{Auth::user()->name}}</a>
                     </div>
                 </div>
 
@@ -285,24 +285,7 @@
                                 </p>
                             </a>
                         </li>
-                        {{-- academic_year --}}
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="nav-icon fas fa-chart-pie"></i>
-                                <p>
-                                    Change Contents <i class="right fas fa-angle-left"></i>
-                                </p>
-                            </a>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="{{ route('admin.index') }}" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Change the Details Dynamically</p>
-                                    </a>
-                                </li>
 
-                            </ul>
-                        </li>
                         <li class="nav-item">
                             <a href="#" class="nav-link">
                                 <i class="nav-icon fas fa-chart-pie"></i>
@@ -352,7 +335,7 @@
                             <a href="{{ route('admin.trainer') }}" class="nav-link">
                                 <i class="nav-icon fas fa-chart-pie"></i>
                                 <p>
-                                    Trainer Mngt
+                                    Trainer List
                                     <i class="right fas fa-angle-left"></i>
                                 </p>
                             </a>
@@ -360,15 +343,10 @@
                                 <li class="nav-item">
                                     <a href="{{ route('admin.trainer') }}" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
-                                        <p>Add Trainer</p>
+                                        <p>Trainers</p>
                                     </a>
                                 </li>
-                                {{-- <li class="nav-item">
-                                    <a href="{{ route('academic_year.read') }}" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>View Academic Years List</p>
-                                    </a>
-                                </li> --}}
+
                             </ul>
                         </li>
 

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Middleware\CheckRole;
 use App\Http\Middleware\Middleware\AdminAuthenticate;
 use App\Http\Middleware\Middleware\AdminRedirect;
 use Illuminate\Foundation\Application;
@@ -20,6 +21,7 @@ return Application::configure(basePath: dirname(__DIR__))
             [
                 'admin.guest' => AdminRedirect::class,
                 'admin.auth' => AdminAuthenticate::class,
+                'admin.checkRole' => CheckRole::class,
             ],
         );
         $middleware->redirectTo(

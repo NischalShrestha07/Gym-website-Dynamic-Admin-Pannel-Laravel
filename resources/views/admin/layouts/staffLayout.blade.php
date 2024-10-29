@@ -6,7 +6,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Admin</title>
+    <title>{{Auth::user()->name}}({{Auth::user()->role}})</title>
     {{-- ICON IS NOT WORKING --}}
     <link rel="icon" href="{{ asset('images/icons8-books-16.png') }}">
     <base href="{{ asset('admincss') }}/" />
@@ -37,6 +37,8 @@
                 alert.classList.add('fade-out');
             });
         }, 5000); // 5 seconds
+
+        // Remove the alert from the DOM after the fade-out transition completes
         setTimeout(function() {
             alertBox.forEach(function(alert) {
                 alert.remove();
@@ -241,10 +243,10 @@
         <aside class="main-sidebar sidebar-dark-primary elevation-5">
 
             <a href="index3.html" class="brand-link">
-                <img style="margin-left: 0" src="{{asset('admincss/dist/img/gym logi.png')}}" alt="Gym Logo"
+                <img style="margin-left: 0" src="{{asset('admincss/dist/img/royal2.webp')}}" alt="Gym Logo"
                     class="brand-image img-circle elevation-3" style="opacity: .8">
-                <span class="brand-text font-weight-light"><b style="font-family: cursive">Gym
-                        Management </b></span>
+                <span class="brand-text font-weight-light"><b style="font-family: candara;">Royal Power Gym
+                    </b></span>
             </a>
 
             <div class="sidebar">
@@ -317,7 +319,33 @@
                                 </li>
 
                             </ul>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Payment Dues</p>
+                                    </a>
+                                </li>
 
+                            </ul>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Manage Attendance</p>
+                                    </a>
+                                </li>
+
+                            </ul>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Payment History</p>
+                                    </a>
+                                </li>
+
+                            </ul>
                         </li>
 
                         <li class="nav-item">
@@ -335,7 +363,12 @@
                                         <p>Add Trainer</p>
                                     </a>
                                 </li>
-
+                                {{-- <li class="nav-item">
+                                    <a href="{{ route('academic_year.read') }}" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>View Academic Years List</p>
+                                    </a>
+                                </li> --}}
                             </ul>
                         </li>
 
@@ -357,11 +390,18 @@
                                         <p>Add Membership</p>
                                     </a>
                                 </li>
+                                {{-- <li class="nav-item">
+                                    <a href="{{ route('class.read') }}" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>View Class List</p>
+                                    </a>
 
+                                </li> --}}
                             </ul>
 
                         </li>
 
+                        {{-- feehead mngt --}}
                         <li class="nav-item">
                             <a href="" class="nav-link">
                                 <i class="nav-icon fas fa-chart-pie"></i>
@@ -378,10 +418,17 @@
                                         <p>Class Schedule</p>
                                     </a>
                                 </li>
+                                {{-- <li class="nav-item">
+                                    <a href="{{ route('feehead.read') }}" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>View Fee Head</p>
+                                    </a>
 
+                                </li> --}}
                             </ul>
 
                         </li>
+                        {{-- feestructure mngt --}}
                         <li class="nav-item">
                             <a href="" class="nav-link">
                                 <i class="nav-icon fas fa-chart-pie"></i>
@@ -392,6 +439,12 @@
                                 </p>
                             </a>
                             <ul class="nav nav-treeview">
+                                {{-- <li class="nav-item">
+                                    <a href="{{ route('feestructure.create') }}" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Add FeeStructure</p>
+                                    </a>
+                                </li> --}}
                                 <li class="nav-item">
                                     <a href="{{ route('admin.billing') }}" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
@@ -491,7 +544,7 @@
         @yield('content')
 
         <footer class="main-footer">
-            <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io/">Royal Power Gym</a>.</strong>
+            <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io/">Gym Management System</a>.</strong>
             All rights reserved.
             <div class="float-right d-none d-sm-inline-block">
                 <b>Version</b> 3.2.0
