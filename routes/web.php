@@ -32,8 +32,9 @@ Route::group(
     function () {
         Route::group(['middleware' => 'admin.guest'], function () {
             Route::get('login', [AdminAdminController::class, 'index'])->name('admin.login');
-            Route::get('register', [AdminAdminController::class, 'register'])->name('admin.register');
             Route::post('login', [AdminAdminController::class, 'authenticate'])->name('admin.authenticate');
+            Route::get('register/create', [AdminAdminController::class, 'loadregister'])->name('admin.loadregister');
+            Route::post('register', [AdminAdminController::class, 'register'])->name('admin.register');
         });
         Route::group(
             ['middleware' => 'admin.auth'],
