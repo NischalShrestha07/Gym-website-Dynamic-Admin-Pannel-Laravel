@@ -25,8 +25,8 @@ class AdminController extends Controller
 
     public function logout()
     {
-        // Auth::guard('admin')->logout();
-        Auth::logout();
+        Auth::guard('admin')->logout();
+        // Auth::logout();
         return redirect()->route('admin.login')->with('success', 'Logged Out Successfully.');
     }
     public function authenticate(Request $request)
@@ -47,7 +47,7 @@ class AdminController extends Controller
         // return redirect()->route('admin.dashboard');
         if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
             $user = Auth::user();
-            if (Auth::user()->role === 'admin') {
+            if (Auth::user()->role === 'Admin') {
                 return view('admin.dashboard.adminDashboard');
             } elseif (Auth::user()->role === 'Trainer') {
                 return view('admin.dashboard.trainerDashboard');

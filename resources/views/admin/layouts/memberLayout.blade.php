@@ -500,8 +500,9 @@
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="{{ route('admin.logout') }}" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
+                                    <a href="{{route('admin.logout')}}" class="nav-link"
+                                        onclick="return confirm('Do you want to Log Out?')"> <i
+                                            class="far fa-circle nav-icon"></i>
                                         <p>Logout</p>
                                     </a>
 

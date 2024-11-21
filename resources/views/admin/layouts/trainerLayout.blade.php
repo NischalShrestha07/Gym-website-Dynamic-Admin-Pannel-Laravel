@@ -286,7 +286,7 @@
                             </a>
                         </li>
                         {{-- academic_year --}}
-                        <li class="nav-item">
+                        {{-- <li class="nav-item">
                             <a href="#" class="nav-link">
                                 <i class="nav-icon fas fa-chart-pie"></i>
                                 <p>
@@ -302,7 +302,7 @@
                                 </li>
 
                             </ul>
-                        </li>
+                        </li> --}}
                         <li class="nav-item">
                             <a href="#" class="nav-link">
                                 <i class="nav-icon fas fa-chart-pie"></i>
@@ -522,8 +522,9 @@
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="{{ route('admin.logout') }}" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
+                                    <a href="{{route('admin.logout')}}" class="nav-link"
+                                        onclick="return confirm('Do you want to Log Out?')"> <i
+                                            class="far fa-circle nav-icon"></i>
                                         <p>Logout</p>
                                     </a>
 

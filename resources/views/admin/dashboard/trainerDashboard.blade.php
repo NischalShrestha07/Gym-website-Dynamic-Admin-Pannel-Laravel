@@ -7,12 +7,12 @@
             <div class="row mb-2">
                 <div class="col-sm-6">
                     <h1 class="m-0">Welcome, <b>{{Auth::user()->name}}</b>!</h1>
-                    <h3>Dashboard/ <b>Staff</b></h3>
+                    <h3>Dashboard/ <b>{{Auth::user()->role}}</b></h3>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="#">Home</a></li>
-                        <li class="breadcrumb-item active"><b>Staff Dashboard</b></li>
+                        <li class="breadcrumb-item active"><b>{{Auth::user()->role}} Dashboard</b></li>
                     </ol>
                 </div>
             </div>

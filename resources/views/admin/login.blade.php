@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Admin Login</title>
+    <title>User Login </title>
 
     <base href="{{ asset('admincss') }}/" />
 
@@ -97,23 +97,80 @@
     </style>
 </head>
 
-<body class="hold-transition login-page">
-    <div class="login-box">
-        <div class="card card-outline card-primary">
-            <div class="card-header">
-                <a href="#" class="h1"><b>Gym</b> Login</a>
-            </div>
-            <div class="card-body">
-                {{-- @if (Session::has('success'))
-                <div class="alert alert-success">
-                    {{ Session::get('success') }}
+{{-- <div class="login-box">
+    <div class="card card-outline card-primary">
+        <div class="card-header">
+            <a href="#" class="h1"><b>Gym</b> Login</a>
+        </div>
+        <div class="card-body">
+
+            <div class="mt-4 d-flex justify-content-center">
+                @if (session('success'))
+                <div class="m-2 p-3 text-center btn btn-success ">
+                    <h3>{{ session('success') }}</h3>
                 </div>
                 @endif
-                @if (Session::has('error'))
-                <div class="alert alert-danger">
-                    {{ Session::get('error') }}
+
+                @if (session('error'))
+                <div class="m-2 p-3 text-center btn btn-danger ">
+                    <h3>{{ session('error') }}</h3>
                 </div>
-                @endif --}}
+                @endif
+            </div>
+
+            <p class="login-box-msg">Sign in to start your session</p>
+
+            <form action="{{ route('admin.authenticate') }}" method="post">
+                @csrf
+                <div class="input-group mb-3">
+                    <input type="email" name="email" class="form-control" placeholder="Email" required>
+                    <div class="input-group-append">
+                        <div class="input-group-text">
+                            <span class="fas fa-envelope"></span>
+                        </div>
+                    </div>
+                </div>
+                @error('email')
+                <p class="text-danger">{{ $message }}</p>
+                @enderror
+
+                <div class="input-group mb-3">
+                    <input type="password" name="password" class="form-control" placeholder="Password" required>
+                    <div class="input-group-append">
+                        <div class="input-group-text">
+                            <span class="fas fa-lock"></span>
+                        </div>
+                    </div>
+                </div>
+                @error('password')
+                <p class="text-danger">{{ $message }}</p>
+                @enderror
+
+                <div class="row">
+                    <div class="col-12 mb-3">
+                        <button type="submit" class="btn btn-primary btn-block">Sign In</button>
+                    </div>
+                    <div style="text-align: center;" class="col-12">
+                        <a href="{{ route('admin.loadregister') }}" class="">Register</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div> --}}
+<div class="container mt-5 d-flex justify-content-center align-items-center"
+    style="min-height: 100vh; background-image: url('/images/background.jpg'); background-size: cover;">
+    <div class="row justify-content-center w-100">
+        <div class="col-md-6">
+            <div class="card shadow-lg" style="border-radius: 15px;">
+                <div class="card-header text-center bg-primary text-white"
+                    style="border-top-left-radius: 15px; border-top-right-radius: 15px;">
+                    <!-- Project Branding -->
+                    <img src="{{ asset('admincss/dist/img/AdminLTELogo.png') }}" alt="Project Logo"
+                        class="img-fluid mb-3" style="width: 80px;">
+                    <h2>Login</h2>
+                </div>
+
                 <!-- Flash Messages with Enhanced UI -->
                 <div class="mt-4 d-flex justify-content-center">
                     @if (session('success'))
@@ -129,46 +186,42 @@
                     @endif
                 </div>
 
-                <p class="login-box-msg">Sign in to start your session</p>
+                <!-- Login Form -->
+                <div class="card-body p-4">
+                    <form action="{{route('admin.authenticate')}}" method="post">
+                        @csrf
 
-                <form action="{{ route('admin.authenticate') }}" method="post">
-                    @csrf
-                    <div class="input-group mb-3">
-                        <input type="email" name="email" class="form-control" placeholder="Email" required>
-                        <div class="input-group-append">
-                            <div class="input-group-text">
-                                <span class="fas fa-envelope"></span>
-                            </div>
+                        <!-- Email Field -->
+                        <div class="form-group mb-3">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" name="email" class="form-control form-control-lg" id="email"
+                                placeholder="Enter your email" required>
                         </div>
-                    </div>
-                    @error('email')
-                    <p class="text-danger">{{ $message }}</p>
-                    @enderror
 
-                    <div class="input-group mb-3">
-                        <input type="password" name="password" class="form-control" placeholder="Password" required>
-                        <div class="input-group-append">
-                            <div class="input-group-text">
-                                <span class="fas fa-lock"></span>
-                            </div>
+                        <!-- Password Field -->
+                        <div class="form-group mb-4">
+                            <label for="password" class="form-label">Password</label>
+                            <input type="password" name="password" class="form-control form-control-lg" id="password"
+                                placeholder="Enter your password" required>
                         </div>
-                    </div>
-                    @error('password')
-                    <p class="text-danger">{{ $message }}</p>
-                    @enderror
 
-                    <div class="row">
-                        <div class="col-12 mb-3">
-                            <button type="submit" class="btn btn-primary btn-block">Sign In</button>
-                        </div>
-                        <div style="text-align: center;" class="col-12">
-                            <a href="{{ route('admin.loadregister') }}" class="">Register</a>
-                        </div>
-                    </div>
-                </form>
+                        <!-- Login Button -->
+                        <button type="submit" class="btn btn-primary btn-lg w-100"
+                            style="border-radius: 8px;">Login</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Registration Link -->
+            <div class="text-center mt-4">
+                <p>Don't have an account? <a href="{{route('admin.loadregister')}}" class="text-primary">Sign Up</a></p>
             </div>
         </div>
     </div>
+</div>
+
+<body class="hold-transition login-page">
+
 
     <script src="plugins/jquery/jquery.min.js"></script>
     <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
