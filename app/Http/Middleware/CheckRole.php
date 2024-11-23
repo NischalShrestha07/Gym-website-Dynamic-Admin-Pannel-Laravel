@@ -20,5 +20,18 @@ class CheckRole
 
             return $next($request);
         }
+
+        switch (Auth::user()->role) {
+            case 'Admin':
+                return redirect()->route('dashboard')->with('error', 'Unauthorized Access');
+            case 'Trainer':
+                return redirect()->route('trainerDashboard')->with('error', 'Unauthorized Access');
+            case 'Staff':
+                return redirect()->route('staffDashboard')->with('error', 'Unauthorized Access');
+            case 'Member':
+                return redirect()->route('memberDashboard')->with('error', 'Unauthorized Access');
+            default:
+                return redirect()->route('admin.login')->with('error', 'Unauthorized Access');
+        }
     }
 }

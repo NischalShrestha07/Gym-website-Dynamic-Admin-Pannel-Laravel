@@ -27,69 +27,63 @@ use Faker\Guesser\Name;
 use Illuminate\Support\Facades\Route;
 
 
+// Route::group(
+//     ['prefix' => 'admin'],
+//     function () {
+Route::group(['middleware' => 'admin.guest'], function () {
+    Route::get('login', [AdminAdminController::class, 'index'])->name('admin.login');
+    Route::post('login', [AdminAdminController::class, 'userLogin'])->name('admin.authenticate');
+    Route::get('register/create', [AdminAdminController::class, 'loadregister'])->name('admin.loadregister');
+    Route::post('register', [AdminAdminController::class, 'register'])->name('admin.register');
+});
 Route::group(
-    ['prefix' => 'admin'],
+    ['middleware' => 'admin.auth'],
     function () {
-        Route::group(['middleware' => 'admin.guest'], function () {
-            Route::get('login', [AdminAdminController::class, 'index'])->name('admin.login');
-            Route::post('login', [AdminAdminController::class, 'authenticate'])->name('admin.authenticate');
-            Route::get('register/create', [AdminAdminController::class, 'loadregister'])->name('admin.loadregister');
-            Route::post('register', [AdminAdminController::class, 'register'])->name('admin.register');
-        });
-        Route::group(
-            ['middleware' => 'admin.auth'],
-            function () {
 
-                Route::get('logout', [AdminAdminController::class, 'logout'])->name('admin.logout');
+        Route::get('logout', [AdminAdminController::class, 'logout'])->name('admin.logout');
 
-                Route::get('dashboard', [AdminAdminController::class, 'dashboard'])->name('admin.dashboard');
+        Route::get('dashboard', [AdminAdminController::class, 'redirectToDashboard'])->name('admin.dashboard');
 
-                Route::get('form', [AdminAdminController::class, 'form'])->name('admin.form');
+        Route::get('form', [AdminAdminController::class, 'form'])->name('admin.form');
 
-                Route::get('table', [AdminAdminController::class, 'table'])->name('admin.table');
-                Route::get('trainers', [DataTrainerController::class, 'index'])->name('admin.trainer');
+        Route::get('table', [AdminAdminController::class, 'table'])->name('admin.table');
+        // Route::get('trainers', [DataTrainerController::class, 'index'])->name('admin.trainer');
 
-                // Route::get('trainer', [DataTrainerController::class, 'index'])->name('admin.trainer');
-                Route::get('admin/membership', [AdminAdminController::class, 'membership'])->name('admin.membership');
-                Route::get('admin/class', [AdminAdminController::class, 'class'])->name('admin.class');
-                Route::get('admin/billing', [AdminAdminController::class, 'billing'])->name('admin.billing');
-                Route::get('admin/setting', [AdminAdminController::class, 'setting'])->name('admin.setting');
+        // // Route::get('trainer', [DataTrainerController::class, 'index'])->name('admin.trainer');
+        // Route::get('admin/membership', [AdminAdminController::class, 'membership'])->name('admin.membership');
+        // Route::get('admin/class', [AdminAdminController::class, 'class'])->name('admin.class');
+        // Route::get('admin/billing', [AdminAdminController::class, 'billing'])->name('admin.billing');
+        // Route::get('admin/setting', [AdminAdminController::class, 'setting'])->name('admin.setting');
 
 
 
-
-                Route::get('admin/dashboard', function () {
-                    return view('admin.dashboard.adminDashboard');
-                })->name('dashboard')->middleware('role:Admin');
-
-                Route::get('trainer/dashboard', function () {
-                    return view('admin.dashboard.trainerDashboard');
-                })->name('trainerDashboard')->middleware('role:Trainer');
+        // Route::get(
+        //     'admin/dashboard',
+        //     [AdminAdminController::class, 'redirectToDashboard']
+        // )->name('dashboard');
 
 
-                Route::get('staff/dashboard', function () {
-                    return view('admin.dashboard.staffDashboard');
-                })->name('staffDashboard')->middleware('role:Staff');
-                Route::get('member/dashboard', function () {
-                    return view('admin.dashboard.memberDashboard');
-                })->name('memberDashboard')->middleware('role:Member');
-            }
-        );
+
+        Route::get('admin/dashboard', function () {
+            return view('admin.dashboard.adminDashboard');
+        })->name('dashboard')->middleware('role:Admin');
+
+        Route::get('trainer/dashboard', function () {
+            return view('admin.dashboard.trainerDashboard');
+        })->name('trainerDashboard')->middleware('role:Trainer');
+
+
+        Route::get('staff/dashboard', function () {
+            return view('admin.dashboard.staffDashboard');
+        })->name('staffDashboard')->middleware('role:Staff');
+
+        Route::get('member/dashboard', function () {
+            return view('admin.dashboard.memberDashboard');
+        })->name('memberDashboard')->middleware('role:Member');
     }
 );
-// Route::get('admin/login', [AdminAdminController::class, 'index'])->name('admin.login');
-// Route::get('admin/logout', [AdminAdminController::class, 'logout'])->name('admin.logout');
-// Route::get('admin/register', [AdminAdminController::class, 'register'])->name('admin.register');
-// Route::post('admin/login', [AdminAdminController::class, 'authenticate'])->name('admin.authenticate');
-// Route::get('admin/dashboard', [AdminAdminController::class, 'dashboard'])->name('admin.dashboard');
-// // Route::get('admin/form', [AdminAdminController::class, 'form'])->name('admin.form');
-// Route::get('admin/trainer', [AdminAdminController::class, 'trainer'])->name('admin.trainer');
-// Route::get('admin/membership', [AdminAdminController::class, 'membership'])->name('admin.membership');
-// Route::get('admin/class', [AdminAdminController::class, 'class'])->name('admin.class');
-// Route::get('admin/billing', [AdminAdminController::class, 'billing'])->name('admin.billing');
-// Route::get('admin/setting', [AdminAdminController::class, 'setting'])->name('admin.setting');
-
-
+//     }
+// );
 
 //Data admins details Route
 
@@ -193,8 +187,8 @@ Route::get('/contacts/{id}', [ControllersContactController::class, 'DeleteContac
 
 //Customer Routes
 Route::get('/', [HomeController::class, 'index']);
-Route::get('/login', [LoginController::class, 'index']);
-Route::post('/loginUser', [LoginController::class, 'loginUser']);
+// Route::get('/login', [LoginController::class, 'index']);
+// Route::post('/loginUser', [LoginController::class, 'loginUser']);
 Route::get('/logoutUser', [LogoutController::class, 'logoutUser']);
 Route::get('/register', [RegisterController::class, 'index']);
 Route::post('/registerUser', [RegisterController::class, 'registerUser']);

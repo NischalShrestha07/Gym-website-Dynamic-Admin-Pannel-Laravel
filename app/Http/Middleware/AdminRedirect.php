@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Middleware\Middleware;
+namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
@@ -18,6 +18,7 @@ class AdminRedirect
     {
         if (Auth::guard('admin')->check()) {
             return redirect()->route('admin.dashboard');
+            // return redirect()->route('admin.authenticate');
         }
         return $next($request);
     }

@@ -16,7 +16,7 @@ class AdminController extends Controller
     }
     public function dashboard()
     {
-        return view('admin.dashboard');
+        return view('admin.dashboard.adminDashboard');
     }
     public function form()
     {
@@ -29,7 +29,10 @@ class AdminController extends Controller
         // Auth::logout();
         return redirect()->route('admin.login')->with('success', 'Logged Out Successfully.');
     }
-    public function authenticate(Request $request)
+
+
+
+    public function userLogin(Request $request)
     {
         $request->validate([
             'email' => 'required',
@@ -47,13 +50,13 @@ class AdminController extends Controller
         // return redirect()->route('admin.dashboard');
         if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
             $user = Auth::user();
-            if (Auth::user()->role === 'Admin') {
+            if (Auth::user()->role == 'Admin') {
                 return view('admin.dashboard.adminDashboard');
-            } elseif (Auth::user()->role === 'Trainer') {
+            } elseif (Auth::user()->role == 'Trainer') {
                 return view('admin.dashboard.trainerDashboard');
-            } elseif (Auth::user()->role === 'Staff') {
+            } elseif (Auth::user()->role == 'Staff') {
                 return view('admin.dashboard.staffDashboard');
-            } elseif (Auth::user()->role === 'Member') {
+            } elseif (Auth::user()->role == 'Member') {
                 return view('admin.dashboard.memberDashboard');
             } else {
                 Auth::logout();
@@ -66,14 +69,16 @@ class AdminController extends Controller
     public function redirectToDashboard()
     {
         if (Auth::user()->role === 'Admin') {
-            return redirect()->route('adminDashboard');
+            return redirect()->route('dashboard');
         } elseif (Auth::user()->role === 'Staff') {
             return redirect()->route('staffDashboard');
-        } elseif (Auth::user()->role === 'Super Admin') {
-            return redirect()->route('dashboard');
+        } elseif (Auth::user()->role === 'Trainer') {
+            return redirect()->route('trainerDashboard');
+        } elseif (Auth::user()->role === 'Member') {
+            return redirect()->route('memberDashboard');
         }
 
-        return redirect()->route('dashboard'); // Fallback for other roles or superadmin
+        return redirect()->route('memberDashboard'); // Fallback for other roles or superadmin
     }
     // public function register()
     // {

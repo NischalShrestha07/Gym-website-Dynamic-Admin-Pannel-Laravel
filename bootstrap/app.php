@@ -1,8 +1,8 @@
 <?php
 
+use App\Http\Middleware\AdminAuthenticate;
+use App\Http\Middleware\AdminRedirect;
 use App\Http\Middleware\CheckRole;
-use App\Http\Middleware\Middleware\AdminAuthenticate;
-use App\Http\Middleware\Middleware\AdminRedirect;
 use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
 use Illuminate\Foundation\Configuration\Middleware;
@@ -21,13 +21,15 @@ return Application::configure(basePath: dirname(__DIR__))
             [
                 'admin.guest' => AdminRedirect::class,
                 'admin.auth' => AdminAuthenticate::class,
-                'admin.checkRole' => CheckRole::class,
+                'role' => CheckRole::class,
+
+
             ],
         );
-        $middleware->redirectTo(
-            guests: '/member/login',
-            users: '/member/dashboard'
-        );
+        // $middleware->redirectTo(
+        //     guests: '/member/login',
+        //     users: '/member/dashboard'
+        // );
     })
     ->withExceptions(function (Exceptions $exceptions) {
         //
