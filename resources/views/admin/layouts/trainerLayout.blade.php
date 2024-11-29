@@ -348,7 +348,7 @@
                             </ul>
                         </li>
 
-                        <li class="nav-item">
+                        {{-- <li class="nav-item">
                             <a href="{{ route('admin.trainer') }}" class="nav-link">
                                 <i class="nav-icon fas fa-chart-pie"></i>
                                 <p>
@@ -363,14 +363,9 @@
                                         <p>Add Trainer</p>
                                     </a>
                                 </li>
-                                {{-- <li class="nav-item">
-                                    <a href="{{ route('academic_year.read') }}" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>View Academic Years List</p>
-                                    </a>
-                                </li> --}}
+
                             </ul>
-                        </li>
+                        </li> --}}
 
 
 
