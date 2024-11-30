@@ -143,7 +143,6 @@
                             </div>
                         </form>
 
-                        <!-- Link to go back to the login page -->
                         <div class="text-center mt-3">
                             <a href="{{ route('admin.login') }}" class="text-decoration-none">Back to Login</a>
                         </div>
