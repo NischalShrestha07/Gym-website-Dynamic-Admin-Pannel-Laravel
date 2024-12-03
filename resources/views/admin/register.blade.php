@@ -142,6 +142,7 @@
                                 <button type="submit" class="btn btn-primary btn-block">Register</button>
                             </div>
                         </form>
+                        {{-- --}}
 
                         <div class="text-center mt-3">
                             <a href="{{ route('admin.login') }}" class="text-decoration-none">Back to Login</a>
