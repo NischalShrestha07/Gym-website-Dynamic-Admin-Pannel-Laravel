@@ -3,8 +3,10 @@
 
 use App\Http\Controllers\Admin\AdminController as AdminAdminController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\CalendarController;
 use App\Http\Controllers\ContactController as ControllersContactController;
 use App\Http\Controllers\DataTrainerController;
+use App\Http\Controllers\EventController;
 use App\Http\Controllers\FooterbarController;
 use App\Http\Controllers\Frontend\ContactController;
 use App\Http\Controllers\Frontend\DashboardController;
@@ -197,3 +199,15 @@ Route::get('/trainer', [TrainersController::class, 'index'])->name('frontend.tra
 Route::get('/contact', [ContactController::class, 'index'])->name('frontend.contact');
 
 Route::get('/board', [DashboardController::class, 'index'])->name('dashboards');
+
+
+
+
+Route::get('/calendar', [CalendarController::class, 'index'])->name('calendar.show');
+
+Route::get('/calendar', [EventController::class, 'index'])->name('calendar.show');
+Route::get('/fetch-events', [EventController::class, 'fetchEvents']);
+Route::post('/store-event', [EventController::class, 'store']);
+Route::get('/event/{id}', [EventController::class, 'show']);
+Route::put('/update-event/{id}', [EventController::class, 'update']);
+Route::delete('/delete-event/{id}', [EventController::class, 'destroy']);
