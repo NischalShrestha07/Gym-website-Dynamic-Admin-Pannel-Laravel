@@ -186,14 +186,14 @@ Route::get('/UpdateContact', [ControllersContactController::class, 'UpdateContac
 Route::get('/contacts/{id}', [ControllersContactController::class, 'DeleteContact'])->name('contacts.destroy');
 
 //Customer Routes
-Route::get('/', [HomeController::class, 'index']);
+Route::get('/', [HomeController::class, 'index'])->name('frontend.home');
 // Route::get('/login', [LoginController::class, 'index']);
 // Route::post('/loginUser', [LoginController::class, 'loginUser']);
 Route::get('/logoutUser', [LogoutController::class, 'logoutUser']);
 Route::get('/register', [RegisterController::class, 'index']);
 Route::post('/registerUser', [RegisterController::class, 'registerUser']);
-Route::get('/whyus', [FrontendWhyusController::class, 'index']);
-Route::get('/trainer', [TrainersController::class, 'index']);
-Route::get('/contact', [ContactController::class, 'index']);
+Route::get('/whyus', [FrontendWhyusController::class, 'index'])->name('frontend.whyus');
+Route::get('/trainer', [TrainersController::class, 'index'])->name('frontend.trainers');
+Route::get('/contact', [ContactController::class, 'index'])->name('frontend.contact');
 
 Route::get('/board', [DashboardController::class, 'index'])->name('dashboards');

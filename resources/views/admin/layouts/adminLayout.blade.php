@@ -307,6 +307,50 @@
                             <a href="#" class="nav-link">
                                 <i class="nav-icon fas fa-chart-pie"></i>
                                 <p>
+                                    Frontend Pages <i class="right fas fa-angle-left"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="{{ route('frontend.home') }}" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Home</p>
+                                    </a>
+                                </li>
+
+                            </ul>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="{{ route('frontend.whyus') }}" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Whyus</p>
+                                    </a>
+                                </li>
+
+                            </ul>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="{{ route('frontend.trainers') }}" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Trainers</p>
+                                    </a>
+                                </li>
+
+                            </ul>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="{{ route('frontend.contact') }}" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Contact Us</p>
+                                    </a>
+                                </li>
+
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fas fa-chart-pie"></i>
+                                <p>
                                     Client<i class="right fas fa-angle-left"></i>
                                 </p>
                             </a>
