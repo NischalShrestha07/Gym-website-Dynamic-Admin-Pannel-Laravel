@@ -97,67 +97,7 @@
     </style>
 </head>
 
-{{-- <div class="login-box">
-    <div class="card card-outline card-primary">
-        <div class="card-header">
-            <a href="#" class="h1"><b>Gym</b> Login</a>
-        </div>
-        <div class="card-body">
 
-            <div class="mt-4 d-flex justify-content-center">
-                @if (session('success'))
-                <div class="m-2 p-3 text-center btn btn-success ">
-                    <h3>{{ session('success') }}</h3>
-                </div>
-                @endif
-
-                @if (session('error'))
-                <div class="m-2 p-3 text-center btn btn-danger ">
-                    <h3>{{ session('error') }}</h3>
-                </div>
-                @endif
-            </div>
-
-            <p class="login-box-msg">Sign in to start your session</p>
-
-            <form action="{{ route('admin.authenticate') }}" method="post">
-                @csrf
-                <div class="input-group mb-3">
-                    <input type="email" name="email" class="form-control" placeholder="Email" required>
-                    <div class="input-group-append">
-                        <div class="input-group-text">
-                            <span class="fas fa-envelope"></span>
-                        </div>
-                    </div>
-                </div>
-                @error('email')
-                <p class="text-danger">{{ $message }}</p>
-                @enderror
-
-                <div class="input-group mb-3">
-                    <input type="password" name="password" class="form-control" placeholder="Password" required>
-                    <div class="input-group-append">
-                        <div class="input-group-text">
-                            <span class="fas fa-lock"></span>
-                        </div>
-                    </div>
-                </div>
-                @error('password')
-                <p class="text-danger">{{ $message }}</p>
-                @enderror
-
-                <div class="row">
-                    <div class="col-12 mb-3">
-                        <button type="submit" class="btn btn-primary btn-block">Sign In</button>
-                    </div>
-                    <div style="text-align: center;" class="col-12">
-                        <a href="{{ route('admin.loadregister') }}" class="">Register</a>
-                    </div>
-                </div>
-            </form>
-        </div>
-    </div>
-</div> --}}
 <div class="container mt-5 d-flex justify-content-center align-items-center"
     style="min-height: 100vh; background-image: url('/images/background.jpg'); background-size: cover;">
     <div class="row justify-content-center w-100">

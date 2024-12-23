@@ -34,7 +34,7 @@ use Illuminate\Support\Facades\Route;
 //     function () {
 Route::group(['middleware' => 'admin.guest'], function () {
     Route::get('login', [AdminAdminController::class, 'index'])->name('admin.login');
-    Route::post('login', [AdminAdminController::class, 'userLogin'])->name('admin.authenticate');
+    Route::post('/dashboards', [AdminAdminController::class, 'userLogin'])->name('admin.authenticate');
     Route::get('register/create', [AdminAdminController::class, 'loadregister'])->name('admin.loadregister');
     Route::post('register', [AdminAdminController::class, 'register'])->name('admin.register');
 });

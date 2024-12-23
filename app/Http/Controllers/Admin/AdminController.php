@@ -14,10 +14,10 @@ class AdminController extends Controller
     {
         return view('admin.login');
     }
-    public function dashboard()
-    {
-        return view('admin.dashboard.adminDashboard');
-    }
+    // public function dashboard()
+    // {
+    //     return view('admin.dashboard.adminDashboard');
+    // }
     public function form()
     {
         return view('admin.form');
