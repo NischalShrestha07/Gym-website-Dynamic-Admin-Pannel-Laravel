@@ -1,4 +1,15 @@
-@extends('admin.layouts.trainerLayout')
+@php
+$layout = match (Auth::user()->role) {
+'Admin' => 'admin.layouts.adminLayout',
+'Trainer' => 'admin.layouts.trainerLayout',
+'Staff' => 'admin.layouts.staffLayout',
+'Member' => 'admin.layouts.memberLayout',
+default => 'layouts.memberLayout', // Optional fallback layout
+};
+@endphp
+
+@extends($layout)
+
 
 @section('customCss')
 <link rel="stylesheet" href="plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">

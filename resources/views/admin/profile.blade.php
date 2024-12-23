@@ -20,8 +20,8 @@ default => 'layouts.memberLayout', // Optional fallback layout
         <div class="col-md-3">
             <div class="card">
                 <div class="card-body text-center">
-                    <img src="{{ $user->avatar ? asset('storage/' . $user->avatar) : asset('images/default-avatar.png') }}"
-                        alt="User Avatar" class="img-fluid rounded-circle mb-3" style="width: 150px; height: 150px;">
+                    <img src="{{ $user->avatar ? asset('') : asset('images/default-avatar.png') }}" alt="User Avatar"
+                        class="img-fluid rounded-circle mb-3" style="width: 150px; height: 150px;">
                     <h5 class="card-title">{{ $user->name }}</h5>
                     <p class="text-muted">{{ $user->role }}</p>
                     <a href="#update-avatar" class="btn btn-outline-primary btn-sm" data-bs-toggle="modal">Change

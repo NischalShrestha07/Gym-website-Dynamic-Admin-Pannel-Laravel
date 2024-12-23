@@ -3,6 +3,8 @@
 
 use App\Http\Controllers\Admin\AdminController as AdminAdminController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\AttendanceController;
+use App\Http\Controllers\AttendanceDetailsController;
 use App\Http\Controllers\CalendarController;
 use App\Http\Controllers\ContactController as ControllersContactController;
 use App\Http\Controllers\DataTrainerController;
@@ -18,8 +20,10 @@ use App\Http\Controllers\Frontend\RegisterController;
 use App\Http\Controllers\Frontend\SearchController;
 use App\Http\Controllers\Frontend\TrainersController;
 use App\Http\Controllers\Frontend\WhyusController as FrontendWhyusController;
+use App\Http\Controllers\GeoAttendanceController;
 use App\Http\Controllers\GymNameController;
 use App\Http\Controllers\ManageAdminController;
+use App\Http\Controllers\ManageAttendanceController;
 use App\Http\Controllers\ManageClientController;
 use App\Http\Controllers\MembershipController;
 use App\Http\Controllers\TrainerController;
@@ -116,11 +120,45 @@ Route::get('/profile', [UserController::class, 'index'])->name('profile')->middl
 
 
 
+Route::post('/attendance/login', [ManageAttendanceController::class, 'loginAttendance'])->name('attendance.login');
+Route::post('/attendance/logout', [ManageAttendanceController::class, 'logoutAttendance'])->name('attendance.logout');
+
+
+
+Route::get('/attendance/create', [AttendanceController::class, 'index'])->name('attendance.index');
+Route::post('/addAttendance', [AttendanceController::class, 'addAttendance'])->name('addAttendance');
+Route::put('UpdateAttendance', [AttendanceController::class, 'UpdateAttendance']);
+Route::delete('/deleteAttendance/{id}', [AttendanceController::class, 'destroy'])->name('attendance.destroy');
+
+
+Route::get('/attendance', [ManageAttendanceController::class, 'index'])->name('manageAttendance.index');
+Route::post('/attendance/store', [ManageAttendanceController::class, 'store'])->name('attendance.store');
+
+
+
+Route::middleware('auth')->group(function () {
+    Route::post('/attendance/checkin', [GeoAttendanceController::class, 'checkIn'])->name('attendance.checkin');
+    Route::post('/attendance/checkout', [GeoAttendanceController::class, 'checkOut'])->name('attendance.checkout');
+    Route::get('/attendance/summary', [GeoAttendanceController::class, 'summary'])->name('attendance.summary');
+
+
+    //Attendance Coordinates
+    Route::get('/admin/attendance-coordinates', [GeoAttendanceController::class, 'showAttendanceCoordinates'])->name('attendance.coordinate');
+
+
+    // Route::post('/coordinate/attendance/checkin', [AttendCoordController::class, 'checkIns']);
+    // Route::post('/coordinate/attendance/checkout', [AttendCoordController::class, 'checkOuts']);
 
 
 
 
 
+
+
+
+    //attendance details(This has been Hidden )
+    Route::get('/admin/attendance-details', [AttendanceDetailsController::class, 'index'])->name('attendance.details.index');
+});
 
 
 
