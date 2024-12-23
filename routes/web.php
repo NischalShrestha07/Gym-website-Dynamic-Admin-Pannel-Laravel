@@ -23,6 +23,7 @@ use App\Http\Controllers\ManageAdminController;
 use App\Http\Controllers\ManageClientController;
 use App\Http\Controllers\MembershipController;
 use App\Http\Controllers\TrainerController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\WhyusController;
 use App\Models\Admin\Trainer;
 use Faker\Guesser\Name;
@@ -109,6 +110,7 @@ Route::delete('/membership/{id}', [MembershipController::class, 'destroy'])->nam
 
 
 
+Route::get('/profile', [UserController::class, 'index'])->name('profile')->middleware('auth');
 
 
 
