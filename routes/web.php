@@ -203,7 +203,7 @@ Route::get('/board', [DashboardController::class, 'index'])->name('dashboards');
 
 
 
-Route::get('/calendar', [CalendarController::class, 'index'])->name('calendar.show');
+// Route::get('/calendar', [CalendarController::class, 'index'])->name('calendar.show');
 
 Route::get('/calendar', [EventController::class, 'index'])->name('calendar.show');
 Route::get('/fetch-events', [EventController::class, 'fetchEvents']);
