@@ -22,12 +22,13 @@
     </div>
 
     <div class="container">
-        <h3 class="mb-4">Employee Attendance List</h3>
+        <h3 class="mb-4"> Attendance List</h3>
         <table class="table table-striped table-hover table-bordered">
             <thead class="thead-dark">
                 <tr>
                     <th>User</th>
                     <th>Role</th>
+                    <th>Email</th>
                     <th>Check In Time</th>
                     <th>Check In Latitude</th>
                     <th>Check In Longitude</th>
@@ -47,7 +48,8 @@
                 @foreach($attendances as $attendance)
                 <tr>
                     <td>{{ $attendance->user->name }}</td>
-                    <td>{{ $attendance->user->roleName }}</td>
+                    <td>{{ $attendance->user->role }}</td>
+                    <td>{{ $attendance->user->email }}</td>
                     <td>{{ $attendance->check_in_time }}</td>
                     <td>{{ $attendance->check_in_latitude }}</td>
                     <td>{{ $attendance->check_in_longitude }}</td>

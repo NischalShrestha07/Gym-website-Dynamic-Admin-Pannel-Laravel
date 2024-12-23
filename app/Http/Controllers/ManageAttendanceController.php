@@ -13,13 +13,13 @@ class ManageAttendanceController extends Controller
     {
         // Get all employees with their attendance data
         // $employees = Employee::with('attendances')->get();
-        if (Auth::user()->roleName === 'Admin') {
+        if (Auth::user()->role === 'Admin') {
             return view('admin.ManageAttendance.adminManageAttendance', compact('employees'));
-        } elseif (Auth::user()->roleName === 'Staff') {
+        } elseif (Auth::user()->role === 'Staff') {
             return view('admin.ManageAttendance.staffManageAttendance', compact('employees'));
-        } elseif (Auth::user()->roleName === 'Member') {
+        } elseif (Auth::user()->role === 'Member') {
             return view('admin.ManageAttendance.memberManageAttendance', compact('employees'));
-        } elseif (Auth::user()->roleName === 'Trainer') {
+        } elseif (Auth::user()->role === 'Trainer') {
             return view('admin.ManageAttendance.trainerManageAttendance', compact('employees'));
         }
     }

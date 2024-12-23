@@ -22,7 +22,7 @@
     </div>
 
     <div class="container">
-        <h3 class="mb-4">Employee Attendance List</h3>
+        <h3 class="mb-4"> Attendance List</h3>
         <table class="table table-striped table-hover table-bordered">
             <thead class="thead-dark">
                 <tr>
@@ -47,7 +47,7 @@
                 @foreach($attendances as $attendance)
                 <tr>
                     <td>{{ $attendance->user->name }}</td>
-                    <td>{{ $attendance->user->roleName }}</td>
+                    <td>{{ $attendance->user->role }}</td>
                     <td>{{ $attendance->check_in_time }}</td>
                     <td>{{ $attendance->check_in_latitude }}</td>
                     <td>{{ $attendance->check_in_longitude }}</td>
@@ -76,7 +76,7 @@
                             <div class="modal-body">
                                 <p><strong>Check In Time:</strong> {{ $attendance->check_in_time }}</p>
                                 <p><strong>Check Out Time:</strong> {{ $attendance->check_out_time ?? 'N/A' }}</p>
-                                <p><strong>Role:</strong>{{ $attendance->user->roleName }}</p>
+                                <p><strong>Role:</strong>{{ $attendance->user->role }}</p>
                                 {{-- <p><strong>Check In Location:</strong> {{ $attendance->check_in_location_name }}
                                 </p> --}}
                                 {{-- <p><strong>Check Out Location:</strong> {{ $attendance->check_out_location_name ??

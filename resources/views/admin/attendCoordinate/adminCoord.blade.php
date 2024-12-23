@@ -17,7 +17,7 @@
         <thead>
             <tr>
                 <th>ID</th>
-                <th>Geo Attendance ID</th>
+                <th>GeoAttendance Of</th>
                 <th>Recorded At</th>
                 <th>Latitude</th>
                 <th>Longitude</th>
@@ -27,7 +27,7 @@
             @foreach($attendanceRecords as $record)
             <tr>
                 <td>{{ $record->id }}</td>
-                <td>{{ $record->geo_attendance_id }}</td>
+                <td>{{ Auth::user()->name }}</td>
                 <td>{{ $record->recorded_at }}</td>
                 <td>{{ $record->latitude }}</td>
                 <td>{{ $record->longitude }}</td>

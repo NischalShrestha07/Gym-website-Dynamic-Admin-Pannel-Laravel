@@ -378,8 +378,63 @@
                             </ul>
 
                         </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fas fa-clipboard-list"></i>
+                                <p>
+                                    Attendances
+                                    <i class="right fas fa-angle-left"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="{{route('manageAttendance.index')}}" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Attendance</p>
+                                    </a>
+                                </li>
 
-                        {{-- feehead mngt --}}
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a href="" class="nav-link">
+                                <i class="nav-icon fas fa-chart-pie"></i>
+                                <p>
+                                    Geo Attendance
+                                    <i class="right fas fa-angle-left"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="{{route('attendance.summary')}}" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Geolocation Attendance</p>
+                                    </a>
+                                </li>
+                            </ul>
+
+                        </li>
+
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fas fa-clipboard-list"></i>
+                                <p>
+                                    Attendance Coordinates
+                                    <i class="right fas fa-angle-left"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="{{route('attendance.coordinate')}}" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Coordinates List</p>
+                                    </a>
+                                </li>
+
+                            </ul>
+
+                        </li>
                         <li class="nav-item">
                             <a href="" class="nav-link">
                                 <i class="nav-icon fas fa-chart-pie"></i>
