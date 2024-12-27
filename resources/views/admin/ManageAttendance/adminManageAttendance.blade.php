@@ -24,16 +24,6 @@
         @endif
     </div>
 
-    <form action="{{ route('attendance.login') }}" method="POST">
-        @csrf
-        <button type="submit">Log Attendance</button>
-    </form>
-
-    <form action="{{ route('attendance.logout') }}" method="POST">
-        @csrf
-        <button type="submit">Logout</button>
-    </form>
-
     <div class="table-responsive mb-4">
         <table class="table table-bordered">
             <thead>

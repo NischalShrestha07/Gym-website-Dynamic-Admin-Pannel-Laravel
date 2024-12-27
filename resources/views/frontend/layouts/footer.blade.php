@@ -2,7 +2,7 @@
 <footer class="container-fluid footer_section">
     <p>
         &copy; 2020 All Rights Reserved. Handled by
-        <a href="https://html.design/">Royal Power's Gym Nepal.</a>
+        <a href="/">Royal Power's Gym Nepal.</a>
     </p>
 </footer>
 <!-- footer section -->

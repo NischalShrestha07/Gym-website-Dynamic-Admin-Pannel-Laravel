@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Jobs\LogCoordinatesJob;
 use App\Models\AttendanceCoordinate;
 use App\Models\GeoAttendance;
 use Illuminate\Http\Request;

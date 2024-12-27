@@ -120,8 +120,8 @@ Route::get('/profile', [UserController::class, 'index'])->name('profile')->middl
 
 
 
-Route::post('/attendance/login', [ManageAttendanceController::class, 'loginAttendance'])->name('attendance.login');
-Route::post('/attendance/logout', [ManageAttendanceController::class, 'logoutAttendance'])->name('attendance.logout');
+// Route::post('/attendance/login', [ManageAttendanceController::class, 'loginAttendance'])->name('attendance.login');
+// Route::post('/attendance/logout', [ManageAttendanceController::class, 'logoutAttendance'])->name('attendance.logout');
 
 
 
