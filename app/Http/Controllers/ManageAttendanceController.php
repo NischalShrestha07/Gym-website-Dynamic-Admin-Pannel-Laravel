@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\ManageAttendance;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
@@ -12,7 +13,7 @@ class ManageAttendanceController extends Controller
     public function index()
     {
         // Get all employees with their attendance data
-        // $employees = Employee::with('attendances')->get();
+        $employees = User::all();
         if (Auth::user()->role === 'Admin') {
             return view('admin.ManageAttendance.adminManageAttendance', compact('employees'));
         } elseif (Auth::user()->role === 'Staff') {
@@ -117,9 +118,13 @@ class ManageAttendanceController extends Controller
         $logoutTime = $currentDateTime->toTimeString();
 
         // Find today's attendance
+        // $attendance = ManageAttendance::where('employee_id', $user->id)
+        //     ->whereDate('date', $currentDateTime->toDateString())
+        //     ->first();
         $attendance = ManageAttendance::where('employee_id', $user->id)
             ->whereDate('date', $currentDateTime->toDateString())
             ->first();
+
 
         if (!$attendance) {
             return response()->json(['message' => 'No attendance record found for today'], 400);

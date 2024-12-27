@@ -54,4 +54,12 @@ class User extends Authenticatable
     {
         return $this->hasMany(GeoAttendance::class);
     }
+    public function attendances()
+    {
+        return $this->hasMany(ManageAttendance::class, 'employee_id');
+    }
+    public function user()
+    {
+        return $this->hasMany(ManageAttendance::class);
+    }
 }
