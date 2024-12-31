@@ -48,6 +48,12 @@ class EventController extends Controller
     }
 
     // Delete an event
+    // public function destroy($id)
+    // {
+    //     $event = Event::findOrFail($id);
+    //     $event->delete();
+    //     return response()->json(['success' => true]);
+    // }
     public function destroy($id)
     {
         $event = Event::findOrFail($id);

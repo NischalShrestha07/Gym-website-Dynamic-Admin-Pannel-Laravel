@@ -14,7 +14,7 @@
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&amp;display=fallback">
 
     <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
-
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
 
     <link rel="stylesheet" href="plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">

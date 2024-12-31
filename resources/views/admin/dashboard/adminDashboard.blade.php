@@ -34,7 +34,8 @@
                         <div class="icon">
                             <i class="ion ion-person-stalker"></i>
                         </div>
-                        <a href="#" class="small-box-footer">View Members <i class="fas fa-arrow-circle-right"></i></a>
+                        <a href="{{ route('client.create') }}" class="small-box-footer">View Members <i
+                                class="fas fa-arrow-circle-right"></i></a>
                     </div>
                 </div>
 
@@ -48,7 +49,7 @@
                         <div class="icon">
                             <i class="ion ion-checkmark"></i>
                         </div>
-                        <a href="#" class="small-box-footer">View Attendance <i
+                        <a href="{{route('attendance.summary')}}" class="small-box-footer">View Attendance <i
                                 class="fas fa-arrow-circle-right"></i></a>
                     </div>
                 </div>
