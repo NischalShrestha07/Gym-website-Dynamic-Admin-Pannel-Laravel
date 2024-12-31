@@ -16,7 +16,9 @@ class EventController extends Controller
 
     public function fetchEvents()
     {
-        return Event::all();
+        // return Event::all();
+        $events = Event::select('id', 'title', 'start', 'end')->get();
+        return response()->json($events);
     }
 
     public function store(Request $request)
@@ -40,14 +42,28 @@ class EventController extends Controller
     }
 
     // Update an existing event
+    // public function update(Request $request, $id)
+    // {
+    //     $event = Event::findOrFail($id);
+    //     $event->update($request->only(['title', 'start', 'end']));
+    //     return response()->json(['success' => true]);
+    // }
     public function update(Request $request, $id)
     {
+        $request->validate([
+            'title' => 'required|string|max:255',
+            'start' => 'required|date',
+            'end' => 'nullable|date|after_or_equal:start',
+        ]);
+
         $event = Event::findOrFail($id);
         $event->update($request->only(['title', 'start', 'end']));
+
         return response()->json(['success' => true]);
     }
 
-    // Delete an event
+
+    // // Delete an event
     // public function destroy($id)
     // {
     //     $event = Event::findOrFail($id);
@@ -56,7 +72,12 @@ class EventController extends Controller
     // }
     public function destroy($id)
     {
-        $event = Event::findOrFail($id);
+        $event = Event::find($id);
+
+        if (!$event) {
+            return response()->json(['success' => false, 'message' => 'Event not found'], 404);
+        }
+
         $event->delete();
         return response()->json(['success' => true]);
     }

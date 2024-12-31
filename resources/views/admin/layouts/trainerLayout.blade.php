@@ -18,7 +18,7 @@
 
 
     <link rel="stylesheet" href="plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
-    <meta name="csrf-token" content="{{ csrf_token() }}">
+
     <link rel="stylesheet" href="plugins/icheck-bootstrap/icheck-bootstrap.min.css">
 
     <link rel="stylesheet" href="plugins/jqvmap/jqvmap.min.css">
