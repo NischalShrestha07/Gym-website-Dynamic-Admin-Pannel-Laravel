@@ -13,13 +13,13 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Employee </h1>
+                    <h1>Gym's Employee List </h1>
                     <p>Dashboard/Employee</p>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="#">Home</a></li>
-                        <li class="breadcrumb-item active">Employee</li>
+                        <li class="breadcrumb-item active">Gym's Employee</li>
                     </ol>
                 </div>
             </div>
@@ -32,7 +32,7 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="navbar p-3 ">
-                            <h2 class="ml-2">Employee</h2>
+                            <h2 class="ml-2">Gym's Employee</h2>
                             <button type="button" class="btn btn-success" data-toggle="modal"
                                 data-target="#addEmployeeModal">Add New Employee</button>
                         </div>
@@ -111,7 +111,10 @@
                                                     <label for="role" class="font-weight-bold">Role:</label>
                                                     <select id="role" name="role" class="form-control" required>
                                                         <option value="" disabled selected> Role</option>
-                                                        <option value="{{$item->name}}">{{$item->name}}</option>
+                                                        <option value="Admin">Admin</option>
+                                                        <option value="Trainer">Trainer</option>
+                                                        <option value="Staff">Staff</option>
+                                                        <option value="Member">Member</option>
 
                                                     </select>
                                                 </div>
@@ -366,6 +369,16 @@
                                                                                 }}>Trainer
                                                                             </option>
                                                                         </select>
+                                                                    </div>
+
+
+                                                                    <div class="form-group col-md-6">
+                                                                        <label for="joinDate"
+                                                                            class="font-weight-bold">Join
+                                                                            Date:</label>
+                                                                        <input type="date" id="joinDate" name="joinDate"
+                                                                            value="{{$item->joinDate}}"
+                                                                            class="form-control">
                                                                     </div>
                                                                 </div>
 
