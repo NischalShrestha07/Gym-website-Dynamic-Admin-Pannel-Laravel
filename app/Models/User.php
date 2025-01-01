@@ -3,6 +3,8 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+
+use App\Http\Controllers\EmployeeController;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -57,9 +59,5 @@ class User extends Authenticatable
     public function attendances()
     {
         return $this->hasMany(ManageAttendance::class, 'employee_id');
-    }
-    public function user()
-    {
-        return $this->hasMany(ManageAttendance::class);
     }
 }

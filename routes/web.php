@@ -8,6 +8,7 @@ use App\Http\Controllers\AttendanceDetailsController;
 use App\Http\Controllers\CalendarController;
 use App\Http\Controllers\ContactController as ControllersContactController;
 use App\Http\Controllers\DataTrainerController;
+use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\FooterbarController;
 use App\Http\Controllers\Frontend\ContactController;
@@ -149,6 +150,12 @@ Route::middleware('auth')->group(function () {
     // Route::post('/coordinate/attendance/checkin', [AttendCoordController::class, 'checkIns']);
     // Route::post('/coordinate/attendance/checkout', [AttendCoordController::class, 'checkOuts']);
 
+
+    //manage Employee
+    Route::get('/employee/create', [EmployeeController::class, 'index'])->name('employee.create');
+    Route::post('/AddNewEmployee', [EmployeeController::class, 'AddNewEmployee'])->name('employee.add');
+    Route::put('/UpdateEmployee', [EmployeeController::class, 'UpdateEmployee']);
+    Route::delete('/employee/{id}', [EmployeeController::class, 'destroy'])->name('employee.destroy');
 
 
 

@@ -88,12 +88,6 @@
                                                     <input type="text" id="name" name="name"
                                                         placeholder="Enter Employee Name" class="form-control" required>
                                                 </div>
-                                                <div class="form-group" style="display: none;">
-                                                    <label for="employeeId" class="font-weight-bold">Employee
-                                                        Id:</label>
-                                                    <input type="text" id="employeeId" name="employeeId"
-                                                        placeholder="Auto id employee" class="form-control" readonly>
-                                                </div>
 
                                                 <div class="form-group">
                                                     <label for="mobile" class="font-weight-bold">Phone No:</label>
@@ -106,11 +100,7 @@
                                                     <input type="email" id="email" name="email"
                                                         placeholder="Enter Email Address" class="form-control">
                                                 </div>
-                                                <div class="form-group">
-                                                    <label for="password" class="font-weight-bold">Password:</label>
-                                                    <input type="password" id="password" name="password"
-                                                        placeholder="Password " class="form-control">
-                                                </div>
+
                                                 <div class="form-group">
                                                     <label for="joinDate" class="font-weight-bold">Join Date:</label>
                                                     <input type="date" id="joinDate" name="joinDate"
@@ -121,40 +111,8 @@
                                                     <label for="role" class="font-weight-bold">Role:</label>
                                                     <select id="role" name="role" class="form-control" required>
                                                         <option value="" disabled selected> Role</option>
-                                                        <!-- Placeholder option disabled and selected -->
-                                                        {{-- <option value="Web Developer">Web Developer</option>
-                                                        <option value="Marketing">Marketing</option> --}}
-                                                        @foreach ($roles as $item)
                                                         <option value="{{$item->name}}">{{$item->name}}</option>
-                                                        @endforeach
-                                                    </select>
-                                                </div>
 
-
-                                                <div class="form-group">
-                                                    <label for="company" class="font-weight-bold">Company:</label>
-                                                    <input type="text" id="company" name="company"
-                                                        placeholder="Company Name" class="form-control ">
-                                                </div>
-
-                                                <div class="form-group">
-                                                    <label for="department" class="font-weight-bold">Department:</label>
-                                                    <select class="form-control" name="department" id="department">
-                                                        <option value="">Select Department</option>
-                                                        @foreach ($departments as $item)
-                                                        <option value="{{$item->name}}">{{$item->name}}</option>
-                                                        @endforeach
-
-                                                    </select>
-                                                </div>
-
-                                                <div class="form-group">
-                                                    <label for="designation"
-                                                        class="font-weight-bold">Designation:</label>
-                                                    <select class="form-control" name="designation" id="designation">
-                                                        @foreach ($designation as $item)
-                                                        <option value="{{$item->name}}">{{$item->name}}</option>
-                                                        @endforeach
                                                     </select>
                                                 </div>
 
@@ -188,7 +146,6 @@
                                     <tr>
                                         <th>Photo</th>
                                         <th>Name</th>
-                                        <th>Employee Id</th>
                                         <th>Mobile</th>
                                         <th>Email</th>
                                         <th>Role</th>
@@ -206,7 +163,6 @@
                                                 width="40px" alt="Employee Photo">
                                         </td>
                                         <td>{{ $item->name }}</td>
-                                        <td>{{ $item->employeeId }}</td>
                                         <td>{{ $item->mobile }}</td>
                                         <td>{{ $item->email}}</td>
                                         <td>{{ $item->role }}</td>
@@ -275,12 +231,6 @@
                                                                                     </h6>
                                                                                     <p>{{ $item->email }}</p>
                                                                                 </div>
-                                                                                <div class="col-md-6">
-                                                                                    <h6><strong>Employee Id:</strong>
-                                                                                    </h6>
-                                                                                    <p>{{ $item->employeeId }}
-                                                                                    </p>
-                                                                                </div>
                                                                             </div>
                                                                             <div class="row mb-3">
                                                                                 <div class="col-md-6">
@@ -300,9 +250,6 @@
                                                                                     <p>{{ $item->status}}
                                                                                     </p>
                                                                                 </div>
-
-
-
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -404,15 +351,19 @@
                                                                             class="form-control" required>
                                                                             <option disabled> Employee Role</option>
                                                                             <option value="Active" {{ $item->role
-                                                                                == 'Super Admin' ? 'selected' : ''
-                                                                                }}>Super
+                                                                                == 'Admin' ? 'selected' : ''
+                                                                                }}>
                                                                                 Admin
-                                                                            </option>
-                                                                            <option value="Inactive" {{ $item->role
-                                                                                == 'Admin' ? 'selected' : '' }}>Admin
                                                                             </option>
                                                                             <option value="Staff" {{ $item->role
                                                                                 == 'Staff' ? 'selected' : '' }}>Staff
+                                                                            </option>
+                                                                            <option value="Member" {{ $item->role
+                                                                                == 'Member' ? 'selected' : '' }}>Member
+                                                                            </option>
+                                                                            <option value="Trainer" {{ $item->role
+                                                                                == 'Trainer' ? 'selected' : ''
+                                                                                }}>Trainer
                                                                             </option>
                                                                         </select>
                                                                     </div>

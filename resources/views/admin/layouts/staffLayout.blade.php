@@ -285,24 +285,7 @@
                                 </p>
                             </a>
                         </li>
-                        {{-- academic_year --}}
-                        {{-- <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="nav-icon fas fa-chart-pie"></i>
-                                <p>
-                                    Change Contents <i class="right fas fa-angle-left"></i>
-                                </p>
-                            </a>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="{{ route('admin.index') }}" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Change the Details Dynamically</p>
-                                    </a>
-                                </li>
 
-                            </ul>
-                        </li> --}}
                         <li class="nav-item">
                             <a href="#" class="nav-link">
                                 <i class="nav-icon fas fa-chart-pie"></i>
@@ -319,62 +302,15 @@
                                 </li>
 
                             </ul>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Payment Dues</p>
-                                    </a>
-                                </li>
 
-                            </ul>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Manage Attendance</p>
-                                    </a>
-                                </li>
-
-                            </ul>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Payment History</p>
-                                    </a>
-                                </li>
-
-                            </ul>
                         </li>
 
-                        {{-- <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="nav-icon fas fa-chart-pie"></i>
-                                <p>
-                                    Trainer Mngt
-                                    <i class="right fas fa-angle-left"></i>
-                                </p>
-                            </a>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="{{ route('admin.trainer') }}" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Add Trainer</p>
-                                    </a>
-                                </li>
 
-                            </ul>
-                        </li> --}}
-
-
-
-                        {{-- class mngt --}}
                         <li class="nav-item">
                             <a href="" class="nav-link">
                                 <i class="nav-icon fas fa-chart-pie"></i>
                                 <p>
-                                    Membership Mngt
+                                    Memberships
                                     <i class="right fas fa-angle-left"></i>
                                 </p>
                             </a>
@@ -382,16 +318,9 @@
                                 <li class="nav-item">
                                     <a href="{{ route('membership.create') }}" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
-                                        <p>Add Membership</p>
+                                        <p>View Membership</p>
                                     </a>
                                 </li>
-                                {{-- <li class="nav-item">
-                                    <a href="{{ route('class.read') }}" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>View Class List</p>
-                                    </a>
-
-                                </li> --}}
                             </ul>
 
                         </li>
@@ -408,7 +337,7 @@
                                 <li class="nav-item">
                                     <a href="{{route('manageAttendance.index')}}" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
-                                        <p>Attendance</p>
+                                        <p>View Attendances</p>
                                     </a>
                                 </li>
 
@@ -418,7 +347,7 @@
                             <a href="" class="nav-link">
                                 <i class="nav-icon fas fa-chart-pie"></i>
                                 <p>
-                                    Geo Attendance
+                                    Geolocation Attendance
                                     <i class="right fas fa-angle-left"></i>
                                 </p>
                             </a>
@@ -426,7 +355,7 @@
                                 <li class="nav-item">
                                     <a href="{{route('attendance.summary')}}" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
-                                        <p>Geolocation Attendance</p>
+                                        <p>View GeoAttendance</p>
                                     </a>
                                 </li>
                             </ul>
@@ -457,7 +386,7 @@
                                 <i class="nav-icon fas fa-chart-pie"></i>
 
                                 <p>
-                                    Class Schedule Mngt
+                                    Class Schedule
                                     <i class="right fas fa-angle-left"></i>
                                 </p>
                             </a>
@@ -468,17 +397,10 @@
                                         <p>Class Schedule</p>
                                     </a>
                                 </li>
-                                {{-- <li class="nav-item">
-                                    <a href="{{ route('feehead.read') }}" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>View Fee Head</p>
-                                    </a>
-
-                                </li> --}}
                             </ul>
 
                         </li>
-                        {{-- feestructure mngt --}}
+
                         <li class="nav-item">
                             <a href="" class="nav-link">
                                 <i class="nav-icon fas fa-chart-pie"></i>
@@ -489,12 +411,6 @@
                                 </p>
                             </a>
                             <ul class="nav nav-treeview">
-                                {{-- <li class="nav-item">
-                                    <a href="{{ route('feestructure.create') }}" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Add FeeStructure</p>
-                                    </a>
-                                </li> --}}
                                 <li class="nav-item">
                                     <a href="{{ route('admin.billing') }}" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
@@ -515,12 +431,6 @@
                                 </p>
                             </a>
                             <ul class="nav nav-treeview">
-                                {{-- <li class="nav-item">
-                                    <a href="{{ route('student.create') }}" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Setting</p>
-                                    </a>
-                                </li> --}}
                                 <li class="nav-item">
                                     <a href="{{ route('admin.setting') }}" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>

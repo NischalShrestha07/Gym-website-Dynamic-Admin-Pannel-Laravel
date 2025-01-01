@@ -10,9 +10,9 @@ class EmployeeController extends Controller
 {
     public function index()
     {
-
-        $users = User::with('role')->where('role_id', '!=', 'Admin')->get();
-        return view('admin.employee', compact('users'));
+        $employees = Employee::all();
+        $users = User::where('role', '!=', 'Admin')->get();
+        return view('admin.employee', compact('users', 'employees'));
 
         // $employees = Employee::all();
     }
