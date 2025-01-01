@@ -302,57 +302,8 @@
                                 </li>
 
                             </ul>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Payment Dues</p>
-                                    </a>
-                                </li>
-
-                            </ul>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Manage Attendance</p>
-                                    </a>
-                                </li>
-
-                            </ul>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Payment History</p>
-                                    </a>
-                                </li>
-
-                            </ul>
                         </li>
 
-                        {{-- <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="nav-icon fas fa-chart-pie"></i>
-                                <p>
-                                    Trainer List
-                                    <i class="right fas fa-angle-left"></i>
-                                </p>
-                            </a>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="{{ route('admin.trainer') }}" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Trainers</p>
-                                    </a>
-                                </li>
-
-                            </ul>
-                        </li> --}}
-
-
-
-                        {{-- class mngt --}}
                         <li class="nav-item">
                             <a href="" class="nav-link">
                                 <i class="nav-icon fas fa-chart-pie"></i>
@@ -368,13 +319,6 @@
                                         <p>Add Membership</p>
                                     </a>
                                 </li>
-                                {{-- <li class="nav-item">
-                                    <a href="{{ route('class.read') }}" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>View Class List</p>
-                                    </a>
-
-                                </li> --}}
                             </ul>
 
                         </li>
@@ -390,7 +334,7 @@
                                 <li class="nav-item">
                                     <a href="{{route('manageAttendance.index')}}" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
-                                        <p>Attendance</p>
+                                        <p>View Attendance</p>
                                     </a>
                                 </li>
 
@@ -400,7 +344,7 @@
                             <a href="" class="nav-link">
                                 <i class="nav-icon fas fa-chart-pie"></i>
                                 <p>
-                                    Geo Attendance
+                                    Geolocation Attendance
                                     <i class="right fas fa-angle-left"></i>
                                 </p>
                             </a>
@@ -408,7 +352,7 @@
                                 <li class="nav-item">
                                     <a href="{{route('attendance.summary')}}" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
-                                        <p>Geolocation Attendance</p>
+                                        <p>View GeoAttendance</p>
                                     </a>
                                 </li>
                             </ul>
@@ -440,7 +384,7 @@
                                 <i class="nav-icon fas fa-chart-pie"></i>
 
                                 <p>
-                                    Class Schedule Mngt
+                                    Hello
                                     <i class="right fas fa-angle-left"></i>
                                 </p>
                             </a>
@@ -448,16 +392,10 @@
                                 <li class="nav-item">
                                     <a href="{{ route('admin.class') }}" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
-                                        <p>Class Schedule</p>
+                                        <p>Hello</p>
                                     </a>
                                 </li>
-                                {{-- <li class="nav-item">
-                                    <a href="{{ route('feehead.read') }}" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>View Fee Head</p>
-                                    </a>
 
-                                </li> --}}
                             </ul>
 
                         </li>
