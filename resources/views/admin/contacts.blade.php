@@ -11,7 +11,7 @@ default => 'layouts.memberLayout',
 @extends($layout)
 
 @section('content')
-<div class="container">
+<div style="margin-left: 22vw;" class="container">
     <h2>Contact Messages</h2>
     <table class="table table-striped">
         <thead>
@@ -30,7 +30,7 @@ default => 'layouts.memberLayout',
                 <td>{{ $contact->id }}</td>
                 <td>{{ $contact->name }}</td>
                 <td>{{ $contact->email }}</td>
-                <td>{{ $contact->phone }}</td>
+                <td>{{ $contact->phoneno }}</td>
                 <td>{{ $contact->message }}</td>
                 <td>{{ $contact->created_at->format('d M Y, H:i') }}</td>
             </tr>
