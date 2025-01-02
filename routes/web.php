@@ -11,7 +11,7 @@ use App\Http\Controllers\DataTrainerController;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\FooterbarController;
-use App\Http\Controllers\Frontend\ContactController;
+use App\Http\Controllers\Frontend\ContactController as FrontendContactController;
 use App\Http\Controllers\Frontend\DashboardController;
 use App\Http\Controllers\Frontend\HeaderController;
 use App\Http\Controllers\Frontend\HomeController;
@@ -235,8 +235,9 @@ Route::get('/UpdateContact', [ControllersContactController::class, 'UpdateContac
 Route::get('/contacts/{id}', [ControllersContactController::class, 'DeleteContact'])->name('contacts.destroy');
 
 
-Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
-Route::get('/admin/contacts', [ContactController::class, 'manageContact'])->name('admin.contacts.index');
+// Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
+Route::post('/contact', [FrontendContactController::class, 'hello'])->name('contact.store');
+Route::get('/admin/contacts', [FrontendContactController::class, 'manageContact'])->name('admin.contacts.index');
 
 
 
@@ -249,7 +250,8 @@ Route::get('/register', [RegisterController::class, 'index']);
 Route::post('/registerUser', [RegisterController::class, 'registerUser']);
 Route::get('/whyus', [FrontendWhyusController::class, 'index'])->name('frontend.whyus');
 Route::get('/trainer', [TrainersController::class, 'index'])->name('frontend.trainers');
-Route::get('/contact', [ContactController::class, 'index'])->name('frontend.contact');
+// Route::get('/contact', [ContactController::class, 'index'])->name('frontend.contact');
+Route::get('/contact', [FrontendContactController::class, 'index'])->name('frontend.contact');
 
 Route::get('/board', [DashboardController::class, 'index'])->name('dashboards');
 

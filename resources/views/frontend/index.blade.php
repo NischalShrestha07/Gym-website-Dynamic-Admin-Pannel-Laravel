@@ -4,13 +4,56 @@
     .tcolor h1 {
         color: yellow;
     }
-</style>
-@if (session('success'))
-<div class="alert alert-success">
-    {{ session('success') }}
-</div>
-@endif
 
+    .custom-alert {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        z-index: 1050;
+        min-width: 300px;
+        border-radius: 5px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    }
+</style>
+<!-- Success and Error Alert Messages -->
+{{-- <div>
+    @if (session('success'))
+    <div class="alert alert-success text-white bg-success alert-dismissible custom-alert fade-in" role="alert">
+        <strong>Success!</strong> {{ session('success') }}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    @endif
+
+    @if (session('error'))
+    <div class="alert alert-danger text-white bg-danger alert-dismissible custom-alert fade-in" role="alert">
+        <strong>Error!</strong> {{ session('error') }}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    @endif
+</div> --}}
+<div>
+    @if (session('success'))
+    <div class="alert alert-success text-white bg-success alert-dismissible custom-alert" role="alert">
+        <strong>Success!</strong> {{ session('success') }}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    @endif
+
+    @if (session('error'))
+    <div class="alert alert-danger text-white bg-danger alert-dismissible custom-alert" role="alert">
+        <strong>Error!</strong> {{ session('error') }}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    @endif
+</div>
 <section class="slider_section position-relative">
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
@@ -264,5 +307,25 @@
         </div>
     </div>
 </section>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+            // Automatically hide alert after 5 seconds
+            setTimeout(() => {
+                const alert = document.querySelector('.custom-alert');
+                if (alert) {
+                    alert.classList.add('fade-out');
+                    setTimeout(() => alert.remove(), 500); // Remove element after fade-out
+                }
+            }, 5000); // Adjust time (5000ms = 5 seconds)
+        });
+</script>
+
+<style>
+    /* Fade-out effect for the alert */
+    .fade-out {
+        opacity: 0;
+        transition: opacity 0.5s ease;
+    }
+</style>
 @endsection
 <!-- end info_section -->

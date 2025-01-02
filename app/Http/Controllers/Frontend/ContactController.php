@@ -32,8 +32,9 @@ class ContactController extends Controller
         return view('admin.contacts', compact('contacts'));
     }
 
-    public function store(Request $request)
+    public function hello(Request $request)
     {
+
         $validated = $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|email|max:255',
@@ -41,8 +42,14 @@ class ContactController extends Controller
             'message' => 'required|string',
         ]);
 
-        Contact::create($validated);
-
+        // dd($request->all());
+        // Contact::create($validated);
+        $data = new Contact();
+        $data->name = $request->input('name');
+        $data->email = $request->input('email');
+        $data->phoneno = $request->input('phoneno');
+        $data->message = $request->input('message');
+        $data->save();
         return redirect()->back()->with('success', 'Your message has been sent successfully!');
     }
 }
