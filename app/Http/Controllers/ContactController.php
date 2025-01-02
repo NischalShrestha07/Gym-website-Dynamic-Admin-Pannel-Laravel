@@ -18,25 +18,7 @@ class ContactController extends Controller
         return view('Dashboard.contacts', compact('contacts'));
     }
 
-    public function manageContact()
-    {
-        $contacts = Contact::latest()->get();
-        return view('admin.contacts', compact('contacts'));
-    }
 
-    public function store(Request $request)
-    {
-        $validated = $request->validate([
-            'name' => 'required|string|max:255',
-            'email' => 'required|email|max:255',
-            'phone' => 'required|string|max:15',
-            'message' => 'required|string',
-        ]);
-
-        Contact::create($validated);
-
-        return redirect()->back()->with('success', 'Your message has been sent successfully!');
-    }
     public function AddNewContact(Request $request)
     {
         $request->validate([

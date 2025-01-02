@@ -5,6 +5,12 @@
         color: yellow;
     }
 </style>
+@if (session('success'))
+<div class="alert alert-success">
+    {{ session('success') }}
+</div>
+@endif
+
 <section class="slider_section position-relative">
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
@@ -213,16 +219,16 @@
                     <form action="{{ route('contact.store') }}" method="POST">
                         @csrf
                         <div>
-                            <input type="text" placeholder="Name" required />
+                            <input type="text" name="name" placeholder="Name" required />
                         </div>
                         <div>
-                            <input type="email" placeholder="Email" required />
+                            <input type="email" name="email" placeholder="Email" required />
                         </div>
                         <div>
-                            <input type="text" placeholder="Phone Number" required />
+                            <input type="text" name="phoneno" placeholder="Phone Number" required />
                         </div>
                         <div>
-                            <input type="text" class="message-box" placeholder="Message" />
+                            <input type="text" class="message-box" name="message" placeholder="Message" />
                         </div>
                         <div class="d-flex ">
                             <button type="submit">

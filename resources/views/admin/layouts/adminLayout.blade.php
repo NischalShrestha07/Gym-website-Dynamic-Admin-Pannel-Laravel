@@ -351,6 +351,22 @@
                             <a href="#" class="nav-link">
                                 <i class="nav-icon fas fa-chart-pie"></i>
                                 <p>
+                                    Customers Contacts<i class="right fas fa-angle-left"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="{{route('admin.contacts.index')}}" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>View Contacts</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fas fa-chart-pie"></i>
+                                <p>
                                     Client<i class="right fas fa-angle-left"></i>
                                 </p>
                             </a>
@@ -361,11 +377,7 @@
                                         <p>View Client</p>
                                     </a>
                                 </li>
-
                             </ul>
-
-
-
                         </li>
 
                         <li class="nav-item">
