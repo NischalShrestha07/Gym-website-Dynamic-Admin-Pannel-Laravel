@@ -180,52 +180,7 @@
                 </div>
             </div>
             @endforeach
-            {{-- <div class="col-lg-4 col-md-6 mx-auto">
-                <div class="box">
-                    <div class="name">
-                        <h5>
-                            {{$name}}
-                        </h5>
-                    </div>
-                    <div class="img-box">
-                        <img src="{{ asset('storage/'.$photo) }} " alt="">
-                    </div>
-                    <div class="social_box">
-                        <a href="$facebo0k">
-                            <img src="{{ asset('frontend/images/facebook-logo.png') }}" alt="">
-                        </a>
-                        <a href="$twitter">
-                            <img src="{{ asset('frontend/images/twitter.png') }}" alt="">
-                        </a>
-                        <a href="$instagram">
-                            <img src="{{ asset('frontend/images/instagram-logo.png') }}" alt="">
-                        </a>
-                    </div>
-                </div>
-            </div> --}}
-            {{-- <div class="col-lg-4 col-md-6 mx-auto">
-                <div class="box">
-                    <div class="name">
-                        <h5>
-                            Alex Den
-                        </h5>
-                    </div>
-                    <div class="img-box">
-                        <img src="{{ asset('frontend/images/t3.jpg') }} " alt="">
-                    </div>
-                    <div class="social_box">
-                        <a href="">
-                            <img src="{{ asset('frontend/images/facebook-logo.png') }}" alt="">
-                        </a>
-                        <a href="">
-                            <img src="{{ asset('frontend/images/twitter.png') }}" alt="">
-                        </a>
-                        <a href="">
-                            <img src="{{ asset('frontend/images/instagram-logo.png') }}" alt="">
-                        </a>
-                    </div>
-                </div>
-            </div> --}}
+
         </div>
     </div>
 </section>
@@ -255,21 +210,22 @@
                             Contact Us
                         </h2>
                     </div>
-                    <form action="">
+                    <form action="{{ route('contact.store') }}" method="POST">
+                        @csrf
                         <div>
-                            <input type="text" placeholder="Name" />
+                            <input type="text" placeholder="Name" required />
                         </div>
                         <div>
-                            <input type="email" placeholder="Email" />
+                            <input type="email" placeholder="Email" required />
                         </div>
                         <div>
-                            <input type="text" placeholder="Phone Number" />
+                            <input type="text" placeholder="Phone Number" required />
                         </div>
                         <div>
                             <input type="text" class="message-box" placeholder="Message" />
                         </div>
                         <div class="d-flex ">
-                            <button>
+                            <button type="submit">
                                 Send
                             </button>
                         </div>

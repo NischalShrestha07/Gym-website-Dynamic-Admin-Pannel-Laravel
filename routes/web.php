@@ -234,6 +234,12 @@ Route::post('/AddNewContact', [ControllersContactController::class, 'AddNewConta
 Route::get('/UpdateContact', [ControllersContactController::class, 'UpdateContact']);
 Route::get('/contacts/{id}', [ControllersContactController::class, 'DeleteContact'])->name('contacts.destroy');
 
+
+Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
+Route::get('/admin/contacts', [ContactController::class, 'manageContact'])->name('admin.contacts.index');
+
+
+
 //Customer Routes
 Route::get('/', [HomeController::class, 'index'])->name('frontend.home');
 // Route::get('/login', [LoginController::class, 'index']);
