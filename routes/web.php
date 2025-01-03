@@ -117,10 +117,21 @@ Route::delete('/membership/{id}', [MembershipController::class, 'destroy'])->nam
 
 Route::get('/profile', [UserController::class, 'index'])->name('profile')->middleware('auth');
 
-
-Route::get('/dashboards', function () {
+Route::get('/member-dashboard', function () {
     return view('admin.dashboard.memberDashboard');
 })->name('memberDash');
+
+Route::get('/trainer-dashboard', function () {
+    return view('admin.dashboard.trainerDashboard');
+})->name('trainerDash');
+
+Route::get('/staff-dashboard', function () {
+    return view('admin.dashboard.staffDashboard');
+})->name('staffDash');
+
+Route::get('/admin-dashboard', function () {
+    return view('admin.dashboard.adminDashboard');
+})->name('adminDash');
 
 // Route::get('/dashboard', function () {
 //     return view('admin.dashboard.memberDashboard');
