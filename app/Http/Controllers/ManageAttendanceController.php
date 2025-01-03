@@ -30,7 +30,7 @@ class ManageAttendanceController extends Controller
     {
         // Validate the request
         $request->validate([
-            'employee_id' => 'required|exists:employees,id',
+            'employee_id' => 'required|exists:users,id',
             'date' => 'required|date',
             'status' => 'required|in:full_day_present,half_day_present,absent',
         ]);

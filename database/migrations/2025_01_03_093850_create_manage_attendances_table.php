@@ -15,12 +15,12 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('employee_id');
             $table->date('date');
-            $table->string('status'); // e.g. 'logged_in', 'logged_out'
-            $table->time('login_time')->nullable();
-            $table->time('logout_time')->nullable();
             $table->string('month');
-            $table->string('geolocation')->nullable();
+            $table->enum('status', ['full_day_present', 'half_day_present', 'absent']);
             $table->timestamps();
+
+            $table->foreign('employee_id')->references('id')->on('users')->onDelete('cascade');
+            $table->unique(['employee_id', 'date']); // Ensure one record per employee per date
         });
     }
 

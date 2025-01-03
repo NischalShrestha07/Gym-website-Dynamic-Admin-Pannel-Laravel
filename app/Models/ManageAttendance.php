@@ -9,7 +9,12 @@ class ManageAttendance extends Model
 {
     use HasFactory;
     protected $table = 'manage_attendances';
-
+    protected $fillable = [
+        'employee_id',
+        'date',
+        'month',
+        'status',
+    ];
     public function employee()
     {
         return $this->belongsTo(User::class, 'employee_id');
