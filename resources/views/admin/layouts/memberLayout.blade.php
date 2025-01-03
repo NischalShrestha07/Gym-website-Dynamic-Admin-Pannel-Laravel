@@ -277,11 +277,11 @@
                         data-accordion="false">
 
                         <li class="nav-item">
-                            <a href="{{ route('admin.dashboard') }}" class="nav-link">
+                            <a href="{{route('memberDash')}}" class="nav-link">
                                 <i class="nav-icon fas fa-th"></i>
                                 <p>
                                     <B>Dashboard</B>
-                                    <span class="right badge badge-danger">Admin</span>
+                                    <span class="right badge badge-danger">Member</span>
                                 </p>
                             </a>
                         </li>
@@ -297,7 +297,7 @@
                                 <li class="nav-item">
                                     <a href="{{route('client.create')}}" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
-                                        <p>Manage Client</p>
+                                        <p>View Client</p>
                                     </a>
                                 </li>
 
@@ -308,7 +308,7 @@
                             <a href="" class="nav-link">
                                 <i class="nav-icon fas fa-chart-pie"></i>
                                 <p>
-                                    Membership Mngt
+                                    Membership
                                     <i class="right fas fa-angle-left"></i>
                                 </p>
                             </a>
@@ -316,11 +316,47 @@
                                 <li class="nav-item">
                                     <a href="{{ route('membership.create') }}" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
-                                        <p>Add Membership</p>
+                                        <p>View Membership</p>
                                     </a>
                                 </li>
                             </ul>
 
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fas fa-clipboard-list"></i>
+                                <p>
+                                    Events
+                                    <i class="right fas fa-angle-left"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="{{route('calendar.show')}}" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>View Events</p>
+                                    </a>
+                                </li>
+
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fas fa-clipboard-list"></i>
+                                <p>
+                                    Gym's Employees
+                                    <i class="right fas fa-angle-left"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="{{route('employee.create')}}" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>View Employees</p>
+                                    </a>
+                                </li>
+
+                            </ul>
                         </li>
                         <li class="nav-item">
                             <a href="#" class="nav-link">

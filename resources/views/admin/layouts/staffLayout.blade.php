@@ -281,7 +281,7 @@
                                 <i class="nav-icon fas fa-th"></i>
                                 <p>
                                     <B>Dashboard</B>
-                                    <span class="right badge badge-danger">Admin</span>
+                                    <span class="right badge badge-danger">Staff</span>
                                 </p>
                             </a>
                         </li>

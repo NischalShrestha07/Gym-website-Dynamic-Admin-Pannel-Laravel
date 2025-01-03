@@ -48,7 +48,6 @@
                                     </button>
                                 </div>
                                 @endif
-                                \
                                 @if (session('error'))
                                 <div class="alert alert-danger text-white bg-danger alert-dismissible custom-alert fade-in"
                                     role="alert">

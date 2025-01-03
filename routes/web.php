@@ -72,22 +72,22 @@ Route::group(
 
 
 
-        Route::get('admin/dashboard', function () {
-            return view('admin.dashboard.adminDashboard');
-        })->name('dashboard')->middleware('role:Admin');
+        // Route::get('admin/dashboard', function () {
+        //     return view('admin.dashboard.adminDashboard');
+        // })->name('dashboard')->middleware('role:Admin');
 
-        Route::get('trainer/dashboard', function () {
-            return view('admin.dashboard.trainerDashboard');
-        })->name('trainerDashboard')->middleware('role:Trainer');
+        // Route::get('trainer/dashboard', function () {
+        //     return view('admin.dashboard.trainerDashboard');
+        // })->name('trainerDashboard')->middleware('role:Trainer');
 
 
-        Route::get('staff/dashboard', function () {
-            return view('admin.dashboard.staffDashboard');
-        })->name('staffDashboard')->middleware('role:Staff');
+        // Route::get('staff/dashboard', function () {
+        //     return view('admin.dashboard.staffDashboard');
+        // })->name('staffDashboard')->middleware('role:Staff');
 
-        Route::get('member/dashboard', function () {
-            return view('admin.dashboard.memberDashboard');
-        })->name('memberDashboard')->middleware('role:Member');
+        // Route::get('member/dashboard', function () {
+        //     return view('admin.dashboard.memberDashboard');
+        // })->name('memberDashboard')->middleware('role:Member');
     }
 );
 //     }
@@ -118,7 +118,17 @@ Route::delete('/membership/{id}', [MembershipController::class, 'destroy'])->nam
 Route::get('/profile', [UserController::class, 'index'])->name('profile')->middleware('auth');
 
 
+// Route::get('/dashboards', function () {
+//     return view('admin.dashboard.memberDashboard');
+// })->name('memberDash');
 
+// Route::get('/dashboard', function () {
+//     return view('admin.dashboard.memberDashboard');
+// })->name('memberDash');
+
+// Route::get('/member', function () {
+//     return view('admin.dashboard.memberDashboard');
+// })->name('memberDash');
 
 
 // Route::post('/attendance/login', [ManageAttendanceController::class, 'loginAttendance'])->name('attendance.login');

@@ -421,7 +421,7 @@
                             <a href="" class="nav-link">
                                 <i class="nav-icon fas fa-chart-pie"></i>
                                 <p>
-                                    Membership Mngt
+                                    Memberships
                                     <i class="right fas fa-angle-left"></i>
                                 </p>
                             </a>
@@ -429,7 +429,7 @@
                                 <li class="nav-item">
                                     <a href="{{ route('membership.create') }}" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
-                                        <p>View Membership</p>
+                                        <p>View Memberships</p>
                                     </a>
                                 </li>
                             </ul>
