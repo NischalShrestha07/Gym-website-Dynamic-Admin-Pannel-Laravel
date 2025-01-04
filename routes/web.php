@@ -110,7 +110,7 @@ Route::delete('/client/{id}', [ManageClientController::class, 'destroy'])->name(
 
 Route::get('/membership/create', [MembershipController::class, 'index'])->name('membership.create');
 Route::post('/AddMembership', [MembershipController::class, 'AddMembership'])->name('membership.add');
-Route::put('/UpdateMembership', [MembershipController::class, 'UpdateMembership']);
+Route::put('/UpdateMembership/{id}', [MembershipController::class, 'update'])->name('membership.update');
 Route::delete('/membership/{id}', [MembershipController::class, 'destroy'])->name('membership.destroy');
 
 

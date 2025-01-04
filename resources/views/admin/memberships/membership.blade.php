@@ -298,86 +298,106 @@ default => 'layouts.memberLayout', // Optional fallback layout
                                                 </div>
                                             </div>
 
-                                            <div class="modal" id="updateModel{{ $item->id }}">
+                                            <div class="modal fade" id="updateModel{{ $item->id }}">
                                                 <div class="modal-dialog modal-lg">
                                                     <div class="modal-content">
-                                                        <div class="modal-header btn-primary">
-                                                            <h4 class="modal-title"><b>Update Trainer</b></h4>
-                                                            <button type="button" class="close"
+                                                        <div class="modal-header bg-primary text-white">
+                                                            <h4 class="modal-title"><b>Update Member</b></h4>
+                                                            <button type="button" class="close text-white"
                                                                 data-dismiss="modal">&times;</button>
                                                         </div>
                                                         <div class="modal-body">
-                                                            <form action="{{ url('UpdateDataTrainer') }}" method="POST"
-                                                                enctype="multipart/form-data">
+                                                            <form action="{{ url('UpdateMembership/' . $item->id) }}"
+                                                                method="POST" enctype="multipart/form-data">
                                                                 @csrf
                                                                 @method('PUT')
 
-
-                                                                <div class="mb-3">
-                                                                    <label for="name" class="form-label">Trainer's
-                                                                        Name:</label>
-                                                                    <input type="text" id="name" name="name"
-                                                                        value="{{$item->name}}"
-                                                                        placeholder="Enter Trainer's Name:"
-                                                                        class="form-control mb-2">
-
+                                                                <div class="form-group">
+                                                                    <label for="member_name"
+                                                                        class="font-weight-bold">Member Name:</label>
+                                                                    <input type="text" id="member_name"
+                                                                        name="member_name"
+                                                                        value="{{ $item->member_name }}"
+                                                                        class="form-control" required>
                                                                 </div>
 
-                                                                <div class="mb-3">
-                                                                    <label for="phone">Phone No:</label>
+                                                                <div class="form-group">
+                                                                    <label for="membership_type"
+                                                                        class="font-weight-bold">Membership
+                                                                        Type:</label>
+                                                                    <input type="text" id="membership_type"
+                                                                        name="membership_type"
+                                                                        value="{{ $item->membership_type }}"
+                                                                        class="form-control" required>
+                                                                </div>
+
+                                                                <div class="form-group">
+                                                                    <label for="phone"
+                                                                        class="font-weight-bold">Phone:</label>
                                                                     <input type="text" id="phone" name="phone"
-                                                                        value="{{ $item->phone }}"
-                                                                        class="form-control mb-2">
+                                                                        value="{{ $item->phone }}" class="form-control"
+                                                                        required>
                                                                 </div>
 
-
-
-                                                                <div class="mb-3">
-                                                                    <label for="expertise">Trainer's Expertise:</label>
-                                                                    <input type="text" id="expertise" name="expertise"
-                                                                        value="{{ $item->expertise }}"
-                                                                        class="form-control mb-2">
+                                                                <div class="form-group">
+                                                                    <label for="email" class="font-weight-bold">Email
+                                                                        Address:</label>
+                                                                    <input type="text" id="email" name="email"
+                                                                        value="{{ $item->email }}" class="form-control"
+                                                                        required>
                                                                 </div>
 
-                                                                <div class="mb-3">
-                                                                    <label for="years_of_experience">Years Of
-                                                                        Experience:</label>
-                                                                    <input type="text" id="years_of_experience"
-                                                                        name="years_of_experience"
-                                                                        value="{{ $item->years_of_experience }}"
-                                                                        class="form-control mb-2">
-                                                                </div>
-                                                                <div class="mb-3">
-                                                                    <label for="qualifications">Trainer's
-                                                                        Qualifications:</label>
-                                                                    <input type="qualifications" id="qualifications"
-                                                                        name="qualifications"
-                                                                        value="{{ $item->qualifications }}"
-                                                                        class="form-control mb-2">
+                                                                <div class="form-group">
+                                                                    <label for="start_date"
+                                                                        class="font-weight-bold">Start Date:</label>
+                                                                    <input type="date" id="start_date" name="start_date"
+                                                                        value="{{ $item->start_date }}"
+                                                                        class="form-control" required>
                                                                 </div>
 
-
-                                                                <div class="mb-3">
-                                                                    <label for="image">Trainer's Image:</label>
-                                                                    <input type="file" id="image" name="image"
-                                                                        value="{{ $item->image }}"
-                                                                        class="form-control mb-2">
+                                                                <div class="form-group">
+                                                                    <label for="end_date" class="font-weight-bold">End
+                                                                        Date:</label>
+                                                                    <input type="date" id="end_date" name="end_date"
+                                                                        value="{{ $item->end_date }}"
+                                                                        class="form-control" required>
                                                                 </div>
 
-                                                                <input type="hidden" name="id" value="{{ $item->id }}">
+                                                                <div class="form-group">
+                                                                    <label for="address"
+                                                                        class="font-weight-bold">Address:</label>
+                                                                    <input id="address" name="address"
+                                                                        value="{{ $item->address }}"
+                                                                        class="form-control" />
+                                                                </div>
 
-                                                                <div class="d-grid">
-                                                                    <button type="submit" name="save"
-                                                                        class="btn btn-success" value="Save Changes"><i
-                                                                            class="fas fa-save"></i>
-                                                                        Save Changes</button>
+                                                                <div class="form-group">
+                                                                    <label for="price"
+                                                                        class="font-weight-bold">Price:</label>
+                                                                    <input id="price" name="price"
+                                                                        value="{{ $item->price }}"
+                                                                        class="form-control" />
+                                                                </div>
+
+                                                                <div class="form-group">
+                                                                    <label for="memberphoto"
+                                                                        class="font-weight-bold">Member Photo:</label>
+                                                                    <input type="file" id="memberphoto"
+                                                                        name="memberphoto" class="form-control">
+                                                                    <small>Leave empty if you don't want to update the
+                                                                        photo.</small>
+                                                                </div>
+
+                                                                <div class="text-right">
+                                                                    <button type="submit" class="btn btn-success">
+                                                                        <i class="fas fa-save"></i> Save Changes
+                                                                    </button>
                                                                 </div>
                                                             </form>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
-
                                             <form action="{{route('datatrainer.destroy',$item->id)}}" method="POST"
                                                 style="display:inline-block;"> @csrf
                                                 @method('DELETE')
