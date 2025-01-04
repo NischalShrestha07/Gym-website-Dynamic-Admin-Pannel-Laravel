@@ -48,7 +48,7 @@ class MembershipController extends Controller
         // Handle the file upload
         if ($request->hasFile('memberphoto')) {
             $imagePath = $request->file('memberphoto')->store('images/memberships', 'public');
-            $membership->image = $imagePath; // Assign the image path to the membership object
+            $membership->memberphoto = $imagePath; // Assign the image path to the membership object
         }
 
         // Save the membership

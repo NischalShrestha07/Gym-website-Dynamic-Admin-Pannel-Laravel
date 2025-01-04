@@ -25,11 +25,11 @@ default => 'layouts.memberLayout', // Optional fallback layout
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Membership Management</h1>
+                    <h1>Memberships Management</h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item"><a href="">Home</a></li>
                         <li class="breadcrumb-item active">Members</li>
                     </ol>
                 </div>
@@ -159,8 +159,8 @@ default => 'layouts.memberLayout', // Optional fallback layout
                             <table id="trainerTable" class="table table-bordered table-striped">
                                 <thead>
                                     <tr>
+                                        <th>Photo</th>
                                         <th>Member Name</th>
-                                        <th>Image</th>
                                         <th>Phone</th>
                                         <th>Email</th>
                                         <th>Address</th>
@@ -174,13 +174,12 @@ default => 'layouts.memberLayout', // Optional fallback layout
                                 <tbody>
                                     @foreach ($memberships as $item)
                                     <tr>
-                                        <td>{{ $item->member_name }}</td>
                                         <td>
-                                            <img style="border-radius: 50px" src="{{asset( $item->memberphoto)   }}"
-                                                {{-- <img style="border-radius: 50px"
-                                                src="/storage/{{ $item->memberphoto }}" --}} width="100px"
-                                                alt="Trainer Photo">
+                                            <img style="border-radius: 50px"
+                                                src="{{ asset('storage/' . $item->memberphoto) }}" width="100px"
+                                                alt="Memberships Photo">
                                         </td>
+                                        <td>{{ $item->member_name }}</td>
                                         <td>{{ $item->phone }}</td>
                                         <td>{{$item->email}}</td>
                                         <td> {{$item->address}}</td>
@@ -227,7 +226,6 @@ default => 'layouts.memberLayout', // Optional fallback layout
                                                                 </div>
                                                                 <div class="card-body">
                                                                     <div class="row">
-                                                                        <!-- Member's Image -->
                                                                         <div class="col-md-4 text-center">
                                                                             <img src="{{ asset('storage/' . $item->memberphoto) }}"
                                                                                 alt="{{ $item->name }}"
@@ -300,7 +298,7 @@ default => 'layouts.memberLayout', // Optional fallback layout
                                                 </div>
                                             </div>
 
-                                            {{-- <div class="modal" id="updateModel{{ $item->id }}">
+                                            <div class="modal" id="updateModel{{ $item->id }}">
                                                 <div class="modal-dialog modal-lg">
                                                     <div class="modal-content">
                                                         <div class="modal-header btn-primary">
@@ -378,16 +376,16 @@ default => 'layouts.memberLayout', // Optional fallback layout
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div> --}}
+                                            </div>
 
-                                            {{-- <form action="{{route('datatrainer.destroy',$item->id)}}" method="POST"
+                                            <form action="{{route('datatrainer.destroy',$item->id)}}" method="POST"
                                                 style="display:inline-block;"> @csrf
                                                 @method('DELETE')
                                                 <button type="submit" class="btn btn-sm w-10" title="Delete"
                                                     onclick="return confirm('Are you sure you want to delete this item?')">
                                                     <i class="fas fa-lg fa-trash-alt"></i>
                                                 </button>
-                                            </form> --}}
+                                            </form>
                                         </td>
                                     </tr>
                                     @endforeach

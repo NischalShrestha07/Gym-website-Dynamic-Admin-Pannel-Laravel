@@ -1,2 +1,2 @@
 <?php
-with('role')
+with('role');
