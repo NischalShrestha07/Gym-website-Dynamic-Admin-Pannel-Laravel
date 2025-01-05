@@ -242,7 +242,7 @@
 
         <aside class="main-sidebar sidebar-dark-primary elevation-5">
 
-            <a href="index3.html" class="brand-link">
+            <a href="{{ route('manageAdmins')}}" class="brand-link">
                 <img style="margin-left: 0" src="{{asset('admincss/dist/img/royal2.webp')}}" alt="Gym Logo"
                     class="brand-image img-circle elevation-3" style="opacity: .8">
                 <span class="brand-text font-weight-light"><b style="font-family: candara;">Royal Power Gym
@@ -548,7 +548,7 @@
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="{{ route('admin.setting') }}" class="nav-link">
+                                    <a href="{{ route('view.profile') }}" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Setting</p>
                                     </a>
@@ -563,21 +563,15 @@
                                 <i class="nav-icon fas fa-chart-pie"></i>
 
                                 <p>
-                                    Announcement Mngt
+                                    Announcements
                                     <i class="right fas fa-angle-left"></i>
                                 </p>
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    {{-- <a href="{{ route('announcement.create') }}" class="nav-link"> --}}
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Add Announcement</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
                                     {{-- <a href="{{ route('announcement.read') }}" class="nav-link"> --}}
                                         <i class="far fa-circle nav-icon"></i>
-                                        <p>View Announcement List</p>
+                                        <p>View Announcements</p>
                                     </a>
 
                                 </li>

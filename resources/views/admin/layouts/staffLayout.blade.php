@@ -484,7 +484,7 @@
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="{{ route('admin.setting') }}" class="nav-link">
+                                    <a href="{{ route('view.profile') }}" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Setting</p>
                                     </a>

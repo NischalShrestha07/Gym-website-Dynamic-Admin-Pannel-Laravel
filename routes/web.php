@@ -137,9 +137,9 @@ Route::get('/admin-dashboard', function () {
     return view('admin.dashboard.adminDashboard');
 })->name('adminDash');
 
-// Route::get('/dashboard', function () {
-//     return view('admin.dashboard.memberDashboard');
-// })->name('memberDash');
+Route::get('/details', function () {
+    return view('admin.royal');
+})->name('manageAdmins');
 
 // Route::get('/member', function () {
 //     return view('admin.dashboard.memberDashboard');

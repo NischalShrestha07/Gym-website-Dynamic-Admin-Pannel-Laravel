@@ -420,26 +420,6 @@
                             </ul>
 
                         </li>
-                        <li class="nav-item">
-                            <a href="" class="nav-link">
-                                <i class="nav-icon fas fa-chart-pie"></i>
-
-                                <p>
-                                    Hello
-                                    <i class="right fas fa-angle-left"></i>
-                                </p>
-                            </a>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="{{ route('admin.class') }}" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Hello</p>
-                                    </a>
-                                </li>
-
-                            </ul>
-
-                        </li>
 
                         <li class="nav-item">
                             <a href="" class="nav-link">
@@ -471,14 +451,9 @@
                                 </p>
                             </a>
                             <ul class="nav nav-treeview">
-                                {{-- <li class="nav-item">
-                                    <a href="{{ route('student.create') }}" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Setting</p>
-                                    </a>
-                                </li> --}}
+
                                 <li class="nav-item">
-                                    <a href="{{ route('admin.setting') }}" class="nav-link">
+                                    <a href="{{ route('view.profile') }}" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Setting</p>
                                     </a>
@@ -515,7 +490,6 @@
 
 
                         </li>
-
 
                         {{-- Logout mngt --}}
                         <li class="nav-item">

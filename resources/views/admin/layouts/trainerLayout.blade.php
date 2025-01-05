@@ -357,30 +357,6 @@
                             </ul>
                         </li>
 
-
-
-
-
-                        {{-- <li class="nav-item">
-                            <a href="{{ route('calendar.show') }}" class="nav-link">
-                                <i class="nav-icon fas fa-chart-pie"></i>
-                                <p>
-                                    Events <i class="right fas fa-angle-left"></i>
-                                </p>
-                            </a>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="{{ route('calendar.show') }}" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>View Events</p>
-                                    </a>
-                                </li>
-
-                            </ul>
-                        </li> --}}
-
-
-
                         <li class="nav-item">
                             <a href="" class="nav-link">
                                 <i class="nav-icon fas fa-chart-pie"></i>
@@ -496,6 +472,30 @@
                             </ul>
 
                         </li>
+
+
+                        <li class="nav-item">
+                            <a href="" class="nav-link">
+                                <i class="nav-icon fas fa-chart-pie"></i>
+
+                                <p>
+                                    Announcements
+                                    <i class="right fas fa-angle-left"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+
+                                <li class="nav-item">
+                                    {{-- <a href="{{ route('announcement.read') }}" class="nav-link"> --}}
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>View Announcements</p>
+                                    </a>
+
+                                </li>
+                            </ul>
+
+
+                        </li>
                         <li class="nav-item">
                             <a href="" class="nav-link">
                                 <i class="nav-icon fas fa-chart-pie"></i>
@@ -507,7 +507,7 @@
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="{{ route('admin.setting') }}" class="nav-link">
+                                    <a href="{{ route('view.profile') }}" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Setting</p>
                                     </a>
@@ -516,35 +516,6 @@
                             </ul>
 
                         </li>
-
-                        <li class="nav-item">
-                            <a href="" class="nav-link">
-                                <i class="nav-icon fas fa-chart-pie"></i>
-
-                                <p>
-                                    Announcement
-                                    <i class="right fas fa-angle-left"></i>
-                                </p>
-                            </a>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    {{-- <a href="{{ route('announcement.create') }}" class="nav-link"> --}}
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Add Announcement</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    {{-- <a href="{{ route('announcement.read') }}" class="nav-link"> --}}
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>View Announcement List</p>
-                                    </a>
-
-                                </li>
-                            </ul>
-
-
-                        </li>
-
 
                         {{-- Logout mngt --}}
                         <li class="nav-item">
