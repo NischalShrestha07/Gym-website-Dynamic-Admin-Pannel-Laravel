@@ -191,9 +191,6 @@
 
     </div>
 </section>
-
-<!-- end heathy section -->
-
 <!-- trainer section -->
 
 <section class="trainer_section layout_padding">
