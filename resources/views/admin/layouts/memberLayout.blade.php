@@ -253,10 +253,12 @@
 
                 <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                     <div class="image">
-                        <img src="dist/img/user8-128x128.jpg" class="img-circle elevation-2" alt="User Image">
+                        {{-- <img src="dist/img/user8-128x128.jpg" class="img-circle elevation-2" alt="User Image"> --}}
+                        <img src="{{ asset('uploads/avatars/' . Auth::user()->avatar) }}" class="img-circle elevation-2"
+                            alt="User Image">
                     </div>
                     <div class="info">
-                        <a href="#" class="d-block">{{Auth::user()->name}}</a>
+                        <a href="{{route('view.profile')}}" class="d-block">{{Auth::user()->name}}</a>
                     </div>
                 </div>
 
@@ -449,12 +451,6 @@
                                 </p>
                             </a>
                             <ul class="nav nav-treeview">
-                                {{-- <li class="nav-item">
-                                    <a href="{{ route('feestructure.create') }}" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Add FeeStructure</p>
-                                    </a>
-                                </li> --}}
                                 <li class="nav-item">
                                     <a href="{{ route('admin.billing') }}" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>

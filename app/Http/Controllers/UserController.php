@@ -4,15 +4,12 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
 
 class UserController extends Controller
 {
-    // public function index()
-    // {
-    //     // Fetch the currently authenticated user
-    //     $user = Auth::user();
-    //     return view('admin.profile', compact('user'));
-    // }
+
 
     public function showProfile()
     {
@@ -63,5 +60,57 @@ class UserController extends Controller
         } catch (\Exception $e) {
             return redirect()->back()->with('error', 'Error saving profile: ' . $e->getMessage());
         }
+    }
+
+    // public function changePassword(Request $request)
+    // {
+    //     $user = Auth::user();
+
+    //     // Validate input
+    //     $validator = Validator::make($request->all(), [
+    //         'current_password' => 'required',
+    //         'new_password' => 'required|confirmed',
+    //     ]);
+
+    //     if ($validator->fails()) {
+    //         return redirect()->back()->withErrors($validator)->withInput();
+    //     }
+
+    //     // Verify current password
+    //     if (!Hash::check($request->current_password, $user->password)) {
+    //         return redirect()->back()->with('error', 'Current password is incorrect.');
+    //     }
+
+    //     // Update password
+    //     $user->password = Hash::make($request->new_password);
+    //     $user->save();
+
+    //     return redirect()->back()->with('success', 'Password changed successfully.');
+    // }
+
+    public function changePassword(Request $request)
+    {
+        $user = Auth::user();
+
+        // Validate input
+        $validator = Validator::make($request->all(), [
+            'current_password' => 'required',
+            'new_password' => 'required|confirmed',
+        ]);
+
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
+
+        // Verify current password
+        if (!Hash::check($request->current_password, $user->password)) {
+            return redirect()->back()->with('error', 'Current password is incorrect.');
+        }
+
+        // Update password
+        $user->password = Hash::make($request->new_password); // Ensure password is hashed
+        $user->save();
+
+        return redirect()->back()->with('success', 'Password changed successfully.');
     }
 }

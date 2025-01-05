@@ -118,6 +118,7 @@ Route::delete('/membership/{id}', [MembershipController::class, 'destroy'])->nam
 
 Route::get('/profile', [UserController::class, 'showProfile'])->name('view.profile');
 Route::put('/profile', [UserController::class, 'updateProfile'])->name('user.profile.update');
+Route::put('/profile/change-password', [UserController::class, 'changePassword'])->name('user.change-password');
 
 
 Route::get('/member-dashboard', function () {

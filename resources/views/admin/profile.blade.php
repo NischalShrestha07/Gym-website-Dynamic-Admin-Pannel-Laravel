@@ -116,6 +116,57 @@ default => 'layouts.memberLayout', // Fallback layout
                         </div>
                     </form>
                 </div>
+
+                <div class="row mt-5">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-header bg-secondary text-white">
+                                <h4>Change Password</h4>
+                            </div>
+                            <div class="card-body">
+
+
+                                <form action="{{ route('user.change-password') }}" method="POST">
+                                    @csrf
+                                    @method('PUT')
+
+                                    <div class="mb-3">
+                                        <label for="current_password" class="form-label">Current
+                                            Password</label>
+                                        <input type="password" class="form-control" id="current_password"
+                                            name="current_password" required>
+                                        @error('current_password')
+                                        <span class="text-danger">{{ $message }}</span>
+                                        @enderror
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="new_password" class="form-label">New Password</label>
+                                        <input type="password" class="form-control" id="new_password"
+                                            name="new_password" required>
+                                        @error('new_password')
+                                        <span class="text-danger">{{ $message }}</span>
+                                        @enderror
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="new_password_confirmation" class="form-label">Confirm New
+                                            Password</label>
+                                        <input type="password" class="form-control" id="new_password_confirmation"
+                                            name="new_password_confirmation" required>
+                                        @error('new_password_confirmation')
+                                        <span class="text-danger">{{ $message }}</span>
+                                        @enderror
+                                    </div>
+
+                                    <div class="text-center">
+                                        <button type="submit" class="btn btn-secondary">Save Changes</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
