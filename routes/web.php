@@ -115,7 +115,10 @@ Route::delete('/membership/{id}', [MembershipController::class, 'destroy'])->nam
 
 
 
-Route::get('/profile', [UserController::class, 'index'])->name('view.profile');
+
+Route::get('/profile', [UserController::class, 'showProfile'])->name('view.profile');
+Route::put('/profile', [UserController::class, 'updateProfile'])->name('user.profile.update');
+
 
 Route::get('/member-dashboard', function () {
     return view('admin.dashboard.memberDashboard');
