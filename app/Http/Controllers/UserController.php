@@ -10,9 +10,8 @@ class UserController extends Controller
     public function index()
     {
         // Fetch the currently authenticated user
-        $user = Auth::user();
-
-        // Pass the user data to the profile view
-        return view('admin.profile', compact('user'));
+        // $user = Auth::user();
+        // return view('admin.profile', compact('user'));
+        return view('admin.profile');
     }
 }

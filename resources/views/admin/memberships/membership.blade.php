@@ -25,7 +25,8 @@ default => 'layouts.memberLayout', // Optional fallback layout
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Memberships Management</h1>
+                    <h1>Memberships Lists </h1>
+                    <p>Dashboard/Memberships</p>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
@@ -71,7 +72,6 @@ default => 'layouts.memberLayout', // Optional fallback layout
                                 @endif
                             </div>
 
-                            <!-- Add Trainer Modal -->
                             <div class="modal fade" id="addMemberModal" tabindex="-1" role="dialog"
                                 aria-labelledby="addMemberModalLabel" aria-hidden="true">
                                 <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
@@ -88,63 +88,81 @@ default => 'layouts.memberLayout', // Optional fallback layout
                                             <form action="{{ url('AddMembership') }}" method="POST"
                                                 enctype="multipart/form-data">
                                                 @csrf
+                                                <!-- Member Name -->
                                                 <div class="form-group">
                                                     <label for="member_name" class="font-weight-bold">Member
                                                         Name:</label>
                                                     <input type="text" id="member_name" name="member_name"
-                                                        placeholder=" Member Name" class="form-control" required>
+                                                        placeholder="Enter Member Name" class="form-control" required>
                                                 </div>
+
+                                                <!-- Membership Type (Dropdown) -->
                                                 <div class="form-group">
                                                     <label for="membership_type" class="font-weight-bold">Membership
                                                         Type:</label>
-                                                    <input type="text" id="membership_type" name="membership_type"
-                                                        placeholder=" Membership Type" class="form-control" required>
+                                                    <select id="membership_type" name="membership_type"
+                                                        class="form-control" required>
+                                                        <option value="" disabled selected>Select Membership Type
+                                                        </option>
+                                                        <option value="Basic">Basic</option>
+                                                        <option value="Premium">Premium</option>
+                                                        <option value="Gold">Gold</option>
+                                                        <option value="Platinum">Platinum</option>
+                                                    </select>
                                                 </div>
 
+                                                <!-- Phone -->
                                                 <div class="form-group">
                                                     <label for="phone" class="font-weight-bold">Phone:</label>
                                                     <input type="text" id="phone" name="phone"
-                                                        placeholder=" Phone Number" class="form-control" required>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label for="email" class="font-weight-bold">Email Address:</label>
-                                                    <input type="text" id="email" name="email"
-                                                        placeholder="Email Address" class="form-control" required>
+                                                        placeholder="Enter Phone Number" class="form-control" required>
                                                 </div>
 
+                                                <!-- Email -->
+                                                <div class="form-group">
+                                                    <label for="email" class="font-weight-bold">Email Address:</label>
+                                                    <input type="email" id="email" name="email"
+                                                        placeholder="Enter Email Address" class="form-control" required>
+                                                </div>
+
+                                                <!-- Start Date -->
                                                 <div class="form-group">
                                                     <label for="start_date" class="font-weight-bold">Start Date:</label>
                                                     <input type="date" id="start_date" name="start_date"
-                                                        placeholder="Start Date" class="form-control" required>
+                                                        class="form-control" required>
                                                 </div>
 
+                                                <!-- End Date -->
                                                 <div class="form-group">
                                                     <label for="end_date" class="font-weight-bold">End Date:</label>
                                                     <input type="date" id="end_date" name="end_date"
-                                                        placeholder="End Date" class="form-control" required>
+                                                        class="form-control" required>
                                                 </div>
 
-
+                                                <!-- Address -->
                                                 <div class="form-group">
                                                     <label for="address" class="font-weight-bold">Address:</label>
-                                                    <input id="address" name="address" placeholder="Enter address"
-                                                        class="form-control" />
+                                                    <textarea id="address" name="address" placeholder="Enter Address"
+                                                        class="form-control"></textarea>
                                                 </div>
+
+                                                <!-- Price -->
                                                 <div class="form-group">
                                                     <label for="price" class="font-weight-bold">Price:</label>
-                                                    <input id="price" name="price" placeholder="Price"
-                                                        class="form-control" />
+                                                    <input type="number" id="price" name="price"
+                                                        placeholder="Enter Price" class="form-control" step="0.01"
+                                                        required>
                                                 </div>
 
-
-
+                                                <!-- Member Photo -->
                                                 <div class="form-group">
                                                     <label for="memberphoto" class="font-weight-bold">Member
                                                         Photo:</label>
                                                     <input type="file" id="memberphoto" name="memberphoto"
-                                                        class="form-control">
+                                                        class="form-control-file">
                                                 </div>
 
+                                                <!-- Submit Button -->
                                                 <div class="text-right">
                                                     <button type="submit" class="btn btn-success">
                                                         <i class="fas fa-save"></i> Save
@@ -276,12 +294,7 @@ default => 'layouts.memberLayout', // Optional fallback layout
                                                                                     <h6><strong>Price:</strong></h6>
                                                                                     <p>{{ $item->price }}</p>
                                                                                 </div>
-                                                                                {{-- <div class="col-md-6">
-                                                                                    <h6><strong>Years of
-                                                                                            Experience:</strong></h6>
-                                                                                    <p>{{ $item->years_of_experience }}
-                                                                                        years</p>
-                                                                                </div> --}}
+
                                                                             </div>
 
 
@@ -299,12 +312,14 @@ default => 'layouts.memberLayout', // Optional fallback layout
                                             </div>
 
                                             <div class="modal fade" id="updateModel{{ $item->id }}">
-                                                <div class="modal-dialog modal-lg">
+                                                <div class="modal-dialog modal-lg modal-dialog-centered">
                                                     <div class="modal-content">
                                                         <div class="modal-header bg-primary text-white">
                                                             <h4 class="modal-title"><b>Update Member</b></h4>
                                                             <button type="button" class="close text-white"
-                                                                data-dismiss="modal">&times;</button>
+                                                                data-dismiss="modal" aria-label="Close">
+                                                                <span aria-hidden="true">&times;</span>
+                                                            </button>
                                                         </div>
                                                         <div class="modal-body">
                                                             <form action="{{ url('UpdateMembership/' . $item->id) }}"
@@ -312,41 +327,61 @@ default => 'layouts.memberLayout', // Optional fallback layout
                                                                 @csrf
                                                                 @method('PUT')
 
+                                                                <!-- Member Name -->
                                                                 <div class="form-group">
                                                                     <label for="member_name"
                                                                         class="font-weight-bold">Member Name:</label>
                                                                     <input type="text" id="member_name"
                                                                         name="member_name"
                                                                         value="{{ $item->member_name }}"
+                                                                        placeholder="Enter member name"
                                                                         class="form-control" required>
                                                                 </div>
 
+                                                                <!-- Membership Type -->
                                                                 <div class="form-group">
                                                                     <label for="membership_type"
                                                                         class="font-weight-bold">Membership
                                                                         Type:</label>
-                                                                    <input type="text" id="membership_type"
-                                                                        name="membership_type"
-                                                                        value="{{ $item->membership_type }}"
+                                                                    <select id="membership_type" name="membership_type"
                                                                         class="form-control" required>
+                                                                        <option value="" disabled>Select Membership Type
+                                                                        </option>
+                                                                        <option value="Basic" {{ $item->membership_type
+                                                                            == 'Basic' ? 'selected' : '' }}>Basic
+                                                                        </option>
+                                                                        <option value="Standard" {{ $item->
+                                                                            membership_type == 'Standard' ? 'selected' :
+                                                                            ''
+                                                                            }}>Standard</option>
+                                                                        <option value="Premium" {{ $item->
+                                                                            membership_type == 'Premium' ? 'selected' :
+                                                                            '' }}>Premium
+                                                                        </option>
+                                                                    </select>
                                                                 </div>
 
+                                                                <!-- Phone -->
                                                                 <div class="form-group">
                                                                     <label for="phone"
                                                                         class="font-weight-bold">Phone:</label>
-                                                                    <input type="text" id="phone" name="phone"
-                                                                        value="{{ $item->phone }}" class="form-control"
-                                                                        required>
+                                                                    <input type="tel" id="phone" name="phone"
+                                                                        value="{{ $item->phone }}"
+                                                                        placeholder="Enter phone number"
+                                                                        class="form-control" required>
                                                                 </div>
 
+                                                                <!-- Email -->
                                                                 <div class="form-group">
                                                                     <label for="email" class="font-weight-bold">Email
                                                                         Address:</label>
-                                                                    <input type="text" id="email" name="email"
-                                                                        value="{{ $item->email }}" class="form-control"
-                                                                        required>
+                                                                    <input type="email" id="email" name="email"
+                                                                        value="{{ $item->email }}"
+                                                                        placeholder="Enter email address"
+                                                                        class="form-control" required>
                                                                 </div>
 
+                                                                <!-- Start Date -->
                                                                 <div class="form-group">
                                                                     <label for="start_date"
                                                                         class="font-weight-bold">Start Date:</label>
@@ -355,6 +390,7 @@ default => 'layouts.memberLayout', // Optional fallback layout
                                                                         class="form-control" required>
                                                                 </div>
 
+                                                                <!-- End Date -->
                                                                 <div class="form-group">
                                                                     <label for="end_date" class="font-weight-bold">End
                                                                         Date:</label>
@@ -363,31 +399,36 @@ default => 'layouts.memberLayout', // Optional fallback layout
                                                                         class="form-control" required>
                                                                 </div>
 
+                                                                <!-- Address -->
                                                                 <div class="form-group">
                                                                     <label for="address"
                                                                         class="font-weight-bold">Address:</label>
-                                                                    <input id="address" name="address"
-                                                                        value="{{ $item->address }}"
-                                                                        class="form-control" />
+                                                                    <textarea id="address" name="address"
+                                                                        class="form-control" rows="2"
+                                                                        placeholder="Enter address">{{ $item->address }}</textarea>
                                                                 </div>
 
+                                                                <!-- Price -->
                                                                 <div class="form-group">
                                                                     <label for="price"
                                                                         class="font-weight-bold">Price:</label>
-                                                                    <input id="price" name="price"
+                                                                    <input type="number" id="price" name="price"
                                                                         value="{{ $item->price }}"
-                                                                        class="form-control" />
+                                                                        placeholder="Enter price" class="form-control"
+                                                                        step="0.01" min="0">
                                                                 </div>
 
+                                                                <!-- Member Photo -->
                                                                 <div class="form-group">
                                                                     <label for="memberphoto"
                                                                         class="font-weight-bold">Member Photo:</label>
                                                                     <input type="file" id="memberphoto"
                                                                         name="memberphoto" class="form-control">
-                                                                    <small>Leave empty if you don't want to update the
-                                                                        photo.</small>
+                                                                    <small class="form-text text-muted">Leave empty if
+                                                                        you don't want to update the photo.</small>
                                                                 </div>
 
+                                                                <!-- Submit Button -->
                                                                 <div class="text-right">
                                                                     <button type="submit" class="btn btn-success">
                                                                         <i class="fas fa-save"></i> Save Changes
@@ -398,7 +439,7 @@ default => 'layouts.memberLayout', // Optional fallback layout
                                                     </div>
                                                 </div>
                                             </div>
-                                            <form action="{{route('datatrainer.destroy',$item->id)}}" method="POST"
+                                            <form action="{{route('membership.destroy',$item->id)}}" method="POST"
                                                 style="display:inline-block;"> @csrf
                                                 @method('DELETE')
                                                 <button type="submit" class="btn btn-sm w-10" title="Delete"
@@ -425,7 +466,6 @@ default => 'layouts.memberLayout', // Optional fallback layout
 </div>
 @endsection
 
-@section('customJs')
 <script src="plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
 <script src="plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
 <script src="plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
@@ -445,4 +485,3 @@ default => 'layouts.memberLayout', // Optional fallback layout
         }).buttons().container().appendTo('#trainerTable_wrapper .col-md-6:eq(0)');
     });
 </script>
-@endsection

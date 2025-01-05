@@ -303,25 +303,6 @@
 
                             </ul>
                         </li>
-
-                        <li class="nav-item">
-                            <a href="" class="nav-link">
-                                <i class="nav-icon fas fa-chart-pie"></i>
-                                <p>
-                                    Membership
-                                    <i class="right fas fa-angle-left"></i>
-                                </p>
-                            </a>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="{{ route('membership.create') }}" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>View Membership</p>
-                                    </a>
-                                </li>
-                            </ul>
-
-                        </li>
                         <li class="nav-item">
                             <a href="#" class="nav-link">
                                 <i class="nav-icon fas fa-clipboard-list"></i>
@@ -340,6 +321,9 @@
 
                             </ul>
                         </li>
+
+
+
                         <li class="nav-item">
                             <a href="#" class="nav-link">
                                 <i class="nav-icon fas fa-clipboard-list"></i>
@@ -357,6 +341,25 @@
                                 </li>
 
                             </ul>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="" class="nav-link">
+                                <i class="nav-icon fas fa-chart-pie"></i>
+                                <p>
+                                    Membership
+                                    <i class="right fas fa-angle-left"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="{{ route('membership.create') }}" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>View Membership</p>
+                                    </a>
+                                </li>
+                            </ul>
+
                         </li>
                         <li class="nav-item">
                             <a href="#" class="nav-link">
@@ -435,7 +438,7 @@
                             </ul>
 
                         </li>
-                        {{-- feestructure mngt --}}
+
                         <li class="nav-item">
                             <a href="" class="nav-link">
                                 <i class="nav-icon fas fa-chart-pie"></i>

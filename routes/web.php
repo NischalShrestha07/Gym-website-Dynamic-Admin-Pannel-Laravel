@@ -115,7 +115,7 @@ Route::delete('/membership/{id}', [MembershipController::class, 'destroy'])->nam
 
 
 
-Route::get('/profile', [UserController::class, 'index'])->name('profile')->middleware('auth');
+Route::get('/profile', [UserController::class, 'index'])->name('view.profile');
 
 Route::get('/member-dashboard', function () {
     return view('admin.dashboard.memberDashboard');

@@ -110,10 +110,10 @@ class MembershipController extends Controller
 
 
 
-    public function destroy(Membership $membership, $id)
+    public function destroy($id)
     {
         $membership = Membership::find($id);
         $membership->delete();
-        return redirect()->route('admin.memberships.membership')->with('success', 'Membership deleted successfully.');
+        return redirect()->route('membership.create')->with('error', 'Membership deleted successfully.');
     }
 }

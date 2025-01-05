@@ -83,65 +83,6 @@ default => 'layouts.memberLayout', // Optional fallback layout
                                             </button>
                                         </div>
 
-                                        {{-- <div class="modal-body">
-                                            <form action="{{ url('AddNewClient') }}" method="POST"
-                                                enctype="multipart/form-data">
-                                                @csrf
-                                                <div class="form-group">
-                                                    <label for="name" class="font-weight-bold">Name:</label>
-                                                    <input type="text" id="name" name="name"
-                                                        placeholder="Enter Client Name" class="form-control" required>
-                                                </div>
-
-                                                <div class="form-group">
-                                                    <label for="mobile" class="font-weight-bold">Phone No::</label>
-                                                    <input type="pho" id="mobile" name="mobile"
-                                                        placeholder="Enter Phone Number" class="form-control" required>
-                                                </div>
-
-                                                <div class="form-group">
-                                                    <label for="email" class="font-weight-bold">Email Address:</label>
-                                                    <textarea id="email" name="email" placeholder="Enter Email Address"
-                                                        class="form-control"></textarea>
-                                                </div>
-
-                                                <div class="form-group">
-                                                    <label for="plantype" class="font-weight-bold">Plan Type:</label>
-                                                    <input type="text" id="plantype" name="plantype"
-                                                        placeholder="Enter Plan Type" class="form-control" required>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label for="planEndDate" class="font-weight-bold">Plan End
-                                                        Date:</label>
-                                                    <input type="date" id="planEndDate" name="planEndDate"
-                                                        placeholder="Enter Plan End Date" class="form-control" required>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label for="trainerStatus" class="font-weight-bold"> Status:</label>
-                                                    <input type="text" id="trainerStatus" name="trainerStatus"
-                                                        placeholder="Enter Trainer Status" class="form-control"
-                                                        required>
-                                                </div>
-
-                                                <div class="form-group">
-                                                    <label for="dueAmount" class="font-weight-bold">Due Amount:</label>
-                                                    <input type="number" id="dueAmount" name="dueAmount"
-                                                        placeholder="Enter Due Amount" class="form-control" required>
-                                                </div>
-
-
-                                                <div class="form-group">
-                                                    <label for="image" class="font-weight-bold">Image:</label>
-                                                    <input type="file" id="image" name="image" class="form-control">
-                                                </div>
-
-                                                <div class="text-right">
-                                                    <button type="submit" class="btn btn-success">
-                                                        <i class="fas fa-save"></i> Save
-                                                    </button>
-                                                </div>
-                                            </form>
-                                        </div> --}}
 
                                         <div class="modal-body">
                                             <form action="{{ url('AddNewClient') }}" method="POST"
@@ -222,8 +163,8 @@ default => 'layouts.memberLayout', // Optional fallback layout
                             <table id="ClientTable" class="table table-bordered table-striped">
                                 <thead>
                                     <tr>
+                                        <th>Photo</th>
                                         <th>Name</th>
-                                        <th>Image</th>
                                         <th>Phone</th>
                                         <th>Email</th>
                                         <th>Plan Type</th>
@@ -236,12 +177,11 @@ default => 'layouts.memberLayout', // Optional fallback layout
                                 <tbody>
                                     @foreach ($clients as $item)
                                     <tr>
-                                        <td>{{ $item->name }}</td>
-                                        {{-- <td>{{ $item->image }}</td> --}}
                                         <td>
                                             <img style="border-radius: 50px" src="/storage/{{ $item->image }}"
                                                 width="100px" alt="Client Photo">
                                         </td>
+                                        <td>{{ $item->name }}</td>
                                         <td>{{ $item->mobile }}</td>
                                         <td>{{ $item->email}}</td>
                                         <td>{{ $item->plantype }}</td>
@@ -300,7 +240,6 @@ default => 'layouts.memberLayout', // Optional fallback layout
                                                                                     <p>{{ $item->name }}</p>
                                                                                 </div>
                                                                                 <div class="col-md-6">
-                                                                                    \
                                                                                     <h6><strong>Phone Number:</strong>
                                                                                     </h6>
                                                                                     <p>{{ $item->mobile }}</p>
@@ -393,19 +332,6 @@ default => 'layouts.memberLayout', // Optional fallback layout
                                                                         class="form-control">
                                                                 </div>
 
-                                                                {{-- <div class="form-group">
-                                                                    <label for="plantype" class="font-weight-bold">Plan
-                                                                        Type:</label>
-                                                                    <select id="plantype" name="plantype"
-                                                                        class="form-control" required>
-                                                                        <option value="{{$item->plantype}}" disabled
-                                                                            selected>Select Plan
-                                                                            Type</option>
-                                                                        <option value="Basic">Basic</option>
-                                                                        <option value="Standard">Standard</option>
-                                                                        <option value="Premium">Premium</option>
-                                                                    </select>
-                                                                </div> --}}
                                                                 <div class="form-group">
                                                                     <label for="plantype" class="font-weight-bold">Plan
                                                                         Type:</label>
@@ -436,20 +362,6 @@ default => 'layouts.memberLayout', // Optional fallback layout
                                                                         class="form-control" required>
                                                                 </div>
 
-                                                                {{-- <div class="form-group">
-                                                                    <label for="trainerStatus"
-                                                                        class="font-weight-bold">Trainer
-                                                                        Status:</label>
-                                                                    <select id="trainerStatus" name="trainerStatus"
-                                                                        class="form-control" required>
-                                                                        <option disabled selected>Select
-                                                                            Trainer Status
-                                                                        </option>
-
-                                                                        <option value="Active">Active</option>
-                                                                        <option value="Inactive">Inactive</option>
-                                                                    </select>
-                                                                </div> --}}
 
                                                                 <div class="form-group">
                                                                     <label for="trainerStatus"
