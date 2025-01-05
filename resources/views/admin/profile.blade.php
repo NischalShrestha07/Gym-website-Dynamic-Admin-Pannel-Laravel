@@ -19,7 +19,7 @@ default => 'layouts.memberLayout', // Fallback layout
 @section('title', 'User Profile')
 
 @section('content')
-<div class="container mt-5">
+<div class="container mt-5 " style="margin-left: 20vw;">
     <div class="row">
         <!-- Profile Sidebar -->
         <div class="col-md-3">

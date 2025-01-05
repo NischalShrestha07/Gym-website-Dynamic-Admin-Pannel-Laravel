@@ -7,8 +7,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{{Auth::user()->name}}({{Auth::user()->role}})</title>
-    {{-- ICON IS NOT WORKING --}}
-    <link rel="icon" href="{{ asset('images/icons8-books-16.png') }}">
+    {{-- ICON IS WORKING --}}
+    <link rel="icon" href="{{ asset('images/u-1.png') }}">
     <base href="{{ asset('admincss') }}/" />
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&amp;display=fallback">

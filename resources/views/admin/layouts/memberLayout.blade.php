@@ -7,8 +7,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{{Auth::user()->name}}({{Auth::user()->role}})</title>
-    {{-- ICON IS NOT WORKING --}}
-    <link rel="icon" href="{{ asset('images/icons8-books-16.png') }}">
+    {{-- ICON IS WORKING --}}
+    <link rel="icon" href="{{ asset('images/u-1.png') }}">
     <base href="{{ asset('admincss') }}/" />
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&amp;display=fallback">
@@ -242,7 +242,7 @@
 
         <aside class="main-sidebar sidebar-dark-primary elevation-5">
 
-            <a href="index3.html" class="brand-link">
+            <a href="{{ route('manageAdmins')}}" class="brand-link">
                 <img style="margin-left: 0" src="{{asset('admincss/dist/img/royal2.webp')}}" alt="Gym Logo"
                     class="brand-image img-circle elevation-3" style="opacity: .8">
                 <span class="brand-text font-weight-light"><b style="font-family: candara;">Royal Power Gym
