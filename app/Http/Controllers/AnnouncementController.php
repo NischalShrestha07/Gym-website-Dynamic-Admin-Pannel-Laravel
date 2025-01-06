@@ -12,7 +12,7 @@ class AnnouncementController extends Controller
     public function index()
     {
         $announcements = Announcement::with('user')->latest()->get();
-        return view('admin.announcements', compact('announcements'));
+        return view('admin.announcements.announcements', compact('announcements'));
     }
 
     // Create a new announcement
@@ -32,7 +32,35 @@ class AnnouncementController extends Controller
         return redirect()->route('view.announcements')->with('success', 'Announcement Created Successfully.');
     }
 
-    // Update an announcement
+    // public function update(Request $request, $id)
+    // {
+    //     $announcement = Announcement::find($id);
+
+    //     if (!$announcement) {
+    //         return redirect()->route('view.announcements')->with('error', 'Announcement not found.');
+    //     }
+
+    //     if (
+    //         $announcement->user_id !== Auth::id()
+    //     ) {
+    //         return redirect()->route('view.announcements')->with('error', 'Unauthorized action.');
+    //     }
+
+    //     $request->validate([
+    //         'title' => 'required|string|max:255',
+    //         'description' => 'required|string',
+    //     ]);
+
+    //     $announcement->update([
+    //         'title' => $request->title,
+    //         'description' => $request->description,
+    //     ]);
+
+    //     return redirect()->route('view.announcements')->with('success', 'Announcement Updated Successfully.');
+    // }
+
+
+
     public function update(Request $request, $id)
     {
         $announcement = Announcement::find($id);
@@ -41,15 +69,19 @@ class AnnouncementController extends Controller
             return redirect()->route('view.announcements')->with('error', 'Announcement not found.');
         }
 
-        if ($announcement->user_id !== Auth::id()) {
+        // Ensure the user is staff or admin
+        $user = Auth::user();
+        if (!in_array($user->role, ['Staff', 'Admin'])) {
             return redirect()->route('view.announcements')->with('error', 'Unauthorized action.');
         }
 
+        // Validate the input
         $request->validate([
             'title' => 'required|string|max:255',
             'description' => 'required|string',
         ]);
 
+        // Update the announcement
         $announcement->update([
             'title' => $request->title,
             'description' => $request->description,

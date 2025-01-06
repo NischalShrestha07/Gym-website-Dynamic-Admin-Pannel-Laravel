@@ -420,25 +420,25 @@
                             </ul>
 
                         </li>
-
+                        {{-- Announcement mngt --}}
                         <li class="nav-item">
                             <a href="" class="nav-link">
                                 <i class="nav-icon fas fa-chart-pie"></i>
 
                                 <p>
-                                    Billing & Finance Mngt
+                                    Announcements
                                     <i class="right fas fa-angle-left"></i>
                                 </p>
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="{{ route('admin.billing') }}" class="nav-link">
+                                    <a href="{{ route('view.announcements') }}" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
-                                        <p> Billing</p>
+                                        <p>View Announcements</p>
                                     </a>
-
                                 </li>
                             </ul>
+
 
                         </li>
                         <li class="nav-item">
@@ -462,34 +462,7 @@
                             </ul>
 
                         </li>
-                        {{-- Announcement mngt --}}
-                        <li class="nav-item">
-                            <a href="" class="nav-link">
-                                <i class="nav-icon fas fa-chart-pie"></i>
 
-                                <p>
-                                    Announcement Mngt
-                                    <i class="right fas fa-angle-left"></i>
-                                </p>
-                            </a>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    {{-- <a href="{{ route('announcement.create') }}" class="nav-link"> --}}
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Add Announcement</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    {{-- <a href="{{ route('announcement.read') }}" class="nav-link"> --}}
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>View Announcement List</p>
-                                    </a>
-
-                                </li>
-                            </ul>
-
-
-                        </li>
 
                         {{-- Logout mngt --}}
                         <li class="nav-item">
