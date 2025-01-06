@@ -3,6 +3,7 @@
 
 use App\Http\Controllers\Admin\AdminController as AdminAdminController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\AnnouncementController;
 use App\Http\Controllers\AttendanceController;
 use App\Http\Controllers\AttendanceDetailsController;
 use App\Http\Controllers\CalendarController;
@@ -201,9 +202,10 @@ Route::middleware('auth')->group(function () {
 
 
 
-
-
-
+Route::get('/announcements', [AnnouncementController::class, 'index'])->name('view.announcements');
+Route::post('/announcements', [AnnouncementController::class, 'store'])->name('announcements.store');
+Route::put('/announcements/{id}', [AnnouncementController::class, 'update'])->name('announcements.update');
+Route::delete('/announcements/{id}', [AnnouncementController::class, 'destroy'])->name('announcements.destroy');
 
 
 
