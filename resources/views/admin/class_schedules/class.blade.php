@@ -10,7 +10,6 @@ default => 'layouts.memberLayout', // Optional fallback layout
 
 @extends($layout)
 
-
 @section('content')
 <div class="content-wrapper">
     <div class="content-header">
@@ -48,38 +47,126 @@ default => 'layouts.memberLayout', // Optional fallback layout
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        @foreach ($classSchedules as $class)
                                         <tr>
-                                            <td>Yoga</td>
-                                            <td>Jane Smith</td>
-                                            <td>Monday</td>
-                                            <td>10:00 AM</td>
+                                            <td>{{ $class->class_name }}</td>
+                                            <td>{{ $class->instructor }}</td>
+                                            <td>{{ $class->day }}</td>
+                                            <td>{{ $class->time }}</td>
                                             <td>
-                                                <a href="#" class="btn btn-primary btn-sm">Edit</a>
-                                                <a href="#" class="btn btn-danger btn-sm">Delete</a>
-
+                                                <!-- Edit and Delete -->
+                                                <button class="btn btn-primary btn-sm" data-toggle="modal"
+                                                    data-target="#editClassModal{{ $class->id }}">Edit</button>
+                                                <form action="{{ route('class-schedules.destroy', $class->id) }}"
+                                                    method="POST" style="display:inline-block;">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                                                </form>
                                             </td>
                                         </tr>
-                                        <tr>
-                                            <td>CrossFit</td>
-                                            <td>Mike Johnson</td>
-                                            <td>Wednesday</td>
-                                            <td>6:00 PM</td>
-                                            <td>
-                                                <a href="#" class="btn btn-warning btn-sm">Edit</a>
-                                                <a href="#" class="btn btn-danger btn-sm">Delete</a>
 
-                                            </td>
-                                        </tr>
-                                        <!-- Additional rows as needed -->
+                                        <!-- Edit Modal -->
+                                        <div class="modal fade" id="editClassModal{{ $class->id }}" tabindex="-1"
+                                            role="dialog">
+                                            <div class="modal-dialog" role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title">Edit Class Schedule</h5>
+                                                        <button type="button" class="close" data-dismiss="modal"
+                                                            aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                        </button>
+                                                    </div>
+                                                    <form action="{{ route('class-schedules.update', $class->id) }}"
+                                                        method="POST">
+                                                        @csrf
+                                                        @method('PUT')
+                                                        <div class="modal-body">
+                                                            <div class="form-group">
+                                                                <label for="class_name">Class Name</label>
+                                                                <input type="text" name="class_name"
+                                                                    class="form-control"
+                                                                    value="{{ $class->class_name }}">
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label for="instructor">Instructor</label>
+                                                                <input type="text" name="instructor"
+                                                                    class="form-control"
+                                                                    value="{{ $class->instructor }}">
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label for="day">Day</label>
+                                                                <input type="text" name="day" class="form-control"
+                                                                    value="{{ $class->day }}">
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label for="time">Time</label>
+                                                                <input type="time" name="time" class="form-control"
+                                                                    value="{{ $class->time }}">
+                                                            </div>
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="submit" class="btn btn-success">Save
+                                                                Changes</button>
+                                                            <button type="button" class="btn btn-secondary"
+                                                                data-dismiss="modal">Close</button>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        @endforeach
                                     </tbody>
                                 </table>
                             </div>
-                            <a href="#" class="btn btn-success mt-3">Add New Class</a>
+                            <!-- Add Modal Trigger -->
+                            <button class="btn btn-success mt-3" data-toggle="modal" data-target="#addClassModal">Add
+                                New Class</button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+</div>
+
+<!-- Add Modal -->
+<div class="modal fade" id="addClassModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Add New Class Schedule</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form action="{{ route('class-schedules.store') }}" method="POST">
+                @csrf
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="class_name">Class Name</label>
+                        <input type="text" name="class_name" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="instructor">Instructor</label>
+                        <input type="text" name="instructor" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="day">Day</label>
+                        <input type="text" name="day" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="time">Time</label>
+                        <input type="time" name="time" class="form-control" required>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-success">Add Class</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </form>
+        </div>
+    </div>
 </div>
 @endsection
