@@ -64,7 +64,7 @@
 
                         @if (session('error'))
                         <div id="errorAlert" class="alert alert-danger custom-alert show" role="alert">
-                            <strong>Error!</strong> {{ session('error') }}
+                            <strong>Success!</strong> {{ session('error') }}
                             <span class="custom-close" onclick="closeAlert('errorAlert')">&times;</span>
                         </div>
                         @endif
