@@ -109,7 +109,7 @@
                     <a href="{{ route('staffDash') }}" class="nav-link">Home</a>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
-                    <a href="#" class="nav-link">Contact</a>
+                    <a href="{{route('admin.contacts.index')}}" class="nav-link">Contact</a>
                 </li>
             </ul>
 
@@ -433,7 +433,7 @@
                             </ul>
 
                         </li>
-                        <li class="nav-item">
+                        {{-- <li class="nav-item">
                             <a href="" class="nav-link">
                                 <i class="nav-icon fas fa-chart-pie"></i>
 
@@ -451,8 +451,7 @@
                                 </li>
                             </ul>
 
-                        </li>
-                        {{-- Announcement mngt --}}
+                        </li> --}}
                         <li class="nav-item">
                             <a href="" class="nav-link">
                                 <i class="nav-icon fas fa-chart-pie"></i>

@@ -109,7 +109,7 @@
                     <a href="{{ route('adminDash') }}" class="nav-link">Home</a>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
-                    <a href="#" class="nav-link">Contact</a>
+                    <a href="{{route('admin.contacts.index')}}" class="nav-link">Contact</a>
                 </li>
             </ul>
 
@@ -495,7 +495,7 @@
 
                         </li>
 
-                        <li class="nav-item">
+                        {{-- <li class="nav-item">
                             <a href="" class="nav-link">
                                 <i class="nav-icon fas fa-chart-pie"></i>
 
@@ -506,7 +506,7 @@
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    {{-- <a href="" class="nav-link"> --}}
+                                    <a href="" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Class Schedule</p>
                                     </a>
@@ -514,7 +514,7 @@
 
                             </ul>
 
-                        </li>
+                        </li> --}}
                         <li class="nav-item">
                             <a href="#" class="nav-link">
                                 <i class="nav-icon fas fa-chart-pie"></i>
