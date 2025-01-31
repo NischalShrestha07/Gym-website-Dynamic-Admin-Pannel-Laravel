@@ -277,247 +277,177 @@
                 <nav class="mt-2">
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
                         data-accordion="false">
-
                         <li class="nav-item">
                             <a href="{{ route('staffDash') }}" class="nav-link">
-                                <i class="nav-icon fas fa-th"></i>
-                                <p>
-                                    <B>Dashboard</B>
-                                    <span class="right badge badge-danger">Staff</span>
-                                </p>
+                                <i class="nav-icon fas fa-tachometer-alt"></i>
+                                <p><b>Dashboard</b><span class="right badge badge-danger">Staff</span></p>
                             </a>
                         </li>
+
                         <li class="nav-item">
                             <a href="#" class="nav-link">
-                                <i class="nav-icon fas fa-chart-pie"></i>
-                                <p>
-                                    Customers Contacts<i class="right fas fa-angle-left"></i>
-                                </p>
+                                <i class="nav-icon fas fa-address-book"></i>
+                                <p>Customers Contacts<i class="right fas fa-angle-left"></i></p>
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
                                     <a href="{{route('admin.contacts.index')}}" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
+                                        <i class="fas fa-eye nav-icon"></i>
                                         <p>View Contacts</p>
                                     </a>
                                 </li>
                             </ul>
                         </li>
+
                         <li class="nav-item">
                             <a href="#" class="nav-link">
-                                <i class="nav-icon fas fa-chart-pie"></i>
-                                <p>
-                                    Client<i class="right fas fa-angle-left"></i>
-                                </p>
+                                <i class="nav-icon fas fa-user"></i>
+                                <p>Client<i class="right fas fa-angle-left"></i></p>
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
                                     <a href="{{route('client.create')}}" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
+                                        <i class="fas fa-users-cog nav-icon"></i>
                                         <p>Manage Client</p>
                                     </a>
                                 </li>
-
                             </ul>
-
                         </li>
+
                         <li class="nav-item">
                             <a href="{{ route('calendar.show') }}" class="nav-link">
-                                <i class="nav-icon fas fa-chart-pie"></i>
-                                <p>
-                                    Events <i class="right fas fa-angle-left"></i>
-                                </p>
+                                <i class="nav-icon fas fa-calendar-alt"></i>
+                                <p>Events<i class="right fas fa-angle-left"></i></p>
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
                                     <a href="{{ route('calendar.show') }}" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
+                                        <i class="fas fa-eye nav-icon"></i>
                                         <p>View Events</p>
                                     </a>
                                 </li>
-
                             </ul>
                         </li>
+
                         <li class="nav-item">
                             <a href="" class="nav-link">
-                                <i class="nav-icon fas fa-chart-pie"></i>
-                                <p>
-                                    Employees
-                                    <i class="right fas fa-angle-left"></i>
-                                </p>
+                                <i class="nav-icon fas fa-user-tie"></i>
+                                <p>Employees<i class="right fas fa-angle-left"></i></p>
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
                                     <a href="{{ route('employee.create') }}" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
+                                        <i class="fas fa-users nav-icon"></i>
                                         <p>View Employees</p>
                                     </a>
                                 </li>
                             </ul>
-
                         </li>
+
                         <li class="nav-item">
                             <a href="" class="nav-link">
-                                <i class="nav-icon fas fa-chart-pie"></i>
-                                <p>
-                                    Memberships
-                                    <i class="right fas fa-angle-left"></i>
-                                </p>
+                                <i class="nav-icon fas fa-id-card"></i>
+                                <p>Memberships<i class="right fas fa-angle-left"></i></p>
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
                                     <a href="{{ route('membership.create') }}" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
+                                        <i class="fas fa-eye nav-icon"></i>
                                         <p>View Membership</p>
                                     </a>
                                 </li>
                             </ul>
                         </li>
 
-
-
-
                         <li class="nav-item">
                             <a href="#" class="nav-link">
-                                <i class="nav-icon fas fa-clipboard-list"></i>
-                                <p>
-                                    Attendances
-                                    <i class="right fas fa-angle-left"></i>
-                                </p>
+                                <i class="nav-icon fas fa-user-check"></i>
+                                <p>Attendances<i class="right fas fa-angle-left"></i></p>
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
                                     <a href="{{route('manageAttendance.index')}}" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
+                                        <i class="fas fa-calendar-check nav-icon"></i>
                                         <p>View Attendances</p>
                                     </a>
                                 </li>
-
                             </ul>
                         </li>
+
                         <li class="nav-item">
                             <a href="" class="nav-link">
-                                <i class="nav-icon fas fa-chart-pie"></i>
-                                <p>
-                                    Geolocation Attendance
-                                    <i class="right fas fa-angle-left"></i>
-                                </p>
+                                <i class="nav-icon fas fa-map-marker-alt"></i>
+                                <p>Geolocation Attendance<i class="right fas fa-angle-left"></i></p>
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
                                     <a href="{{route('attendance.summary')}}" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
+                                        <i class="fas fa-map nav-icon"></i>
                                         <p>View GeoAttendance</p>
                                     </a>
                                 </li>
                             </ul>
-
                         </li>
 
                         <li class="nav-item">
                             <a href="#" class="nav-link">
-                                <i class="nav-icon fas fa-clipboard-list"></i>
-                                <p>
-                                    Attendance Coordinates
-                                    <i class="right fas fa-angle-left"></i>
-                                </p>
+                                <i class="nav-icon fas fa-map-pin"></i>
+                                <p>Attendance Coordinates<i class="right fas fa-angle-left"></i></p>
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
                                     <a href="{{route('attendance.coordinate')}}" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
+                                        <i class="fas fa-location-arrow nav-icon"></i>
                                         <p>Coordinates List</p>
                                     </a>
                                 </li>
-
                             </ul>
-
                         </li>
-                        {{-- <li class="nav-item">
-                            <a href="" class="nav-link">
-                                <i class="nav-icon fas fa-chart-pie"></i>
 
-                                <p>
-                                    Class Schedule
-                                    <i class="right fas fa-angle-left"></i>
-                                </p>
-                            </a>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="{{ route('admin.class') }}" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Class Schedule</p>
-                                    </a>
-                                </li>
-                            </ul>
-
-                        </li> --}}
                         <li class="nav-item">
                             <a href="" class="nav-link">
-                                <i class="nav-icon fas fa-chart-pie"></i>
-
-                                <p>
-                                    Announcements
-                                    <i class="right fas fa-angle-left"></i>
-                                </p>
+                                <i class="nav-icon fas fa-bullhorn"></i>
+                                <p>Announcements<i class="right fas fa-angle-left"></i></p>
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
                                     <a href="{{ route('view.announcements') }}" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
+                                        <i class="fas fa-eye nav-icon"></i>
                                         <p>View Announcements</p>
                                     </a>
                                 </li>
                             </ul>
-
-
                         </li>
 
                         <li class="nav-item">
                             <a href="" class="nav-link">
-                                <i class="nav-icon fas fa-chart-pie"></i>
-
-                                <p>
-                                    Settings & Customization
-                                    <i class="right fas fa-angle-left"></i>
-                                </p>
+                                <i class="nav-icon fas fa-cog"></i>
+                                <p>Settings & Customization<i class="right fas fa-angle-left"></i></p>
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
                                     <a href="{{ route('view.profile') }}" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
+                                        <i class="fas fa-tools nav-icon"></i>
                                         <p>Setting</p>
                                     </a>
-
                                 </li>
                             </ul>
-
                         </li>
 
-
-                        {{-- Logout mngt --}}
                         <li class="nav-item">
                             <a href="" class="nav-link">
-                                <i class="nav-icon fas fa-chart-pie"></i>
-
-                                <p>
-                                    Logout <i class="right fas fa-angle-left"></i>
-                                </p>
+                                <i class="nav-icon fas fa-sign-out-alt"></i>
+                                <p>Logout<i class="right fas fa-angle-left"></i></p>
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
                                     <a href="{{ route('admin.logout') }}" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
+                                        <i class="fas fa-power-off nav-icon"></i>
                                         <p>Logout</p>
                                     </a>
-
                                 </li>
                             </ul>
-
-
                         </li>
-
-
                     </ul>
                 </nav>
 

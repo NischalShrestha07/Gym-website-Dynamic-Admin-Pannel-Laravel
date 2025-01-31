@@ -281,7 +281,7 @@
 
                         <li class="nav-item">
                             <a href="{{ route('adminDash') }}" class="nav-link">
-                                <i class="nav-icon fas fa-th"></i>
+                                <i class="nav-icon fas fa-tachometer-alt"></i>
                                 <p>
                                     <B>Dashboard</B>
                                     <span class="right badge badge-danger">Admin</span>
@@ -290,7 +290,7 @@
                         </li>
                         <li class="nav-item">
                             <a href="#" class="nav-link">
-                                <i class="nav-icon fas fa-chart-pie"></i>
+                                <i class="nav-icon fas fa-edit"></i>
                                 <p>
                                     Change Contents <i class="right fas fa-angle-left"></i>
                                 </p>
@@ -307,7 +307,7 @@
                         </li>
                         <li class="nav-item">
                             <a href="#" class="nav-link">
-                                <i class="nav-icon fas fa-chart-pie"></i>
+                                <i class="nav-icon fas fa-desktop"></i>
                                 <p>
                                     Frontend Pages <i class="right fas fa-angle-left"></i>
                                 </p>
@@ -351,7 +351,7 @@
                         </li>
                         <li class="nav-item">
                             <a href="#" class="nav-link">
-                                <i class="nav-icon fas fa-chart-pie"></i>
+                                <i class="nav-icon fas fa-address-book"></i>
                                 <p>
                                     Customers Contacts<i class="right fas fa-angle-left"></i>
                                 </p>
@@ -367,7 +367,7 @@
                         </li>
                         <li class="nav-item">
                             <a href="#" class="nav-link">
-                                <i class="nav-icon fas fa-chart-pie"></i>
+                                <i class="nav-icon fas fa-users"></i>
                                 <p>
                                     Client<i class="right fas fa-angle-left"></i>
                                 </p>
@@ -384,7 +384,7 @@
 
                         <li class="nav-item">
                             <a href="#" class="nav-link">
-                                <i class="nav-icon fas fa-chart-pie"></i>
+                                <i class="nav-icon fas fa-calendar-alt"></i>
                                 <p>
                                     Events
                                     <i class="right fas fa-angle-left"></i>
@@ -403,7 +403,7 @@
 
                         <li class="nav-item">
                             <a href="" class="nav-link">
-                                <i class="nav-icon fas fa-chart-pie"></i>
+                                <i class="nav-icon fas fa-id-card"></i>
                                 <p>
                                     Gym's Employees
                                     <i class="right fas fa-angle-left"></i>
@@ -421,7 +421,7 @@
                         </li>
                         <li class="nav-item">
                             <a href="" class="nav-link">
-                                <i class="nav-icon fas fa-chart-pie"></i>
+                                <i class="nav-icon fas fa-user-friends"></i>
                                 <p>
                                     Memberships
                                     <i class="right fas fa-angle-left"></i>
@@ -439,7 +439,7 @@
                         </li>
                         <li class="nav-item">
                             <a href="#" class="nav-link">
-                                <i class="nav-icon fas fa-clipboard-list"></i>
+                                <i class="nav-icon fas fa-check-circle"></i>
                                 <p>
                                     Attendances
                                     <i class="right fas fa-angle-left"></i>
@@ -457,7 +457,7 @@
                         </li>
                         <li class="nav-item">
                             <a href="" class="nav-link">
-                                <i class="nav-icon fas fa-chart-pie"></i>
+                                <i class="nav-icon fas fa-map-marker-alt"></i>
                                 <p>
                                     Geolocation Attendance
                                     <i class="right fas fa-angle-left"></i>
@@ -477,7 +477,7 @@
 
                         <li class="nav-item">
                             <a href="#" class="nav-link">
-                                <i class="nav-icon fas fa-clipboard-list"></i>
+                                <i class="nav-icon fas fa-map"></i>
                                 <p>
                                     Attendance Coordinates
                                     <i class="right fas fa-angle-left"></i>
@@ -495,29 +495,9 @@
 
                         </li>
 
-                        {{-- <li class="nav-item">
-                            <a href="" class="nav-link">
-                                <i class="nav-icon fas fa-chart-pie"></i>
-
-                                <p>
-                                    Class Schedule Mngt
-                                    <i class="right fas fa-angle-left"></i>
-                                </p>
-                            </a>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Class Schedule</p>
-                                    </a>
-                                </li>
-
-                            </ul>
-
-                        </li> --}}
                         <li class="nav-item">
                             <a href="#" class="nav-link">
-                                <i class="nav-icon fas fa-chart-pie"></i>
+                                <i class="nav-icon fas fa-bullhorn"></i>
 
                                 <p>
                                     Announcements
@@ -538,7 +518,7 @@
                         </li>
                         <li class="nav-item">
                             <a href="" class="nav-link">
-                                <i class="nav-icon fas fa-chart-pie"></i>
+                                <i class="nav-icon fas fa-cogs"></i>
 
                                 <p>
                                     Settings & Customization
@@ -559,10 +539,9 @@
 
 
 
-                        {{-- Logout mngt --}}
                         <li class="nav-item">
                             <a href="" class="nav-link">
-                                <i class="nav-icon fas fa-chart-pie"></i>
+                                <i class="nav-icon fas fa-sign-out-alt"></i>
 
                                 <p>
                                     Logout <i class="right fas fa-angle-left"></i>
