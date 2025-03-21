@@ -35,31 +35,74 @@ class GeoAttendanceController extends Controller
     }
 
     // Check-in method
+    // public function checkIn(Request $request)
+    // {
+    //     // Validate request data
+    //     $request->validate([
+    //         'latitude' => 'required|numeric',
+    //         'longitude' => 'required|numeric',
+    //     ]);
+
+    //     $userId = Auth::id(); // Get the currently authenticated user ID
+    //     $locationName = $this->getLocationName($request->latitude, $request->longitude); // Get location name
+
+    //     // Save check-in data
+    //     $attendance =   GeoAttendance::create([
+    //         'user_id' => $userId,
+    //         // 'check_in_time' => now(),
+    //         'check_in_time' => Carbon::now('Asia/Kathmandu'),
+    //         'check_in_latitude' => $request->latitude,
+    //         'check_in_longitude' => $request->longitude,
+    //         'check_in_location_name' => $locationName,
+    //     ]);
+
+    //     $this->logCoordinates($attendance->id, $request->latitude, $request->longitude);
+
+
+    //     return response()->json(['success' => true, 'message' => 'Checked in successfully!']);
+    // }
+
     public function checkIn(Request $request)
     {
         // Validate request data
         $request->validate([
-            'latitude' => 'required|numeric',
-            'longitude' => 'required|numeric',
+            'latitude' => 'required|numeric|between:-90,90', // Ensure valid latitude
+            'longitude' => 'required|numeric|between:-180,180', // Ensure valid longitude
         ]);
 
         $userId = Auth::id(); // Get the currently authenticated user ID
-        $locationName = $this->getLocationName($request->latitude, $request->longitude); // Get location name
+
+        // Ensure user is authenticated
+        if (!$userId) {
+            return response()->json(['success' => false, 'message' => 'User not authenticated'], 401);
+        }
+
+        $latitude = $request->latitude;
+        $longitude = $request->longitude;
+
+        // Get location name (with error handling)
+        $locationName = $this->getLocationName($latitude, $longitude);
+        if (!$locationName) {
+            $locationName = 'Unknown Location'; // Fallback if geocoding fails
+        }
 
         // Save check-in data
-        $attendance =   GeoAttendance::create([
+        $attendance = GeoAttendance::create([
             'user_id' => $userId,
-            // 'check_in_time' => now(),
             'check_in_time' => Carbon::now('Asia/Kathmandu'),
-            'check_in_latitude' => $request->latitude,
-            'check_in_longitude' => $request->longitude,
+            'check_in_latitude' => $latitude,
+            'check_in_longitude' => $longitude,
             'check_in_location_name' => $locationName,
         ]);
 
-        $this->logCoordinates($attendance->id, $request->latitude, $request->longitude);
+        // Log coordinates (assuming this method works fine)
+        $this->logCoordinates($attendance->id, $latitude, $longitude);
 
-
-        return response()->json(['success' => true, 'message' => 'Checked in successfully!']);
+        return response()->json([
+            'success' => true,
+            'message' => 'Checked in successfully!',
+            'location' => $locationName, // Return the location for debugging
+        ]);
     }
 
 
@@ -89,72 +132,133 @@ class GeoAttendanceController extends Controller
 
 
 
-    // Check-out method is working and working hours is added in below code.
     // public function checkOut(Request $request)
     // {
-    //     // Validate request data
     //     $request->validate([
     //         'latitude' => 'required|numeric',
     //         'longitude' => 'required|numeric',
     //     ]);
 
-    //     $userId = Auth::id(); // Get the currently authenticated user ID
-    //     $locationName = $this->getLocationName($request->latitude, $request->longitude); // Get location name
+    //     $userId = Auth::id();
+    //     $locationName = $this->getLocationName($request->latitude, $request->longitude);
 
-    //     // Save check-out data
     //     $attendance = GeoAttendance::where('user_id', $userId)->latest()->first();
-    //     if ($attendance) {
+
+
+    //     if ($attendance && $attendance->check_in_time) {
+    //         // Calculate the total working hours
+    //         $checkInTime = Carbon::parse($attendance->check_in_time);
+    //         // $checkOutTime = now();
+    //         $checkOutTime = Carbon::now('Asia/Kathmandu');
+
+    //         $workingHours = $checkInTime->diffInHours($checkOutTime) + ($checkInTime->diffInMinutes($checkOutTime) % 60) / 60;
+
+
+    //         // Update attendance with check-out and working hours
     //         $attendance->update([
-    //             'check_out_time' => now(),
+    //             'check_out_time' => $checkOutTime,
     //             'check_out_latitude' => $request->latitude,
     //             'check_out_longitude' => $request->longitude,
     //             'check_out_location_name' => $locationName,
+    //             'total_working_hours' => $workingHours,
     //         ]);
     //     }
 
     //     return response()->json(['success' => true, 'message' => 'Checked out successfully!']);
     // }
 
+
     public function checkOut(Request $request)
     {
+        // Validate request data
         $request->validate([
-            'latitude' => 'required|numeric',
-            'longitude' => 'required|numeric',
+            'latitude' => 'required|numeric|between:-90,90',
+            'longitude' => 'required|numeric|between:-180,180',
         ]);
 
         $userId = Auth::id();
-        $locationName = $this->getLocationName($request->latitude, $request->longitude);
 
-        $attendance = GeoAttendance::where('user_id', $userId)->latest()->first();
-
-
-        if ($attendance && $attendance->check_in_time) {
-            // Calculate the total working hours
-            $checkInTime = Carbon::parse($attendance->check_in_time);
-            // $checkOutTime = now();
-            $checkOutTime = Carbon::now('Asia/Kathmandu');
-
-            $workingHours = $checkInTime->diffInHours($checkOutTime) + ($checkInTime->diffInMinutes($checkOutTime) % 60) / 60;
-
-
-            // Update attendance with check-out and working hours
-            $attendance->update([
-                'check_out_time' => $checkOutTime,
-                'check_out_latitude' => $request->latitude,
-                'check_out_longitude' => $request->longitude,
-                'check_out_location_name' => $locationName,
-                'total_working_hours' => $workingHours,
-            ]);
+        // Ensure user is authenticated
+        if (!$userId) {
+            return response()->json(['success' => false, 'message' => 'User not authenticated'], 401);
         }
 
-        return response()->json(['success' => true, 'message' => 'Checked out successfully!']);
+        $latitude = $request->latitude;
+        $longitude = $request->longitude;
+
+        // Get location name (with error handling)
+        $locationName = $this->getLocationName($latitude, $longitude);
+        if (!$locationName) {
+            $locationName = 'Unknown Location';
+        }
+
+        // Find the latest check-in record for the user
+        $attendance = GeoAttendance::where('user_id', $userId)
+            ->whereNotNull('check_in_time')
+            ->whereNull('check_out_time') // Ensure no check-out has happened
+            ->latest()
+            ->first();
+
+        if (!$attendance) {
+            return response()->json(['success' => false, 'message' => 'No active check-in found'], 404);
+        }
+
+        // Calculate the total working hours
+        // $checkInTime = Carbon::parse($attendance->check_in_time);
+        // $checkOutTime = Carbon::now('Asia/Kathmandu');
+        // $workingHours = $checkInTime->diffInHours($checkOutTime) + ($checkInTime->diffInMinutes($checkOutTime) % 60) / 60;
+
+        $checkInTime = Carbon::parse($attendance->check_in_time);
+        $checkOutTime = Carbon::now('Asia/Kathmandu');
+
+        $workingHours = $checkInTime->diffInHours($checkOutTime) + ($checkInTime->diffInMinutes($checkOutTime) % 60) / 60;
+
+        // Update attendance with check-out details
+        $attendance->update([
+            'check_out_time' => $checkOutTime,
+            'check_out_latitude' => $latitude,
+            'check_out_longitude' => $longitude,
+            'check_out_location_name' => $locationName,
+            'total_working_hours' => $workingHours,
+        ]);
+
+        return response()->json([
+            'success' => true,
+            'message' => 'Checked out successfully!',
+            'location' => $locationName, // Return the location for debugging
+        ]);
     }
 
     // Helper function to get location name using Google Maps API
+    // private function getLocationName($latitude, $longitude)
+    // {
+    //     // Use an API like Google Maps to get the location name, or just return coordinates for now
+    //     return "Location ($latitude, $longitude)";
+    // }
     private function getLocationName($latitude, $longitude)
     {
-        // Use an API like Google Maps to get the location name, or just return coordinates for now
-        return "Location ($latitude, $longitude)";
+        $apiKey = env('GOOGLE_MAPS_API_KEY'); // Add your API key in .env
+        if (!$apiKey) {
+            \Log::error('Google Maps API key is missing');
+            return null;
+        }
+
+        $url = "https://maps.googleapis.com/maps/api/geocode/json?latlng={$latitude},{$longitude}&key={$apiKey}";
+
+        try {
+            $response = \Http::get($url);
+            $data = $response->json();
+
+            if ($response->successful() && isset($data['results'][0]['formatted_address'])) {
+                return $data['results'][0]['formatted_address'];
+            } else {
+                \Log::error('Geocoding failed: ' . json_encode($data));
+                return null;
+            }
+        } catch (\Exception $e) {
+            \Log::error('Geocoding error: ' . $e->getMessage());
+            return null;
+        }
     }
 
 

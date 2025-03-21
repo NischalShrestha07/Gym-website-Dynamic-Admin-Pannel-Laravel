@@ -77,7 +77,8 @@
                 <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
                     <span class="icon-menu"></span>
                 </button>
-                <a href="{{ route('admin.dashboard') }}" class="btn btn-primary m-4">Back</a>
+                {{-- <a href="{{ url('/dashboard') }}" class="btn btn-primary m-4">Back</a> --}}
+                {{-- <a href="{{ route('admin.dashboard') }}" class="btn btn-primary m-4">Back</a> --}}
 
 
 

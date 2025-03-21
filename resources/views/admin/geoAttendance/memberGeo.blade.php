@@ -36,7 +36,7 @@
                     <th>Check Out Time</th>
                     <th>Check Out Latitude</th>
                     <th>Check Out Longitude</th>
-                    <th>Working Hours</th>
+                    {{-- <th>Working Hours</th> --}}
                     <th>Actions</th>
                 </tr>
             </thead>
@@ -57,7 +57,7 @@
                     <td>{{ $attendance->check_out_time }}</td>
                     <td>{{ $attendance->check_out_latitude }}</td>
                     <td>{{ $attendance->check_out_longitude }}</td>
-                    <td>{{ $attendance->total_working_hours }}</td>
+                    {{-- <td>{{ $attendance->total_working_hours }}</td> --}}
                     <td>
                         <button class="btn btn-info" data-toggle="modal" data-target="#detailsModal{{ $employee->id }}"
                             onclick="loadMap({{ $attendance->check_in_latitude }}, {{ $attendance->check_in_longitude }}, {{ $attendance->check_out_latitude }}, {{ $attendance->check_out_longitude }}, '{{ $employee->id }}')">
