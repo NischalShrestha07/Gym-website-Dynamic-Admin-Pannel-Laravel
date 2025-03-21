@@ -54,7 +54,7 @@ class TrainerController extends Controller
         // Validate the request
         $request->validate([
             'name' => 'required|string',
-            'photo' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',  // 'photo' is nullable
+            'photo' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048', // 'photo' is nullable
             'facebook' => 'nullable|url',
             'twitter' => 'nullable|url',
             'instagram' => 'nullable|url',
@@ -66,13 +66,20 @@ class TrainerController extends Controller
         if (!$trainer) {
             return redirect()->route('trainers.index')->with('error', 'Trainer not found');
         }
+
+        // Process photo upload only if a new file is provided
         if ($request->hasFile('photo')) {
+            // Delete the old photo if it exists (optional, to avoid clutter)
+            if ($trainer->photo && \Storage::disk('public')->exists($trainer->photo)) {
+                \Storage::disk('public')->delete($trainer->photo);
+            }
+
+            // Store the new photo
             $photoPath = $request->file('photo')->store('uploads/trainers', 'public');
             $trainer->photo = $photoPath;
-        }
+        } // If no new photo is uploaded, $trainer->photo retains its existing value
 
         // Update the trainer details
-        $trainer->photo = $photoPath;
         $trainer->name = $request->input('name');
         $trainer->facebook = $request->input('facebook');
         $trainer->twitter = $request->input('twitter');

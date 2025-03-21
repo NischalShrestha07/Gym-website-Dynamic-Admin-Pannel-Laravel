@@ -406,7 +406,7 @@
                             </ul>
                         </li>
 
-                        <li class="nav-item">
+                        {{-- <li class="nav-item">
                             <a href="" class="nav-link">
                                 <i class="nav-icon fas fa-wallet"></i>
                                 <p>Billing & Finance Mngt <i class="right fas fa-angle-left"></i></p>
@@ -419,7 +419,7 @@
                                     </a>
                                 </li>
                             </ul>
-                        </li>
+                        </li> --}}
 
                         <li class="nav-item">
                             <a href="" class="nav-link">
