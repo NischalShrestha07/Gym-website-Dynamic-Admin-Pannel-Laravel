@@ -292,7 +292,7 @@
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
                                     <a href="{{route('admin.contacts.index')}}" class="nav-link">
-                                        <i class="fas fa-eye nav-icon"></i>
+                                        <i class="far fa-circle nav-icon"></i>
                                         <p>View Contacts</p>
                                     </a>
                                 </li>
@@ -307,7 +307,7 @@
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
                                     <a href="{{route('client.create')}}" class="nav-link">
-                                        <i class="fas fa-users-cog nav-icon"></i>
+                                        <i class="far fa-circle nav-icon"></i>
                                         <p>Manage Client</p>
                                     </a>
                                 </li>
@@ -322,7 +322,7 @@
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
                                     <a href="{{ route('calendar.show') }}" class="nav-link">
-                                        <i class="fas fa-eye nav-icon"></i>
+                                        <i class="far fa-circle nav-icon"></i>
                                         <p>View Events</p>
                                     </a>
                                 </li>
@@ -337,7 +337,7 @@
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
                                     <a href="{{ route('employee.create') }}" class="nav-link">
-                                        <i class="fas fa-users nav-icon"></i>
+                                        <i class="far fa-circle nav-icon"></i>
                                         <p>View Employees</p>
                                     </a>
                                 </li>
@@ -352,7 +352,7 @@
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
                                     <a href="{{ route('membership.create') }}" class="nav-link">
-                                        <i class="fas fa-eye nav-icon"></i>
+                                        <i class="far fa-circle nav-icon"></i>
                                         <p>View Membership</p>
                                     </a>
                                 </li>
@@ -367,7 +367,7 @@
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
                                     <a href="{{route('manageAttendance.index')}}" class="nav-link">
-                                        <i class="fas fa-calendar-check nav-icon"></i>
+                                        <i class="far fa-circle nav-icon"></i>
                                         <p>View Attendances</p>
                                     </a>
                                 </li>
@@ -382,7 +382,7 @@
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
                                     <a href="{{route('attendance.summary')}}" class="nav-link">
-                                        <i class="fas fa-map nav-icon"></i>
+                                        <i class="far fa-circle nav-icon"></i>
                                         <p>View GeoAttendance</p>
                                     </a>
                                 </li>
@@ -397,7 +397,7 @@
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
                                     <a href="{{route('attendance.coordinate')}}" class="nav-link">
-                                        <i class="fas fa-location-arrow nav-icon"></i>
+                                        <i class="far fa-circle nav-icon"></i>
                                         <p>Coordinates List</p>
                                     </a>
                                 </li>
@@ -412,7 +412,7 @@
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
                                     <a href="{{ route('view.announcements') }}" class="nav-link">
-                                        <i class="fas fa-eye nav-icon"></i>
+                                        <i class="far fa-circle nav-icon"></i>
                                         <p>View Announcements</p>
                                     </a>
                                 </li>
@@ -427,7 +427,7 @@
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
                                     <a href="{{ route('view.profile') }}" class="nav-link">
-                                        <i class="fas fa-tools nav-icon"></i>
+                                        <i class="far fa-circle nav-icon"></i>
                                         <p>Setting</p>
                                     </a>
                                 </li>
@@ -442,7 +442,7 @@
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
                                     <a href="{{ route('admin.logout') }}" class="nav-link">
-                                        <i class="fas fa-power-off nav-icon"></i>
+                                        <i class="far fa-circle nav-icon"></i>
                                         <p>Logout</p>
                                     </a>
                                 </li>
@@ -458,7 +458,7 @@
         @yield('content')
 
         <footer class="main-footer">
-            <strong>Copyright &copy; 2014-2021 <a href="/">Royal Power's Gym Nepal.</a>.</strong>
+            <strong>Copyright &copy; 2025 <a href="/">Royal Power's Gym Nepal.</a>.</strong>
             All rights reserved.
             <div class="float-right d-none d-sm-inline-block">
             </div>

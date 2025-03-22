@@ -1,7 +1,7 @@
 <!-- footer section -->
 <footer class="container-fluid footer_section">
     <p>
-        &copy; 2020 All Rights Reserved. Handled by
+        &copy; 2025 All Rights Reserved. Handled by
         <a href="/">Royal Power's Gym Nepal.</a>
     </p>
 </footer>
