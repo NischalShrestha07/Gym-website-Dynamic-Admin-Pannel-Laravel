@@ -10,7 +10,7 @@ class EmployeeController extends Controller
 {
     public function index()
     {
-        $employees = Employee::all();
+        $employees = Employee::orderBy('created_at', 'desc')->get();
         $users = User::where('role', '!=', 'Admin')->get();
         return view('admin.employee', compact('users', 'employees'));
 

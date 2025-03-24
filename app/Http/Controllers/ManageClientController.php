@@ -10,7 +10,7 @@ class ManageClientController extends Controller
 {
     public function index()
     {
-        $clients = ManageClient::all();
+        $clients = ManageClient::orderBy('created_at', 'desc')->get();
         return view('admin.clients.index', compact('clients'));
     }
     public function AddNewClient(Request $request)

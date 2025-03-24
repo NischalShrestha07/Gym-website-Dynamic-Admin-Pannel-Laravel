@@ -22,7 +22,7 @@ default => 'layouts.memberLayout',
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item"><a href="/admin-dashboard">Home</a></li>
                         <li class="breadcrumb-item active">Calendar</li>
                     </ol>
                 </div>
@@ -50,7 +50,7 @@ default => 'layouts.memberLayout',
     aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
-            <div class="modal-header">
+            <div class="modal-header bg-primary">
                 <h5 class="modal-title" id="eventModalLabel">Manage Event</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
@@ -60,7 +60,7 @@ default => 'layouts.memberLayout',
                 <form id="eventForm">
                     <div class="form-group">
                         <label for="event-title">Event Title</label>
-                        <input type="text" class="form-control" id="event-title" required>
+                        <input type="text" class="form-control" id="event-title" placeholder="Event Title" required>
                     </div>
                     <div class="form-group">
                         <label for="start-date">Start Date</label>
@@ -73,9 +73,9 @@ default => 'layouts.memberLayout',
                 </form>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
                 <button type="button" id="delete-event" class="btn btn-danger">Delete Event</button>
-                <button type="button" id="save-event" class="btn btn-primary">Save Event</button>
+                <button type="button" id="save-event" class="btn btn-success">Save Event</button>
             </div>
         </div>
     </div>
