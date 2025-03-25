@@ -151,79 +151,95 @@ default => 'layouts.memberLayout',
                                 </div>
                             </div> --}}
 
-                            <div class="modal fade" id="addEmployeeModal" tabindex="-1" role="dialog"aria-labelledby="addEmployeeModalLabel"
-                                aria-hidden="true">
+                            <div class="modal fade" id="addEmployeeModal" tabindex="-1" role="dialog"
+                                aria-labelledby="addEmployeeModalLabel" aria-hidden="true">
                                 <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
                                     <div class="modal-content">
                                         <div class="modal-header bg-primary text-white">
                                             <h4 class="modal-title" id="addEmployeeModalLabel">
                                                 <i class="fas fa-user-plus mr-2"></i>Add New Employee
                                             </h4>
-                                            <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
+                                            <button type="button" class="close text-white" data-dismiss="modal"
+                                                aria-label="Close">
                                                 <span aria-hidden="true">×</span>
                                             </button>
                                         </div>
                                         <div class="modal-body">
-                                            <form action="{{ url('AddNewEmployee') }}" method="POST" enctype="multipart/form-data"
-                                                class="needs-validation" novalidate>
+                                            <form action="{{ url('AddNewEmployee') }}" method="POST"
+                                                enctype="multipart/form-data" class="needs-validation" novalidate>
                                                 @csrf
                                                 <div class="row">
                                                     <div class="col-md-6">
                                                         <div class="form-group mb-4">
-                                                            <label for="name" class="form-label font-weight-bold">Name <span
+                                                            <label for="name" class="form-label font-weight-bold">Name
+                                                                <span class="text-danger">*</span></label>
+                                                            <div class="input-group">
+                                                                <div class="input-group-prepend">
+                                                                    <span class="input-group-text"><i
+                                                                            class="fas fa-user"></i></span>
+                                                                </div>
+                                                                <input type="text" id="name" name="name"
+                                                                    placeholder="Enter Employee Name"
+                                                                    class="form-control" required>
+                                                                <div class="invalid-feedback">Please enter employee
+                                                                    name.</div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="form-group mb-4">
+                                                            <label for="mobile"
+                                                                class="form-label font-weight-bold">Phone No <span
                                                                     class="text-danger">*</span></label>
                                                             <div class="input-group">
                                                                 <div class="input-group-prepend">
-                                                                    <span class="input-group-text"><i class="fas fa-user"></i></span>
+                                                                    <span class="input-group-text"><i
+                                                                            class="fas fa-phone"></i></span>
                                                                 </div>
-                                                                <input type="text" id="name" name="name" placeholder="Enter Employee Name"
-                                                                   class="form-control" required>
-                                                                <div class="invalid-feedback">Please enter employee name.</div>
+                                                                <input type="tel" id="mobile" name="mobile"
+                                                                    placeholder="Enter Phone Number"
+                                                                    class="form-control" required>
+                                                                <div class="invalid-feedback">Please enter phone number.
+                                                                </div>
                                                             </div>
                                                         </div>
-                            
+
                                                         <div class="form-group mb-4">
-                                                            <label for="mobile" class="form-label font-weight-bold">Phone No <span
-                                                                    class="text-danger">*</span></label>
+                                                            <label for="email" class="form-label font-weight-bold">Email
+                                                                Address</label>
                                                             <div class="input-group">
                                                                 <div class="input-group-prepend">
-                                                                    <span class="input-group-text"><i class="fas fa-phone"></i></span>
+                                                                    <span class="input-group-text"><i
+                                                                            class="fas fa-envelope"></i></span>
                                                                 </div>
-                                                                <input type="tel" id="mobile" name="mobile" placeholder="Enter Phone Number"
-                                                                   class="form-control" required>
-                                                                <div class="invalid-feedback">Please enter phone number.</div>
-                                                            </div>
-                                                        </div>
-                            
-                                                        <div class="form-group mb-4">
-                                                            <label for="email" class="form-label font-weight-bold">Email Address</label>
-                                                            <div class="input-group">
-                                                                <div class="input-group-prepend">
-                                                                    <span class="input-group-text"><i class="fas fa-envelope"></i></span>
-                                                                </div>
-                                                                <input type="email" id="email" name="email" placeholder="Enter Email Address"
-                                                                   class="form-control">
+                                                                <input type="email" id="email" name="email"
+                                                                    placeholder="Enter Email Address"
+                                                                    class="form-control">
                                                             </div>
                                                         </div>
                                                     </div>
-                            
+
                                                     <div class="col-md-6">
                                                         <div class="form-group mb-4">
-                                                            <label for="joinDate" class="form-label font-weight-bold">Join Date <span
+                                                            <label for="joinDate"
+                                                                class="form-label font-weight-bold">Join Date <span
                                                                     class="text-danger">*</span></label>
                                                             <div class="input-group">
                                                                 <div class="input-group-prepend">
-                                                                    <span class="input-group-text"><i class="fas fa-calendar-alt"></i></span>
+                                                                    <span class="input-group-text"><i
+                                                                            class="fas fa-calendar-alt"></i></span>
                                                                 </div>
-                                                                <input type="date" id="joinDate" name="joinDate" class="form-control" required>
-                                                                <div class="invalid-feedback">Please select join date.</div>
+                                                                <input type="date" id="joinDate" name="joinDate"
+                                                                    class="form-control" required>
+                                                                <div class="invalid-feedback">Please select join date.
+                                                                </div>
                                                             </div>
                                                         </div>
-                            
+
                                                         <div class="form-group mb-4">
-                                                            <label for="role" class="form-label font-weight-bold">Role <span
-                                                                    class="text-danger">*</span></label>
-                                                            <select id="role" name="role" class="form-control custom-select" required>
+                                                            <label for="role" class="form-label font-weight-bold">Role
+                                                                <span class="text-danger">*</span></label>
+                                                            <select id="role" name="role"
+                                                                class="form-control custom-select" required>
                                                                 <option value="" disabled selected>Select Role</option>
                                                                 <option value="Admin">Admin</option>
                                                                 <option value="Trainer">Trainer</option>
@@ -232,28 +248,31 @@ default => 'layouts.memberLayout',
                                                             </select>
                                                             <div class="invalid-feedback">Please select a role.</div>
                                                         </div>
-                            
+
                                                         <div class="form-group mb-4">
-                                                            <label for="status" class="form-label font-weight-bold">Status <span
+                                                            <label for="status"
+                                                                class="form-label font-weight-bold">Status <span
                                                                     class="text-danger">*</span></label>
-                                                            <select id="status" name="status" class="form-control custom-select" required>
-                                                                <option value="" disabled selected>Select Status</option>
+                                                            <select id="status" name="status"
+                                                                class="form-control custom-select" required>
+                                                                <option value="" disabled selected>Select Status
+                                                                </option>
                                                                 <option value="Active">Active</option>
                                                                 <option value="Inactive">Inactive</option>
                                                             </select>
                                                             <div class="invalid-feedback">Please select status.</div>
                                                         </div>
-                            
+
                                                         <div class="form-group mb-4">
-                                                            <label for="photo" class="form-label font-weight-bold">Photo <span
-                                                                    class="text-danger">*</span></label>
-                                                            <input type="file" id="photo" name="photo" class="form-control-file" accept="image/*"
-                                                                required>
+                                                            <label for="photo" class="form-label font-weight-bold">Photo
+                                                                <span class="text-danger">*</span></label>
+                                                            <input type="file" id="photo" name="photo"
+                                                                class="form-control-file" accept="image/*" required>
                                                             <div class="invalid-feedback">Please upload a photo.</div>
                                                         </div>
                                                     </div>
                                                 </div>
-                            
+
                                                 <div class="text-right mt-3">
                                                     <button type="submit" class="btn btn-success btn-lg">
                                                         <i class="fas fa-save mr-2"></i> Save Employee
@@ -264,57 +283,57 @@ default => 'layouts.memberLayout',
                                     </div>
                                 </div>
                             </div>
-                            
+
                             <style>
                                 .form-group label {
                                     color: #333;
                                     margin-bottom: 0.5rem;
                                 }
-                        
+
                                 .form-control,
                                 .custom-select {
                                     border-radius: 6px;
                                     padding: 0.5rem 1rem;
                                     transition: all 0.2s ease;
                                 }
-                        
+
                                 .form-control:focus,
                                 .custom-select:focus {
                                     border-color: #007bff;
                                     box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
                                 }
-                        
+
                                 .input-group-text {
                                     background-color: #f8f9fa;
                                     border-right: none;
                                     border-radius: 6px 0 0 6px;
                                 }
-                        
+
                                 .input-group .form-control {
                                     border-left: none;
                                     border-radius: 0 6px 6px 0;
                                 }
-                        
+
                                 .btn-success {
                                     padding: 0.6rem 1.5rem;
                                     border-radius: 6px;
                                     transition: all 0.2s ease;
                                 }
-                        
+
                                 .btn-success:hover {
                                     background-color: #218838;
                                     transform: translateY(-1px);
                                 }
-                        
+
                                 .invalid-feedback {
                                     font-size: 0.9em;
                                 }
-                        
+
                                 .modal-content {
                                     border-radius: 8px;
                                 }
                             </style>
-                            
+
                             <script>
                                 // Bootstrap form validation
                                 (function() {
@@ -610,7 +629,8 @@ default => 'layouts.memberLayout',
                                 </div>
                                 <div class="card-body p-0">
                                     <div class="table-responsive">
-                                        <table id="EmployeeTable" class="table table-bordered table-striped table-hover mb-0">
+                                        <table id="EmployeeTable"
+                                            class="table table-bordered table-striped table-hover mb-0">
                                             <thead class="bg-light">
                                                 <tr>
                                                     <th class="py-3 px-4">Photo</th>
@@ -627,55 +647,82 @@ default => 'layouts.memberLayout',
                                                 @foreach ($employees as $item)
                                                 <tr>
                                                     <td class="py-3 px-4 align-middle">
-                                                        <img src="{{ asset('storage/' . $item->photo) }}"class="rounded-circle shadow-sm"
-                                                           width="50" height="50" alt="{{ $item->name }}" onerror="this.src='/default-avatar.png'">
+                                                        <img src="{{ asset('storage/' . $item->photo) }}"
+                                                            class="rounded-circle shadow-sm" width="50" height="50"
+                                                            alt="{{ $item->name }}"
+                                                            onerror="this.src='/default-avatar.png'">
                                                     </td>
                                                     <td class="py-3 px-4 align-middle">{{ $item->name }}</td>
                                                     <td class="py-3 px-4 align-middle">{{ $item->mobile }}</td>
                                                     <td class="py-3 px-4 align-middle">
-                                                        <a href="mailto:{{ $item->email }}" class="text-decoration-none">{{ $item->email }}</a>
+                                                        <a href="mailto:{{ $item->email }}"
+                                                            class="text-decoration-none">{{ $item->email }}</a>
                                                     </td>
                                                     <td class="py-3 px-4 align-middle">{{ $item->role }}</td>
                                                     <td class="py-3 px-4 align-middle">{{ $item->joinDate }}</td>
                                                     <td class="py-3 px-4 align-middle">
-                                                        <span class="badge {{ $item->status == 'Active' ? 'badge-success' : 'badge-danger' }}">
+                                                        <span
+                                                            class="badge {{ $item->status == 'Active' ? 'badge-success' : 'badge-danger' }}">
                                                             {{ $item->status }}
                                                         </span>
                                                     </td>
                                                     <td class="py-3 px-4 align-middle">
                                                         <div class="btn-group" role="group">
-                                                            <button type="button" class="btn btn-sm btn-primary" title="Edit" data-toggle="modal"
-                                                               data-target="#updateModel{{ $item->id }}">
+                                                            <button type="button" class="btn btn-sm btn-primary"
+                                                                title="Edit" data-toggle="modal"
+                                                                data-target="#updateModel{{ $item->id }}">
                                                                 <i class="fas fa-edit"></i>
                                                             </button>
-                                                            <button type="button" class="btn btn-sm btn-info" title="View" data-toggle="modal"
-                                                               data-target="#viewModel{{ $item->id }}">
+                                                            <button type="button" class="btn btn-sm btn-info"
+                                                                title="View" data-toggle="modal"
+                                                                data-target="#viewModel{{ $item->id }}">
                                                                 <i class="fas fa-eye"></i>
                                                             </button>
-                                                            <form action="{{ route('employee.destroy', $item->id) }}" method="POST"
-                                                               class="d-inline-block"
-                                                               onsubmit="return confirm('Are you sure you want to delete this employee?')">
+                                                            {{-- <form
+                                                                action="{{ route('employee.destroy', $item->id) }}"
+                                                                method="POST" class="d-inline-block"
+                                                                onsubmit="return confirm('Are you sure you want to delete this employee?')">
                                                                 @csrf
                                                                 @method('DELETE')
-                                                                <button type="submit" class="btn btn-sm btn-danger" title="Delete">
+                                                                <button type="submit" class="btn btn-sm btn-danger"
+                                                                    title="Delete">
+                                                                    <i class="fas fa-trash-alt"></i>
+                                                                </button>
+                                                            </form> --}}
+
+                                                            <!-- Delete Form -->
+                                                            <form action="{{ route('employee.destroy', $item->id) }}"
+                                                                method="POST" class="d-inline-block delete-form"
+                                                                data-id="{{ $item->id }}">
+                                                                @csrf
+                                                                @method('DELETE')
+                                                                <button type="button"
+                                                                    class="btn btn-sm btn-danger delete-btn"
+                                                                    title="Delete" data-id="{{ $item->id }}">
                                                                     <i class="fas fa-trash-alt"></i>
                                                                 </button>
                                                             </form>
+
+                                                            @include('admin.layouts.deleteModal')
+
+
                                                         </div>
                                                     </td>
                                                 </tr>
 
                                                 <!-- View Modal -->
-                                                <div class="modal fade" id="viewModel{{ $item->id }}" tabindex="-1"role="dialog"
-                                                    aria-labelledby="viewModelLabel{{ $item->id }}" aria-hidden="true">
+                                                <div class="modal fade" id="viewModel{{ $item->id }}" tabindex="-1"
+                                                    role="dialog" aria-labelledby="viewModelLabel{{ $item->id }}"
+                                                    aria-hidden="true">
                                                     <div class="modal-dialog modal-lg" role="document">
                                                         <div class="modal-content">
                                                             <div class="modal-header bg-primary text-white">
-                                                                <h5 class="modal-title" id="viewModelLabel{{ $item->id }}">
+                                                                <h5 class="modal-title"
+                                                                    id="viewModelLabel{{ $item->id }}">
                                                                     <i class="fas fa-user mr-2"></i>Employee Details
                                                                 </h5>
-                                                                <button type="button" class="close text-white" data-dismiss="modal"
-                                                                   aria-label="Close">
+                                                                <button type="button" class="close text-white"
+                                                                    data-dismiss="modal" aria-label="Close">
                                                                     <span aria-hidden="true">×</span>
                                                                 </button>
                                                             </div>
@@ -683,23 +730,30 @@ default => 'layouts.memberLayout',
                                                                 <div class="card border-0 shadow-sm">
                                                                     <div class="card-body">
                                                                         <div class="row align-items-center">
-                                                                            <div class="col-md-4 text-center mb-3 mb-md-0">
+                                                                            <div
+                                                                                class="col-md-4 text-center mb-3 mb-md-0">
                                                                                 <img src="{{ asset('storage/' . $item->photo) }}"
-                                                                                   alt="{{ $item->name }}" class="img-fluid rounded shadow"
-                                                                                   style="max-height: 200px; width: auto;">
+                                                                                    alt="{{ $item->name }}"
+                                                                                    class="img-fluid rounded shadow"
+                                                                                    style="max-height: 200px; width: auto;">
                                                                             </div>
                                                                             <div class="col-md-8">
                                                                                 <dl class="row mb-0">
                                                                                     <dt class="col-sm-4">Name:</dt>
-                                                                                    <dd class="col-sm-8">{{ $item->name }}</dd>
+                                                                                    <dd class="col-sm-8">{{ $item->name
+                                                                                        }}</dd>
                                                                                     <dt class="col-sm-4">Mobile:</dt>
-                                                                                    <dd class="col-sm-8">{{ $item->mobile }}</dd>
+                                                                                    <dd class="col-sm-8">{{
+                                                                                        $item->mobile }}</dd>
                                                                                     <dt class="col-sm-4">Email:</dt>
-                                                                                    <dd class="col-sm-8">{{ $item->email }}</dd>
+                                                                                    <dd class="col-sm-8">{{ $item->email
+                                                                                        }}</dd>
                                                                                     <dt class="col-sm-4">Role:</dt>
-                                                                                    <dd class="col-sm-8">{{ $item->role }}</dd>
+                                                                                    <dd class="col-sm-8">{{ $item->role
+                                                                                        }}</dd>
                                                                                     <dt class="col-sm-4">Join Date:</dt>
-                                                                                    <dd class="col-sm-8">{{ $item->joinDate }}</dd>
+                                                                                    <dd class="col-sm-8">{{
+                                                                                        $item->joinDate }}</dd>
                                                                                     <dt class="col-sm-4">Status:</dt>
                                                                                     <dd class="col-sm-8">
                                                                                         <span
@@ -714,7 +768,8 @@ default => 'layouts.memberLayout',
                                                                 </div>
                                                             </div>
                                                             <div class="modal-footer">
-                                                                <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">
+                                                                <button type="button" class="btn btn-outline-secondary"
+                                                                    data-dismiss="modal">
                                                                     Close
                                                                 </button>
                                                             </div>
@@ -723,12 +778,16 @@ default => 'layouts.memberLayout',
                                                 </div>
 
                                                 <!-- Update Modal -->
-                                                <div class="modal fade" id="updateModel{{ $item->id }}" tabindex="-1" role="dialog">
+                                                <div class="modal fade" id="updateModel{{ $item->id }}" tabindex="-1"
+                                                    role="dialog">
                                                     <div class="modal-dialog modal-lg" role="document">
                                                         <div class="modal-content">
                                                             <div class="modal-header bg-primary text-white">
-                                                                <h4 class="modal-title"><i class="fas fa-edit mr-2"></i>Update Employee</h4>
-                                                                <button type="button" class="close text-white" data-dismiss="modal">
+                                                                <h4 class="modal-title"><i
+                                                                        class="fas fa-edit mr-2"></i>Update Employee
+                                                                </h4>
+                                                                <button type="button" class="close text-white"
+                                                                    data-dismiss="modal">
                                                                     <span aria-hidden="true">×</span>
                                                                 </button>
                                                             </div>
@@ -742,72 +801,98 @@ default => 'layouts.memberLayout',
                                                                             <div class="form-group">
                                                                                 <label for="name{{ $item->id }}"
                                                                                     class="font-weight-bold">Name:</label>
-                                                                                <input type="text" id="name{{ $item->id }}" name="name"
-                                                                                   value="{{ $item->name }}" class="form-control" required>
+                                                                                <input type="text"
+                                                                                    id="name{{ $item->id }}" name="name"
+                                                                                    value="{{ $item->name }}"
+                                                                                    class="form-control" required>
                                                                             </div>
                                                                             <div class="form-group">
                                                                                 <label for="mobile{{ $item->id }}"
                                                                                     class="font-weight-bold">Mobile:</label>
-                                                                                <input type="tel" id="mobile{{ $item->id }}" name="mobile"
-                                                                                   value="{{ $item->mobile }}" class="form-control" required>
+                                                                                <input type="tel"
+                                                                                    id="mobile{{ $item->id }}"
+                                                                                    name="mobile"
+                                                                                    value="{{ $item->mobile }}"
+                                                                                    class="form-control" required>
                                                                             </div>
                                                                             <div class="form-group">
                                                                                 <label for="email{{ $item->id }}"
                                                                                     class="font-weight-bold">Email:</label>
-                                                                                <input type="email" id="email{{ $item->id }}" name="email"
-                                                                                   value="{{ $item->email }}" class="form-control">
+                                                                                <input type="email"
+                                                                                    id="email{{ $item->id }}"
+                                                                                    name="email"
+                                                                                    value="{{ $item->email }}"
+                                                                                    class="form-control">
                                                                             </div>
                                                                         </div>
                                                                         <div class="col-md-6">
                                                                             <div class="form-group">
                                                                                 <label for="role{{ $item->id }}"
                                                                                     class="font-weight-bold">Role:</label>
-                                                                                <select id="role{{ $item->id }}" name="role" class="form-control"
+                                                                                <select id="role{{ $item->id }}"
+                                                                                    name="role" class="form-control"
                                                                                     required>
-                                                                                    <option value="Admin" {{ $item->role == 'Admin' ? 'selected' :
+                                                                                    <option value="Admin" {{ $item->role
+                                                                                        == 'Admin' ? 'selected' :
                                                                                         '' }}>Admin</option>
-                                                                                    <option value="Staff" {{ $item->role == 'Staff' ? 'selected' :
+                                                                                    <option value="Staff" {{ $item->role
+                                                                                        == 'Staff' ? 'selected' :
                                                                                         '' }}>Staff</option>
-                                                                                    <option value="Member" {{ $item->role == 'Member' ? 'selected' :
+                                                                                    <option value="Member" {{ $item->
+                                                                                        role == 'Member' ? 'selected' :
                                                                                         '' }}>Member</option>
-                                                                                    <option value="Trainer" {{ $item->role == 'Trainer' ? 'selected'
+                                                                                    <option value="Trainer" {{ $item->
+                                                                                        role == 'Trainer' ? 'selected'
                                                                                         : '' }}>Trainer</option>
                                                                                 </select>
                                                                             </div>
                                                                             <div class="form-group">
-                                                                                <label for="joinDate{{ $item->id }}" class="font-weight-bold">Join
+                                                                                <label for="joinDate{{ $item->id }}"
+                                                                                    class="font-weight-bold">Join
                                                                                     Date:</label>
-                                                                                <input type="date" id="joinDate{{ $item->id }}" name="joinDate"
-                                                                                   value="{{ $item->joinDate }}" class="form-control" required>
+                                                                                <input type="date"
+                                                                                    id="joinDate{{ $item->id }}"
+                                                                                    name="joinDate"
+                                                                                    value="{{ $item->joinDate }}"
+                                                                                    class="form-control" required>
                                                                             </div>
                                                                             <div class="form-group">
                                                                                 <label for="status{{ $item->id }}"
                                                                                     class="font-weight-bold">Status:</label>
-                                                                                <select id="status{{ $item->id }}" name="status"
-                                                                                    class="form-control" required>
-                                                                                    <option value="Active" {{ $item->status == 'Active' ? 'selected'
+                                                                                <select id="status{{ $item->id }}"
+                                                                                    name="status" class="form-control"
+                                                                                    required>
+                                                                                    <option value="Active" {{ $item->
+                                                                                        status == 'Active' ? 'selected'
                                                                                         : '' }}>Active</option>
-                                                                                    <option value="Inactive" {{ $item->status == 'Inactive' ?
-                                                                                        'selected' : '' }}>Inactive</option>
+                                                                                    <option value="Inactive" {{ $item->
+                                                                                        status == 'Inactive' ?
+                                                                                        'selected' : '' }}>Inactive
+                                                                                    </option>
                                                                                 </select>
                                                                             </div>
                                                                             <div class="form-group">
                                                                                 <label for="photo{{ $item->id }}"
                                                                                     class="font-weight-bold">Photo:</label>
-                                                                                <input type="file" id="photo{{ $item->id }}" name="photo"
+                                                                                <input type="file"
+                                                                                    id="photo{{ $item->id }}"
+                                                                                    name="photo"
                                                                                     class="form-control-file">
                                                                                 @if($item->photo)
                                                                                 <div class="mt-2">
                                                                                     <img src="{{ asset('storage/'.$item->photo) }}"
-                                                                                       alt="Current Photo" class="img-thumbnail"
-                                                                                       style="max-width: 100px; max-height: 100px;">
+                                                                                        alt="Current Photo"
+                                                                                        class="img-thumbnail"
+                                                                                        style="max-width: 100px; max-height: 100px;">
                                                                                 </div>
                                                                                 @endif
                                                                             </div>
                                                                         </div>
                                                                     </div>
-                                                                    <input type="hidden" name="id" value="{{ $item->id }}">
-                                                                    <button type="submit" class="btn btn-success float-right">
+                                                                    <input type="hidden" name="id"
+                                                                        value="{{ $item->id }}">
+                                                                    <button type="submit"
+                                                                        class="btn btn-success float-right">
                                                                         <i class="fas fa-save mr-2"></i>Save Changes
                                                                     </button>
                                                                 </form>
