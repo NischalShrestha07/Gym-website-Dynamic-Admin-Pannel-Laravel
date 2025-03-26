@@ -271,7 +271,7 @@
                         <i class="fas fa-th-large"></i>
                     </a>
                 </li>
-            </ul>
+            </ul>`
         </nav>
 
 

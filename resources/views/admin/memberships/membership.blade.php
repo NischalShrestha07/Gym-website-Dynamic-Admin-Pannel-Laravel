@@ -490,9 +490,10 @@ default => 'layouts.memberLayout', // Optional fallback layout
                                                     <td class="py-2 px-2 align-middle">{{ $item->member_name }}</td>
                                                     <td class="py-2 px-2 align-middle">{{ $item->phone }}</td>
                                                     <td class="py-2 px-2 align-middle">
-                                                        <a href="mailto:{{ $item->email }}"
-                                                            class="text-decoration-none">{{ Str::limit($item->email,
-                                                            20) }}</a>
+                                                        <a href="https://mail.google.com/mail/?view=cm&fs=1&to={{ $item->email }}"
+                                                            class="text-decoration-none" target="_blank">
+                                                            {{ $item->email }}
+                                                        </a>
                                                     </td>
                                                     <td class="py-2 px-2 align-middle">{{ Str::limit($item->address, 25)
                                                         }}</td>

@@ -655,8 +655,12 @@ default => 'layouts.memberLayout',
                                                     <td class="py-3 px-4 align-middle">{{ $item->name }}</td>
                                                     <td class="py-3 px-4 align-middle">{{ $item->mobile }}</td>
                                                     <td class="py-3 px-4 align-middle">
-                                                        <a href="mailto:{{ $item->email }}"
-                                                            class="text-decoration-none">{{ $item->email }}</a>
+                                                        {{-- <a href="mailto:{{ $item->email }}"
+                                                            class="text-decoration-none">{{ $item->email }}</a> --}}
+                                                        <a href="https://mail.google.com/mail/?view=cm&fs=1&to={{ $item->email }}"
+                                                            class="text-decoration-none" target="_blank">
+                                                            {{ $item->email }}
+                                                        </a>
                                                     </td>
                                                     <td class="py-3 px-4 align-middle">{{ $item->role }}</td>
                                                     <td class="py-3 px-4 align-middle">{{ $item->joinDate }}</td>
