@@ -684,7 +684,7 @@ default => 'layouts.memberLayout', // Optional fallback layout
                                                                 data-target="#viewModel{{ $item->id }}">
                                                                 <i class="fas fa-eye"></i>
                                                             </button>
-                                                            <form action="{{ route('client.destroy', $item->id) }}"
+                                                            {{-- <form action="{{ route('client.destroy', $item->id) }}"
                                                                 method="POST" class="d-inline-block"
                                                                 onsubmit="return confirm('Are you sure you want to delete this client?')">
                                                                 @csrf
@@ -693,7 +693,20 @@ default => 'layouts.memberLayout', // Optional fallback layout
                                                                     title="Delete">
                                                                     <i class="fas fa-trash-alt"></i>
                                                                 </button>
+                                                            </form> --}}
+                                                            <form action="{{ route('client.destroy', $item->id) }}"
+                                                                method="POST" class="d-inline-block delete-form"
+                                                                data-id="{{ $item->id }}">
+                                                                @csrf
+                                                                @method('DELETE')
+                                                                <button type="button"
+                                                                    class="btn btn-sm btn-danger delete-btn"
+                                                                    title="Delete" data-id="{{ $item->id }}">
+                                                                    <i class="fas fa-trash-alt"></i>
+                                                                </button>
                                                             </form>
+
+                                                            @include('admin.layouts.deleteModal')
                                                         </div>
                                                     </td>
                                                 </tr>
