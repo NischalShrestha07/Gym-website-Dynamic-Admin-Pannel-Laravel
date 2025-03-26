@@ -140,7 +140,6 @@
                 {{-- <li class="nav-item dropdown">
                     <a class="nav-link" data-toggle="dropdown" href="#">
                         <i class="far fa-comments"></i>
-                        <span class="badge badge-danger navbar-badge">3</span>
                     </a>
                     <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
                         <a href="#" class="dropdown-item">
@@ -198,43 +197,265 @@
                         <a href="#" class="dropdown-item dropdown-footer">See All Messages</a>
                     </div>
                 </li> --}}
-
-                {{-- <li class="nav-item dropdown">
-                    <a class="nav-link" data-toggle="dropdown" href="#">
-                        <i class="far fa-bell"></i>
-                        <span class="badge badge-warning navbar-badge">15</span>
+                <li class="nav-item dropdown">
+                    <a class="nav-link" data-toggle="dropdown" href="#" aria-expanded="false" id="notifications-toggle">
+                        <i class="far fa-comments"></i>
+                        <span class="badge badge-danger navbar-badge" id="notification-count">3</span>
                     </a>
                     <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-                        <span class="dropdown-item dropdown-header">15 Notifications</span>
-                        <div class="dropdown-divider"></div>
+                        <!-- Notification Items -->
                         <a href="#" class="dropdown-item">
-                            <i class="fas fa-envelope mr-2"></i> 4 new messages
-                            <span class="float-right text-muted text-sm">3 mins</span>
+                            <div class="media align-items-center">
+                                <img src="dist/img/user1-128x128.jpg" alt="User Avatar"
+                                    class="img-size-50 mr-3 img-circle">
+                                <div class="media-body">
+                                    <h3 class="dropdown-item-title">
+                                        Brad Diesel
+                                        <span class="float-right text-sm text-danger"><i class="fas fa-star"></i></span>
+                                    </h3>
+                                    <p class="text-sm">Call me whenever you can...</p>
+                                    <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
+                                </div>
+                            </div>
                         </a>
                         <div class="dropdown-divider"></div>
                         <a href="#" class="dropdown-item">
-                            <i class="fas fa-users mr-2"></i> 8 friend requests
-                            <span class="float-right text-muted text-sm">12 hours</span>
+                            <div class="media align-items-center">
+                                <img src="dist/img/user8-128x128.jpg" alt="User Avatar"
+                                    class="img-size-50 img-circle mr-3">
+                                <div class="media-body">
+                                    <h3 class="dropdown-item-title">
+                                        John Pierce
+                                        <span class="float-right text-sm text-muted"><i class="fas fa-star"></i></span>
+                                    </h3>
+                                    <p class="text-sm">I got your message bro</p>
+                                    <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
+                                </div>
+                            </div>
                         </a>
                         <div class="dropdown-divider"></div>
                         <a href="#" class="dropdown-item">
-                            <i class="fas fa-file mr-2"></i> 3 new reports
-                            <span class="float-right text-muted text-sm">2 days</span>
+                            <div class="media align-items-center">
+                                <img src="dist/img/user3-128x128.jpg" alt="User Avatar"
+                                    class="img-size-50 img-circle mr-3">
+                                <div class="media-body">
+                                    <h3 class="dropdown-item-title">
+                                        Nora Silvester
+                                        <span class="float-right text-sm text-warning"><i
+                                                class="fas fa-star"></i></span>
+                                    </h3>
+                                    <p class="text-sm">The subject goes here</p>
+                                    <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
+                                </div>
+                            </div>
                         </a>
                         <div class="dropdown-divider"></div>
-                        <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
+                        <!-- Fullscreen Toggle in Notifications -->
+                        <a href="#" class="dropdown-item" id="fullscreen-notification-toggle">
+                            <div class="media align-items-center">
+                                <div class="media-body">
+                                    <h3 class="dropdown-item-title">
+                                        Toggle Fullscreen
+                                        <span class="float-right text-sm"><i class="fas fa-expand-arrows-alt"
+                                                id="fullscreen-icon"></i></span>
+                                    </h3>
+                                    <p class="text-sm text-muted">Click to toggle fullscreen mode</p>
+                                </div>
+                            </div>
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <a href="#" class="dropdown-item dropdown-footer">See All Messages</a>
                     </div>
-                </li> --}}
+                </li>
+
+                <!-- JavaScript for both dropdown and fullscreen functionality -->
+                <script>
+                    document.addEventListener('DOMContentLoaded', function() {
+                    // Fullscreen functionality for both triggers
+                    const fullscreenTriggers = [
+                        document.getElementById('fullscreen-toggle'), // From previous nav item
+                        document.getElementById('fullscreen-notification-toggle')
+                    ];
+                    const fullscreenIcon = document.getElementById('fullscreen-icon');
+
+                    fullscreenTriggers.forEach(trigger => {
+                        if (trigger) {
+                            trigger.addEventListener('click', function(e) {
+                                e.preventDefault();
+                                toggleFullscreen();
+                            });
+                        }
+                    });
+
+                    function toggleFullscreen() {
+                        if (!document.fullscreenElement) {
+                            document.documentElement.requestFullscreen().catch(err => {
+                                console.error(`Error attempting to enable fullscreen: ${err.message}`);
+                            });
+                        } else {
+                            document.exitFullscreen();
+                        }
+                    }
+
+                    // Update icon based on fullscreen state
+                    document.addEventListener('fullscreenchange', function() {
+                        if (fullscreenIcon) {
+                            if (document.fullscreenElement) {
+                                fullscreenIcon.classList.remove('fa-expand-arrows-alt');
+                                fullscreenIcon.classList.add('fa-compress-arrows-alt');
+                            } else {
+                                fullscreenIcon.classList.remove('fa-compress-arrows-alt');
+                                fullscreenIcon.classList.add('fa-expand-arrows-alt');
+                            }
+                        }
+                    });
+
+                    // Optional: Notification count animation
+                    const notificationToggle = document.getElementById('notifications-toggle');
+                    const notificationCount = document.getElementById('notification-count');
+
+                    if (notificationToggle && notificationCount) {
+                        notificationToggle.addEventListener('click', function() {
+                            notificationCount.classList.add('animate__animated', 'animate__pulse');
+                            setTimeout(() => {
+                                notificationCount.classList.remove('animate__animated', 'animate__pulse');
+                            }, 1000);
+                        });
+                    }
+                });
+                </script>
+
+                <!-- Optional CSS enhancements -->
+                <style>
+                    .dropdown-menu-lg {
+                        min-width: 350px;
+                        padding: 0.5rem 0;
+                    }
+
+                    .dropdown-item {
+                        padding: 0.75rem 1.25rem;
+                        transition: background-color 0.2s ease;
+                    }
+
+                    .dropdown-item:hover {
+                        background-color: #f8f9fa;
+                    }
+
+                    .media-body h3 {
+                        margin-bottom: 0.25rem;
+                        font-size: 1rem;
+                    }
+
+                    .navbar-badge {
+                        position: absolute;
+                        top: 5px;
+                        right: 5px;
+                        font-size: 0.7rem;
+                        padding: 0.25em 0.5em;
+                    }
+
+                    .dropdown-footer {
+                        text-align: center;
+                        background-color: #f8f9fa;
+                    }
+                </style>
+
+
+
                 <li class="nav-item">
-                    <a class="nav-link" data-widget="fullscreen" href="#" role="button">
+                    <a class="nav-link" href="#" id="fullscreen-toggle" role="button" aria-label="Toggle fullscreen">
                         <i class="fas fa-expand-arrows-alt"></i>
                     </a>
                 </li>
-                <li class="nav-item">
+
+                <!-- Add this JavaScript at the end of your file or in a script tag -->
+                <script>
+                    document.addEventListener('DOMContentLoaded', function() {
+                    const fullscreenToggle = document.getElementById('fullscreen-toggle');
+
+                    fullscreenToggle.addEventListener('click', function(e) {
+                        e.preventDefault();
+
+                        if (!document.fullscreenElement) {
+                            // Enter fullscreen
+                            if (document.documentElement.requestFullscreen) {
+                                document.documentElement.requestFullscreen();
+                            }
+                        } else {
+                            // Exit fullscreen
+                            if (document.exitFullscreen) {
+                                document.exitFullscreen();
+                            }
+                        }
+                    });
+
+                    // Optional: Update icon based on fullscreen state
+                    document.addEventListener('fullscreenchange', function() {
+                        const icon = fullscreenToggle.querySelector('i');
+                        if (document.fullscreenElement) {
+                            icon.classList.remove('fa-expand-arrows-alt');
+                            icon.classList.add('fa-compress-arrows-alt');
+                        } else {
+                            icon.classList.remove('fa-compress-arrows-alt');
+                            icon.classList.add('fa-expand-arrows-alt');
+                        }
+                    });
+                });
+                </script>
+                {{-- <li class="nav-item">
                     <a class="nav-link" data-widget="control-sidebar" data-controlsidebar-slide="true" href="#"
                         role="button">
                         <i class="fas fa-th-large"></i>
                     </a>
+                </li> --}}
+                <li class="nav-item dropdown">
+                    <a class="nav-link" data-toggle="dropdown" href="#" role="button" aria-expanded="false">
+                        <i class="fas fa-th-large"></i>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right">
+                        <!-- Control Sidebar Toggle -->
+                        <a href="#" class="dropdown-item" data-widget="control-sidebar"
+                            data-controlsidebar-slide="true">
+                            <i class="fas fa-th-large mr-2"></i> Toggle Sidebar
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <!-- Logout Button -->
+                        {{-- <a href="{{ route('logout') }}" class="dropdown-item"
+                            onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                            <i class="fas fa-sign-out-alt mr-2"></i> Logout
+                        </a> --}}
+                        <!-- Hidden Logout Form -->
+                        <form id="logout-form" action="{{ route('admin.logout') }}" method="POST"
+                            style="display: none;">
+                            @csrf
+                        </form>
+                    </div>
+                    <style>
+                        .nav-item .dropdown-menu {
+                            min-width: 150px;
+                            padding: 0.25rem 0;
+                        }
+
+                        .dropdown-item {
+                            padding: 0.5rem 1rem;
+                            display: flex;
+                            align-items: center;
+                            transition: background-color 0.2s ease;
+                        }
+
+                        .dropdown-item:hover {
+                            background-color: #f8f9fa;
+                        }
+
+                        .dropdown-item i {
+                            width: 20px;
+                            text-align: center;
+                        }
+
+                        .dropdown-divider {
+                            margin: 0.25rem 0;
+                        }
+                    </style>
                 </li>
             </ul>
         </nav>
@@ -571,7 +792,7 @@
         @yield('content')
 
         <footer class="main-footer">
-            <strong>Copyright &copy; 2025 <a href="/">Royal Power's Gym Nepal.</a>.</strong>
+            <strong>Copyright &copy; 2025 <a href="/">Royal Power Gym,Nepal.</a>.</strong>
             All rights reserved.
             <div class="float-right d-none d-sm-inline-block">
             </div>

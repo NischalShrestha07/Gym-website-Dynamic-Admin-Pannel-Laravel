@@ -75,7 +75,11 @@ default => 'layouts.memberLayout',
                             <td class="py-3 px-4">{{ $key + 1 }}</td>
                             <td class="py-3 px-4">{{ $contact->name }}</td>
                             <td class="py-3 px-4">
-                                <a href="mailto:{{ $contact->email }}" class="text-decoration-none">
+                                {{-- <a href="emailto:{{ $contact->email }}" class="text-decoration-none">
+                                    {{ $contact->email }}
+                                </a> --}}
+                                <a href="https://mail.google.com/mail/?view=cm&fs=1&to={{ $contact->email }}"
+                                    class="text-decoration-none" target="_blank">
                                     {{ $contact->email }}
                                 </a>
                             </td>

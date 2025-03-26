@@ -227,10 +227,45 @@
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" data-widget="fullscreen" href="#" role="button">
+                    <a class="nav-link" href="#" id="fullscreen-toggle" role="button" aria-label="Toggle fullscreen">
                         <i class="fas fa-expand-arrows-alt"></i>
                     </a>
                 </li>
+
+                <!-- Add this JavaScript at the end of your file or in a script tag -->
+                <script>
+                    document.addEventListener('DOMContentLoaded', function() {
+                                const fullscreenToggle = document.getElementById('fullscreen-toggle');
+
+                                fullscreenToggle.addEventListener('click', function(e) {
+                                    e.preventDefault();
+
+                                    if (!document.fullscreenElement) {
+                                        // Enter fullscreen
+                                        if (document.documentElement.requestFullscreen) {
+                                            document.documentElement.requestFullscreen();
+                                        }
+                                    } else {
+                                        // Exit fullscreen
+                                        if (document.exitFullscreen) {
+                                            document.exitFullscreen();
+                                        }
+                                    }
+                                });
+
+                                // Optional: Update icon based on fullscreen state
+                                document.addEventListener('fullscreenchange', function() {
+                                    const icon = fullscreenToggle.querySelector('i');
+                                    if (document.fullscreenElement) {
+                                        icon.classList.remove('fa-expand-arrows-alt');
+                                        icon.classList.add('fa-compress-arrows-alt');
+                                    } else {
+                                        icon.classList.remove('fa-compress-arrows-alt');
+                                        icon.classList.add('fa-expand-arrows-alt');
+                                    }
+                                });
+                            });
+                </script>
                 <li class="nav-item">
                     <a class="nav-link" data-widget="control-sidebar" data-controlsidebar-slide="true" href="#"
                         role="button">

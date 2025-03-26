@@ -103,10 +103,9 @@
                                     {{ $description }}
                                 </p>
                                 <div class="">
-                                    {{-- <a href="{{ asset('/contact') }}"> --}}
-                                        <a href="{{ asset('/contact') }}">
-                                            Contact Us
-                                        </a>
+                                    <a href="{{ asset('/contact') }}">
+                                        Contact Us
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -137,18 +136,17 @@
             </div>
 
         </div>
-        <ol class="carousel-indicators">
+        {{-- <ol class="carousel-indicators">
             <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
             <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
             <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
             <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
             <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
-        </ol>
+        </ol> --}}
 
     </div>
 </section>
-{{--
-<!-- end slider section --> --}}
+
 </div>
 
 
@@ -169,16 +167,13 @@
                     <div class="box">
                         <div class="img-box">
                             <img src="{{ asset('storage/' . $item->img) }}" alt="">
-                            {{-- <img src="{{ asset($item->img) }}" alt=""> --}}
 
                         </div>
                         <div class="detail-box">
                             <h5>
-                                {{-- QUALITY EQUIPMENT --}}
                                 {{ $item->title }}
                             </h5>
                             <p>
-                                {{-- ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor --}}
                                 {{ $item->description }}
                             </p>
                         </div>
@@ -200,25 +195,18 @@
     <div class="container">
 
         <div class="row">
-            {{-- @foreach ($whyuss as $item) --}}
             <div class="col-md-12 mx-auto">
                 <div class="detail-box">
                     <h2>
-                        {{-- HEALTHY MIND, HEALTHY BODY --}}
                         {{ $item->head }}
                     </h2>
                     <p>
                         {{ $item->headdetail }}
 
                     </p>
-                    {{-- <div class="btn-box">
-                        <a href="">
-                            READ MORE
-                        </a>
-                    </div> --}}
+
                 </div>
             </div>
-            {{-- @endforeach --}}
         </div>
 
     </div>

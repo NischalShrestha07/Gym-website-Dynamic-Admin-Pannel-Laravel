@@ -247,7 +247,6 @@ default => 'layouts.memberLayout', // Fallback layout
                             <div class="col-12">
                                 <label for="avatar" class="form-label fw-semibold">Profile Picture</label>
                                 <input type="file" class="form-control" id="avatar" name="avatar" accept="image/*">
-                                <small class="text-muted">Max size: 2MB, Formats: JPG, PNG</small>
                             </div>
                         </div>
                         <div class="text-center mt-4">
