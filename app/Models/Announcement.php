@@ -13,6 +13,7 @@ class Announcement extends Model
         'title',
         'description',
         'user_id',
+        'del'
     ];
 
     public function user()

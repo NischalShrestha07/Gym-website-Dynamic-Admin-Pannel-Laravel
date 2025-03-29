@@ -11,7 +11,7 @@ class AnnouncementController extends Controller
     // Fetch all announcements
     public function index()
     {
-        $announcements = Announcement::with('user')->latest()->get();
+        $announcements = Announcement::with('user')->where('del', 0)->latest()->get();
         return view('admin.announcements.announcements', compact('announcements'));
     }
 
@@ -27,37 +27,11 @@ class AnnouncementController extends Controller
             'title' => $request->title,
             'description' => $request->description,
             'user_id' => Auth::id(),
+            'del' => 0,
         ]);
 
         return redirect()->route('view.announcements')->with('success', 'Announcement Created Successfully.');
     }
-
-    // public function update(Request $request, $id)
-    // {
-    //     $announcement = Announcement::find($id);
-
-    //     if (!$announcement) {
-    //         return redirect()->route('view.announcements')->with('error', 'Announcement not found.');
-    //     }
-
-    //     if (
-    //         $announcement->user_id !== Auth::id()
-    //     ) {
-    //         return redirect()->route('view.announcements')->with('error', 'Unauthorized action.');
-    //     }
-
-    //     $request->validate([
-    //         'title' => 'required|string|max:255',
-    //         'description' => 'required|string',
-    //     ]);
-
-    //     $announcement->update([
-    //         'title' => $request->title,
-    //         'description' => $request->description,
-    //     ]);
-
-    //     return redirect()->route('view.announcements')->with('success', 'Announcement Updated Successfully.');
-    // }
 
 
 
@@ -103,8 +77,10 @@ class AnnouncementController extends Controller
             return redirect()->route('view.announcements')->with('error', 'Unauthorized action.');
         }
 
-        $announcement->delete();
+        // $announcement->delete();
+        $announcement->del = 1;
+        $announcement->save();
 
-        return redirect()->route('view.announcements')->with('error', 'Announcement Deleted Successfully.');
+        return redirect()->route('view.announcements')->with('success', 'Announcement Deleted Successfully.');
     }
 }

@@ -75,30 +75,14 @@ default => 'layouts.memberLayout',
     <!-- Announcements List -->
     <div class="row g-4">
         @forelse($announcements as $announcement)
-        <div class="col-lg-4 col-md-6 col-sm-12">
-            <div class="card h-100 shadow-sm border-0 announcement-card">
+        <div class="col-lg-4 col-md-6 col-sm-12 mb-5">
+            <div class="card h-100 shadow-sm border-1 announcement-card">
                 <div class="card-header bg-gradient-primary text-white p-3">
                     <div class="d-flex justify-content-between align-items-center">
                         <h5 class="card-title mb-0 fw-semibold text-truncate" title="{{ $announcement->title }}">
                             {{ $announcement->title }}
                         </h5>
-                        {{-- <div class="card-actions d-flex gap-4">
-                            <button class="btn btn-success edit-btn" data-bs-toggle="modal"
-                                data-bs-target="#editAnnouncementModal{{ $announcement->id }}"
-                                title="Edit Announcement">
-                                Edit </button>
-                            <!-- Delete Form -->
-                            <form action="{{ route('announcements.destroy', $announcement->id) }}" method="POST"
-                                class="d-inline-block delete-form" data-id="{{ $announcement->id }}">
-                                @csrf
-                                @method('DELETE')
-                                <button type="button" class="btn btn-danger delete-btn" title="Delete"
-                                    data-id="{{ $announcement->id }}" data-bs-toggle="modal"
-                                    data-bs-target="#deleteAnnouncementModal{{ $announcement->id }}">
-                                    Delete
-                                </button>
-                            </form>
-                        </div> --}}
+
 
                         <div class="card-actions d-flex align-items-center gap-2">
                             <!-- Edit Button -->
