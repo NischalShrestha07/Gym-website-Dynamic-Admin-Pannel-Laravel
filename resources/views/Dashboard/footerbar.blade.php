@@ -40,9 +40,11 @@
                             <div class="modal-content">
 
                                 <!-- Modal Header -->
-                                <div class="modal-header">
-                                    <h4 class="modal-title">Add New Footerbar</h4>
-                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <div class="modal-header bg-primary">
+                                    <h4 class="modal-title text-white">
+                                        <h3 class="text-white">Add New Footerbar</h3>
+                                    </h4>
+                                    <button type="button" class="close text-white" data-dismiss="modal">&times;</button>
                                 </div>
 
                                 <!-- Modal body -->
@@ -105,9 +107,11 @@
                                         <div class="modal" id="updateModel{{ $i }}">
                                             <div class="modal-dialog">
                                                 <div class="modal-content">
-                                                    <div class="modal-header">
-                                                        <h4 class="modal-title">Update Footerbars</h4>
-                                                        <button type="button" class="close"
+                                                    <div class="modal-header bg-primary">
+                                                        <h4 class="modal-title text-white">
+                                                            <h3 class="text-white">Update Footerbars</h3>
+                                                        </h4>
+                                                        <button type="button" class="close text-white"
                                                             data-dismiss="modal">&times;</button>
                                                     </div>
                                                     <div class="modal-body">

@@ -28,7 +28,7 @@
                 <div class="col-lg-4 col-6">
                     <div class="small-box bg-info">
                         <div class="inner">
-                            <h3>120</h3>
+                            <h3>4</h3>
                             <p>Assigned Members</p>
                         </div>
                         <div class="icon">
@@ -43,8 +43,8 @@
                 <div class="col-lg-4 col-6">
                     <div class="small-box bg-success">
                         <div class="inner">
-                            <h3>85%</h3>
-                            <p>Attendance Rate</p>
+                            <h3>20</h3>
+                            <p>GeoAttendance</p>
                         </div>
                         <div class="icon">
                             <i class="ion ion-checkmark"></i>
@@ -58,18 +58,84 @@
                 <div class="col-lg-4 col-6">
                     <div class="small-box bg-warning">
                         <div class="inner">
-                            <h3>30</h3>
-                            <p>Tasks Completed</p>
+                            <h3>5</h3>
+                            <p>Employees</p>
                         </div>
                         <div class="icon">
                             <i class="ion ion-clipboard"></i>
                         </div>
-                        <a href="#" class="small-box-footer">View Tasks <i class="fas fa-arrow-circle-right"></i></a>
+                        <a href="{{route('employee.create')}}" class="small-box-footer">View Employee <i
+                                class="fas fa-arrow-circle-right"></i></a>
                     </div>
                 </div>
             </div>
 
-            <!-- Task List -->
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="card">
+                        <div class="card-header bg-success">
+                            <h3 class="card-title">Employee Details</h3>
+                        </div>
+                        <div class="card-body">
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr class="bg-info">
+                                        <th>ID</th>
+                                        <th>Name</th>
+                                        <th>Email</th>
+                                        <th>Phone</th>
+                                        <th>Position</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @php $i=1; @endphp
+                                    @foreach ($employee as $item)
+                                    <tr>
+                                        <td>{{ $i++ }}</td>
+                                        <td>{{ $item->name }}</td>
+                                        <td>{{ $item->email }}</td>
+                                        <td>{{ $item->mobile }}</td>
+                                        <td>{{ $item->role }}</td>
+                                    </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="card">
+                        <div class="card-header bg-warning">
+                            <h3 class="card-title text-white">Memberships Lists</h3>
+                        </div>
+                        <div class="card-body">
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr class="bg-info">
+                                        <th>Name</th>
+                                        <th>Email</th>
+                                        <th>Phone</th>
+                                        <th>Start Date</th>
+                                        <th>Price</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach ($memberships as $item)
+                                    <tr>
+                                        <td>{{ $item->member_name }}</td>
+                                        <td>{{ $item->email }}</td>
+                                        <td>{{ $item->phone }}</td>
+                                        <td>{{ $item->start_date }}</td>
+                                        <td>Rs. {{ $item->price }}</td>
+                                    </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div class="row">
                 <div class="col-lg-12">
                     <div class="card">

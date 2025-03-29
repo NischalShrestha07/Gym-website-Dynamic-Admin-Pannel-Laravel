@@ -60,6 +60,6 @@ class GymNameController extends Controller
     {
         $navdetail = GymName::find($id);
         $navdetail->delete();
-        return redirect()->route('gymnames.index')->with('error', 'Nav Details Deleted Sucessfully.');
+        return redirect()->route('gymnames.index')->with('success', 'Nav Details Deleted Sucessfully.');
     }
 }

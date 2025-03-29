@@ -3,6 +3,10 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Attendance;
+use App\Models\Employee;
+use App\Models\GeoAttendance;
+use App\Models\Membership;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -52,7 +56,10 @@ class AdminController extends Controller
         if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
             $user = Auth::user();
             if (Auth::user()->role == 'Admin') {
-                return view('admin.dashboard.adminDashboard');
+                $employee = Employee::all();
+                $memberships = Membership::all();
+                $attendance = GeoAttendance::all();
+                return view('admin.dashboard.adminDashboard', compact('employee', 'memberships', 'attendance'));
             } elseif (Auth::user()->role == 'Trainer') {
                 return view('admin.dashboard.trainerDashboard');
             } elseif (Auth::user()->role == 'Staff') {

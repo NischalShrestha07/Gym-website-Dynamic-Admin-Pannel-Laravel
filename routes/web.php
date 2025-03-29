@@ -32,6 +32,8 @@ use App\Http\Controllers\TrainerController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\WhyusController;
 use App\Models\Admin\Trainer;
+use App\Models\Employee;
+use App\Models\Membership;
 use Faker\Guesser\Name;
 use Illuminate\Support\Facades\Route;
 
@@ -91,8 +93,6 @@ Route::group(
         // })->name('memberDashboard')->middleware('role:Member');
     }
 );
-//     }
-// );
 
 //Data admins details Route
 
@@ -135,7 +135,9 @@ Route::get('/staff-dashboard', function () {
 })->name('staffDash');
 
 Route::get('/admin-dashboard', function () {
-    return view('admin.dashboard.adminDashboard');
+    $employee = Employee::all();
+    $memberships = Membership::all();
+    return view('admin.dashboard.adminDashboard', compact('employee', 'memberships'));
 })->name('adminDash');
 
 Route::get('/details', function () {

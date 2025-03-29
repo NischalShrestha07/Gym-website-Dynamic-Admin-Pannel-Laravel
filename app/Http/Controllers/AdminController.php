@@ -24,10 +24,10 @@ class AdminController extends Controller
     {
         // Validate the request
         $request->validate([
-            'title' => 'nullable|string',
-            'homeimage' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'contactimage' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'description' => 'nullable|string',
+            'title' => 'required|string',
+            'homeimage' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'contactimage' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'description' => 'required|string',
         ]);
 
         // Process homeimage file upload
@@ -156,6 +156,6 @@ class AdminController extends Controller
         $data->delete();
 
         // Redirect to the index route with a success message
-        return redirect()->route('datas.index')->with('error', 'HomePage Details Deleted Successfully.');
+        return redirect()->route('datas.index')->with('success', 'HomePage Details Deleted Successfully.');
     }
 }

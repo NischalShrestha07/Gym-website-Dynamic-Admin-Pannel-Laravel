@@ -66,7 +66,7 @@
         <!-- partial:partials/_navbar.html -->
         <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
             <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-                <a class="navbar-brand brand-logo mr-5 navbar" href="/">
+                <a class="navbar-brand brand-logo mr-5 " href="/">
                     <h3 class="ml-5">Royal Power GYM</h3>
                 </a>
                 {{-- <a class="navbar-brand brand-logo-mini" href="index.html"><img src="Dashboard/images/logo-mini.svg"
