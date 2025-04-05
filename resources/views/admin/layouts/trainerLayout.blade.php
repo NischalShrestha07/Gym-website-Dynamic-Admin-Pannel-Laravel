@@ -512,7 +512,7 @@
         @yield('content')
 
         <footer class="main-footer">
-            <strong>Copyright &copy; 2025 <a href="/">Royal Power's Gym Nepal.</a>.</strong>
+            <strong>Copyright &copy; 2025 <a href="/" target="_blank">Royal Power's Gym Nepal.</a>.</strong>
             All rights reserved.
             <div class="float-right d-none d-sm-inline-block">
 
