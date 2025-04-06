@@ -13,7 +13,7 @@ class MembershipController extends Controller
      */
     public function index()
     {
-        $memberships = Membership::all();
+        $memberships = Membership::orderBy('created_at', 'desc')->get();
         return view('admin.memberships.membership', compact('memberships'));
     }
 
