@@ -34,34 +34,6 @@ class GeoAttendanceController extends Controller
         }
     }
 
-    // Check-in method
-    // public function checkIn(Request $request)
-    // {
-    //     // Validate request data
-    //     $request->validate([
-    //         'latitude' => 'required|numeric',
-    //         'longitude' => 'required|numeric',
-    //     ]);
-
-    //     $userId = Auth::id(); // Get the currently authenticated user ID
-    //     $locationName = $this->getLocationName($request->latitude, $request->longitude); // Get location name
-
-    //     // Save check-in data
-    //     $attendance =   GeoAttendance::create([
-    //         'user_id' => $userId,
-    //         // 'check_in_time' => now(),
-    //         'check_in_time' => Carbon::now('Asia/Kathmandu'),
-    //         'check_in_latitude' => $request->latitude,
-    //         'check_in_longitude' => $request->longitude,
-    //         'check_in_location_name' => $locationName,
-    //     ]);
-
-    //     $this->logCoordinates($attendance->id, $request->latitude, $request->longitude);
-
-
-    //     return response()->json(['success' => true, 'message' => 'Checked in successfully!']);
-    // }
-
     public function checkIn(Request $request)
     {
         // Validate request data
@@ -129,43 +101,6 @@ class GeoAttendanceController extends Controller
             ]);
         }
     }
-
-
-
-    // public function checkOut(Request $request)
-    // {
-    //     $request->validate([
-    //         'latitude' => 'required|numeric',
-    //         'longitude' => 'required|numeric',
-    //     ]);
-
-    //     $userId = Auth::id();
-    //     $locationName = $this->getLocationName($request->latitude, $request->longitude);
-
-    //     $attendance = GeoAttendance::where('user_id', $userId)->latest()->first();
-
-
-    //     if ($attendance && $attendance->check_in_time) {
-    //         // Calculate the total working hours
-    //         $checkInTime = Carbon::parse($attendance->check_in_time);
-    //         // $checkOutTime = now();
-    //         $checkOutTime = Carbon::now('Asia/Kathmandu');
-
-    //         $workingHours = $checkInTime->diffInHours($checkOutTime) + ($checkInTime->diffInMinutes($checkOutTime) % 60) / 60;
-
-
-    //         // Update attendance with check-out and working hours
-    //         $attendance->update([
-    //             'check_out_time' => $checkOutTime,
-    //             'check_out_latitude' => $request->latitude,
-    //             'check_out_longitude' => $request->longitude,
-    //             'check_out_location_name' => $locationName,
-    //             'total_working_hours' => $workingHours,
-    //         ]);
-    //     }
-
-    //     return response()->json(['success' => true, 'message' => 'Checked out successfully!']);
-    // }
 
 
     public function checkOut(Request $request)
@@ -263,18 +198,43 @@ class GeoAttendanceController extends Controller
 
 
     // Method to show attendance coordinates in the admin panel
+    // public function showAttendanceCoordinates()
+    // {
+    //     // Get all attendance records with their coordinates
+    //     $attendanceRecords = AttendanceCoordinate::with('geoAttendance')->orderBy('recorded_at', 'desc')->get();
+    //     if (Auth::user()->role === 'Admin') {
+    //         return view('admin.attendCoordinate.adminCoord', compact('attendanceRecords'));
+    //     } elseif (Auth::user()->role === 'Trainer') {
+    //         return view('admin.attendCoordinate.trainerCoord', compact('attendanceRecords'));
+    //     } elseif (Auth::user()->role === 'Staff') {
+    //         return view('admin.attendCoordinate.staffCoord', compact('attendanceRecords'));
+    //     } elseif (Auth::user()->role === 'Member') {
+    //         return view('admin.attendCoordinate.memberCoord', compact('attendanceRecords'));
+    //     }
+    // }
+
     public function showAttendanceCoordinates()
     {
-        // Get all attendance records with their coordinates
-        $attendanceRecords = AttendanceCoordinate::with('geoAttendance')->orderBy('recorded_at', 'asc')->get();
         if (Auth::user()->role === 'Admin') {
+            // Admin sees all users' attendance
+            $attendanceRecords = AttendanceCoordinate::with('geoAttendance.user')
+                ->orderBy('recorded_at', 'desc')
+                ->get();
             return view('admin.attendCoordinate.adminCoord', compact('attendanceRecords'));
-        } elseif (Auth::user()->role === 'Trainer') {
-            return view('admin.attendCoordinate.trainerCoord', compact('attendanceRecords'));
-        } elseif (Auth::user()->role === 'Staff') {
-            return view('admin.attendCoordinate.staffCoord', compact('attendanceRecords'));
-        } elseif (Auth::user()->role === 'Member') {
-            return view('admin.attendCoordinate.memberCoord', compact('attendanceRecords'));
+        } else {
+            // Other users see only their own attendance
+            $attendanceRecords = AttendanceCoordinate::with('geoAttendance')
+                ->where('user_id', Auth::id())
+                ->orderBy('recorded_at', 'desc')
+                ->get();
+
+            if (Auth::user()->role === 'Trainer') {
+                return view('admin.attendCoordinate.trainerCoord', compact('attendanceRecords'));
+            } elseif (Auth::user()->role === 'Staff') {
+                return view('admin.attendCoordinate.staffCoord', compact('attendanceRecords'));
+            } elseif (Auth::user()->role === 'Member') {
+                return view('admin.attendCoordinate.memberCoord', compact('attendanceRecords'));
+            }
         }
     }
 }

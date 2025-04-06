@@ -26,8 +26,13 @@ class GeoAttendance extends Model
     // Define relationship with the user
     public function user()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, 'user_id');
     }
+    public function geoAttendance()
+    {
+        return $this->belongsTo(User::class, 'user_id');
+    }
+
     public function geo_attendance()
     {
         return $this->hasMany(GeoAttendance::class, 'user_id');

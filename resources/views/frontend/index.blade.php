@@ -136,15 +136,9 @@
             </div>
 
         </div>
-        {{-- <ol class="carousel-indicators">
-            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-            <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
-            <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
-        </ol> --}}
 
     </div>
+
 </section>
 
 </div>
@@ -233,13 +227,13 @@
                         <img src="{{ asset('storage/' . $item->photo) }}" alt="">
                     </div>
                     <div class="social_box">
-                        <a href="{{ $item->facebook }}">
+                        <a href="{{ $item->facebook }}" target="_blank">
                             <img src="{{ asset('frontend/images/facebook-logo.png') }} " alt="">
                         </a>
-                        <a href="{{ $item->twitter }}">
+                        <a href="{{ $item->twitter }}" target="_blank">
                             <img src="{{ asset('frontend/images/twitter.png') }}  " alt="">
                         </a>
-                        <a href="{{ $item->instagram }}">
+                        <a href="{{ $item->instagram }}" target="_blank">
                             <img src="{{ asset('frontend/images/instagram-logo.png') }}  " alt="">
                         </a>
                     </div>

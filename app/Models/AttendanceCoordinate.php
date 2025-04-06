@@ -24,4 +24,8 @@ class AttendanceCoordinate extends Model
     {
         return $this->belongsTo(GeoAttendance::class, 'geo_attendance_id');
     }
+    public function geoAttendancedata()
+    {
+        return $this->belongsTo(User::class, 'user_id');
+    }
 }
