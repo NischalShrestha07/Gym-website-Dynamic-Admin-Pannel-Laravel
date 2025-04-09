@@ -17,25 +17,7 @@ class ManageClient extends Model
         'planEndDate',
         'trainerStatus',
         'dueAmount',
-        'total_amount',
+        // 'total_amount',
         'image'
     ];
-
-    // Relationship with payments
-    public function payments()
-    {
-        return $this->hasMany(ClientPayment::class, 'client_id');
-    }
-
-    // Calculate total paid amount
-    public function getTotalPaidAttribute()
-    {
-        return $this->payments()->sum('amount_paid');
-    }
-
-    // Calculate due amount dynamically
-    public function getDueAmountAttribute($value)
-    {
-        return $this->total_amount - $this->getTotalPaidAttribute();
-    }
 }

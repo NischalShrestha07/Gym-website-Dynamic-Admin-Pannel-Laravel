@@ -107,7 +107,7 @@ Route::get('/client/create', [ManageClientController::class, 'index'])->name('cl
 Route::post('/AddNewClient', [ManageClientController::class, 'AddNewClient'])->name('client.add');
 Route::put('/UpdateClient', [ManageClientController::class, 'UpdateClient'])->name('client.update');
 Route::delete('/client/{id}', [ManageClientController::class, 'destroy'])->name('client.destroy');
-Route::post('/clients/{client_id}/payment', [ManageClientController::class, 'addPayment'])->name('client.payment.add');
+Route::post('/clients/{client_id}/payment', [ManageClientController::class, 'addPayment'])->name('client.payment.store');
 // Route::get('/supplierFilter', [SupplierController::class, 'index'])->name('supplier.index');
 
 Route::get('/membership/create', [MembershipController::class, 'index'])->name('membership.create');
